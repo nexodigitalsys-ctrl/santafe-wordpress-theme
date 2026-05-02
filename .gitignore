@@ -1,0 +1,13 @@
+_dev_backup/
+node_modules/
+.env
+.env.*
+*.log
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+dist/
+build/
+.cache/
+coverage/
