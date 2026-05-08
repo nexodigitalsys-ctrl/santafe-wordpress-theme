@@ -3,7 +3,7 @@ name: Deploy Santa Fe Theme to Hostinger
 on:
   push:
     branches:
-      - main  # Se activa al hacer push a la rama principal
+      - main
 
 jobs:
   deploy:
@@ -19,8 +19,7 @@ jobs:
           ARGS: "-rlgoDzvc -i --delete"
           REMOTE_HOST: ${{ secrets.SSH_HOST }}
           REMOTE_USER: ${{ secrets.SSH_USER }}
-          SSH_PORT: ${{ secrets.SSH_PORT }}
-          # RUTA CRÍTICA: Ajustada para temas de WordPress
+          SSH_PORT: 65002  # <--- LO HEMOS PUESTO DIRECTO AQUÍ PARA EVITAR FALLOS
           TARGET: "/home/u526996563/domains/chatopsmaster.com/public_html/wp-content/themes/santafe-wordpress-theme/"
-          SOURCE: "/" # Sube todo el contenido del repositorio
+          SOURCE: "/"
           EXCLUDE: "/.github/, /.git/, /node_modules/, .gitignore, README.md"
