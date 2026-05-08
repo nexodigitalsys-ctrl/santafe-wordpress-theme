@@ -19,7 +19,8 @@ jobs:
           REMOTE_HOST: ${{ secrets.SSH_HOST }}
           REMOTE_USER: ${{ secrets.SSH_USER }}
           REMOTE_PORT: 65002
-          TARGET: "/home/u526996563/domains/chatopsmaster.com/public_html/wp-content/themes/santafe-wordpress-theme/"
+          # Ruta relativa más segura
+          TARGET: "domains/santafe.nexo-digital.app/public_html/wp-content/themes/santafe-wordpress-theme/"
           SOURCE: "/"
           ARGS: "-rlgoDzvc -i --delete"
           EXCLUDE: "/.github/, /.git/, /node_modules/, .gitignore, README.md"
