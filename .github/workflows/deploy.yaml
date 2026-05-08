@@ -15,12 +15,11 @@ jobs:
       - name: 🚀 Despliegue vía SFTP/SSH
         uses: easingthemes/ssh-deploy@main
         with:
-          # Usamos "with" en lugar de solo "env" para algunas versiones de esta acción
-          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
-          remote-host: ${{ secrets.SSH_HOST }}
-          remote-user: ${{ secrets.SSH_USER }}
-          remote-port: 65002
-          target: "/home/u526996563/domains/chatopsmaster.com/public_html/wp-content/themes/santafe-wordpress-theme/"
-          source: "/"
-          args: "-rlgoDzvc -i --delete"
-          exclude: "/.github/, /.git/, /node_modules/, .gitignore, README.md"
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          REMOTE_HOST: ${{ secrets.SSH_HOST }}
+          REMOTE_USER: ${{ secrets.SSH_USER }}
+          REMOTE_PORT: 65002
+          TARGET: "/home/u526996563/domains/chatopsmaster.com/public_html/wp-content/themes/santafe-wordpress-theme/"
+          SOURCE: "/"
+          ARGS: "-rlgoDzvc -i --delete"
+          EXCLUDE: "/.github/, /.git/, /node_modules/, .gitignore, README.md"
