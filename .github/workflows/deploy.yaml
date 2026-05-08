@@ -25,61 +25,36 @@ jobs:
           EXCLUDE: "/.github/, /.git/, /node_modules/, .gitignore, README.md"
 
       - name: 🔔 Notificación a Discord
-        if: always() # Esto asegura que el mensaje se envíe aunque el despliegue falle
+        if: always()
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+          STATUS: ${{ job.status }}
         run: |
-          # Configuración de Colores y Emojis según el resultado
-          if [ "${{ job.status }}" == "success" ]; then
-            COLOR=5763719 # Verde
-            STATUS_EMOJI="✅ SUCCESS"
+          if [ "$STATUS" == "success" ]; then
+            COLOR=5763719
+            EMOJI="✅ SUCCESS"
           else
-            COLOR=15548997 # Rojo
-            STATUS_EMOJI="❌ FAILED"
+            COLOR=15548997
+            EMOJI="❌ FAILED"
           fi
+          
+          TIMESTAMP=$(date -u +'%Y-%m-%dT%H:%M:%SZ')
+          REPO="${{ github.repository }}"
+          USER="${{ github.actor }}"
+          MSG="${{ github.event.head_commit.message }}"
 
-          # Formatear la hora actual
-          TIME=$(date +'%H:%M:%S')
-
-          # Enviar Webhook a Discord
-          curl -H "Content-Type: application/json" \
-               -X POST \
-               -d '{
-                 "username": "Nexo OpsBot",
-                 "avatar_url": "https://cdn-icons-png.flaticon.com/512/2111/2111370.png",
-                 "embeds": [{
-                   "title": "'"$STATUS_EMOJI"' - Deployment Santa Fe",
-                   "color": '"$COLOR"',
-                   "fields": [
-                     { "name": "📁 Repositorio", "value": " `${{ github.repository }}`", "inline": true },
-                     { "name": "👤 Usuario", "value": " `${{ github.actor }}`", "inline": true },
-                     { "name": "🕒 Hora", "value": " `'"$TIME"'`", "inline": true },
-                     { "name": "📝 Comentario", "value": "
-http://googleusercontent.com/immersive_entry_chip/0
-
----
-
-### 🛠️ Configuración final (Importante)
-
-Para que el script funcione sin exponer tu URL privada de Discord, sigue estos pasos:
-
-1.  En tu GitHub, ve a **Settings** -> **Secrets and variables** -> **Actions**.
-2.  Crea un **New repository secret**.
-3.  Nombre: **`DISCORD_WEBHOOK`**
-4.  Valor: Pega la URL que me pasaste arriba (`https://discordapp.com/api/webhooks/...`).
-5.  Dale a **Add secret**.
-
----
-
-### 🧐 ¿Qué verás en Discord?
-
-Cuando hagas un `push`, el bot de Nexo publicará una tarjeta elegante con:
-* **Barra lateral de color:** Verde si funcionó, Roja si falló.
-* **Repositorio:** El nombre exacto de tu proyecto.
-* **Usuario:** Quién hizo el cambio (tú o Abner).
-* **Comentario:** El mensaje que escribiste al hacer el commit (útil para saber qué se cambió).
-* **Timestamp:** La hora exacta del despliegue.
-
-
-
-¡Con esto cerramos el ciclo de automatización profesional para **Construcciones Santa Fe**! Ahora ya puedes centrarte 100% en el diseño y el código, dejando que el sistema se encargue de la logística. 
-
-**¿Listo para lanzar el primer push con notificaciones activas?** Me quedo por aquí por si necesitas cualquier ajuste extra en el diseño del reporte. 🏗️🔥
+          curl -X POST -H "Content-Type: application/json" \
+            -d "{
+              \"username\": \"Nexo OpsBot\",
+              \"embeds\": [{
+                \"title\": \"$EMOJI - Deployment Santa Fe\",
+                \"color\": $COLOR,
+                \"fields\": [
+                  { \"name\": \"📁 Repositorio\", \"value\": \"$REPO\", \"inline\": true },
+                  { \"name\": \"👤 Usuario\", \"value\": \"$USER\", \"inline\": true },
+                  { \"name\": \"📝 Comentario\", \"value\": \"$MSG\", \"inline\": false }
+                ],
+                \"footer\": { \"text\": \"CI/CD Pipeline — Nexo Digital Agency\" },
+                \"timestamp\": \"$TIMESTAMP\"
+              }]
+            }" $DISCORD_WEBHOOK
