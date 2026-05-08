@@ -1,6 +1,6 @@
 <?php
 /**
- * Home con Tailwind CSS Ã¢â‚¬â€ DiseÃƒÂ±o industrial premium
+ * Home con Tailwind CSS - diseño industrial premium
  * Hero + Stats + Servicios + Historia + Proyectos + Testimonios + CTA
  */
 
@@ -14,7 +14,7 @@ $page_data = [
     'lang' => $lang,
     'title' => $lang === 'ca' ? 'Empresa de reformes i obra nova a Barcelona i Girona | Santa Fe' : 'Empresa de reformas y obra nueva en Barcelona y Girona | Santa Fe',
     'description' => $lang === 'ca' ? 'Construccions Santa Fe: obra nova, reformes integrals i obra publica a Barcelona i Girona amb pressupost clar, criteri tecnic i seguiment d obra.' : 'Construcciones Santa Fe: obra nueva, reformas integrales y obra publica en Barcelona y Girona con presupuesto claro, criterio tecnico y seguimiento de obra.',
-    'canonical' => 'https://www.dominio.com/' . $lang . '/',
+    'canonical' => COMPANY_DOMAIN . '/' . $lang . '/',
     'schemas' => []
 ];
 
@@ -28,16 +28,74 @@ $services = [
 ];
 
 $projects = [
-    ['img' => 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1200&q=80', 'title' => $lang === 'ca' ? 'Casa unifamiliar Ã‚Â· Girona' : 'Casa unifamiliar Ã‚Â· Girona', 'desc' => $lang === 'ca' ? 'Obra nova completa amb jardÃƒÂ­ de 200mÃ‚Â² Ã‚Â· 2024' : 'Obra nueva completa con jardÃƒÂ­n de 200mÃ‚Â² Ã‚Â· 2024', 'cat' => $lang === 'ca' ? 'Obra nova' : 'Obra nueva', 'span' => 'md:col-span-2 lg:col-span-2'],
-    ['img' => 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600&q=80', 'title' => $lang === 'ca' ? 'Reforma integral Ã‚Â· Eixample' : 'Reforma integral Ã‚Â· Eixample', 'desc' => $lang === 'ca' ? 'Pis de 120mÃ‚Â² Ã‚Â· 2024' : 'Piso de 120mÃ‚Â² Ã‚Â· 2024', 'cat' => $lang === 'ca' ? 'Reforma' : 'Reforma', 'span' => ''],
-    ['img' => 'https://images.unsplash.com/photo-1590644365607-1c5a86e9a95b?w=600&q=80', 'title' => $lang === 'ca' ? 'Infraestructura municipal' : 'Infraestructura municipal', 'desc' => 'Barcelona Ã‚Â· 2023', 'cat' => $lang === 'ca' ? 'Obra pÃƒÂºblica' : 'Obra pÃƒÂºblica', 'span' => ''],
-    ['img' => 'https://images.unsplash.com/photo-1621905252507-b35492c3f7e1?w=800&q=80', 'title' => $lang === 'ca' ? 'Sostres decoratius Ã‚Â· Barcelona' : 'Techos decorativos Ã‚Â· Barcelona', 'desc' => $lang === 'ca' ? 'Pladur i ilÃ‚Â·luminaciÃƒÂ³ LED Ã‚Â· 2024' : 'Pladur e iluminaciÃƒÂ³n LED Ã‚Â· 2024', 'cat' => $lang === 'ca' ? 'Acabats' : 'Acabados', 'span' => 'md:col-span-2'],
+    ['img' => 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1200&q=80', 'title' => $lang === 'ca' ? 'Ejemplo de obra nueva · Girona' : 'Ejemplo de obra nueva · Girona', 'desc' => $lang === 'ca' ? 'Referencia visual provisional · pendiente de fotos propias' : 'Referencia visual provisional · pendiente de fotos propias', 'cat' => $lang === 'ca' ? 'Obra nova' : 'Obra nueva', 'span' => 'md:col-span-2 lg:col-span-2'],
+    ['img' => 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600&q=80', 'title' => $lang === 'ca' ? 'Ejemplo de reforma integral' : 'Ejemplo de reforma integral', 'desc' => $lang === 'ca' ? 'Referencia visual provisional' : 'Referencia visual provisional', 'cat' => $lang === 'ca' ? 'Reforma' : 'Reforma', 'span' => ''],
+    ['img' => 'https://images.unsplash.com/photo-1590644365607-1c5a86e9a95b?w=600&q=80', 'title' => $lang === 'ca' ? 'Ejemplo de infraestructura' : 'Ejemplo de infraestructura', 'desc' => 'Referencia visual provisional', 'cat' => $lang === 'ca' ? 'Obra pública' : 'Obra pública', 'span' => ''],
+    ['img' => 'https://images.unsplash.com/photo-1621905252507-b35492c3f7e1?w=800&q=80', 'title' => $lang === 'ca' ? 'Ejemplo de pladur y acabados' : 'Ejemplo de pladur y acabados', 'desc' => $lang === 'ca' ? 'Referencia visual provisional' : 'Referencia visual provisional', 'cat' => $lang === 'ca' ? 'Acabats' : 'Acabados', 'span' => 'md:col-span-2'],
 ];
 
 include __DIR__ . '/../includes/header.php';
 ?>
 
 <?php include __DIR__ . '/partials/home-phase1-enterprise-hero.php'; ?>
+
+<!-- BUDGET CALCULATOR -->
+<section id="calculadora" class="py-24 bg-slate-950 border-b border-slate-800">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="grid lg:grid-cols-[0.8fr_1.2fr] gap-12 items-start">
+            <div>
+                <div class="flex items-center gap-4 mb-4">
+                    <div class="industrial-line w-12"></div>
+                    <span class="text-brand-400 text-xs font-semibold uppercase tracking-[0.3em]">Presupuesto estimado</span>
+                </div>
+                <h2 class="font-display font-bold text-4xl md:text-5xl text-white tracking-tight mb-5">Calcula una primera referencia</h2>
+                <p class="text-slate-400 leading-relaxed">La calculadora no sustituye la visita técnica. Sirve para entender una horquilla inicial y preparar mejor la conversación.</p>
+            </div>
+            <div class="bg-slate-900 border border-slate-800 rounded-sm p-6 md:p-8" data-budget-calculator>
+                <div class="grid md:grid-cols-2 gap-5">
+                    <label class="block">
+                        <span class="block text-slate-400 text-xs uppercase tracking-wider mb-2">Tipo de obra</span>
+                        <select data-calc-service class="w-full bg-slate-950 border border-slate-700 rounded-sm px-4 py-3 text-slate-200 focus:border-brand-500 focus:outline-none">
+                            <option value="650">Reforma integral</option>
+                            <option value="1200">Obra nueva</option>
+                            <option value="55">Pladur y acabados</option>
+                            <option value="900">Obra civil / técnica</option>
+                        </select>
+                    </label>
+                    <label class="block">
+                        <span class="block text-slate-400 text-xs uppercase tracking-wider mb-2">Metros cuadrados</span>
+                        <input data-calc-m2 type="number" min="10" max="1000" value="80" class="w-full bg-slate-950 border border-slate-700 rounded-sm px-4 py-3 text-white focus:border-brand-500 focus:outline-none">
+                    </label>
+                    <label class="block">
+                        <span class="block text-slate-400 text-xs uppercase tracking-wider mb-2">Ciudad</span>
+                        <select data-calc-city class="w-full bg-slate-950 border border-slate-700 rounded-sm px-4 py-3 text-slate-200 focus:border-brand-500 focus:outline-none">
+                            <option value="1.08">Barcelona</option>
+                            <option value="1">Girona</option>
+                            <option value="0.98">Tarragona</option>
+                        </select>
+                    </label>
+                    <label class="block">
+                        <span class="block text-slate-400 text-xs uppercase tracking-wider mb-2">Nivel de acabado</span>
+                        <select data-calc-finish class="w-full bg-slate-950 border border-slate-700 rounded-sm px-4 py-3 text-slate-200 focus:border-brand-500 focus:outline-none">
+                            <option value="0.85">Funcional</option>
+                            <option value="1" selected>Medio</option>
+                            <option value="1.25">Alto</option>
+                        </select>
+                    </label>
+                </div>
+                <div class="mt-6 bg-slate-950 border border-slate-800 rounded-sm p-6">
+                    <p class="text-slate-500 text-xs uppercase tracking-wider mb-2">Horquilla estimada</p>
+                    <p class="font-display font-bold text-3xl text-white" data-calc-result>Calculando...</p>
+                    <p class="text-slate-500 text-sm mt-3">Incluye una variación del 18%. Licencias, estado inicial, estructura e instalaciones pueden cambiar la cifra.</p>
+                </div>
+                <div class="flex flex-wrap gap-4 mt-6">
+                    <a href="/<?php echo $lang; ?>/contacto/" class="inline-flex items-center gap-2 bg-brand-600 hover:bg-brand-500 text-slate-950 font-semibold px-6 py-3 rounded-sm transition-all tracking-wide text-sm uppercase">Solicitar visita técnica</a>
+                    <a href="https://wa.me/<?php echo WHATSAPP_NUMBER; ?>?text=Hola%20Paulo%2C%20quiero%20revisar%20un%20presupuesto%20estimado" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 border border-slate-600 hover:border-brand-500 text-slate-200 font-medium px-6 py-3 rounded-sm transition-all tracking-wide text-sm uppercase" data-track-event="whatsapp_click">Enviar por WhatsApp</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 <!-- Legacy hero/stats removed in Phase 1. Checkpoint available before this change. -->
 <!-- SERVICES -->
 <section id="servicios" class="py-24 md:py-32 bg-slate-950">
@@ -48,7 +106,7 @@ include __DIR__ . '/../includes/header.php';
                     <div class="industrial-line w-12"></div>
                     <span class="text-brand-400 text-xs font-semibold uppercase tracking-[0.3em]"><?php echo t($translations, 'nav.services'); ?></span>
                 </div>
-                <h2 class="font-display font-bold text-4xl md:text-5xl lg:text-6xl text-white tracking-tight"><?php echo $lang === 'ca' ? 'El que construÃƒÂ¯m' : 'Lo que construimos'; ?></h2>
+                <h2 class="font-display font-bold text-4xl md:text-5xl lg:text-6xl text-white tracking-tight"><?php echo $lang === 'ca' ? 'El que construïm' : 'Lo que construimos'; ?></h2>
             </div>
             <p class="text-slate-400 max-w-md text-lg leading-relaxed"><?php echo t($translations, 'services.subtitle'); ?></p>
         </div>
@@ -57,18 +115,24 @@ include __DIR__ . '/../includes/header.php';
             <?php foreach ($services as $svc): ?>
             <article class="group relative overflow-hidden rounded-sm bg-slate-900 border border-slate-800 card-lift">
                 <div class="aspect-[16/10] overflow-hidden bg-slate-800">
-                    <img src="<?php echo $svc['img']; ?>" alt="" class="w-full h-full object-cover img-zoom opacity-80 group-hover:opacity-100 transition-opacity" loading="lazy" onerror="this.src='/assets/images/placeholder-construction.svg'">
+                    <img src="<?php echo $svc['img']; ?>" alt="<?php echo htmlspecialchars(t($translations, $svc['title_key']) . ' - referencia visual de construcción', ENT_QUOTES, 'UTF-8'); ?>" class="w-full h-full object-cover img-zoom opacity-80 group-hover:opacity-100 transition-opacity" loading="lazy" onerror="this.src='/assets/images/fallback-construction.svg'">
                 </div>
                 <div class="p-6">
                     <div class="flex items-center gap-3 mb-4">
                         <div class="w-10 h-10 bg-brand-900/50 rounded-sm flex items-center justify-center">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#b2343b" stroke-width="2"><?php echo $svc['icon']; ?></svg>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D4A853" stroke-width="2"><?php echo $svc['icon']; ?></svg>
                         </div>
                         <h3 class="font-display font-bold text-xl text-white"><?php echo t($translations, $svc['title_key']); ?></h3>
                     </div>
                     <p class="text-slate-400 text-sm leading-relaxed mb-4"><?php echo t($translations, $svc['desc_key']); ?></p>
-                    <a href="/<?php echo $lang; ?>/servicios/<?php echo $svc['slug']; ?>/" class="inline-flex items-center gap-2 text-brand-500 text-sm font-semibold group/link">
-                        <?php echo t($translations, 'services.learn_more'); ?> <span class="transition-transform group-hover/link:translate-x-1">Ã¢â€ â€™</span>
+                    <?php
+                    $target_slug = $svc['slug'];
+                    if ($lang === 'ca') {
+                        $target_slug = ['obra-nueva'=>'obra-nova','reformas-integrales'=>'reformes-integrals','pladur-acabados'=>'pladur-acabats'][$svc['slug']] ?? $svc['slug'];
+                    }
+                    ?>
+                    <a href="/<?php echo $lang; ?>/<?php echo $target_slug; ?>/" class="inline-flex items-center gap-2 text-brand-500 text-sm font-semibold group/link">
+                        <?php echo t($translations, 'services.learn_more'); ?> <span class="transition-transform group-hover/link:translate-x-1">→</span>
                     </a>
                 </div>
             </article>
@@ -76,7 +140,7 @@ include __DIR__ . '/../includes/header.php';
 
             <!-- CTA Card -->
             <div class="flex flex-col justify-center items-center p-8 bg-brand-950/30 border border-brand-900/50 rounded-sm text-center">
-                <p class="text-brand-400 text-sm uppercase tracking-widest mb-3"><?php echo $lang === 'ca' ? 'No saps per on comenÃƒÂ§ar?' : 'Ã‚Â¿No sabes por dÃƒÂ³nde empezar?'; ?></p>
+                <p class="text-brand-400 text-sm uppercase tracking-widest mb-3"><?php echo $lang === 'ca' ? 'No saps per on començar?' : '¿No sabes por dónde empezar?'; ?></p>
                 <p class="font-display font-bold text-2xl text-white mb-6"><?php echo $lang === 'ca' ? 'Parla amb en Paulo' : 'Habla con Paulo'; ?></p>
                 <a href="/<?php echo $lang; ?>/contacto/" class="inline-flex items-center gap-2 bg-brand-600 hover:bg-brand-500 text-white font-semibold px-6 py-3 rounded-sm transition-all text-sm uppercase tracking-wide">
                     <?php echo $lang === 'ca' ? 'Contactar ara' : 'Contactar ahora'; ?>
@@ -93,11 +157,11 @@ include __DIR__ . '/../includes/header.php';
         <div class="grid lg:grid-cols-2 gap-16 items-center">
             <div class="relative">
                 <div class="aspect-[4/5] rounded-sm overflow-hidden bg-slate-800">
-                    <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80" alt="Paulo en obra" class="w-full h-full object-cover opacity-90" loading="lazy" onerror="this.src='/assets/images/placeholder-construction.svg'">
+                    <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80" alt="Paulo en obra" class="w-full h-full object-cover opacity-90" loading="lazy" onerror="this.src='/assets/images/fallback-construction.svg'">
                 </div>
                 <div class="absolute -bottom-6 -right-6 bg-brand-600 text-white px-6 py-4 rounded-sm shadow-2xl">
                     <p class="font-display font-bold text-3xl">17</p>
-                    <p class="text-xs uppercase tracking-wider opacity-90"><?php echo $lang === 'ca' ? 'Anys de trajectÃƒÂ²ria' : 'AÃƒÂ±os de trayectoria'; ?></p>
+                    <p class="text-xs uppercase tracking-wider opacity-90"><?php echo $lang === 'ca' ? 'Anys de trajectòria' : 'Años de trayectoria'; ?></p>
                 </div>
             </div>
             
@@ -107,7 +171,7 @@ include __DIR__ . '/../includes/header.php';
                     <span class="text-brand-400 text-xs font-semibold uppercase tracking-[0.3em]"><?php echo t($translations, 'nav.about'); ?></span>
                 </div>
                 <h2 class="font-display font-bold text-4xl md:text-5xl text-white tracking-tight mb-6">
-                    <?php echo $lang === 'ca' ? 'Paulo estÃƒÂ  a cada obra.<br>No a cada reuniÃƒÂ³.' : 'Paulo estÃƒÂ¡ en cada obra.<br>No en cada reuniÃƒÂ³n.'; ?>
+                    <?php echo $lang === 'ca' ? 'Paulo està a cada obra.<br>No a cada reunió.' : 'Paulo está en cada obra.<br>No en cada reunión.'; ?>
                 </h2>
                 <p class="text-slate-300 text-lg leading-relaxed mb-4"><?php echo t($translations, 'story.text1'); ?></p>
                 <p class="text-slate-400 leading-relaxed mb-8"><?php echo t($translations, 'story.text2'); ?></p>
@@ -124,7 +188,7 @@ include __DIR__ . '/../includes/header.php';
                 </div>
 
                 <a href="/<?php echo $lang; ?>/sobre-nosotros/" class="inline-flex items-center gap-3 text-brand-500 font-semibold hover:text-brand-400 transition-colors">
-                    <?php echo t($translations, 'story.cta'); ?> <span class="text-xl">Ã¢â€ â€™</span>
+                    <?php echo t($translations, 'story.cta'); ?> <span class="text-xl">→</span>
                 </a>
             </div>
         </div>
@@ -145,14 +209,14 @@ include __DIR__ . '/../includes/header.php';
                 </h2>
             </div>
             <a href="/<?php echo $lang; ?>/proyectos/" class="inline-flex items-center gap-2 text-brand-500 font-semibold hover:text-brand-400 transition-colors">
-                <?php echo $lang === 'ca' ? 'Veure tots els projectes' : 'Ver todos los proyectos'; ?> <span>Ã¢â€ â€™</span>
+                <?php echo $lang === 'ca' ? 'Veure ejemplos visuales' : 'Ver ejemplos visuales'; ?> <span>→</span>
             </a>
         </div>
 
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
             <?php foreach ($projects as $proy): ?>
             <article class="group relative overflow-hidden rounded-sm aspect-[4/3] <?php echo $proy['span']; ?> cursor-pointer">
-                <img src="<?php echo $proy['img']; ?>" alt="<?php echo htmlspecialchars($proy['title'], ENT_QUOTES, 'UTF-8'); ?>" class="w-full h-full object-cover img-zoom" loading="lazy" onerror="this.src='/assets/images/placeholder-construction.svg'">
+                <img src="<?php echo $proy['img']; ?>" alt="<?php echo htmlspecialchars($proy['title'], ENT_QUOTES, 'UTF-8'); ?>" class="w-full h-full object-cover img-zoom" loading="lazy" onerror="this.src='/assets/images/fallback-construction.svg'">
                 <div class="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/30 to-transparent"></div>
                 <div class="absolute bottom-0 left-0 right-0 p-6 md:p-8">
                     <span class="text-brand-400 text-xs font-semibold uppercase tracking-widest mb-2 block"><?php echo htmlspecialchars($proy['cat'], ENT_QUOTES, 'UTF-8'); ?></span>
@@ -165,7 +229,7 @@ include __DIR__ . '/../includes/header.php';
     </div>
 </section>
 
-<?php include __DIR__ . '/partials/home-phase1-proof-placeholders.php'; ?>
+<!-- Proof/social section intentionally hidden until real authorised testimonials are available. -->
 <div class="hidden">
 <!-- TESTIMONIALS -->
 <section class="py-24 md:py-32 bg-slate-900 border-y border-slate-800">

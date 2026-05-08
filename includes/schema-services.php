@@ -4,7 +4,8 @@
  * Funciones para generar schema @type: Service por cada servicio core
  */
 
-function get_schema_service($service_slug, $lang = 'es', $domain = 'https://www.dominio.com') {
+function get_schema_service($service_slug, $lang = 'es', $domain = null) {
+    $domain = $domain ?: (defined('COMPANY_DOMAIN') ? COMPANY_DOMAIN : home_url());
     $services = [
         'obra-nueva' => [
             'es' => [
@@ -114,7 +115,8 @@ function get_schema_service($service_slug, $lang = 'es', $domain = 'https://www.
     return json_encode($schema, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
 }
 
-function get_schema_breadcrumb($items, $domain = 'https://www.dominio.com') {
+function get_schema_breadcrumb($items, $domain = null) {
+    $domain = $domain ?: (defined('COMPANY_DOMAIN') ? COMPANY_DOMAIN : home_url());
     $itemListElement = [];
     $position = 1;
     foreach ($items as $item) {
@@ -133,4 +135,31 @@ function get_schema_breadcrumb($items, $domain = 'https://www.dominio.com') {
     ];
 
     return json_encode($schema, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+}
+
+function get_schema_faq(array $items): string {
+    $entities = [];
+    foreach ($items as $item) {
+        if (empty($item['q']) || empty($item['a'])) {
+            continue;
+        }
+        $entities[] = [
+            '@type' => 'Question',
+            'name' => $item['q'],
+            'acceptedAnswer' => [
+                '@type' => 'Answer',
+                'text' => $item['a'],
+            ],
+        ];
+    }
+
+    if (!$entities) {
+        return '';
+    }
+
+    return json_encode([
+        '@context' => 'https://schema.org',
+        '@type' => 'FAQPage',
+        'mainEntity' => $entities,
+    ], JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
 }

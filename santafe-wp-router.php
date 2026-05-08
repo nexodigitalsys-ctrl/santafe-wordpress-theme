@@ -26,6 +26,21 @@ $routes = [
     'servicios/pladur-acabados' => 'servicio.php',
     'servicios/obra-publica' => 'servicio.php',
     'servicios/obra-civil' => 'servicio.php',
+    'obra-nueva' => 'servicio.php',
+    'reformas-integrales' => 'servicio.php',
+    'pladur-acabados' => 'servicio.php',
+    'obra-publica' => 'servicio.php',
+    'obra-civil' => 'servicio.php',
+    'reformas-barcelona' => 'seo-local.php',
+    'reformas-girona' => 'seo-local.php',
+    'reformas-tarragona' => 'seo-local.php',
+    'obra-nueva-barcelona' => 'seo-local.php',
+    'obra-nueva-girona' => 'seo-local.php',
+    'reformas-integrales-barcelona' => 'seo-local.php',
+    'reformas-integrales-girona' => 'seo-local.php',
+    'pladur-barcelona' => 'seo-local.php',
+    'pladur-girona' => 'seo-local.php',
+    'blog' => 'blog.php',
     'proyectos' => 'proyectos.php',
     'sobre-nosotros' => 'sobre-nosotros.php',
     'contacto' => 'contacto.php',
@@ -42,6 +57,12 @@ $ca_routes = [
     'serveis/pladur-acabats' => 'servicio.php',
     'serveis/obra-publica' => 'servicio.php',
     'serveis/obra-civil' => 'servicio.php',
+    'obra-nova' => 'servicio.php',
+    'reformes-integrals' => 'servicio.php',
+    'pladur-acabats' => 'servicio.php',
+    'obra-publica' => 'servicio.php',
+    'obra-civil' => 'servicio.php',
+    'blog' => 'blog.php',
     'projectes' => 'proyectos.php',
     'sobre-nosaltres' => 'sobre-nosotros.php',
     'contacte' => 'contacto.php',
@@ -59,7 +80,7 @@ if ($lang === 'ca' && isset($ca_routes[$route])) {
 
 if (!$page_file || !file_exists(__DIR__ . '/pages/' . $page_file)) {
     status_header(404);
-    $page_file = 'home.php';
+    $page_file = file_exists(__DIR__ . '/pages/404.php') ? '404.php' : 'home.php';
 }
 
 $current_route = $route;
@@ -79,10 +100,7 @@ $replacements = [
     "src='/assets/" => "src='" . esc_url($theme_uri) . "/assets/",
     "this.src='/assets/" => "this.src='" . esc_url($theme_uri) . "/assets/",
     'url(/assets/' => 'url(' . esc_url($theme_uri) . '/assets/',
-    'action="/api/contact-form.php"' => 'action="' . esc_url($theme_uri) . '/api/contact-form.php"',
-    "fetch('/api/log-consent.php'" => "fetch('" . esc_url($theme_uri) . "/api/log-consent.php'",
-    "sendBeacon('/api/log-consent.php'" => "sendBeacon('" . esc_url($theme_uri) . "/api/log-consent.php'",
-    "'/api/contact-form.php'" => "'" . esc_url($theme_uri) . "/api/contact-form.php'",
+    'action="/legacy-contact-endpoint"' => 'action="' . esc_url(admin_url('admin-post.php')) . '"',
 ];
 
 $html = strtr($html, $replacements);

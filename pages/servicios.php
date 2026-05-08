@@ -17,7 +17,7 @@ $page_data = [
     'lang' => $lang,
     'title' => $lang === 'ca' ? 'Serveis de construcció a Barcelona i Girona | Santa Fe' : 'Servicios de construcción en Barcelona y Girona | Santa Fe',
     'description' => $lang === 'ca' ? 'Obra nova, reformes, pladur, obra pública i civil. Pressupost tancat.' : 'Obra nueva, reformas, pladur, obra pública y civil. Presupuesto cerrado.',
-    'canonical' => 'https://www.dominio.com/' . $lang . '/' . ($lang === 'ca' ? 'serveis' : 'servicios') . '/',
+    'canonical' => COMPANY_DOMAIN . '/' . $lang . '/' . ($lang === 'ca' ? 'serveis' : 'servicios') . '/',
     'schemas' => [function() use ($breadcrumb_items) { return get_schema_breadcrumb($breadcrumb_items); }]
 ];
 
@@ -51,12 +51,18 @@ include __DIR__ . '/../includes/header.php';
             <?php foreach ($services as $svc): ?>
             <article class="group relative overflow-hidden rounded-sm bg-slate-900 border border-slate-800 card-lift">
                 <div class="aspect-[16/9] overflow-hidden bg-slate-800">
-                    <img src="<?php echo $svc['img']; ?>" alt="" class="w-full h-full object-cover img-zoom opacity-80 group-hover:opacity-100 transition-opacity" loading="lazy" onerror="this.src='/assets/images/placeholder-construction.svg'">
+                    <img src="<?php echo $svc['img']; ?>" alt="<?php echo htmlspecialchars(t($translations, $svc['title_key']) . ' - referencia visual', ENT_QUOTES, 'UTF-8'); ?>" class="w-full h-full object-cover img-zoom opacity-80 group-hover:opacity-100 transition-opacity" loading="lazy" onerror="this.src='/assets/images/fallback-construction.svg'">
                 </div>
                 <div class="p-6">
                     <h2 class="font-display font-bold text-xl text-white mb-2"><?php echo t($translations, $svc['title_key']); ?></h2>
                     <p class="text-slate-400 text-sm mb-4"><?php echo t($translations, $svc['desc_key']); ?></p>
-                    <a href="/<?php echo $lang; ?>/servicios/<?php echo $svc['slug']; ?>/" class="inline-flex items-center gap-2 text-brand-500 text-sm font-semibold group/link">
+                    <?php
+                    $target_slug = $svc['slug'];
+                    if ($lang === 'ca') {
+                        $target_slug = ['obra-nueva'=>'obra-nova','reformas-integrales'=>'reformes-integrals','pladur-acabados'=>'pladur-acabats'][$svc['slug']] ?? $svc['slug'];
+                    }
+                    ?>
+                    <a href="/<?php echo $lang; ?>/<?php echo $target_slug; ?>/" class="inline-flex items-center gap-2 text-brand-500 text-sm font-semibold group/link">
                         <?php echo t($translations, 'services.learn_more'); ?> <span class="transition-transform group-hover/link:translate-x-1">→</span>
                     </a>
                 </div>

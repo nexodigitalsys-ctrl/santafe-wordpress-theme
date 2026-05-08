@@ -15,19 +15,19 @@ $breadcrumb_items = [
 
 $page_data = [
     'lang' => $lang,
-    'title' => $lang === 'ca' ? 'Projectes de construcció a Barcelona i Girona | Santa Fe' : 'Proyectos de construcción en Barcelona y Girona | Santa Fe',
-    'description' => $lang === 'ca' ? 'Galeria de projectes realitzats: obra nova, reformes, obra pública i civil.' : 'Galería de proyectos realizados: obra nueva, reformas, obra pública y civil.',
-    'canonical' => 'https://www.dominio.com/' . $lang . '/' . ($lang === 'ca' ? 'projectes' : 'proyectos') . '/',
+    'title' => $lang === 'ca' ? 'Ejemplos visuales de construcción | Santa Fe' : 'Ejemplos visuales de construcción | Santa Fe',
+    'description' => $lang === 'ca' ? 'Referencias visuales provisionales de servicios hasta publicar obras reales autorizadas.' : 'Referencias visuales provisionales de servicios hasta publicar obras reales autorizadas.',
+    'canonical' => COMPANY_DOMAIN . '/' . $lang . '/' . ($lang === 'ca' ? 'projectes' : 'proyectos') . '/',
     'schemas' => [function() use ($breadcrumb_items) { return get_schema_breadcrumb($breadcrumb_items); }]
 ];
 
 $projects = [
-    ['img' => 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1200&q=80', 'title' => $lang === 'ca' ? 'Casa unifamiliar · Girona' : 'Casa unifamiliar · Girona', 'desc' => $lang === 'ca' ? 'Obra nova completa amb jardí de 200m² · 2024' : 'Obra nueva completa con jardín de 200m² · 2024', 'cat' => $lang === 'ca' ? 'Obra nova' : 'Obra nueva', 'span' => 'md:col-span-2 lg:col-span-2'],
-    ['img' => 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600&q=80', 'title' => 'Reforma integral · Eixample', 'desc' => $lang === 'ca' ? 'Pis de 120m² · 2024' : 'Piso de 120m² · 2024', 'cat' => $lang === 'ca' ? 'Reforma' : 'Reforma', 'span' => ''],
-    ['img' => 'https://images.unsplash.com/photo-1590644365607-1c5a86e9a95b?w=600&q=80', 'title' => $lang === 'ca' ? 'Infraestructura municipal' : 'Infraestructura municipal', 'desc' => 'Barcelona · 2023', 'cat' => $lang === 'ca' ? 'Obra pública' : 'Obra pública', 'span' => ''],
-    ['img' => 'https://images.unsplash.com/photo-1621905252507-b35492c3f7e1?w=800&q=80', 'title' => $lang === 'ca' ? 'Sostres decoratius · Barcelona' : 'Techos decorativos · Barcelona', 'desc' => $lang === 'ca' ? 'Pladur i il·luminació LED · 2024' : 'Pladur e iluminación LED · 2024', 'cat' => $lang === 'ca' ? 'Acabats' : 'Acabados', 'span' => 'md:col-span-2'],
-    ['img' => 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&q=80', 'title' => $lang === 'ca' ? 'Fonamentacions · Girona' : 'Cimentaciones · Girona', 'desc' => $lang === 'ca' ? 'Edifici plurifamiliar · 2023' : 'Edificio plurifamiliar · 2023', 'cat' => $lang === 'ca' ? 'Obra civil' : 'Obra civil', 'span' => ''],
-    ['img' => 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80', 'title' => $lang === 'ca' ? 'Local comercial · Barcelona' : 'Local comercial · Barcelona', 'desc' => $lang === 'ca' ? 'Transformació en restaurant · 2024' : 'Transformación en restaurante · 2024', 'cat' => $lang === 'ca' ? 'Reforma' : 'Reforma', 'span' => ''],
+    ['img' => 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1200&q=80', 'title' => 'Referencia visual de obra nueva', 'desc' => 'Imagen provisional hasta publicar proyecto real autorizado', 'cat' => $lang === 'ca' ? 'Obra nova' : 'Obra nueva', 'span' => 'md:col-span-2 lg:col-span-2'],
+    ['img' => 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600&q=80', 'title' => 'Referencia visual de reforma integral', 'desc' => 'Imagen provisional hasta publicar proyecto real autorizado', 'cat' => 'Reforma', 'span' => ''],
+    ['img' => 'https://images.unsplash.com/photo-1590644365607-1c5a86e9a95b?w=600&q=80', 'title' => 'Referencia visual de infraestructura', 'desc' => 'Imagen provisional hasta publicar proyecto real autorizado', 'cat' => $lang === 'ca' ? 'Obra pública' : 'Obra pública', 'span' => ''],
+    ['img' => 'https://images.unsplash.com/photo-1621905252507-b35492c3f7e1?w=800&q=80', 'title' => 'Referencia visual de pladur y acabados', 'desc' => 'Imagen provisional hasta publicar proyecto real autorizado', 'cat' => $lang === 'ca' ? 'Acabats' : 'Acabados', 'span' => 'md:col-span-2'],
+    ['img' => 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&q=80', 'title' => 'Referencia visual de obra civil', 'desc' => 'Imagen provisional hasta publicar proyecto real autorizado', 'cat' => 'Obra civil', 'span' => ''],
+    ['img' => 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80', 'title' => 'Referencia visual de local comercial', 'desc' => 'Imagen provisional hasta publicar proyecto real autorizado', 'cat' => 'Reforma', 'span' => ''],
 ];
 
 include __DIR__ . '/../includes/header.php';
@@ -41,17 +41,17 @@ include __DIR__ . '/../includes/header.php';
                 <span class="text-brand-400 text-xs font-semibold uppercase tracking-[0.3em]">Portfolio</span>
             </div>
             <h1 class="font-display font-bold text-4xl md:text-5xl lg:text-6xl text-white tracking-tight">
-                <?php echo $lang === 'ca' ? 'Obres que<br>resisteixen el temps' : 'Obras que<br>resisten el tiempo'; ?>
+                <?php echo $lang === 'ca' ? 'Referències visuals<br>per tipus de servei' : 'Referencias visuales<br>por tipo de servicio'; ?>
             </h1>
             <p class="text-slate-400 mt-6 max-w-xl text-lg">
-                <?php echo $lang === 'ca' ? 'Resultats reals de la nostra trajectòria.' : 'Resultados reales de nuestra trayectoria.'; ?>
+                <?php echo $lang === 'ca' ? 'Publicarem obres reals quan tinguem autorització documental i fotos pròpies.' : 'Publicaremos obras reales cuando tengamos autorización documental y fotos propias.'; ?>
             </p>
         </div>
 
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
             <?php foreach ($projects as $proy): ?>
             <article class="group relative overflow-hidden rounded-sm aspect-[4/3] <?php echo $proy['span']; ?> cursor-pointer">
-                <img src="<?php echo $proy['img']; ?>" alt="<?php echo htmlspecialchars($proy['title'], ENT_QUOTES, 'UTF-8'); ?>" class="w-full h-full object-cover img-zoom" loading="lazy" onerror="this.src='/assets/images/placeholder-construction.svg'">
+                <img src="<?php echo $proy['img']; ?>" alt="<?php echo htmlspecialchars($proy['title'], ENT_QUOTES, 'UTF-8'); ?>" class="w-full h-full object-cover img-zoom" loading="lazy" onerror="this.src='/assets/images/fallback-construction.svg'">
                 <div class="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/30 to-transparent"></div>
                 <div class="absolute bottom-0 left-0 right-0 p-6">
                     <span class="text-brand-400 text-xs font-semibold uppercase tracking-widest mb-2 block"><?php echo htmlspecialchars($proy['cat'], ENT_QUOTES, 'UTF-8'); ?></span>

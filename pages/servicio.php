@@ -14,8 +14,8 @@ require_once __DIR__ . '/../includes/schema-services.php';
 $translations = load_translations($lang);
 
 $service_map = [
-    'es' => ['servicios/obra-nueva'=>'obra-nueva','servicios/reformas-integrales'=>'reformas-integrales','servicios/pladur-acabados'=>'pladur-acabados','servicios/obra-publica'=>'obra-publica','servicios/obra-civil'=>'obra-civil'],
-    'ca' => ['serveis/obra-nova'=>'obra-nueva','serveis/reformes-integrals'=>'reformas-integrales','serveis/pladur-acabats'=>'pladur-acabados','serveis/obra-publica'=>'obra-publica','serveis/obra-civil'=>'obra-civil']
+    'es' => ['servicios/obra-nueva'=>'obra-nueva','servicios/reformas-integrales'=>'reformas-integrales','servicios/pladur-acabados'=>'pladur-acabados','servicios/obra-publica'=>'obra-publica','servicios/obra-civil'=>'obra-civil','obra-nueva'=>'obra-nueva','reformas-integrales'=>'reformas-integrales','pladur-acabados'=>'pladur-acabados','obra-publica'=>'obra-publica','obra-civil'=>'obra-civil'],
+    'ca' => ['serveis/obra-nova'=>'obra-nueva','serveis/reformes-integrals'=>'reformas-integrales','serveis/pladur-acabats'=>'pladur-acabados','serveis/obra-publica'=>'obra-publica','serveis/obra-civil'=>'obra-civil','obra-nova'=>'obra-nueva','reformes-integrals'=>'reformas-integrales','pladur-acabats'=>'pladur-acabados','obra-publica'=>'obra-publica','obra-civil'=>'obra-civil']
 ];
 
 $service_slug = $service_map[$lang][$route] ?? 'obra-nueva';
@@ -34,10 +34,11 @@ $page_data = [
     'lang' => $lang,
     'title' => $data['title'],
     'description' => $data['description'],
-    'canonical' => 'https://www.dominio.com/' . $lang . '/' . $route . '/',
+    'canonical' => COMPANY_DOMAIN . '/' . $lang . '/' . $route . '/',
     'schemas' => [
         function() use ($service_slug, $lang) { return get_schema_service($service_slug, $lang); },
-        function() use ($breadcrumb_items) { return get_schema_breadcrumb($breadcrumb_items); }
+        function() use ($breadcrumb_items) { return get_schema_breadcrumb($breadcrumb_items); },
+        function() use ($data) { return get_schema_faq($data['faq'] ?? []); }
     ]
 ];
 
@@ -63,6 +64,25 @@ include __DIR__ . '/../includes/header.php';
         
         <h1 class="font-display font-bold text-4xl md:text-5xl lg:text-6xl text-white tracking-tight mb-6"><?php echo htmlspecialchars($data['h1'], ENT_QUOTES, 'UTF-8'); ?></h1>
         <p class="text-slate-400 text-lg max-w-2xl"><?php echo htmlspecialchars($data['description'], ENT_QUOTES, 'UTF-8'); ?></p>
+    </div>
+</section>
+
+<!-- Price Guidance -->
+<section class="py-20 bg-slate-950 border-y border-slate-800">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="grid lg:grid-cols-[0.75fr_1.25fr] gap-10 items-start">
+            <div>
+                <div class="flex items-center gap-4 mb-4">
+                    <div class="industrial-line w-12"></div>
+                    <span class="text-brand-400 text-xs font-semibold uppercase tracking-[0.3em]">Precios orientativos</span>
+                </div>
+                <h2 class="font-display font-bold text-3xl md:text-4xl text-white tracking-tight">Referencia antes de pedir presupuesto</h2>
+            </div>
+            <div class="bg-slate-900 border border-slate-800 rounded-sm p-8">
+                <p class="text-slate-300 text-lg leading-relaxed"><?php echo htmlspecialchars($data['prices'], ENT_QUOTES, 'UTF-8'); ?></p>
+                <p class="text-slate-500 text-sm mt-4">La cifra final depende de visita técnica, mediciones, estado actual, calidades, licencias y calendario.</p>
+            </div>
+        </div>
     </div>
 </section>
 
@@ -97,6 +117,21 @@ include __DIR__ . '/../includes/header.php';
     </div>
 </section>
 
+<!-- FAQ -->
+<section class="py-24 bg-slate-950">
+    <div class="max-w-4xl mx-auto px-6">
+        <h2 class="font-display font-bold text-3xl md:text-4xl text-white tracking-tight mb-10">Preguntas frecuentes</h2>
+        <div class="space-y-4">
+            <?php foreach ($data['faq'] as $item): ?>
+            <details class="bg-slate-900 border border-slate-800 rounded-sm p-6">
+                <summary class="cursor-pointer font-semibold text-white"><?php echo htmlspecialchars($item['q'], ENT_QUOTES, 'UTF-8'); ?></summary>
+                <p class="text-slate-400 mt-4 leading-relaxed"><?php echo htmlspecialchars($item['a'], ENT_QUOTES, 'UTF-8'); ?></p>
+            </details>
+            <?php endforeach; ?>
+        </div>
+    </div>
+</section>
+
 <!-- Features -->
 <section class="py-24 bg-slate-950 border-y border-slate-800">
     <div class="max-w-7xl mx-auto px-6">
@@ -106,7 +141,7 @@ include __DIR__ . '/../includes/header.php';
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
             <?php foreach ($data['features'] as $feature): ?>
             <div class="flex items-start gap-4 bg-slate-900 border border-slate-800 rounded-sm p-6">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#b2343b" stroke-width="2.5" class="flex-shrink-0 mt-0.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D4A853" stroke-width="2.5" class="flex-shrink-0 mt-0.5"><polyline points="20 6 9 17 4 12"/></svg>
                 <span class="text-slate-200 text-sm"><?php echo htmlspecialchars($feature, ENT_QUOTES, 'UTF-8'); ?></span>
             </div>
             <?php endforeach; ?>

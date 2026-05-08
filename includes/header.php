@@ -7,6 +7,8 @@
 declare(strict_types=1);
 
 require_once __DIR__ . '/i18n.php';
+require_once __DIR__ . '/../config/constants.php';
+require_once __DIR__ . '/seo.php';
 require_once __DIR__ . '/schema-localbusiness.php';
 
 // Iniciar sesión segura
@@ -14,16 +16,20 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
     session_set_cookie_params(['lifetime' => 3600, 'path' => '/', 'secure' => true, 'httponly' => true, 'samesite' => 'Strict']);
     session_start();
 }
+if (empty($_SESSION['csrf_token'])) {
+    $_SESSION['csrf_token'] = wp_create_nonce('santafe_contact_form');
+}
 
 $lang = isset($page_data['lang']) && in_array($page_data['lang'], ['es','ca'], true) ? $page_data['lang'] : 'es';
+$page_data = santafe_normalize_seo_data($page_data ?? [], $current_route ?? '', $lang);
 $translations = load_translations($lang);
 $locale = $lang === 'ca' ? 'ca_ES' : 'es_ES';
 $alt_lang = $lang === 'ca' ? 'es' : 'ca';
 $alt_locale = $alt_lang === 'ca' ? 'ca_ES' : 'es_ES';
 
-$domain = 'https://www.dominio.com';
-$page_title = htmlspecialchars($page_data['title'] ?? 'Construcciones Santa Fe', ENT_QUOTES, 'UTF-8');
-$page_desc = htmlspecialchars($page_data['description'] ?? 'Empresa de construcción en Barcelona y Girona.', ENT_QUOTES, 'UTF-8');
+$domain = COMPANY_DOMAIN;
+$page_title = htmlspecialchars($page_data['title'], ENT_QUOTES, 'UTF-8');
+$page_desc = htmlspecialchars($page_data['description'], ENT_QUOTES, 'UTF-8');
 $canonical = htmlspecialchars($page_data['canonical'] ?? ($domain . '/' . $lang . '/'), ENT_QUOTES, 'UTF-8');
 $alt_canonical = str_replace('/' . $lang . '/', '/' . $alt_lang . '/', $canonical);
 
@@ -50,6 +56,11 @@ function get_alt_url($current_route, $target_lang) {
         'servicios/pladur-acabados' => 'serveis/pladur-acabats',
         'servicios/obra-publica' => 'serveis/obra-publica',
         'servicios/obra-civil' => 'serveis/obra-civil',
+        'obra-nueva' => 'obra-nova',
+        'reformas-integrales' => 'reformes-integrals',
+        'pladur-acabados' => 'pladur-acabats',
+        'obra-publica' => 'obra-publica',
+        'obra-civil' => 'obra-civil',
         'proyectos' => 'projectes',
         'sobre-nosotros' => 'sobre-nosaltres',
         'contacto' => 'contacte',
@@ -120,7 +131,7 @@ tailwind.config = {
         display: ['Space Grotesk', 'Inter', 'sans-serif'],
       },
       colors: {
-        brand: { 50:'#fdf2f2',100:'#fce7e8',200:'#f9d0d2',300:'#f4a9ad',400:'#ec777d',500:'#b2343b',600:'#9a2e34',700:'#81292e',800:'#6e2529',900:'#5e2226',950:'#340e10' },
+                brand: { 50:'#fff8e8',100:'#ffedc0',200:'#f7d887',300:'#e8c878',400:'#d4a853',500:'#d4a853',600:'#b98a33',700:'#8b6426',800:'#5f421b',900:'#362410',950:'#1e1408' },
         slate: { 50:'#f4f4f5',100:'#e3e4e6',200:'#c8cace',300:'#a5a9ae',400:'#7e838a',500:'#63676e',600:'#4e5157',700:'#3a3c42',800:'#2a2c31',900:'#212225',950:'#121315' },
       }
     }
@@ -137,7 +148,7 @@ tailwind.config = {
 }
 @layer components {
   .font-display { font-family: 'Space Grotesk', 'Inter', sans-serif; }
-  .industrial-line { height: 2px; background: linear-gradient(90deg, #b2343b 0%, transparent 100%); }
+  .industrial-line { height: 2px; background: linear-gradient(90deg, #D4A853 0%, transparent 100%); }
   .card-lift { transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease; }
   .card-lift:hover { transform: translateY(-8px); box-shadow: 0 24px 48px -12px rgba(0,0,0,0.4); }
   .img-zoom { transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1); }
@@ -168,14 +179,14 @@ tailwind.config = {
     background-color: rgba(12, 12, 14, 0.96) !important;
     backdrop-filter: blur(24px) saturate(1.4);
     -webkit-backdrop-filter: blur(24px) saturate(1.4);
-    border-bottom: 2px solid #b2343b;
+    border-bottom: 2px solid #D4A853;
     box-shadow: 
-      0 0 40px rgba(178, 52, 59, 0.25),
-      0 4px 20px rgba(178, 52, 59, 0.15),
+      0 0 40px rgba(212, 168, 83, 0.22),
+      0 4px 20px rgba(212, 168, 83, 0.14),
       0 8px 40px rgba(0, 0, 0, 0.5);
   }
-  .header-scrolled [data-brand-text] { color: #b2343b; text-shadow: 0 0 12px rgba(178,52,59,0.35); }
-  .header-scrolled [data-brand-sub] { color: rgba(178,52,59,0.85); text-shadow: 0 0 8px rgba(178,52,59,0.25); }
+  .header-scrolled [data-brand-text] { color: #D4A853; text-shadow: 0 0 12px rgba(212,168,83,0.35); }
+  .header-scrolled [data-brand-sub] { color: rgba(212,168,83,0.85); text-shadow: 0 0 8px rgba(212,168,83,0.25); }
   .header-scrolled [data-nav-link] { color: rgba(255,255,255,0.85); }
   .header-scrolled [data-nav-link]:hover { color: #ffffff; }
   .header-scrolled [data-lang-btn] { color: rgba(255,255,255,0.6); border-color: rgba(255,255,255,0.2); }
@@ -198,10 +209,10 @@ tailwind.config = {
   .hero-bg { background-image: url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1920&q=80'); }
   
   /* Industrial line reversed */
-  .industrial-line-reverse { background: linear-gradient(270deg, #b2343b 0%, transparent 100%) !important; }
+  .industrial-line-reverse { background: linear-gradient(270deg, #D4A853 0%, transparent 100%) !important; }
   
   /* CTA background pattern (moved from inline style) */
-  .cta-bg-pattern { background-image: repeating-linear-gradient(90deg, #b2343b 0px, #b2343b 1px, transparent 1px, transparent 80px); }
+  .cta-bg-pattern { background-image: repeating-linear-gradient(90deg, #D4A853 0px, #D4A853 1px, transparent 1px, transparent 80px); }
   
   /* Logo aspect ratio (moved from inline style) */
   .logo-aspect { aspect-ratio: 1656/551; }
@@ -221,6 +232,24 @@ tailwind.config = {
 <?php foreach ($schema_blocks as $block): ?>
 <script type="application/ld+json"><?php echo $block; ?></script>
 <?php endforeach; ?>
+<script>
+window.santafeConfig = Object.assign(window.santafeConfig || {}, {
+  ga4Id: <?php echo wp_json_encode(GA4_ID); ?>,
+  gtmId: <?php echo wp_json_encode(GTM_ID); ?>,
+  analyticsEnabled: <?php echo SANTAFE_ENABLE_ANALYTICS ? 'true' : 'false'; ?>,
+  csrfToken: <?php echo wp_json_encode($_SESSION['csrf_token']); ?>,
+  whatsappNumber: <?php echo wp_json_encode(WHATSAPP_NUMBER); ?>
+});
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  ad_storage: 'denied',
+  analytics_storage: 'denied',
+  ad_user_data: 'denied',
+  ad_personalization: 'denied'
+});
+</script>
+<?php wp_head(); ?>
 </head>
 <body class="bg-slate-950 text-slate-50 antialiased selection:bg-brand-500 selection:text-white">
 
@@ -246,10 +275,24 @@ tailwind.config = {
     </a>
 
     <nav class="hidden lg:flex items-center gap-8" role="navigation" aria-label="Principal">
-      <a href="/<?php echo $lang; ?>/servicios/" class="text-sm font-medium transition-colors tracking-wide" data-nav-link><?php echo t($translations, 'nav.services'); ?></a>
+      <a href="/<?php echo $lang; ?>/" class="text-sm font-medium transition-colors tracking-wide" data-nav-link><?php echo t($translations, 'nav.home'); ?></a>
+      <div class="relative group">
+        <a href="/<?php echo $lang; ?>/servicios/" class="text-sm font-medium transition-colors tracking-wide inline-flex items-center gap-1" data-nav-link><?php echo t($translations, 'nav.services'); ?><span aria-hidden="true">v</span></a>
+        <div class="absolute left-0 top-full pt-4 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all">
+          <div class="w-72 bg-slate-950 border border-slate-800 rounded-sm shadow-2xl p-3">
+            <a href="/<?php echo $lang; ?>/<?php echo $lang === 'ca' ? 'obra-nova' : 'obra-nueva'; ?>/" class="block px-4 py-3 text-sm text-slate-300 hover:text-white hover:bg-slate-900 rounded-sm">Obra nueva</a>
+            <a href="/<?php echo $lang; ?>/<?php echo $lang === 'ca' ? 'reformes-integrals' : 'reformas-integrales'; ?>/" class="block px-4 py-3 text-sm text-slate-300 hover:text-white hover:bg-slate-900 rounded-sm">Reformas integrales</a>
+            <a href="/<?php echo $lang; ?>/<?php echo $lang === 'ca' ? 'pladur-acabats' : 'pladur-acabados'; ?>/" class="block px-4 py-3 text-sm text-slate-300 hover:text-white hover:bg-slate-900 rounded-sm">Pladur y acabados</a>
+            <a href="/<?php echo $lang; ?>/obra-publica/" class="block px-4 py-3 text-sm text-slate-300 hover:text-white hover:bg-slate-900 rounded-sm">Obra pública</a>
+            <a href="/<?php echo $lang; ?>/obra-civil/" class="block px-4 py-3 text-sm text-slate-300 hover:text-white hover:bg-slate-900 rounded-sm">Obra civil</a>
+          </div>
+        </div>
+      </div>
       <a href="/<?php echo $lang; ?>/proyectos/" class="text-sm font-medium transition-colors tracking-wide" data-nav-link><?php echo t($translations, 'nav.projects'); ?></a>
       <a href="/<?php echo $lang; ?>/sobre-nosotros/" class="text-sm font-medium transition-colors tracking-wide" data-nav-link><?php echo t($translations, 'nav.about'); ?></a>
-      <a href="/<?php echo $lang; ?>/contacto/" class="text-sm font-semibold bg-brand-600 hover:bg-brand-500 text-white px-5 py-2.5 rounded-sm transition-all tracking-wide" data-nav-cta><?php echo t($translations, 'nav.cta'); ?></a>
+      <a href="/<?php echo $lang; ?>/blog/" class="text-sm font-medium transition-colors tracking-wide" data-nav-link>Blog</a>
+      <a href="tel:<?php echo COMPANY_PHONE; ?>" class="text-sm font-semibold text-brand-400 hover:text-brand-300 transition-colors" data-track-event="phone_click">Llámanos: <?php echo COMPANY_PHONE_DISPLAY; ?></a>
+      <a href="/<?php echo $lang; ?>/contacto/" class="text-sm font-semibold bg-brand-600 hover:bg-brand-500 text-slate-950 px-5 py-2.5 rounded-sm transition-all tracking-wide" data-nav-cta>Presupuesto gratuito</a>
       <a href="<?php echo $alt_url; ?>" hreflang="<?php echo $alt_locale; ?>" class="text-xs font-medium border px-2 py-1 rounded-sm transition-colors <?php echo $lang === 'es' ? 'opacity-100' : 'opacity-60'; ?>" data-lang-btn>ES</a>
       <a href="<?php echo $alt_url; ?>" hreflang="<?php echo $alt_locale; ?>" class="text-xs font-medium border px-2 py-1 rounded-sm transition-colors <?php echo $lang === 'ca' ? 'opacity-100' : 'opacity-60'; ?>" data-lang-btn>CA</a>
     </nav>
@@ -267,14 +310,18 @@ tailwind.config = {
     <a href="/<?php echo $lang; ?>/servicios/" class="text-2xl font-display font-bold text-white mobile-nav-link"><?php echo t($translations, 'nav.services'); ?></a>
     <a href="/<?php echo $lang; ?>/proyectos/" class="text-2xl font-display font-bold text-white mobile-nav-link"><?php echo t($translations, 'nav.projects'); ?></a>
     <a href="/<?php echo $lang; ?>/sobre-nosotros/" class="text-2xl font-display font-bold text-white mobile-nav-link"><?php echo t($translations, 'nav.about'); ?></a>
+    <a href="/<?php echo $lang; ?>/blog/" class="text-2xl font-display font-bold text-white mobile-nav-link">Blog</a>
+    <a href="tel:<?php echo COMPANY_PHONE; ?>" class="text-xl font-display font-bold text-brand-400 mobile-nav-link" data-track-event="phone_click"><?php echo COMPANY_PHONE_DISPLAY; ?></a>
     <a href="/<?php echo $lang; ?>/contacto/" class="text-2xl font-display font-bold text-brand-500 mobile-nav-link"><?php echo t($translations, 'nav.contact'); ?></a>
   </div>
 </header>
 
 <!-- WhatsApp Float -->
-<a href="https://wa.me/34665737547?text=Hola%20Paulo,%20estoy%20interesado%20en%20un%20presupuesto" 
+<a href="https://wa.me/<?php echo WHATSAPP_NUMBER; ?>?text=Hola%20Paulo%2C%20estoy%20interesado%20en%20una%20reforma" 
    class="fixed bottom-6 right-6 z-50 w-14 h-14 bg-[#25d366] hover:bg-[#128c7e] text-white rounded-full flex items-center justify-center shadow-2xl transition-all hover:scale-110" 
    target="_blank" rel="noopener noreferrer"
+   title="Hablar con Paulo por WhatsApp"
+   data-track-event="whatsapp_click"
    aria-label="<?php echo t($translations, 'footer.whatsapp_label'); ?>">
   <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>

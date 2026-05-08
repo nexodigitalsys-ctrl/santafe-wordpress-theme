@@ -5,15 +5,20 @@
  * Adaptar domain real en producción
  */
 
-function get_schema_localbusiness($domain = 'https://www.dominio.com') {
+function get_schema_localbusiness($domain = null) {
+    $domain = $domain ?: (defined('COMPANY_DOMAIN') ? COMPANY_DOMAIN : home_url());
+    $phone = defined('COMPANY_PHONE') ? COMPANY_PHONE : '+34665737547';
+    $email = defined('COMPANY_EMAIL') ? COMPANY_EMAIL : 'Constrsantafe@gmail.com';
+    $brand = defined('COMPANY_BRAND') ? COMPANY_BRAND : 'Santa Fe Construcciones';
+    $name = defined('COMPANY_NAME') ? COMPANY_NAME : 'Construcciones Santa Fe Siglo XXI SLU';
     $schema = [
         "@context" => "https://schema.org",
         "@graph" => [
             [
                 "@type" => ["LocalBusiness", "ConstructionCompany"],
                 "@id" => $domain . "#business",
-                "name" => "Construcciones Santa Fe Siglo XXI SLU",
-                "alternateName" => "Santa Fe Construcciones",
+                "name" => $name,
+                "alternateName" => $brand,
                 "url" => $domain,
                 "logo" => [
                     "@type" => "ImageObject",
@@ -27,9 +32,10 @@ function get_schema_localbusiness($domain = 'https://www.dominio.com') {
                     "width" => 1200,
                     "height" => 800
                 ],
-                "telephone" => "+34665737547",
-                "email" => "Constrsantafe@gmail.com",
-                "priceRange" => "€€",
+                "telephone" => $phone,
+                "email" => $email,
+                "priceRange" => "€€€",
+                "foundingDate" => "2008",
                 "description" => "Empresa de construcción, obra nueva, reformas integrales, pladur, obra pública y obra civil en Barcelona y Girona. Más de 15 años de experiencia.",
                 "address" => [
                     "@type" => "PostalAddress",
@@ -65,6 +71,14 @@ function get_schema_localbusiness($domain = 'https://www.dominio.com') {
                         "containedInPlace" => [
                             "@type" => "AdministrativeArea",
                             "name" => "Provincia de Girona"
+                        ]
+                    ],
+                    [
+                        "@type" => "City",
+                        "name" => "Tarragona",
+                        "containedInPlace" => [
+                            "@type" => "AdministrativeArea",
+                            "name" => "Provincia de Tarragona"
                         ]
                     ]
                 ],
@@ -112,27 +126,27 @@ function get_schema_localbusiness($domain = 'https://www.dominio.com') {
                 "contactPoint" => [
                     [
                         "@type" => "ContactPoint",
-                        "telephone" => "+34665737547",
+                        "telephone" => $phone,
                         "contactType" => "sales",
                         "availableLanguage" => ["Spanish", "Catalan"],
                         "areaServed" => "ES"
                     ],
                     [
                         "@type" => "ContactPoint",
-                        "email" => "Constrsantafe@gmail.com",
+                        "email" => $email,
                         "contactType" => "customer service",
                         "availableLanguage" => ["Spanish", "Catalan"]
                     ]
                 ],
                 "sameAs" => [
-                    "https://wa.me/34665737547"
+                    "https://wa.me/" . (defined('WHATSAPP_NUMBER') ? WHATSAPP_NUMBER : '34665737547')
                 ]
             ],
             [
                 "@type" => "WebSite",
                 "@id" => $domain . "#website",
                 "url" => $domain,
-                "name" => "Construcciones Santa Fe Siglo XXI SLU",
+                "name" => $name,
                 "publisher" => [
                     "@id" => $domain . "#business"
                 ],

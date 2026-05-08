@@ -87,7 +87,8 @@ function renderBreadcrumb(array $items, string $lang = 'es'): string {
 /**
  * Genera sitemap XML completo
  */
-function generateSitemap(string $domain = 'https://www.dominio.com'): string {
+function generateSitemap(string $domain = ''): string {
+    $domain = $domain !== '' ? $domain : (defined('COMPANY_DOMAIN') ? COMPANY_DOMAIN : home_url());
     $pdo = Database::getInstance();
     $urls = [];
     $today = date('Y-m-d');

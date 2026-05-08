@@ -3,6 +3,8 @@
  * Footer con Tailwind CSS + Cookie Banner
  */
 
+require_once __DIR__ . '/../config/constants.php';
+
 $lang = isset($page_data['lang']) && in_array($page_data['lang'], ['es','ca'], true) ? $page_data['lang'] : 'es';
 $translations = load_translations($lang);
 
@@ -23,8 +25,8 @@ $current_year = date('Y');
         </div>
         <p class="text-slate-400 text-sm leading-relaxed mb-4 max-w-sm"><?php echo t($translations, 'footer.tagline'); ?></p>
         <div class="space-y-2 text-sm">
-          <a href="mailto:<?php echo COMPANY_EMAIL; ?>" class="text-slate-300 hover:text-brand-400 transition-colors block"><?php echo t($translations, 'footer.email'); ?></a>
-          <a href="tel:<?php echo COMPANY_PHONE; ?>" class="text-slate-300 hover:text-brand-400 transition-colors block"><?php echo t($translations, 'footer.phone'); ?></a>
+          <a href="mailto:<?php echo COMPANY_EMAIL; ?>" class="text-slate-300 hover:text-brand-400 transition-colors block"><?php echo COMPANY_EMAIL; ?></a>
+          <a href="tel:<?php echo COMPANY_PHONE; ?>" class="text-slate-300 hover:text-brand-400 transition-colors block" data-track-event="phone_click"><?php echo COMPANY_PHONE_DISPLAY; ?></a>
         </div>
       </div>
 
@@ -71,7 +73,7 @@ $current_year = date('Y');
 </footer>
 
 <!-- Cookie Banner -->
-<div id="cookie-banner" class="fixed bottom-0 left-0 right-0 bg-slate-900/98 backdrop-blur-xl border-t border-slate-800 z-50 hidden" role="dialog" aria-modal="true" aria-labelledby="cookie-title">
+<div id="cookie-banner" class="fixed bottom-0 left-0 right-0 bg-slate-900/98 backdrop-blur-xl border-t border-slate-800 z-50" hidden role="dialog" aria-modal="true" aria-labelledby="cookie-title">
   <div class="max-w-7xl mx-auto px-6 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
     <p id="cookie-title" class="text-slate-300 text-sm flex-1"><?php echo t($translations, 'cookies.banner_text'); ?> <a href="/<?php echo $lang; ?>/politica-cookies/" class="text-brand-400 hover:text-brand-300 underline"><?php echo t($translations, 'cookies.policy_link'); ?></a></p>
     <div class="flex gap-3 flex-shrink-0">
@@ -82,7 +84,7 @@ $current_year = date('Y');
 </div>
 
 <!-- Cookie Settings Panel -->
-<div id="cookie-settings" class="fixed inset-0 bg-black/50 z-[60] hidden items-center justify-center" role="dialog" aria-modal="true">
+<div id="cookie-settings" class="fixed inset-0 bg-black/50 z-[60] items-center justify-center" hidden role="dialog" aria-modal="true">
   <div class="bg-slate-900 border border-slate-800 rounded-sm p-8 max-w-lg w-[90%] max-h-[90vh] overflow-y-auto">
     <h2 class="font-display font-bold text-2xl text-white mb-6"><?php echo t($translations, 'cookies.configure'); ?></h2>
     
@@ -124,11 +126,7 @@ $current_year = date('Y');
   </div>
 </div>
 
-<!-- Scripts -->
-<script src="/assets/js/navigation.js" defer></script>
-<script src="/assets/js/cookies.js" defer></script>
-<script src="/assets/js/forms.js" defer></script>
-<script src="/assets/js/main.js" defer></script>
+<?php wp_footer(); ?>
 
 </body>
 </html>

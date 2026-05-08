@@ -19,7 +19,7 @@
             e.preventDefault();
 
             // Honeypot check
-            const honeypot = form.querySelector('.form-honeypot');
+            const honeypot = form.querySelector('input[name="website"]');
             if (honeypot && honeypot.value !== '') {
                 // Bot detectado — rechazar silenciosamente
                 return;
@@ -64,16 +64,20 @@
             }
 
             const formData = new FormData(form);
+            if (!formData.get('csrf_token') && window.santafeConfig && window.santafeConfig.csrfToken) {
+                formData.set('csrf_token', window.santafeConfig.csrfToken);
+            }
             const data = {};
             formData.forEach(function(value, key) {
                 data[key] = value;
             });
 
-            fetch(form.action || '/api/contact-form.php', {
+            fetch(form.action || (window.santafeConfig && window.santafeConfig.ajaxUrl) || '/wp-admin/admin-post.php', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'X-CSRF-Token': window.csrfToken || ''
+                    'X-CSRF-Token': (window.santafeConfig && window.santafeConfig.csrfToken) || window.csrfToken || '',
+                    'X-Requested-With': 'XMLHttpRequest'
                 },
                 body: JSON.stringify(data)
             })
@@ -84,12 +88,15 @@
             .then(function(result) {
                 if (result.success) {
                     form.reset();
+                    trackEvent('form_submit');
                     showFormMessage(form, 'success', result.message || 'Mensaje enviado correctamente.');
                 } else {
+                    trackEvent('form_error');
                     showFormMessage(form, 'error', result.message || 'Ha ocurrido un error. Inténtalo de nuevo.');
                 }
             })
             .catch(function() {
+                trackEvent('form_error');
                 showFormMessage(form, 'error', 'Error de conexión. Por favor, inténtalo más tarde.');
             })
             .finally(function() {
@@ -114,8 +121,9 @@
             form.appendChild(msgEl);
         }
         msgEl.textContent = message;
-        msgEl.style.background = type === 'success' ? '#c6f6d5' : '#fed7d7';
-        msgEl.style.color = type === 'success' ? '#22543d' : '#742a2a';
+        msgEl.style.background = type === 'success' ? '#111111' : '#161616';
+        msgEl.style.border = type === 'success' ? '1px solid #22C55E' : '1px solid #EF4444';
+        msgEl.style.color = type === 'success' ? '#FFFFFF' : '#FFFFFF';
         msgEl.hidden = false;
 
         if (type === 'success') {
@@ -124,5 +132,19 @@
             }, 5000);
         }
     }
+
+    function trackEvent(name, params) {
+        if (typeof window.gtag === 'function') {
+            window.gtag('event', name, params || {});
+        }
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push(Object.assign({ event: name }, params || {}));
+    }
+
+    document.addEventListener('click', function(event) {
+        const target = event.target.closest('[data-track-event]');
+        if (!target) return;
+        trackEvent(target.getAttribute('data-track-event'));
+    });
     });
 })();

@@ -63,12 +63,16 @@
         showSettings() {
             if (this.settingsPanel) {
                 this.settingsPanel.hidden = false;
+                this.settingsPanel.style.display = 'flex';
                 this.settingsPanel.focus();
             }
         }
 
         hideSettings() {
-            if (this.settingsPanel) this.settingsPanel.hidden = true;
+            if (this.settingsPanel) {
+                this.settingsPanel.hidden = true;
+                this.settingsPanel.style.display = '';
+            }
         }
 
         acceptAll() {
@@ -105,7 +109,7 @@
                 // Fallback si localStorage no disponible
             }
 
-            // Audit trail — beacon AJAX al backend (immutable log)
+            // Audit trail optional; no backend endpoint is required for the theme to work.
             this.sendAuditTrail(data);
 
             this.applyConsent(choices);
@@ -123,11 +127,14 @@
                 timestamp: new Date().toISOString()
             };
 
+            const endpoint = window.santafeConfig && window.santafeConfig.auditUrl ? window.santafeConfig.auditUrl : '';
+            if (!endpoint) return;
+
             if (navigator.sendBeacon) {
                 const blob = new Blob([JSON.stringify(payload)], { type: 'application/json' });
-                navigator.sendBeacon('/api/log-consent.php', blob);
+                navigator.sendBeacon(endpoint, blob);
             } else {
-                fetch('/api/log-consent.php', {
+                fetch(endpoint, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -173,18 +180,31 @@
         }
 
         loadAnalytics() {
+            const cfg = window.santafeConfig || {};
+            const ga4Id = cfg.ga4Id || '';
+            const gtmId = cfg.gtmId || '';
             window.dataLayer = window.dataLayer || [];
             window.gtag = function() { dataLayer.push(arguments); };
-            gtag('js', new Date());
-            gtag('config', 'GA_MEASUREMENT_ID'); // Reemplazar con ID real
             gtag('consent', 'update', {
                 'analytics_storage': 'granted'
             });
 
-            const script = document.createElement('script');
-            script.src = 'https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID';
-            script.async = true;
-            document.head.appendChild(script);
+            if (ga4Id) {
+                const script = document.createElement('script');
+                script.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(ga4Id);
+                script.async = true;
+                document.head.appendChild(script);
+                gtag('js', new Date());
+                gtag('config', ga4Id);
+            }
+
+            if (gtmId && !document.querySelector('script[data-santafe-gtm]')) {
+                const gtm = document.createElement('script');
+                gtm.async = true;
+                gtm.dataset.santafeGtm = 'true';
+                gtm.src = 'https://www.googletagmanager.com/gtm.js?id=' + encodeURIComponent(gtmId);
+                document.head.appendChild(gtm);
+            }
         }
 
         loadFunctionalScripts() {

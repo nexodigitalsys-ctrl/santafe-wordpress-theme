@@ -25,7 +25,7 @@ $page_data = [
     'lang' => $lang,
     'title' => $titles[$type][$lang] . ' | Construcciones Santa Fe',
     'description' => $lang === 'ca' ? 'Informació legal i de protecció de dades.' : 'Información legal y de protección de datos.',
-    'canonical' => 'https://www.dominio.com/' . $lang . '/' . $route . '/',
+    'canonical' => COMPANY_DOMAIN . '/' . $lang . '/' . $route . '/',
     'schemas' => []
 ];
 
@@ -50,8 +50,8 @@ include __DIR__ . '/../includes/header.php';
                     <strong class="text-white"><?php echo $lang === 'ca' ? 'Titular' : 'Titular'; ?>:</strong> Construcciones Santa Fe Siglo XXI SLU<br>
                     <strong class="text-white">NIF/CIF:</strong> [Insertar CIF]<br>
                     <strong class="text-white"><?php echo $lang === 'ca' ? 'Domicili' : 'Domicilio'; ?>:</strong> [Insertar dirección]<br>
-                    <strong class="text-white">Email:</strong> Constrsantafe@gmail.com<br>
-                    <strong class="text-white"><?php echo $lang === 'ca' ? 'Telèfon' : 'Teléfono'; ?>:</strong> +34 665 737 547<br>
+                    <strong class="text-white">Email:</strong> <?php echo COMPANY_EMAIL; ?><br>
+                    <strong class="text-white"><?php echo $lang === 'ca' ? 'Telèfon' : 'Teléfono'; ?>:</strong> <?php echo COMPANY_PHONE_DISPLAY; ?><br>
                     <strong class="text-white"><?php echo $lang === 'ca' ? 'Responsable privacitat' : 'Responsable privacidad'; ?>:</strong> Paulo
                 </p>
             </div>
@@ -67,7 +67,7 @@ include __DIR__ . '/../includes/header.php';
             <?php elseif ($type === 'privacy'): ?>
             <div class="bg-slate-900 border border-slate-800 rounded-sm p-8">
                 <h2 class="font-display font-bold text-xl text-white mb-4"><?php echo $lang === 'ca' ? 'Responsable del tractament' : 'Responsable del tratamiento'; ?></h2>
-                <p class="text-sm">Paulo / Construcciones Santa Fe Siglo XXI SLU<br>Email: Constrsantafe@gmail.com</p>
+                <p class="text-sm">Paulo / Construcciones Santa Fe Siglo XXI SLU<br>Email: <?php echo COMPANY_EMAIL; ?></p>
             </div>
             <div>
                 <h2 class="font-display font-bold text-xl text-white mb-4"><?php echo $lang === 'ca' ? 'Dades que recollim' : 'Datos que recogemos'; ?></h2>
@@ -75,7 +75,7 @@ include __DIR__ . '/../includes/header.php';
             </div>
             <div>
                 <h2 class="font-display font-bold text-xl text-white mb-4"><?php echo $lang === 'ca' ? 'Els teus drets' : 'Tus derechos'; ?></h2>
-                <p class="text-sm"><?php echo $lang === 'ca' ? 'Accés, rectificació, supressió, oposició, limitació i portabilitat. Per exercir-los, envia un correu a Constrsantafe@gmail.com amb còpia del DNI.' : 'Acceso, rectificación, supresión, oposición, limitación y portabilidad. Para ejercerlos, envía un correo a Constrsantafe@gmail.com con copia de tu DNI.'; ?></p>
+                <p class="text-sm"><?php echo $lang === 'ca' ? 'Accés, rectificació, supressió, oposició, limitació i portabilitat. Per exercir-los, envia un correu a ' . COMPANY_EMAIL . ' amb còpia del DNI.' : 'Acceso, rectificación, supresión, oposición, limitación y portabilidad. Para ejercerlos, envía un correo a ' . COMPANY_EMAIL . ' con copia de tu DNI.'; ?></p>
             </div>
             <div>
                 <h2 class="font-display font-bold text-xl text-white mb-4"><?php echo $lang === 'ca' ? 'Mesures de seguretat' : 'Medidas de seguridad'; ?></h2>

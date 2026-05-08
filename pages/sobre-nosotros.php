@@ -17,7 +17,7 @@ $page_data = [
     'lang' => $lang,
     'title' => $lang === 'ca' ? 'Sobre Construccions Santa Fe | Paulo des de 2008' : 'Sobre Construcciones Santa Fe | Paulo desde 2008',
     'description' => $lang === 'ca' ? 'Coneix en Paulo. Més de 15 anys construint confiança a Barcelona i Girona.' : 'Conoce a Paulo. Más de 15 años construyendo confianza en Barcelona y Girona.',
-    'canonical' => 'https://www.dominio.com/' . $lang . '/' . ($lang === 'ca' ? 'sobre-nosaltres' : 'sobre-nosotros') . '/',
+    'canonical' => COMPANY_DOMAIN . '/' . $lang . '/' . ($lang === 'ca' ? 'sobre-nosaltres' : 'sobre-nosotros') . '/',
     'schemas' => [function() use ($breadcrumb_items) { return get_schema_breadcrumb($breadcrumb_items); }]
 ];
 
@@ -46,7 +46,7 @@ include __DIR__ . '/../includes/header.php';
         <div class="grid lg:grid-cols-2 gap-16 items-center mb-24">
             <div class="relative">
                 <div class="aspect-[4/5] rounded-sm overflow-hidden bg-slate-800">
-                    <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80" alt="Paulo en obra" class="w-full h-full object-cover opacity-90" loading="lazy" onerror="this.src='/assets/images/placeholder-construction.svg'">
+                    <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80" alt="Paulo en obra" class="w-full h-full object-cover opacity-90" loading="lazy" onerror="this.src='/assets/images/fallback-construction.svg'">
                 </div>
                 <div class="absolute -bottom-6 -right-6 bg-brand-600 text-white px-6 py-4 rounded-sm shadow-2xl">
                     <p class="font-display font-bold text-3xl">17</p>
@@ -61,12 +61,12 @@ include __DIR__ . '/../includes/header.php';
                 <p class="text-slate-400 leading-relaxed mb-8"><?php echo t($translations, 'story.text2'); ?></p>
                 <div class="grid grid-cols-2 gap-6">
                     <div class="border-l-2 border-brand-600 pl-4">
-                        <p class="font-display font-bold text-2xl text-white">100%</p>
-                        <p class="text-slate-400 text-sm"><?php echo $lang === 'ca' ? 'Terminis complerts' : 'Plazos cumplidos'; ?></p>
+                        <p class="font-display font-bold text-2xl text-white">Desde 2008</p>
+                        <p class="text-slate-400 text-sm"><?php echo $lang === 'ca' ? 'Seguiment de terminis' : 'Seguimiento de plazos'; ?></p>
                     </div>
                     <div class="border-l-2 border-brand-600 pl-4">
-                        <p class="font-display font-bold text-2xl text-white">200+</p>
-                        <p class="text-slate-400 text-sm"><?php echo $lang === 'ca' ? 'Projectes acabats' : 'Proyectos terminados'; ?></p>
+                        <p class="font-display font-bold text-2xl text-white">Paulo</p>
+                        <p class="text-slate-400 text-sm"><?php echo $lang === 'ca' ? 'Trajectòria des de 2008' : 'Trayectoria desde 2008'; ?></p>
                     </div>
                 </div>
             </div>

@@ -17,7 +17,7 @@ $page_data = [
     'lang' => $lang,
     'title' => $lang === 'ca' ? 'Contactar amb Construccions Santa Fe | Pressupost en 24h' : 'Contactar con Construcciones Santa Fe | Presupuesto en 24h',
     'description' => $lang === 'ca' ? 'Contacta amb en Paulo. Pressupost en 24 hores.' : 'Contacta con Paulo. Presupuesto en 24 horas.',
-    'canonical' => 'https://www.dominio.com/' . $lang . '/' . ($lang === 'ca' ? 'contacte' : 'contacto') . '/',
+    'canonical' => COMPANY_DOMAIN . '/' . $lang . '/' . ($lang === 'ca' ? 'contacte' : 'contacto') . '/',
     'schemas' => [function() use ($breadcrumb_items) { return get_schema_breadcrumb($breadcrumb_items); }]
 ];
 
@@ -38,7 +38,13 @@ include __DIR__ . '/../includes/header.php';
         <div class="grid lg:grid-cols-2 gap-16">
             <!-- Form -->
             <div class="bg-slate-900 border border-slate-800 rounded-sm p-8 md:p-10">
-                <form action="/api/contact-form.php" method="post" data-ajax="true" novalidate>
+                <?php if (isset($_GET['sent'], $_GET['msg'])): ?>
+                <div class="mb-6 border <?php echo $_GET['sent'] === '1' ? 'border-green-500' : 'border-red-500'; ?> bg-slate-950 p-4 rounded-sm text-white" role="alert">
+                    <?php echo esc_html(rawurldecode((string) $_GET['msg'])); ?>
+                </div>
+                <?php endif; ?>
+                <form action="<?php echo esc_url(admin_url('admin-post.php')); ?>" method="post" data-ajax="true" novalidate>
+                    <input type="hidden" name="action" value="santafe_contact_form">
                     <input type="hidden" name="csrf_token" value="<?php echo htmlspecialchars($_SESSION['csrf_token'] ?? '', ENT_QUOTES, 'UTF-8'); ?>">
                     <div class="sr-only" aria-hidden="true">
                         <label for="website"><?php echo t($translations, 'contact.honeypot_label'); ?></label>
@@ -47,16 +53,16 @@ include __DIR__ . '/../includes/header.php';
                     <div class="grid md:grid-cols-2 gap-5 mb-5">
                         <div>
                             <label class="block text-slate-400 text-xs uppercase tracking-wider mb-2"><?php echo t($translations, 'contact.name_label'); ?> *</label>
-                            <input type="text" name="name" required placeholder="<?php echo t($translations, 'contact.name_placeholder'); ?>" class="w-full bg-slate-950 border border-slate-700 rounded-sm px-4 py-3 text-white placeholder:text-slate-600 focus:border-brand-500 focus:outline-none transition-colors">
+                            <input type="text" name="name" required class="w-full bg-slate-950 border border-slate-700 rounded-sm px-4 py-3 text-white focus:border-brand-500 focus:outline-none transition-colors">
                         </div>
                         <div>
                             <label class="block text-slate-400 text-xs uppercase tracking-wider mb-2"><?php echo t($translations, 'contact.phone_label'); ?></label>
-                            <input type="tel" name="phone" placeholder="<?php echo t($translations, 'contact.phone_placeholder'); ?>" class="w-full bg-slate-950 border border-slate-700 rounded-sm px-4 py-3 text-white placeholder:text-slate-600 focus:border-brand-500 focus:outline-none transition-colors">
+                            <input type="tel" name="phone" class="w-full bg-slate-950 border border-slate-700 rounded-sm px-4 py-3 text-white focus:border-brand-500 focus:outline-none transition-colors">
                         </div>
                     </div>
                     <div class="mb-5">
                         <label class="block text-slate-400 text-xs uppercase tracking-wider mb-2"><?php echo t($translations, 'contact.email_label'); ?> *</label>
-                        <input type="email" name="email" required placeholder="<?php echo t($translations, 'contact.email_placeholder'); ?>" class="w-full bg-slate-950 border border-slate-700 rounded-sm px-4 py-3 text-white placeholder:text-slate-600 focus:border-brand-500 focus:outline-none transition-colors">
+                        <input type="email" name="email" required class="w-full bg-slate-950 border border-slate-700 rounded-sm px-4 py-3 text-white focus:border-brand-500 focus:outline-none transition-colors">
                     </div>
                     <div class="mb-5">
                         <label class="block text-slate-400 text-xs uppercase tracking-wider mb-2"><?php echo t($translations, 'contact.service_label'); ?></label>
@@ -72,7 +78,7 @@ include __DIR__ . '/../includes/header.php';
                     </div>
                     <div class="mb-5">
                         <label class="block text-slate-400 text-xs uppercase tracking-wider mb-2"><?php echo t($translations, 'contact.message_label'); ?> *</label>
-                        <textarea name="message" rows="4" required placeholder="<?php echo t($translations, 'contact.message_placeholder'); ?>" class="w-full bg-slate-950 border border-slate-700 rounded-sm px-4 py-3 text-white placeholder:text-slate-600 focus:border-brand-500 focus:outline-none transition-colors resize-y"></textarea>
+                        <textarea name="message" rows="4" required class="w-full bg-slate-950 border border-slate-700 rounded-sm px-4 py-3 text-white focus:border-brand-500 focus:outline-none transition-colors resize-y"></textarea>
                     </div>
                     <button type="submit" class="w-full bg-brand-600 hover:bg-brand-500 text-white font-semibold py-4 rounded-sm transition-all tracking-wide uppercase text-sm">
                         <?php echo t($translations, 'contact.submit'); ?>
@@ -90,20 +96,20 @@ include __DIR__ . '/../includes/header.php';
                     <div class="space-y-5">
                         <a href="https://wa.me/34665737547" class="flex items-center gap-4 group">
                             <div class="w-12 h-12 bg-slate-900 rounded-sm flex items-center justify-center group-hover:bg-brand-900/30 transition-colors">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#b2343b" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D4A853" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
                             </div>
                             <div>
                                 <p class="text-slate-500 text-xs uppercase tracking-wider">WhatsApp</p>
-                                <p class="text-white font-semibold text-lg"><?php echo t($translations, 'footer.phone'); ?></p>
+                                <p class="text-white font-semibold text-lg"><?php echo COMPANY_PHONE_DISPLAY; ?></p>
                             </div>
                         </a>
-                        <a href="mailto:Constrsantafe@gmail.com" class="flex items-center gap-4 group">
+                        <a href="mailto:<?php echo COMPANY_EMAIL; ?>" class="flex items-center gap-4 group">
                             <div class="w-12 h-12 bg-slate-900 rounded-sm flex items-center justify-center group-hover:bg-brand-900/30 transition-colors">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#b2343b" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-8.97 5.7a1.94 1.94 0 01-2.06 0L2 7"/></svg>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D4A853" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-8.97 5.7a1.94 1.94 0 01-2.06 0L2 7"/></svg>
                             </div>
                             <div>
                                 <p class="text-slate-500 text-xs uppercase tracking-wider">Email</p>
-                                <p class="text-white font-semibold text-lg"><?php echo t($translations, 'footer.email'); ?></p>
+                                <p class="text-white font-semibold text-lg"><?php echo COMPANY_EMAIL; ?></p>
                             </div>
                         </a>
                     </div>
