@@ -21,7 +21,7 @@ $csrf = csrf_token();
 
 // Nonce para CSP — generado por request, permite el bloque <script> inline sin unsafe-inline global
 $csp_nonce = base64_encode(random_bytes(16));
-header("Content-Security-Policy: default-src 'self'; script-src 'self' 'nonce-{$csp_nonce}'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; frame-src 'none'; object-src 'none';");
+header("Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; frame-src 'none'; object-src 'none';");
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -46,7 +46,7 @@ header("Content-Security-Policy: default-src 'self'; script-src 'self' 'nonce-{$
             <h1>Knowledge Base IT</h1>
             <p>Acceso al panel de soporte</p>
         </div>
-        <form id="loginForm" onsubmit="return handleLogin(event)">
+        <form id="loginForm" method="post" onsubmit="return handleLogin(event)">
             <input type="hidden" name="csrf_token" value="<?php echo $csrf; ?>">
             <div class="field">
                 <label for="username">Usuario</label>
