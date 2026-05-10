@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" fill="none">
+  <rect width="800" height="600" fill="#121315"/>
+  <rect x="100" y="250" width="600" height="300" rx="4" fill="#1a1a1a" stroke="#2a2c31" stroke-width="2"/>
+  <path d="M100 250 L400 100 L700 250" stroke="#AE232A" stroke-width="3" fill="none"/>
+  <rect x="200" y="350" width="120" height="100" rx="2" fill="#212225" stroke="#2a2c31" stroke-width="1"/>
+  <rect x="480" y="350" width="120" height="100" rx="2" fill="#212225" stroke="#2a2c31" stroke-width="1"/>
+  <text x="400" y="520" text-anchor="middle" fill="#7e838a" font-family="Inter, sans-serif" font-size="16">Obra nueva — Foto real próximamente</text>
+</svg>

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" fill="none">
+  <rect width="800" height="600" fill="#121315"/>
+  <rect x="50" y="350" width="700" height="200" rx="4" fill="#1a1a1a" stroke="#2a2c31" stroke-width="2"/>
+  <rect x="100" y="250" width="100" height="100" rx="2" fill="#212225" stroke="#AE232A" stroke-width="2"/>
+  <rect x="300" y="200" width="100" height="150" rx="2" fill="#212225" stroke="#AE232A" stroke-width="2"/>
+  <rect x="500" y="180" width="100" height="170" rx="2" fill="#212225" stroke="#AE232A" stroke-width="2"/>
+  <circle cx="400" cy="120" r="40" fill="#1a1a1a" stroke="#AE232A" stroke-width="2"/>
+  <text x="400" y="520" text-anchor="middle" fill="#7e838a" font-family="Inter, sans-serif" font-size="16">Obra pública — Foto real próximamente</text>
+</svg>

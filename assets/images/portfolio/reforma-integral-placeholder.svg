@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" fill="none">
+  <rect width="800" height="600" fill="#121315"/>
+  <rect x="150" y="200" width="500" height="350" rx="4" fill="#1a1a1a" stroke="#2a2c31" stroke-width="2"/>
+  <rect x="200" y="300" width="150" height="150" rx="2" fill="#212225" stroke="#AE232A" stroke-width="2"/>
+  <rect x="450" y="300" width="150" height="150" rx="2" fill="#212225" stroke="#2a2c31" stroke-width="1"/>
+  <line x1="150" y1="200" x2="650" y2="550" stroke="#2a2c31" stroke-width="1" stroke-dasharray="8 8"/>
+  <text x="400" y="520" text-anchor="middle" fill="#7e838a" font-family="Inter, sans-serif" font-size="16">Reforma integral — Foto real próximamente</text>
+</svg>

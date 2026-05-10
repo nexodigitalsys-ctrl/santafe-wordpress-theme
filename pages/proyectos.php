@@ -21,13 +21,14 @@ $page_data = [
     'schemas' => [function() use ($breadcrumb_items) { return get_schema_breadcrumb($breadcrumb_items); }]
 ];
 
+$theme_uri = get_template_directory_uri();
 $projects = [
-    ['img' => 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1200&q=80', 'title' => 'Referencia visual de obra nueva', 'desc' => 'Imagen provisional hasta publicar proyecto real autorizado', 'cat' => $lang === 'ca' ? 'Obra nova' : 'Obra nueva', 'span' => 'md:col-span-2 lg:col-span-2'],
-    ['img' => 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600&q=80', 'title' => 'Referencia visual de reforma integral', 'desc' => 'Imagen provisional hasta publicar proyecto real autorizado', 'cat' => 'Reforma', 'span' => ''],
-    ['img' => 'https://images.unsplash.com/photo-1590644365607-1c5a86e9a95b?w=600&q=80', 'title' => 'Referencia visual de infraestructura', 'desc' => 'Imagen provisional hasta publicar proyecto real autorizado', 'cat' => $lang === 'ca' ? 'Obra pública' : 'Obra pública', 'span' => ''],
-    ['img' => 'https://images.unsplash.com/photo-1621905252507-b35492c3f7e1?w=800&q=80', 'title' => 'Referencia visual de pladur y acabados', 'desc' => 'Imagen provisional hasta publicar proyecto real autorizado', 'cat' => $lang === 'ca' ? 'Acabats' : 'Acabados', 'span' => 'md:col-span-2'],
-    ['img' => 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&q=80', 'title' => 'Referencia visual de obra civil', 'desc' => 'Imagen provisional hasta publicar proyecto real autorizado', 'cat' => 'Obra civil', 'span' => ''],
-    ['img' => 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80', 'title' => 'Referencia visual de local comercial', 'desc' => 'Imagen provisional hasta publicar proyecto real autorizado', 'cat' => 'Reforma', 'span' => ''],
+    ['img' => $theme_uri . '/assets/images/portfolio/portfolio-obra-nueva-piscina.webp', 'title' => 'Obra nueva con piscina · Girona · 2024', 'desc' => 'Construcción de vivienda unifamiliar con piscina y jardín. Llave en mano.', 'cat' => $lang === 'ca' ? 'Obra nova' : 'Obra nueva', 'span' => 'md:col-span-2 lg:col-span-2'],
+    ['img' => $theme_uri . '/assets/images/portfolio/portfolio-reforma-recepcion.webp', 'title' => 'Reforma recepción · Barcelona · 2024', 'desc' => 'Reforma integral de espacio comercial con acabados premium.', 'cat' => 'Reforma', 'span' => ''],
+    ['img' => $theme_uri . '/assets/images/portfolio/portfolio-obra-publica-calzada.webp', 'title' => 'Pavimentación urbana · Barcelona · 2024', 'desc' => 'Obra pública de pavimentación y aceras en zona urbana.', 'cat' => $lang === 'ca' ? 'Obra pública' : 'Obra pública', 'span' => ''],
+    ['img' => $theme_uri . '/assets/images/servicios/pladur/pladur-hall-acabado.webp', 'title' => 'Pladur y acabados · Gràcia · 2024', 'desc' => 'Instalación de pladur y acabados de interior en hall residencial.', 'cat' => $lang === 'ca' ? 'Acabats' : 'Acabados', 'span' => 'md:col-span-2'],
+    ['img' => $theme_uri . '/assets/images/servicios/obra-publica/obra-civil-bordillo-curva.webp', 'title' => 'Obra civil · Tarragona · 2023', 'desc' => 'Colocación de bordillos y pavimentación de aceras.', 'cat' => 'Obra civil', 'span' => ''],
+    ['img' => $theme_uri . '/assets/images/portfolio/portfolio-reforma-suelo.webp', 'title' => 'Suelo porcelánico · Tarragona · 2023', 'desc' => 'Colocación de suelo porcelánico imitación madera en vivienda.', 'cat' => 'Reforma', 'span' => ''],
 ];
 
 include __DIR__ . '/../includes/header.php';

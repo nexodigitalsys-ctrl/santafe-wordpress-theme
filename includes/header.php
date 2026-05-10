@@ -8,8 +8,11 @@ declare(strict_types=1);
 
 require_once __DIR__ . '/i18n.php';
 require_once __DIR__ . '/../config/constants.php';
+require_once __DIR__ . '/functions.php';
 require_once __DIR__ . '/seo.php';
 require_once __DIR__ . '/schema-localbusiness.php';
+require_once __DIR__ . '/schema-faq.php';
+require_once __DIR__ . '/schema-reviews.php';
 
 // Iniciar sesión segura
 if (session_status() !== PHP_SESSION_ACTIVE) {
@@ -44,7 +47,7 @@ if (!empty($page_data['schemas'])) {
     }
 }
 
-$og_image = $domain . '/assets/images/og-default.jpg';
+$og_image = get_og_image($current_route ?? '', $lang);
 
 // Helper para links de idioma alternativo
 function get_alt_url($current_route, $target_lang) {
@@ -79,6 +82,10 @@ function get_alt_url($current_route, $target_lang) {
 }
 
 $alt_url = get_alt_url($current_route ?? '', $alt_lang);
+$nav_services_path = $lang === 'ca' ? 'serveis' : 'servicios';
+$nav_projects_path = $lang === 'ca' ? 'projectes' : 'proyectos';
+$nav_about_path = $lang === 'ca' ? 'sobre-nosaltres' : 'sobre-nosotros';
+$nav_contact_path = $lang === 'ca' ? 'contacte' : 'contacto';
 ?>
 <!DOCTYPE html>
 <html lang="<?php echo $locale; ?>" class="scroll-smooth">
@@ -131,7 +138,7 @@ tailwind.config = {
         display: ['Space Grotesk', 'Inter', 'sans-serif'],
       },
       colors: {
-                brand: { 50:'#fff8e8',100:'#ffedc0',200:'#f7d887',300:'#e8c878',400:'#d4a853',500:'#d4a853',600:'#b98a33',700:'#8b6426',800:'#5f421b',900:'#362410',950:'#1e1408' },
+                brand: { 50:'#fef2f2',100:'#fee2e2',200:'#fecaca',300:'#fca5a5',400:'#f87171',500:'#AE232A',600:'#991B1B',700:'#7F1D1D',800:'#5C1818',900:'#3D1212',950:'#1A0505' },
         slate: { 50:'#f4f4f5',100:'#e3e4e6',200:'#c8cace',300:'#a5a9ae',400:'#7e838a',500:'#63676e',600:'#4e5157',700:'#3a3c42',800:'#2a2c31',900:'#212225',950:'#121315' },
       }
     }
@@ -148,7 +155,7 @@ tailwind.config = {
 }
 @layer components {
   .font-display { font-family: 'Space Grotesk', 'Inter', sans-serif; }
-  .industrial-line { height: 2px; background: linear-gradient(90deg, #D4A853 0%, transparent 100%); }
+  .industrial-line { height: 2px; background: linear-gradient(90deg, #AE232A 0%, transparent 100%); }
   .card-lift { transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease; }
   .card-lift:hover { transform: translateY(-8px); box-shadow: 0 24px 48px -12px rgba(0,0,0,0.4); }
   .img-zoom { transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1); }
@@ -179,14 +186,14 @@ tailwind.config = {
     background-color: rgba(12, 12, 14, 0.96) !important;
     backdrop-filter: blur(24px) saturate(1.4);
     -webkit-backdrop-filter: blur(24px) saturate(1.4);
-    border-bottom: 2px solid #D4A853;
+    border-bottom: 2px solid #AE232A;
     box-shadow: 
-      0 0 40px rgba(212, 168, 83, 0.22),
-      0 4px 20px rgba(212, 168, 83, 0.14),
+      0 0 40px rgba(174, 35, 42, 0.22),
+      0 4px 20px rgba(174, 35, 42, 0.14),
       0 8px 40px rgba(0, 0, 0, 0.5);
   }
-  .header-scrolled [data-brand-text] { color: #D4A853; text-shadow: 0 0 12px rgba(212,168,83,0.35); }
-  .header-scrolled [data-brand-sub] { color: rgba(212,168,83,0.85); text-shadow: 0 0 8px rgba(212,168,83,0.25); }
+  .header-scrolled [data-brand-text] { color: #AE232A; text-shadow: 0 0 12px rgba(174,35,42,0.35); }
+  .header-scrolled [data-brand-sub] { color: rgba(174,35,42,0.85); text-shadow: 0 0 8px rgba(174,35,42,0.25); }
   .header-scrolled [data-nav-link] { color: rgba(255,255,255,0.85); }
   .header-scrolled [data-nav-link]:hover { color: #ffffff; }
   .header-scrolled [data-lang-btn] { color: rgba(255,255,255,0.6); border-color: rgba(255,255,255,0.2); }
@@ -209,10 +216,10 @@ tailwind.config = {
   .hero-bg { background-image: url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1920&q=80'); }
   
   /* Industrial line reversed */
-  .industrial-line-reverse { background: linear-gradient(270deg, #D4A853 0%, transparent 100%) !important; }
+  .industrial-line-reverse { background: linear-gradient(270deg, #AE232A 0%, transparent 100%) !important; }
   
   /* CTA background pattern (moved from inline style) */
-  .cta-bg-pattern { background-image: repeating-linear-gradient(90deg, #D4A853 0px, #D4A853 1px, transparent 1px, transparent 80px); }
+  .cta-bg-pattern { background-image: repeating-linear-gradient(90deg, #AE232A 0px, #AE232A 1px, transparent 1px, transparent 80px); }
   
   /* Logo aspect ratio (moved from inline style) */
   .logo-aspect { aspect-ratio: 1656/551; }
@@ -277,7 +284,7 @@ gtag('consent', 'default', {
     <nav class="hidden lg:flex items-center gap-8" role="navigation" aria-label="Principal">
       <a href="/<?php echo $lang; ?>/" class="text-sm font-medium transition-colors tracking-wide" data-nav-link><?php echo t($translations, 'nav.home'); ?></a>
       <div class="relative group">
-        <a href="/<?php echo $lang; ?>/servicios/" class="text-sm font-medium transition-colors tracking-wide inline-flex items-center gap-1" data-nav-link><?php echo t($translations, 'nav.services'); ?><span aria-hidden="true">v</span></a>
+        <a href="/<?php echo $lang; ?>/<?php echo $nav_services_path; ?>/" class="text-sm font-medium transition-colors tracking-wide inline-flex items-center gap-1" data-nav-link><?php echo t($translations, 'nav.services'); ?><span aria-hidden="true">v</span></a>
         <div class="absolute left-0 top-full pt-4 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all">
           <div class="w-72 bg-slate-950 border border-slate-800 rounded-sm shadow-2xl p-3">
             <a href="/<?php echo $lang; ?>/<?php echo $lang === 'ca' ? 'obra-nova' : 'obra-nueva'; ?>/" class="block px-4 py-3 text-sm text-slate-300 hover:text-white hover:bg-slate-900 rounded-sm">Obra nueva</a>
@@ -288,11 +295,11 @@ gtag('consent', 'default', {
           </div>
         </div>
       </div>
-      <a href="/<?php echo $lang; ?>/proyectos/" class="text-sm font-medium transition-colors tracking-wide" data-nav-link><?php echo t($translations, 'nav.projects'); ?></a>
-      <a href="/<?php echo $lang; ?>/sobre-nosotros/" class="text-sm font-medium transition-colors tracking-wide" data-nav-link><?php echo t($translations, 'nav.about'); ?></a>
+      <a href="/<?php echo $lang; ?>/<?php echo $nav_projects_path; ?>/" class="text-sm font-medium transition-colors tracking-wide" data-nav-link><?php echo t($translations, 'nav.projects'); ?></a>
+      <a href="/<?php echo $lang; ?>/<?php echo $nav_about_path; ?>/" class="text-sm font-medium transition-colors tracking-wide" data-nav-link><?php echo t($translations, 'nav.about'); ?></a>
       <a href="/<?php echo $lang; ?>/blog/" class="text-sm font-medium transition-colors tracking-wide" data-nav-link>Blog</a>
       <a href="tel:<?php echo COMPANY_PHONE; ?>" class="text-sm font-semibold text-brand-400 hover:text-brand-300 transition-colors" data-track-event="phone_click">Llámanos: <?php echo COMPANY_PHONE_DISPLAY; ?></a>
-      <a href="/<?php echo $lang; ?>/contacto/" class="text-sm font-semibold bg-brand-600 hover:bg-brand-500 text-slate-950 px-5 py-2.5 rounded-sm transition-all tracking-wide" data-nav-cta>Presupuesto gratuito</a>
+      <a href="/<?php echo $lang; ?>/<?php echo $nav_contact_path; ?>/" class="text-sm font-semibold bg-brand-600 hover:bg-brand-500 text-slate-950 px-5 py-2.5 rounded-sm transition-all tracking-wide" data-nav-cta>Presupuesto gratuito</a>
       <a href="<?php echo $alt_url; ?>" hreflang="<?php echo $alt_locale; ?>" class="text-xs font-medium border px-2 py-1 rounded-sm transition-colors <?php echo $lang === 'es' ? 'opacity-100' : 'opacity-60'; ?>" data-lang-btn>ES</a>
       <a href="<?php echo $alt_url; ?>" hreflang="<?php echo $alt_locale; ?>" class="text-xs font-medium border px-2 py-1 rounded-sm transition-colors <?php echo $lang === 'ca' ? 'opacity-100' : 'opacity-60'; ?>" data-lang-btn>CA</a>
     </nav>
@@ -307,12 +314,12 @@ gtag('consent', 'default', {
     <button type="button" id="menu-close" class="absolute top-6 right-6 text-white p-2" aria-label="<?php echo t($translations, 'nav.menu_close'); ?>">
       <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
     </button>
-    <a href="/<?php echo $lang; ?>/servicios/" class="text-2xl font-display font-bold text-white mobile-nav-link"><?php echo t($translations, 'nav.services'); ?></a>
-    <a href="/<?php echo $lang; ?>/proyectos/" class="text-2xl font-display font-bold text-white mobile-nav-link"><?php echo t($translations, 'nav.projects'); ?></a>
-    <a href="/<?php echo $lang; ?>/sobre-nosotros/" class="text-2xl font-display font-bold text-white mobile-nav-link"><?php echo t($translations, 'nav.about'); ?></a>
+    <a href="/<?php echo $lang; ?>/<?php echo $nav_services_path; ?>/" class="text-2xl font-display font-bold text-white mobile-nav-link"><?php echo t($translations, 'nav.services'); ?></a>
+    <a href="/<?php echo $lang; ?>/<?php echo $nav_projects_path; ?>/" class="text-2xl font-display font-bold text-white mobile-nav-link"><?php echo t($translations, 'nav.projects'); ?></a>
+    <a href="/<?php echo $lang; ?>/<?php echo $nav_about_path; ?>/" class="text-2xl font-display font-bold text-white mobile-nav-link"><?php echo t($translations, 'nav.about'); ?></a>
     <a href="/<?php echo $lang; ?>/blog/" class="text-2xl font-display font-bold text-white mobile-nav-link">Blog</a>
     <a href="tel:<?php echo COMPANY_PHONE; ?>" class="text-xl font-display font-bold text-brand-400 mobile-nav-link" data-track-event="phone_click"><?php echo COMPANY_PHONE_DISPLAY; ?></a>
-    <a href="/<?php echo $lang; ?>/contacto/" class="text-2xl font-display font-bold text-brand-500 mobile-nav-link"><?php echo t($translations, 'nav.contact'); ?></a>
+    <a href="/<?php echo $lang; ?>/<?php echo $nav_contact_path; ?>/" class="text-2xl font-display font-bold text-brand-500 mobile-nav-link"><?php echo t($translations, 'nav.contact'); ?></a>
   </div>
 </header>
 

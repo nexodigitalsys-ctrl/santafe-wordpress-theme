@@ -11,3 +11,14 @@ dist/
 build/
 .cache/
 coverage/
+# Test artifacts
+.playwright-mcp/
+*.test.jpg
+*.test2.jpg
+homepage-test.jpg
+obra-nueva-test.jpg
+obra-nueva-test2.jpg
+portfolio-test.jpg
+paulo-test.jpg
+final-homepage-check.png
+

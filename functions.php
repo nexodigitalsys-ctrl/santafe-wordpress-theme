@@ -198,6 +198,109 @@ function santafe_tailwind_contact_response(bool $success, string $message, bool 
     exit;
 }
 
+function santafe_tailwind_handle_calculadora(): void {
+    $content_type = $_SERVER['CONTENT_TYPE'] ?? '';
+    $is_ajax = strtolower($_SERVER['HTTP_X_REQUESTED_WITH'] ?? '') === 'xmlhttprequest'
+        || strpos($content_type, 'application/json') !== false;
+
+    $payload = $_POST;
+    if (strpos($content_type, 'application/json') !== false) {
+        $raw = file_get_contents('php://input');
+        $decoded = json_decode($raw ?: '', true);
+        if (is_array($decoded)) {
+            $payload = $decoded;
+        }
+    }
+
+    $response = ['success' => false, 'estimacion' => null, 'errors' => []];
+
+    $tipo = sanitize_text_field($payload['tipo_obra'] ?? '');
+    $metros = floatval($payload['metros'] ?? 0);
+    $ciudad = sanitize_text_field($payload['ciudad'] ?? '');
+    $acabado = sanitize_text_field($payload['acabado'] ?? '');
+    $email = sanitize_email($payload['email'] ?? '');
+
+    $tipos_validos = ['obra_nueva', 'reforma_integral', 'pladur', 'obra_publica', 'obra_civil'];
+    if (!in_array($tipo, $tipos_validos, true)) {
+        $response['errors'][] = 'Tipo de obra no válido.';
+    }
+    if ($metros < 10 || $metros > 5000) {
+        $response['errors'][] = 'Los metros cuadrados deben estar entre 10 y 5.000.';
+    }
+    $ciudades_validas = ['barcelona', 'girona', 'tarragona', 'otros'];
+    if (!in_array($ciudad, $ciudades_validas, true)) {
+        $response['errors'][] = 'Ciudad no válida.';
+    }
+    $acabados_validos = ['basico', 'estandar', 'premium'];
+    if (!in_array($acabado, $acabados_validos, true)) {
+        $response['errors'][] = 'Nivel de acabado no válido.';
+    }
+    if (empty($email) || !is_email($email)) {
+        $response['errors'][] = 'Email no válido.';
+    }
+
+    if (empty($response['errors'])) {
+        $precios_base = [
+            'obra_nueva'       => ['basico' => 800, 'estandar' => 1100, 'premium' => 1600],
+            'reforma_integral' => ['basico' => 600, 'estandar' => 900, 'premium' => 1400],
+            'pladur'           => ['basico' => 40,  'estandar' => 70,  'premium' => 120],
+            'obra_publica'     => ['basico' => 500, 'estandar' => 800, 'premium' => 1200],
+            'obra_civil'       => ['basico' => 400, 'estandar' => 700, 'premium' => 1000],
+        ];
+        $multiplicador_ciudad = [
+            'barcelona' => 1.0,
+            'girona'    => 0.95,
+            'tarragona' => 0.90,
+            'otros'     => 1.0,
+        ];
+
+        $precio_m2 = $precios_base[$tipo][$acabado];
+        $mult = $multiplicador_ciudad[$ciudad];
+        $base = $metros * $precio_m2 * $mult;
+        $min = round($base * 0.82, -3);
+        $max = round($base * 1.18, -3);
+
+        $response['success'] = true;
+        $response['estimacion'] = [
+            'min' => $min,
+            'max' => $max,
+            'base' => round($base, -3),
+            'variacion' => '18%',
+            'moneda' => 'EUR'
+        ];
+        $response['message'] = 'Horquilla estimada: €' . number_format($min, 0, ',', '.') . ' — €' . number_format($max, 0, ',', '.') . '. Te enviaremos el cálculo detallado por email en 24h.';
+
+        // Enviar lead por Telegram si está configurado
+        $lead = [
+            'nombre' => 'Calculadora web',
+            'telefono' => '',
+            'email' => $email,
+            'tipo_obra' => $tipo,
+            'm2' => (string) $metros,
+            'ciudad' => $ciudad,
+            'fase' => 'Calculadora',
+            'mensaje' => 'Solicitud de calculadora: ' . $tipo . ' en ' . $ciudad . ' (' . $metros . 'm2, ' . $acabado . '). Horquilla: €' . number_format($min, 0, ',', '.') . ' - €' . number_format($max, 0, ',', '.'),
+            'fecha' => current_time('mysql'),
+            'origen' => esc_url_raw(wp_get_referer() ?: home_url('/')),
+        ];
+        santafe_send_to_telegram($lead);
+    }
+
+    if ($is_ajax) {
+        wp_send_json($response, $response['success'] ? 200 : 400);
+    }
+
+    $target = wp_get_referer() ?: home_url('/es/');
+    $target = add_query_arg([
+        'calc' => $response['success'] ? '1' : '0',
+        'msg' => rawurlencode($response['success'] ? $response['message'] : implode(' ', $response['errors'])),
+    ], $target);
+    wp_safe_redirect($target);
+    exit;
+}
+add_action('admin_post_nopriv_santafe_calculadora', 'santafe_tailwind_handle_calculadora');
+add_action('admin_post_santafe_calculadora', 'santafe_tailwind_handle_calculadora');
+
 function santafe_tailwind_register_rewrites(): void {
     add_rewrite_tag('%santafe_lang%', '(es|ca)');
     add_rewrite_tag('%santafe_route%', '([^&]+)');
@@ -260,7 +363,15 @@ function santafe_tailwind_output_sitemap(): void {
         '/es/reformas-barcelona/', '/es/reformas-girona/', '/es/reformas-tarragona/',
         '/es/obra-nueva-barcelona/', '/es/obra-nueva-girona/',
         '/es/reformas-integrales-barcelona/', '/es/reformas-integrales-girona/',
-        '/es/pladur-barcelona/', '/es/pladur-girona/', '/es/blog/',
+        '/es/pladur-barcelona/', '/es/pladur-girona/', '/es/pladur-tarragona/',
+        '/es/obra-nueva-tarragona/', '/es/reformas-integrales-tarragona/',
+        '/ca/obra-nova/', '/ca/reformes-integrals/', '/ca/pladur-acabats/',
+        '/ca/obra-publica/', '/ca/obra-civil/',
+        '/ca/obra-nova-barcelona/', '/ca/obra-nova-girona/', '/ca/obra-nova-tarragona/',
+        '/ca/reformes-integrals-barcelona/', '/ca/reformes-integrals-girona/', '/ca/reformes-integrals-tarragona/',
+        '/ca/pladur-barcelona/', '/ca/pladur-girona/', '/ca/pladur-tarragona/',
+        '/ca/reformes-barcelona/', '/ca/reformes-girona/', '/ca/reformes-tarragona/',
+        '/blog/',
     ];
 
     header('Content-Type: application/xml; charset=UTF-8');

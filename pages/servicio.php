@@ -141,7 +141,7 @@ include __DIR__ . '/../includes/header.php';
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
             <?php foreach ($data['features'] as $feature): ?>
             <div class="flex items-start gap-4 bg-slate-900 border border-slate-800 rounded-sm p-6">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D4A853" stroke-width="2.5" class="flex-shrink-0 mt-0.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#AE232A" stroke-width="2.5" class="flex-shrink-0 mt-0.5"><polyline points="20 6 9 17 4 12"/></svg>
                 <span class="text-slate-200 text-sm"><?php echo htmlspecialchars($feature, ENT_QUOTES, 'UTF-8'); ?></span>
             </div>
             <?php endforeach; ?>

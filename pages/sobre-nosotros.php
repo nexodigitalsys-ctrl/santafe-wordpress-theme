@@ -46,7 +46,7 @@ include __DIR__ . '/../includes/header.php';
         <div class="grid lg:grid-cols-2 gap-16 items-center mb-24">
             <div class="relative">
                 <div class="aspect-[4/5] rounded-sm overflow-hidden bg-slate-800">
-                    <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80" alt="Paulo en obra" class="w-full h-full object-cover opacity-90" loading="lazy" onerror="this.src='/assets/images/fallback-construction.svg'">
+                    <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/proceso/proceso-instalacion-azulejos.webp'); ?>" alt="Equipo Santa Fe trabajando en obra" class="w-full h-full object-cover opacity-90" loading="lazy" onerror="this.src='<?php echo esc_url(get_template_directory_uri() . '/assets/images/fallback-construction.svg'); ?>'">
                 </div>
                 <div class="absolute -bottom-6 -right-6 bg-brand-600 text-white px-6 py-4 rounded-sm shadow-2xl">
                     <p class="font-display font-bold text-3xl">17</p>

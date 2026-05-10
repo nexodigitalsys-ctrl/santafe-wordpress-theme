@@ -21,12 +21,13 @@ $page_data = [
     'schemas' => [function() use ($breadcrumb_items) { return get_schema_breadcrumb($breadcrumb_items); }]
 ];
 
+$theme_uri = get_template_directory_uri();
 $services = [
-    ['slug' => 'obra-nueva', 'title_key' => 'services.new_build', 'desc_key' => 'services.new_build_desc', 'img' => 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800&q=80'],
-    ['slug' => 'reformas-integrales', 'title_key' => 'services.renovation', 'desc_key' => 'services.renovation_desc', 'img' => 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&q=80'],
-    ['slug' => 'pladur-acabados', 'title_key' => 'services.plaster', 'desc_key' => 'services.plaster_desc', 'img' => 'https://images.unsplash.com/photo-1621905252507-b35492c3f7e1?w=800&q=80'],
-    ['slug' => 'obra-publica', 'title_key' => 'services.public', 'desc_key' => 'services.public_desc', 'img' => 'https://images.unsplash.com/photo-1590644365607-1c5a86e9a95b?w=800&q=80'],
-    ['slug' => 'obra-civil', 'title_key' => 'services.civil', 'desc_key' => 'services.civil_desc', 'img' => 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80'],
+    ['slug' => 'obra-nueva', 'title_key' => 'services.new_build', 'desc_key' => 'services.new_build_desc', 'img' => $theme_uri . '/assets/images/servicios/obra-nueva/obra-nueva-piscina-acabada-jardin.webp'],
+    ['slug' => 'reformas-integrales', 'title_key' => 'services.renovation', 'desc_key' => 'services.renovation_desc', 'img' => $theme_uri . '/assets/images/servicios/reformas/reforma-recepcion-acabada.webp'],
+    ['slug' => 'pladur-acabados', 'title_key' => 'services.plaster', 'desc_key' => 'services.plaster_desc', 'img' => $theme_uri . '/assets/images/servicios/pladur/pladur-hall-acabado.webp'],
+    ['slug' => 'obra-publica', 'title_key' => 'services.public', 'desc_key' => 'services.public_desc', 'img' => $theme_uri . '/assets/images/servicios/obra-publica/obra-publica-calzada-acabada.webp'],
+    ['slug' => 'obra-civil', 'title_key' => 'services.civil', 'desc_key' => 'services.civil_desc', 'img' => $theme_uri . '/assets/images/servicios/obra-publica/obra-civil-bordillo-curva.webp'],
 ];
 
 include __DIR__ . '/../includes/header.php';
