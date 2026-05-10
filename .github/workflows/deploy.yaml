@@ -1,0 +1,60 @@
+name: Deploy Santa Fe Theme to Hostinger
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🚚 Checkout del código
+        uses: actions/checkout@v3
+
+      - name: 🚀 Despliegue vía SFTP/SSH
+        uses: easingthemes/ssh-deploy@main
+        with:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          REMOTE_HOST: ${{ secrets.SSH_HOST }}
+          REMOTE_USER: ${{ secrets.SSH_USER }}
+          REMOTE_PORT: 65002
+          TARGET: "domains/santafe.nexo-digital.app/public_html/wp-content/themes/santafe-wordpress-theme/"
+          SOURCE: "/"
+          ARGS: "-rlgoDzvc -i --delete"
+          EXCLUDE: "/.github/, /.git/, /node_modules/, .gitignore, README.md"
+
+      - name: 🔔 Notificación a Discord
+        if: always()
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+          STATUS: ${{ job.status }}
+        run: |
+          if [ "$STATUS" == "success" ]; then
+            COLOR=5763719
+            EMOJI="✅ SUCCESS"
+          else
+            COLOR=15548997
+            EMOJI="❌ FAILED"
+          fi
+          
+          TIMESTAMP=$(date -u +'%Y-%m-%dT%H:%M:%SZ')
+          REPO="${{ github.repository }}"
+          USER="${{ github.actor }}"
+          MSG="${{ github.event.head_commit.message }}"
+
+          curl -X POST -H "Content-Type: application/json" \
+            -d "{
+              \"username\": \"Nexo OpsBot\",
+              \"embeds\": [{
+                \"title\": \"$EMOJI - Deployment Santa Fe\",
+                \"color\": $COLOR,
+                \"fields\": [
+                  { \"name\": \"📁 Repositorio\", \"value\": \"$REPO\", \"inline\": true },
+                  { \"name\": \"👤 Usuario\", \"value\": \"$USER\", \"inline\": true },
+                  { \"name\": \"📝 Comentario\", \"value\": \"$MSG\", \"inline\": false }
+                ],
+                \"footer\": { \"text\": \"CI/CD Pipeline — Nexo Digital Agency\" },
+                \"timestamp\": \"$TIMESTAMP\"
+              }]
+            }" $DISCORD_WEBHOOK
