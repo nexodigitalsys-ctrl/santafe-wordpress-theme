@@ -1,0 +1,97 @@
+# ============================================================
+# .HTACCESS v5 — Hardened Security for Apache (Hostinger)
+# ============================================================
+
+# Force HTTPS
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+    RewriteCond %{HTTPS} !on
+    RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+</IfModule>
+
+# ── Block access to sensitive files ──
+<FilesMatch "(config_v5\.php|config\.php|config_v4\.php|\.sql|\.log|\.md|\.txt|\.env)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Block access to hidden files
+<FilesMatch "^\.">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Allow .htaccess itself to work
+<Files ".htaccess">
+    Order allow,deny
+    Deny from all
+</Files>
+
+# ── Prevent directory listing ──
+Options -Indexes
+
+# ── Block access to logs directory entirely ──
+<IfModule mod_rewrite.c>
+    RewriteRule ^logs/ - [F,L]
+    RewriteRule ^BBDD_Hostinger/ - [F,L]
+    RewriteRule ^test_api/ - [F,L]
+</IfModule>
+
+# ── Security Headers ──
+<IfModule mod_headers.c>
+    Header always set X-Frame-Options "DENY"
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-XSS-Protection "1; mode=block"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+    # CSP base — index.php sobreescribe con nonce dinámico para la app
+    Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; frame-src 'none'; object-src 'none';"
+    Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+    # Remove server info
+    Header always unset X-Powered-By
+    Header always unset Server
+</IfModule>
+
+# ── Compression ──
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css
+    AddOutputFilterByType DEFLATE text/javascript application/javascript application/json
+</IfModule>
+
+# ── Caching ──
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+    ExpiresByType image/png "access plus 1 month"
+    ExpiresByType image/jpeg "access plus 1 month"
+    ExpiresByType application/pdf "access plus 1 week"
+    ExpiresByType text/html "access plus 1 hour"
+</IfModule>
+
+# ── Charset ──
+AddDefaultCharset utf-8
+
+# ── Block common attack patterns ──
+<IfModule mod_rewrite.c>
+    # Block SQL injection attempts in query strings
+    RewriteCond %{QUERY_STRING} (union|select|insert|drop|delete|update|concat|benchmark|sleep).*(\(|%28) [NC]
+    RewriteRule .* - [F,L]
+
+    # Block file inclusion attacks
+    RewriteCond %{QUERY_STRING} (\.\./|\.\.\\) [NC]
+    RewriteRule .* - [F,L]
+
+    # Block script injections
+    RewriteCond %{QUERY_STRING} (<script|%3Cscript) [NC]
+    RewriteRule .* - [F,L]
+</IfModule>
+
+# ── Limit upload size (10MB) ──
+LimitRequestBody 10485760
+
+# ── Keep-alive ──
+<IfModule mod_headers.c>
+    Header set Connection keep-alive
+</IfModule>

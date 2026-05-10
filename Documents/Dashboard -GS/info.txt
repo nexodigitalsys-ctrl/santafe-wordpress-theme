@@ -1,0 +1,73 @@
+Subir el proyecto a Hostinger
+1. Archivos a subir (y cuáles NO)
+Sube todo excepto estos archivos:
+
+
+❌ NO subir:
+   .env                  ← contiene tus secrets reales
+   database_v5.sql       ← solo úsalo para importar, luego borralo del servidor
+   README_DEPLOY.md
+   logs/                 ← se crea solo en el servidor
+
+✅ Subir:
+   index.php
+   config_v5.php
+   .htaccess
+   api/  (toda la carpeta)
+   js/   (toda la carpeta)
+   css/  (toda la carpeta)
+2. Cómo subir los archivos
+Opción A — File Manager de Hostinger (más fácil):
+
+Entra a hpanel.hostinger.com
+Ve a Hosting → Administrar → File Manager
+Navega a public_html/ (o la carpeta de tu dominio)
+Crea una carpeta dashboard (o sube directo a public_html si es el sitio principal)
+Arrastra y suelta todos los archivos
+Opción B — FTP con FileZilla:
+
+Host: tu dominio o la IP del servidor (la encuentras en hPanel → FTP Accounts)
+Puerto: 21
+Usuario y contraseña: los de tu cuenta FTP de Hostinger
+3. Importar la base de datos
+En hPanel → Bases de datos → phpMyAdmin
+Selecciona tu base de datos (u526996563_knowledge_base)
+Pestaña Importar → sube database_v5.sql
+Clic en Continuar
+Después de importar, borra el archivo .sql del servidor (File Manager → eliminarlo)
+4. Cambiar la contraseña de la base de datos
+En hPanel → Bases de datos MySQL
+Busca el usuario u526996563_kb_user
+Clic en Cambiar contraseña
+Genera una contraseña fuerte (usa el generador de Hostinger)
+Copia la contraseña nueva
+5. Dónde poner las credenciales — el archivo .env
+Este archivo no lo subas con FTP. Créalo directamente en el servidor:
+
+En File Manager, navega a donde subiste el proyecto
+Clic en Nuevo archivo → nómbralo .env
+Edítalo y pon esto con tus datos reales:
+
+DB_HOST=localhost
+DB_USER=u526996563_kb_user
+DB_PASSWORD=TuNuevaContraseñaAqui
+DB_NAME=u526996563_knowledge_base
+DB_PORT=3306
+GEMINI_API_KEY=TuApiKeyDeGeminiAqui
+6. Cómo obtener/cambiar la API Key de Gemini
+Ve a aistudio.google.com/app/apikey
+Inicia sesión con tu cuenta Google
+Clic en Create API Key
+Copia la key generada (empieza por AIza...)
+Pégala en el .env del servidor en la línea GEMINI_API_KEY=
+La key anterior (AIzaSyBLl4wQ6nFTVmoidFCoGt_Qfn-09PHsylk) ya está comprometida porque estaba en el código — en Google AI Studio puedes eliminarla y crear una nueva.
+
+7. Verificar que todo funciona
+Después de subir, comprueba estas URLs (reemplaza con tu dominio):
+
+
+https://tudominio.com/           → debe mostrar el login
+https://tudominio.com/.env       → debe dar 403 Forbidden ✓
+https://tudominio.com/config_v5.php → debe dar 403 Forbidden ✓
+https://tudominio.com/logs/      → debe dar 403 Forbidden ✓
+Si el login funciona y los archivos sensibles dan 403, el deploy está correcto.
