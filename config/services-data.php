@@ -1,13 +1,15 @@
 <?php
 /**
  * Copy and structured content for core service landing pages.
+ * PAS framework: Problem → Agitate → Solution
  */
 
 declare(strict_types=1);
 
 defined('ABSPATH') || exit;
 
-$base_services = [
+// ── Español ───────────────────────────────────────────────────────
+$es = [
     'obra-nueva' => [
         'h1' => 'Obra nueva en Barcelona y Girona | Santa Fe Construcciones',
         'title' => 'Obra nueva en Barcelona y Girona | Santa Fe Construcciones',
@@ -15,8 +17,8 @@ $base_services = [
         'problem' => 'Una obra nueva mal planificada multiplica cambios, retrasos y decisiones improvisadas. Antes de construir, hay que ordenar licencias, estructura, gremios, suministros y acabados.',
         'agitate' => 'Cuando cada industrial trabaja por separado, el presupuesto deja de ser una guía fiable. El cliente acaba coordinando problemas que deberían estar resueltos antes de iniciar la obra.',
         'solution' => 'En Santa Fe planificamos la obra por fases, validamos alcance técnico, coordinamos gremios y mantenemos comunicación directa para que cada decisión quede clara.',
-        'prices' => 'Proyecto a medida tras visita técnica. Como referencia inicial, la obra nueva residencial suele depender de estructura, m², terreno, calidades y licencias.',
-        'features' => ['Estudio técnico inicial', 'Plan de obra por fases', 'Coordinación de gremios', 'Seguimiento directo con Paulo', 'Entrega limpia y documentada'],
+        'prices' => 'Proyecto a medida tras visita técnica.',
+        'features' => ['Estudio técnico inicial y visado', 'Planificación de obra por fases', 'Coordinación de gremios y suministros', 'Seguimiento directo con Paulo', 'Licencias y documentación', 'Entrega limpia con certificados'],
         'phases' => [
             ['title' => 'Visita técnica', 'desc' => 'Revisamos alcance, terreno, necesidades y restricciones.'],
             ['title' => 'Presupuesto', 'desc' => 'Preparamos partidas claras y fases de ejecución.'],
@@ -24,9 +26,12 @@ $base_services = [
             ['title' => 'Entrega', 'desc' => 'Revisión final, limpieza y cierre de detalles.'],
         ],
         'faq' => [
-            ['q' => '¿Trabajáis con arquitecto?', 'a' => 'Es viable coordinarse con la dirección facultativa del cliente o recomendar técnicos colaboradores según el proyecto.'],
+            ['q' => '¿Trabajáis con arquitecto?', 'a' => 'Sí, es viable coordinarse con la dirección facultativa del cliente o recomendar técnicos colaboradores según el proyecto.'],
             ['q' => '¿El presupuesto es cerrado?', 'a' => 'Se entrega por partidas y alcance definido. Cualquier cambio se valida antes de ejecutarse.'],
-            ['q' => '¿Gestionáis licencias?', 'a' => 'Acompañamos la tramitación y coordinación documental cuando el alcance lo requiere.'],
+            ['q' => '¿Gestionáis las licencias?', 'a' => 'Acompañamos la tramitación y coordinación documental cuando el alcance lo requiere.'],
+            ['q' => '¿Qué plazo tiene una obra nueva?', 'a' => 'Depende de m², estructura y complejidad. Tras la visita técnica podemos estimar un calendario realista.'],
+            ['q' => '¿Puedo visitar obras en curso?', 'a' => 'Sí, con cita previa y coordinando con el capataz de la obra.'],
+            ['q' => '¿Daís garantía?', 'a' => 'Sí. Ofrecemos 2 años de garantía por escrito en ejecución y acabados.'],
         ],
         'cta_primary' => 'Solicitar presupuesto de obra nueva',
         'cta_secondary' => 'Llamar a Paulo',
@@ -38,8 +43,8 @@ $base_services = [
         'problem' => 'Una reforma integral concentra albañilería, instalaciones, carpintería, pintura y decisiones de acabado. Sin coordinación, cada cambio afecta al coste y al plazo.',
         'agitate' => 'El riesgo no está solo en reformar, sino en empezar sin alcance claro. Ahí aparecen extras, esperas, compras urgentes y acabados que no encajan.',
         'solution' => 'Ordenamos la reforma antes de empezar: visita, medición, alcance, prioridades, calendario y comunicación directa durante la ejecución.',
-        'prices' => 'Referencia orientativa: reformas integrales desde 450-900 €/m² según estado inicial, calidades, instalaciones y complejidad.',
-        'features' => ['Derribos y albañilería', 'Instalaciones y acabados', 'Planificación por fases', 'Presupuesto por partidas', 'Limpieza final'],
+        'prices' => 'Referencia orientativa: reformas integrales desde 450-900 €/m².',
+        'features' => ['Visita técnica y diagnóstico gratuito', 'Desmontaje y retirada de escombros', 'Albañilería, instalaciones y acabados', 'Carpintería interior y exterior', 'Cocina y baño completo', 'Limpieza final y entrega'],
         'phases' => [
             ['title' => 'Diagnóstico', 'desc' => 'Analizamos vivienda, necesidades y estado de instalaciones.'],
             ['title' => 'Alcance', 'desc' => 'Definimos partidas, calidades y prioridades.'],
@@ -47,9 +52,14 @@ $base_services = [
             ['title' => 'Cierre', 'desc' => 'Revisión de acabados y entrega ordenada.'],
         ],
         'faq' => [
-            ['q' => '¿Cuánto tarda una reforma integral?', 'a' => 'Depende de m² y complejidad. Tras visita técnica se puede estimar un calendario realista.'],
-            ['q' => '¿Puedo vivir en casa durante la reforma?', 'a' => 'En reformas parciales a veces sí; en integrales completas normalmente no es recomendable.'],
-            ['q' => '¿Incluís materiales?', 'a' => 'Se pueden incluir materiales y coordinar compras según el nivel de acabado acordado.'],
+            ['q' => '¿Cuánto tarda una reforma integral?', 'a' => 'Depende de los m² y la complejidad. Un piso de 80 m² con reforma completa suele tardar entre 6 y 10 semanas. Tras la visita técnica te damos un calendario realista.'],
+            ['q' => '¿Puedo vivir en casa durante la reforma?', 'a' => 'En reformas parciales a veces sí; en integrales completas normalmente no es recomendable por ruido, polvo y seguridad. Te podemos asesorar según el alcance.'],
+            ['q' => '¿Incluís materiales?', 'a' => 'Sí, se pueden incluir materiales y coordinar compras según el nivel de acabado acordado. Preparamos una memoria de calidades con marcas y modelos exactos.'],
+            ['q' => '¿Qué pasa si aparecen humedades?', 'a' => 'Durante la visita técnica detectamos signos de humedad. Si aparecen durante la obra, te informamos antes de continuar y valoramos la solución sin presión.'],
+            ['q' => '¿Gestionáis la licencia de obra?', 'a' => 'Sí. Tramitamos licencia de obra menor o mayor según el alcance. También gestionamos permiso de ocupación de vía pública para contenedores si es necesario.'],
+            ['q' => '¿El presupuesto es cerrado?', 'a' => 'Sí. El precio que firmamos es el precio final. Cualquier cambio que afecte el presupuesto se valida por escrito antes de ejecutarse.'],
+            ['q' => '¿Daís garantía?', 'a' => 'Sí. Ofrecemos 2 años de garantía por escrito en ejecución y acabados. También contamos con seguro de responsabilidad civil.'],
+            ['q' => '¿En qué zonas trabajáis?', 'a' => 'Principalmente en Barcelona ciudad y área metropolitana, Girona y Tarragona. Para obras de cierta envergadura también nos desplazamos al resto de Cataluña.'],
         ],
         'cta_primary' => 'Solicitar presupuesto de reforma',
         'cta_secondary' => 'Llamar a Paulo',
@@ -61,8 +71,8 @@ $base_services = [
         'problem' => 'El pladur parece sencillo hasta que entran aislamiento, humedad, acústica, iluminación, cargas y encuentros con instalaciones.',
         'agitate' => 'Una mala ejecución se nota en juntas, fisuras, vibraciones, techos desnivelados y acabados que envejecen mal.',
         'solution' => 'Diseñamos la solución adecuada para cada estancia y ejecutamos con estructura, placa, aislamiento y acabado coherentes con el uso real.',
-        'prices' => 'Referencia orientativa: trabajos de pladur desde 35-75 €/m² según tipo de placa, aislamiento, altura y acabado.',
-        'features' => ['Tabiques y trasdosados', 'Techos continuos y registrables', 'Aislamiento acústico', 'Iluminación integrada', 'Acabados listos para pintar'],
+        'prices' => 'Referencia orientativa: trabajos de pladur desde 35-75 €/m².',
+        'features' => ['Tabiques y trasdosados', 'Techos continuos y registrables', 'Aislamiento acústico y térmico', 'Iluminación integrada', 'Acabados listos para pintar', 'Soluciones para humedades'],
         'phases' => [
             ['title' => 'Medición', 'desc' => 'Tomamos medidas y necesidades técnicas.'],
             ['title' => 'Solución', 'desc' => 'Elegimos placa, estructura y aislamiento.'],
@@ -73,6 +83,9 @@ $base_services = [
             ['q' => '¿El pladur sirve para aislar ruido?', 'a' => 'Sí, si se diseña con placa, lana mineral y sistema adecuados.'],
             ['q' => '¿Se pueden colgar muebles?', 'a' => 'Sí, previendo refuerzos y anclajes adecuados según carga.'],
             ['q' => '¿Trabajáis techos con iluminación?', 'a' => 'Sí, coordinamos huecos, pasos y acabados para iluminación integrada.'],
+            ['q' => '¿Cuánto cuesta el pladur por m²?', 'a' => 'Desde 35 €/m² para placa estándar sin aislamiento. Con aislamiento acústico y térmico, desde 55 €/m².'],
+            ['q' => '¿El pladur aguanta la humedad?', 'a' => 'Hay placas específicas para zonas húmedas (baño, cocina). Las evaluamos durante la visita.'],
+            ['q' => '¿Qué plazo tiene una obra de pladur?', 'a' => 'Un apartamento de 80 m² con pladur en toda la vivienda suele tardar 1-2 semanas.'],
         ],
         'cta_primary' => 'Solicitar presupuesto de pladur',
         'cta_secondary' => 'Llamar a Paulo',
@@ -84,8 +97,8 @@ $base_services = [
         'problem' => 'La obra pública exige cumplimiento, documentación y coordinación estricta. Los retrasos o fallos de trazabilidad tienen impacto administrativo y económico.',
         'agitate' => 'Sin control documental y técnico, una obra aparentemente simple puede bloquear certificaciones, recepciones o entregas.',
         'solution' => 'Trabajamos con planificación, comunicación y seguimiento para mantener orden técnico, documental y de ejecución.',
-        'prices' => 'Presupuesto según pliego, mediciones, documentación y alcance de ejecución.',
-        'features' => ['Coordinación técnica', 'Cumplimiento documental', 'Plan de trabajo', 'Control de ejecución', 'Entrega trazable'],
+        'prices' => 'Presupuesto según pliego, mediciones y alcance.',
+        'features' => ['Coordinación técnica con la administración', 'Cumplimiento documental', 'Plan de trabajo por fases', 'Control de ejecución y calidad', 'Entrega trazable', 'Garantía de reparación'],
         'phases' => [
             ['title' => 'Análisis', 'desc' => 'Revisamos pliego, alcance y condicionantes.'],
             ['title' => 'Planificación', 'desc' => 'Organizamos fases, equipos y documentación.'],
@@ -93,9 +106,12 @@ $base_services = [
             ['title' => 'Cierre', 'desc' => 'Preparamos entrega y revisión final.'],
         ],
         'faq' => [
-            ['q' => '¿Trabajáis para administraciones?', 'a' => 'Sí, en proyectos donde el alcance y documentación estén definidos.'],
+            ['q' => '¿Trabajáis para administraciones?', 'a' => 'Sí, en proyectos donde el alcance y la documentación estén definidos.'],
             ['q' => '¿Podéis coordinar documentación?', 'a' => 'Sí, dentro del alcance acordado con la dirección técnica.'],
             ['q' => '¿En qué zonas trabajáis?', 'a' => 'Principalmente Barcelona, Girona, Tarragona y Cataluña.'],
+            ['q' => '¿Qué tipo de obra pública hacéis?', 'a' => 'Pavimentación urbana, aceras, mobiliario urbano, rehabilitación de fachadas y espacios públicos.'],
+            ['q' => '¿Cómo se factura la obra pública?', 'a' => 'Según certificaciones de obra, mediciones y pliego de condiciones.'],
+            ['q' => '¿Daís garantía en obra pública?', 'a' => 'Sí, cumplimos el período de garantía exigido por la administración contratante.'],
         ],
         'cta_primary' => 'Consultar obra pública',
         'cta_secondary' => 'Llamar a Paulo',
@@ -107,8 +123,8 @@ $base_services = [
         'problem' => 'La obra civil no permite improvisación: terreno, cargas, drenajes, accesos y seguridad condicionan cada decisión.',
         'agitate' => 'Un error en fases iniciales puede afectar estabilidad, coste, plazos y reparaciones posteriores.',
         'solution' => 'Ejecutamos con criterio técnico, coordinación y seguimiento para que cada fase quede preparada para la siguiente.',
-        'prices' => 'Presupuesto según mediciones, terreno, acceso, maquinaria, materiales y complejidad técnica.',
-        'features' => ['Cimentaciones', 'Muros y estructuras', 'Canalizaciones', 'Preparación de terreno', 'Coordinación técnica'],
+        'prices' => 'Presupuesto según mediciones, terreno y complejidad técnica.',
+        'features' => ['Cimentaciones y estructuras', 'Muros y contenciones', 'Canalizaciones y drenajes', 'Preparación de terreno', 'Coordinación técnica', 'Control de seguridad'],
         'phases' => [
             ['title' => 'Revisión', 'desc' => 'Analizamos mediciones, terreno y condicionantes.'],
             ['title' => 'Preparación', 'desc' => 'Planificamos accesos, equipos y fases.'],
@@ -119,21 +135,155 @@ $base_services = [
             ['q' => '¿Hacéis cimentaciones?', 'a' => 'Sí, según proyecto técnico, mediciones y dirección facultativa.'],
             ['q' => '¿Trabajáis con empresas?', 'a' => 'Sí, para empresas, comunidades y clientes con necesidades técnicas.'],
             ['q' => '¿Visitáis la obra antes de presupuestar?', 'a' => 'Sí, la visita técnica ayuda a evitar presupuestos irreales.'],
+            ['q' => '¿Qué incluye la obra civil?', 'a' => 'Cimentaciones, muros, canalizaciones, preparación de terreno y coordinación técnica.'],
+            ['q' => '¿Gestionáis permisos de obra civil?', 'a' => 'Acompañamos la tramitación según el alcance técnico del proyecto.'],
+            ['q' => '¿Qué plazo tiene una obra civil?', 'a' => 'Depende de las mediciones, acceso, maquinaria y complejidad técnica. Visitamos la obra para estimarlo.'],
         ],
         'cta_primary' => 'Consultar obra civil',
         'cta_secondary' => 'Llamar a Paulo',
     ],
 ];
 
-$ca_services = [];
-foreach ($base_services as $slug => $service) {
-    $ca_services[$slug] = $service;
-}
+// ── Català ────────────────────────────────────────────────────────
+$ca = [
+    'obra-nueva' => [
+        'h1' => 'Obra nova a Barcelona i Girona | Santa Fe Construcciones',
+        'title' => 'Obra nova a Barcelona i Girona | Santa Fe Construcciones',
+        'description' => 'Construïm habitatges i edificacions amb planificació tècnica, control de costos i seguiment clar des de llicència fins a lliurament.',
+        'problem' => 'Una obra nova mal planificada multiplica canvis, retards i decisions improvisades. Abans de construir, cal ordenar llicències, estructura, gremis, subministraments i acabats.',
+        'agitate' => 'Quan cada industrial treballa per separat, el pressupost deixa de ser una guia fiable. El client acaba coordinant problemes que haurien d\'estar resolts abans d\'iniciar l\'obra.',
+        'solution' => 'A Santa Fe planifiquem l\'obra per fases, validem l\'abast tècnic, coordinem gremis i mantenim comunicació directa perquè cada decisió quedi clara.',
+        'prices' => 'Projecte a mida després de visita tècnica.',
+        'features' => ['Estudi tècnic inicial i visat', 'Planificació d\'obra per fases', 'Coordinació de gremis i subministraments', 'Seguiment directe amb Paulo', 'Llicències i documentació', 'Lliurament net amb certificats'],
+        'phases' => [
+            ['title' => 'Visita tècnica', 'desc' => 'Revisem abast, terreny, necessitats i restriccions.'],
+            ['title' => 'Pressupost', 'desc' => 'Preparem partides clares i fases d\'execució.'],
+            ['title' => 'Execució', 'desc' => 'Coordinem estructura, instal·lacions i acabats.'],
+            ['title' => 'Lliurament', 'desc' => 'Revisió final, neteja i tancament de detalls.'],
+        ],
+        'faq' => [
+            ['q' => '¿Treballau amb arquitecte?', 'a' => 'Sí, és viable coordinar-nos amb la direcció facultativa del client o recomanar tècnics col·laboradors segons el projecte.'],
+            ['q' => '¿El pressupost és tancat?', 'a' => 'S\'entrega per partides i abast definit. Qualsevol canvi es valida abans d\'executar-se.'],
+            ['q' => '¿Gestioneu les llicències?', 'a' => 'Acompanyem la tramitació i coordinació documental quan l\'abast ho requereix.'],
+            ['q' => '¿Quin termini té una obra nova?', 'a' => 'Depèn de m², estructura i complexitat. Després de la visita tècnica podem estimar un calendari realista.'],
+            ['q' => '¿Puc visitar obres en curs?', 'a' => 'Sí, amb cita prèvia i coordinant amb el capataç de l\'obra.'],
+            ['q' => '¿Doneu garantia?', 'a' => 'Sí. Oferim 2 anys de garantia per escrit en execució i acabats.'],
+        ],
+        'cta_primary' => 'Solicitar pressupost d\'obra nova',
+        'cta_secondary' => 'Trucar a Paulo',
+    ],
+    'reformas-integrales' => [
+        'h1' => 'Reformes integrals a Barcelona i Girona | Santa Fe Construcciones',
+        'title' => 'Reformes integrals a Barcelona i Girona | Santa Fe Construcciones',
+        'description' => 'Reformes integrals amb pressupost clar, coordinació de gremis, control de termini i acabats cuidats.',
+        'problem' => 'Una reforma integral concentra albañileria, instal·lacions, fusteria, pintura i decisions d\'acabat. Sense coordinació, cada canvi afecta el cost i el termini.',
+        'agitate' => 'El risc no està només en reformar, sinó en començar sense abast clar. Allà apareixen extres, esperes, compres urgents i acabats que no encaixen.',
+        'solution' => 'Ordenem la reforma abans de començar: visita, mesura, abast, prioritats, calendari i comunicació directa durant l\'execució.',
+        'prices' => 'Referència orientativa: reformes integrals des de 450-900 €/m².',
+        'features' => ['Visita tècnica i diagnòstic gratuït', 'Desmuntatge i retirada de runa', 'Albañileria, instal·lacions i acabats', 'Fusteria interior i exterior', 'Cuina i bany complet', 'Neteja final i lliurament'],
+        'phases' => [
+            ['title' => 'Diagnòstic', 'desc' => 'Analitzem habitatge, necessitats i estat d\'instal·lacions.'],
+            ['title' => 'Abast', 'desc' => 'Definim partides, qualitats i prioritats.'],
+            ['title' => 'Obra', 'desc' => 'Coordinem gremis i decisions crítiques.'],
+            ['title' => 'Tancament', 'desc' => 'Revisió d\'acabats i lliurament ordenat.'],
+        ],
+        'faq' => [
+            ['q' => '¿Quant tarda una reforma integral?', 'a' => 'Depèn dels m² i la complexitat. Un pis de 80 m² amb reforma completa sol trigar entre 6 i 10 setmanes. Després de la visita tècnica et donem un calendari realista.'],
+            ['q' => '¿Puc viure a casa durant la reforma?', 'a' => 'En reformes parcials de vegades sí; en integrals completes normalment no és recomanable per soroll, pols i seguretat. Et podem assessorar segons l\'abast.'],
+            ['q' => '¿Incloeu materials?', 'a' => 'Sí, es poden incloure materials i coordinar compres segons el nivell d\'acabat acordat. Preparem una memòria de qualitats amb marques i models exactes.'],
+            ['q' => '¿Què passa si apareixen humitats?', 'a' => 'Durant la visita tècnica detectem signes d\'humitat. Si apareixen durant l\'obra, t\'informem abans de continuar i valorem la solució sense pressió.'],
+            ['q' => '¿Gestioneu la llicència d\'obra?', 'a' => 'Sí. Tramitem llicència d\'obra menor o major segons l\'abast. També gestionem permís d\'ocupació de via pública per contenidors si cal.'],
+            ['q' => '¿El pressupost és tancat?', 'a' => 'Sí. El preu que firmem és el preu final. Qualsevol canvi que afecti el pressupost es valida per escrit abans d\'executar-se.'],
+            ['q' => '¿Doneu garantia?', 'a' => 'Sí. Oferim 2 anys de garantia per escrit en execució i acabats. També comptem amb assegurança de responsabilitat civil.'],
+            ['q' => '¿En quines zones treballeu?', 'a' => 'Principalment a Barcelona ciutat i àrea metropolitana, Girona i Tarragona. Per a obres de certa envergadura també ens desplacem a la resta de Catalunya.'],
+        ],
+        'cta_primary' => 'Solicitar pressupost de reforma',
+        'cta_secondary' => 'Trucar a Paulo',
+    ],
+    'pladur-acabados' => [
+        'h1' => 'Pladur i acabats interiors a Barcelona i Girona | Santa Fe Construcciones',
+        'title' => 'Pladur i acabats interiors a Barcelona i Girona | Santa Fe Construcciones',
+        'description' => 'Instal·lació de pladur, sostres, trasdosats, divisions interiors i acabats amb criteri tècnic.',
+        'problem' => 'El pladur sembla senzill fins que entren aïllament, humitat, acústica, il·luminació, càrregues i trobades amb instal·lacions.',
+        'agitate' => 'Una mala execució es nota en juntes, fissures, vibracions, sostres desnivellats i acabats que envellixen malament.',
+        'solution' => 'Dissenyem la solució adequada per a cada estança i executem amb estructura, placa, aïllament i acabat coherents amb l\'ús real.',
+        'prices' => 'Referència orientativa: treballs de pladur des de 35-75 €/m².',
+        'features' => ['Tabiques i trasdosats', 'Sostres continus i registrables', 'Aïllament acústic i tèrmic', 'Il·luminació integrada', 'Acabats llestos per pintar', 'Solucions per a humitats'],
+        'phases' => [
+            ['title' => 'Mesura', 'desc' => 'Prenem mesures i necessitats tècniques.'],
+            ['title' => 'Solució', 'desc' => 'Triem placa, estructura i aïllament.'],
+            ['title' => 'Muntatge', 'desc' => 'Executem estructura, plaques i passos tècnics.'],
+            ['title' => 'Acabat', 'desc' => 'Tractem juntes i deixem llest per terminació.'],
+        ],
+        'faq' => [
+            ['q' => '¿El pladur serveix per aïllar soroll?', 'a' => 'Sí, si es dissenya amb placa, llana mineral i sistema adequats.'],
+            ['q' => '¿Es poden penjar mobles?', 'a' => 'Sí, preveient reforts i anclatges adequats segons càrrega.'],
+            ['q' => '¿Treballau sostres amb il·luminació?', 'a' => 'Sí, coordinem forats, passos i acabats per a il·luminació integrada.'],
+            ['q' => '¿Quant costa el pladur per m²?', 'a' => 'Des de 35 €/m² per a placa estàndard sense aïllament. Amb aïllament acústic i tèrmic, des de 55 €/m².'],
+            ['q' => '¿El pladur aguanta la humitat?', 'a' => 'Hi ha plaques específiques per a zones humides (bany, cuina). Les avaluem durant la visita.'],
+            ['q' => '¿Quin termini té una obra de pladur?', 'a' => 'Un apartament de 80 m² amb pladur a tota la vivenda sol trigar 1-2 setmanes.'],
+        ],
+        'cta_primary' => 'Solicitar pressupost de pladur',
+        'cta_secondary' => 'Trucar a Paulo',
+    ],
+    'obra-publica' => [
+        'h1' => 'Obra pública a Barcelona i Girona | Santa Fe Construcciones',
+        'title' => 'Obra pública a Barcelona i Girona | Santa Fe Construcciones',
+        'description' => 'Execució d\'obra pública amb documentació, compliment, coordinació i traçabilitat.',
+        'problem' => 'L\'obra pública exigeix compliment, documentació i coordinació estricta. Els retards o errors de traçabilitat tenen impacte administratiu i econòmic.',
+        'agitate' => 'Sense control documental i tècnic, una obra aparentment senzilla pot bloquejar certificacions, recepcions o lliuraments.',
+        'solution' => 'Treballem amb planificació, comunicació i seguiment per mantenir ordre tècnic, documental i d\'execució.',
+        'prices' => 'Pressupost segons plec, mesuracions i abast.',
+        'features' => ['Coordinació tècnica amb l\'administració', 'Compliment documental', 'Pla de treball per fases', 'Control d\'execució i qualitat', 'Lliurament traçable', 'Garantia de reparació'],
+        'phases' => [
+            ['title' => 'Anàlisi', 'desc' => 'Revisem plec, abast i condicionants.'],
+            ['title' => 'Planificació', 'desc' => 'Organitzem fases, equips i documentació.'],
+            ['title' => 'Execució', 'desc' => 'Controlem avanç i comunicació tècnica.'],
+            ['title' => 'Tancament', 'desc' => 'Preparem lliurament i revisió final.'],
+        ],
+        'faq' => [
+            ['q' => '¿Treballau per a administracions?', 'a' => 'Sí, en projectes on l\'abast i la documentació estiguin definits.'],
+            ['q' => '¿Podeu coordinar documentació?', 'a' => 'Sí, dins de l\'abast acordat amb la direcció tècnica.'],
+            ['q' => '¿En quines zones treballeu?', 'a' => 'Principalment Barcelona, Girona, Tarragona i Catalunya.'],
+            ['q' => '¿Quin tipus d\'obra pública feu?', 'a' => 'Pavimentació urbana, aceres, mobiliari urbà, rehabilitació de façanes i espais públics.'],
+            ['q' => '¿Com es factura l\'obra pública?', 'a' => 'Segons certificacions d\'obra, mesuracions i plec de condicions.'],
+            ['q' => '¿Doneu garantia en obra pública?', 'a' => 'Sí, complim el període de garantia exigit per l\'administració contractant.'],
+        ],
+        'cta_primary' => 'Consultar obra pública',
+        'cta_secondary' => 'Trucar a Paulo',
+    ],
+    'obra-civil' => [
+        'h1' => 'Obra civil a Barcelona i Girona | Santa Fe Construcciones',
+        'title' => 'Obra civil a Barcelona i Girona | Santa Fe Construcciones',
+        'description' => 'Obra civil, cimentacions, murs, canalitzacions i estructures amb planificació i execució tècnica.',
+        'problem' => 'L\'obra civil no permet improvisació: terreny, càrregues, drenatges, accessos i seguretat condicionen cada decisió.',
+        'agitate' => 'Un error en fases inicials pot afectar estabilitat, cost, terminis i reparacions posteriors.',
+        'solution' => 'Executem amb criteri tècnic, coordinació i seguiment perquè cada fase quedi preparada per a la següent.',
+        'prices' => 'Pressupost segons mesuracions, terreny i complexitat tècnica.',
+        'features' => ['Cimentacions i estructures', 'Murs i contencions', 'Canalitzacions i drenatges', 'Preparació de terreny', 'Coordinació tècnica', 'Control de seguretat'],
+        'phases' => [
+            ['title' => 'Revisió', 'desc' => 'Analitzem mesuracions, terreny i condicionants.'],
+            ['title' => 'Preparació', 'desc' => 'Planifiquem accessos, equips i fases.'],
+            ['title' => 'Execució', 'desc' => 'Desenvolupem obra amb control tècnic.'],
+            ['title' => 'Validació', 'desc' => 'Revisem resultats abans de tancar fase.'],
+        ],
+        'faq' => [
+            ['q' => '¿Feu cimentacions?', 'a' => 'Sí, segons projecte tècnic, mesuracions i direcció facultativa.'],
+            ['q' => '¿Treballau amb empreses?', 'a' => 'Sí, per a empreses, comunitats i clients amb necessitats tècniques.'],
+            ['q' => '¿Visiteu l\'obra abans de pressupostar?', 'a' => 'Sí, la visita tècnica ajuda a evitar pressupostos irreals.'],
+            ['q' => '¿Què inclou l\'obra civil?', 'a' => 'Cimentacions, murs, canalitzacions, preparació de terreny i coordinació tècnica.'],
+            ['q' => '¿Gestioneu permisos d\'obra civil?', 'a' => 'Acompanyem la tramitació segons l\'abast tècnic del projecte.'],
+            ['q' => '¿Quin termini té una obra civil?', 'a' => 'Depèn de les mesuracions, accés, maquinària i complexitat tècnica. Visitem l\'obra per estimar-ho.'],
+        ],
+        'cta_primary' => 'Consultar obra civil',
+        'cta_secondary' => 'Trucar a Paulo',
+    ],
+];
 
 return [
-    'obra-nueva' => ['es' => $base_services['obra-nueva'], 'ca' => $ca_services['obra-nueva']],
-    'reformas-integrales' => ['es' => $base_services['reformas-integrales'], 'ca' => $ca_services['reformas-integrales']],
-    'pladur-acabados' => ['es' => $base_services['pladur-acabados'], 'ca' => $ca_services['pladur-acabados']],
-    'obra-publica' => ['es' => $base_services['obra-publica'], 'ca' => $ca_services['obra-publica']],
-    'obra-civil' => ['es' => $base_services['obra-civil'], 'ca' => $ca_services['obra-civil']],
+    'obra-nueva' => ['es' => $es['obra-nueva'], 'ca' => $ca['obra-nueva']],
+    'reformas-integrales' => ['es' => $es['reformas-integrales'], 'ca' => $ca['reformas-integrales']],
+    'pladur-acabados' => ['es' => $es['pladur-acabados'], 'ca' => $ca['pladur-acabados']],
+    'obra-publica' => ['es' => $es['obra-publica'], 'ca' => $ca['obra-publica']],
+    'obra-civil' => ['es' => $es['obra-civil'], 'ca' => $ca['obra-civil']],
 ];
