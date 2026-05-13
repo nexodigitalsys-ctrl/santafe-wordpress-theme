@@ -28,7 +28,7 @@ $soluciones = $lang === 'ca' ? [
 $cta = $lang === 'ca' ? 'Evitar aquests problemes →' : 'Evitar estos problemas →';
 ?>
 
-<section class="py-24 md:py-32 bg-slate-950 border-b border-slate-800" id="dores-solucoes">
+<section data-reveal class="py-24 md:py-32 bg-slate-950 border-b border-slate-800" id="dores-solucoes">
     <div class="max-w-7xl mx-auto px-6">
         <div class="grid lg:grid-cols-[0.8fr_1.2fr] gap-12 items-start">
             <div>

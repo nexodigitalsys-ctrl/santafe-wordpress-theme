@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-display: 'Space Grotesk', 'Inter', sans-serif;
+  --color-brand-50: #fef2f2;
+  --color-brand-100: #fee2e2;
+  --color-brand-200: #fecaca;
+  --color-brand-300: #fca5a5;
+  --color-brand-400: #f87171;
+  --color-brand-500: #AE232A;
+  --color-brand-600: #991B1B;
+  --color-brand-700: #7F1D1D;
+  --color-brand-800: #5C1818;
+  --color-brand-900: #3D1212;
+  --color-brand-950: #1A0505;
+}

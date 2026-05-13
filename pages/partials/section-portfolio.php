@@ -41,9 +41,24 @@ $projects = [
 ];
 
 $ver_proyecto = $lang === 'ca' ? 'Veure projecte →' : 'Ver proyecto →';
+
+$category_to_service = [
+    'obra-nueva' => 'obra-nueva',
+    'reformas' => 'reformas-integrales',
+    'pladur' => 'pladur-acabados',
+    'obra-publica' => 'obra-publica',
+    'obra-civil' => 'obra-civil',
+];
+$ca_category_to_service = [
+    'obra-nueva' => 'obra-nova',
+    'reformas' => 'reformes-integrals',
+    'pladur' => 'pladur-acabats',
+    'obra-publica' => 'obra-publica',
+    'obra-civil' => 'obra-civil',
+];
 ?>
 
-<section class="py-24 md:py-32 bg-slate-900 border-b border-slate-800" id="portfolio">
+<section data-reveal class="py-24 md:py-32 bg-slate-900 border-b border-slate-800" id="portfolio">
     <div class="max-w-7xl mx-auto px-6">
         <div class="flex flex-col md:flex-row md:items-end md:justify-between mb-12 gap-6">
             <div>
@@ -70,7 +85,7 @@ $ver_proyecto = $lang === 'ca' ? 'Veure projecte →' : 'Ver proyecto →';
         <!-- Grid -->
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="portfolio-grid">
             <?php foreach ($projects as $proy): ?>
-            <article class="portfolio-card group relative overflow-hidden rounded-sm bg-slate-950 border border-slate-800 transition-all duration-300"
+            <article class="tilt-card portfolio-card group relative overflow-hidden rounded-sm bg-slate-950 border border-slate-800 transition-all duration-300"
                      data-category="<?php echo $proy['category']; ?>">
                 <div class="aspect-[4/3] overflow-hidden">
                     <img src="<?php echo esc_url(get_template_directory_uri() . $proy['img']); ?>"
@@ -84,7 +99,7 @@ $ver_proyecto = $lang === 'ca' ? 'Veure projecte →' : 'Ver proyecto →';
                 </div>
                 <div class="p-5">
                     <h3 class="font-display font-bold text-lg text-white mb-2"><?php echo htmlspecialchars($proy['title']); ?></h3>
-                    <div class="flex flex-wrap gap-3 text-slate-400 text-sm">
+                    <div class="flex flex-wrap gap-3 text-slate-400 text-sm mb-4">
                         <span class="flex items-center gap-1">
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
                             <?php echo $proy['m2']; ?> m²
@@ -98,9 +113,29 @@ $ver_proyecto = $lang === 'ca' ? 'Veure projecte →' : 'Ver proyecto →';
                             <?php echo $proy['city']; ?>
                         </span>
                     </div>
+                    <?php
+                    $svc_slug = $lang === 'ca'
+                        ? ($ca_category_to_service[$proy['category']] ?? $proy['category'])
+                        : ($category_to_service[$proy['category']] ?? $proy['category']);
+                    ?>
+                    <a href="/<?php echo $lang; ?>/<?php echo $svc_slug; ?>/" class="inline-flex items-center gap-1 text-brand-500 text-sm font-semibold hover:text-brand-400 transition-colors group/link">
+                        <?php echo $ver_proyecto; ?>
+                        <svg class="w-4 h-4 transition-transform group-hover/link:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                    </a>
                 </div>
             </article>
             <?php endforeach; ?>
         </div>
     </div>
 </section>
+
+<!-- Portfolio Lightbox -->
+<div id="portfolio-lightbox" class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-950/95 backdrop-blur-sm" role="dialog" aria-modal="true">
+    <button id="portfolio-lightbox-close" class="absolute top-6 right-6 text-white hover:text-brand-400 transition-colors z-10" aria-label="Cerrar">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <div class="max-w-5xl max-h-[90vh] px-6">
+        <img id="portfolio-lightbox-img" src="" alt="" class="max-w-full max-h-[85vh] object-contain rounded-sm shadow-2xl">
+        <p id="portfolio-lightbox-title" class="text-white text-center mt-4 font-display text-lg"></p>
+    </div>
+</div>

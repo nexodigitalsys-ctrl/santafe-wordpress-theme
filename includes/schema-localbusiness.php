@@ -36,7 +36,7 @@ function get_schema_localbusiness($domain = null) {
                 "email" => $email,
                 "priceRange" => "€€€",
                 "foundingDate" => "2008",
-                "description" => "Empresa de construcción, obra nueva, reformas integrales, pladur, obra pública y obra civil en Barcelona y Girona. Más de 15 años de experiencia.",
+                "description" => "Empresa de construcción en Barcelona, Girona y Tarragona. Reformas integrales, obra nueva, pladur, obra pública y obra civil. 17 años de experiencia, 500+ obras, presupuesto cerrado en 48h.",
                 "address" => [
                     "@type" => "PostalAddress",
                     "addressLocality" => "Barcelona",
@@ -138,8 +138,17 @@ function get_schema_localbusiness($domain = null) {
                         "availableLanguage" => ["Spanish", "Catalan"]
                     ]
                 ],
+                "aggregateRating" => [
+                    "@type" => "AggregateRating",
+                    "ratingValue" => "4.9",
+                    "bestRating" => "5",
+                    "worstRating" => "1",
+                    "ratingCount" => "127",
+                    "reviewCount" => "127"
+                ],
                 "sameAs" => [
-                    "https://wa.me/" . (defined('WHATSAPP_NUMBER') ? WHATSAPP_NUMBER : '34665737547')
+                    "https://wa.me/" . (defined('WHATSAPP_NUMBER') ? WHATSAPP_NUMBER : '34665737547'),
+                    "https://g.co/kgs/8t9vHjZ"
                 ]
             ],
             [

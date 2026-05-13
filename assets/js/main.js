@@ -167,7 +167,55 @@
     }
 
     // ==========================================
-    // 4. Smooth Scroll
+    // 4. Portfolio Lightbox
+    // ==========================================
+    var lightbox = document.getElementById('portfolio-lightbox');
+    var lightboxImg = document.getElementById('portfolio-lightbox-img');
+    var lightboxTitle = document.getElementById('portfolio-lightbox-title');
+    var lightboxClose = document.getElementById('portfolio-lightbox-close');
+
+    if (lightbox && lightboxImg) {
+        document.querySelectorAll('.portfolio-card img').forEach(function(img) {
+            img.style.cursor = 'zoom-in';
+            img.addEventListener('click', function() {
+                lightboxImg.src = this.src;
+                lightboxImg.alt = this.alt;
+                if (lightboxTitle) {
+                    lightboxTitle.textContent = this.alt;
+                }
+                lightbox.classList.remove('hidden');
+                lightbox.classList.add('flex');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        if (lightboxClose) {
+            lightboxClose.addEventListener('click', function() {
+                lightbox.classList.add('hidden');
+                lightbox.classList.remove('flex');
+                document.body.style.overflow = '';
+            });
+        }
+
+        lightbox.addEventListener('click', function(e) {
+            if (e.target === lightbox) {
+                lightbox.classList.add('hidden');
+                lightbox.classList.remove('flex');
+                document.body.style.overflow = '';
+            }
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && !lightbox.classList.contains('hidden')) {
+                lightbox.classList.add('hidden');
+                lightbox.classList.remove('flex');
+                document.body.style.overflow = '';
+            }
+        });
+    }
+
+    // ==========================================
+    // 5. Smooth Scroll
     // ==========================================
     document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
         anchor.addEventListener('click', function(e) {

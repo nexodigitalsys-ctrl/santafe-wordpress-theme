@@ -63,7 +63,7 @@ $success_msg = $lang === 'ca'
     : 'Te enviaremos el cálculo detallado por email en 24h.';
 ?>
 
-<section class="py-24 bg-slate-950 border-b border-slate-800" id="calculadora">
+<section data-reveal class="py-24 bg-slate-950 border-b border-slate-800" id="calculadora">
     <div class="max-w-7xl mx-auto px-6">
         <div class="grid lg:grid-cols-[0.8fr_1.2fr] gap-12 items-start">
             <div>
@@ -113,7 +113,7 @@ $success_msg = $lang === 'ca'
 
                     <div class="mt-6 bg-slate-950 border border-slate-800 rounded-sm p-6">
                         <p class="text-slate-500 text-xs uppercase tracking-wider mb-2"><?php echo $result_label; ?></p>
-                        <p class="font-display font-bold text-3xl text-white" data-calc-result>Calculando...</p>
+                        <p class="font-display font-bold text-3xl text-white" data-calc-result>—</p>
                         <p class="text-slate-500 text-sm mt-3"><?php echo $disclaimer; ?></p>
                         <p class="text-brand-400 text-sm mt-2"><?php echo $success_msg; ?></p>
                     </div>

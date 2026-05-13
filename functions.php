@@ -26,8 +26,9 @@ function santafe_tailwind_enqueue_assets(): void {
     wp_enqueue_script('santafe-cookies', $theme_uri . '/assets/js/cookies.js', [], '1.1.0', true);
     wp_enqueue_script('santafe-forms', $theme_uri . '/assets/js/forms.js', [], '1.1.0', true);
     wp_enqueue_script('santafe-main', $theme_uri . '/assets/js/main.js', [], '1.1.0', true);
+    wp_enqueue_script('santafe-premium', $theme_uri . '/assets/js/premium-interactions.js', [], '1.1.0', true);
 
-    foreach (['santafe-navigation', 'santafe-cookies', 'santafe-forms', 'santafe-main'] as $handle) {
+    foreach (['santafe-navigation', 'santafe-cookies', 'santafe-forms', 'santafe-main', 'santafe-premium'] as $handle) {
         wp_script_add_data($handle, 'defer', true);
     }
 

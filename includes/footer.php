@@ -126,6 +126,138 @@ $current_year = date('Y');
   </div>
 </div>
 
+<!-- Sticky CTA Mobile -->
+<div id="sticky-cta-mobile" class="fixed bottom-0 left-0 right-0 z-50 bg-slate-950/95 backdrop-blur-xl border-t border-slate-800 p-4 lg:hidden" aria-hidden="true">
+  <div class="flex items-center gap-3">
+    <a href="https://wa.me/<?php echo WHATSAPP_NUMBER; ?>?text=Hola%20Paulo%2C%20quiero%20un%20presupuesto" 
+       target="_blank" rel="noopener noreferrer"
+       class="flex-1 bg-[#25d366] hover:bg-[#128c7e] text-white font-semibold py-3 px-4 rounded-sm text-center text-sm transition-colors"
+       data-track-event="whatsapp_click">
+      WhatsApp — Responde en 2h
+    </a>
+    <a href="tel:<?php echo COMPANY_PHONE; ?>" 
+       class="flex-1 bg-brand-600 hover:bg-brand-500 text-white font-semibold py-3 px-4 rounded-sm text-center text-sm transition-colors"
+       data-track-event="phone_click">
+      Llamar ahora
+    </a>
+  </div>
+</div>
+
+<!-- Interaction Scripts -->
+<script>
+(function() {
+  'use strict';
+
+  // 1. Scroll Progress Bar
+  var progressBar = document.getElementById('scroll-progress');
+  if (progressBar) {
+    var ticking = false;
+    function updateProgress() {
+      var scrollTop = window.scrollY || document.documentElement.scrollTop;
+      var docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      var progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      progressBar.style.width = progress + '%';
+      ticking = false;
+    }
+    window.addEventListener('scroll', function() {
+      if (!ticking) {
+        requestAnimationFrame(updateProgress);
+        ticking = true;
+      }
+    }, { passive: true });
+  }
+
+  // 2. Sticky CTA Mobile — aparece após scroll de 400px, some ao voltar ao topo
+  var stickyCta = document.getElementById('sticky-cta-mobile');
+  if (stickyCta) {
+    var lastScrollY = 0;
+    var ctaVisible = false;
+    function updateStickyCta() {
+      var scrollY = window.scrollY || document.documentElement.scrollTop;
+      if (scrollY > 400 && scrollY > lastScrollY && !ctaVisible) {
+        stickyCta.classList.add('visible');
+        ctaVisible = true;
+      } else if ((scrollY < 300 || scrollY < lastScrollY) && ctaVisible) {
+        stickyCta.classList.remove('visible');
+        ctaVisible = false;
+      }
+      lastScrollY = scrollY;
+    }
+    window.addEventListener('scroll', function() {
+      requestAnimationFrame(updateStickyCta);
+    }, { passive: true });
+  }
+
+  // 3. Parallax sutil no hero
+  var heroSection = document.getElementById('inicio');
+  var heroImg = heroSection ? heroSection.querySelector('img') : null;
+  if (heroImg && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    var heroTicking = false;
+    function updateHeroParallax() {
+      var scrollY = window.scrollY || document.documentElement.scrollTop;
+      if (scrollY < window.innerHeight) {
+        heroImg.style.transform = 'translateY(' + (scrollY * 0.15) + 'px) scale(1.05)';
+      }
+      heroTicking = false;
+    }
+    window.addEventListener('scroll', function() {
+      if (!heroTicking) {
+        requestAnimationFrame(updateHeroParallax);
+        heroTicking = true;
+      }
+    }, { passive: true });
+  }
+
+  // 4. Header scroll detection (if not already handled by navigation.js)
+  var header = document.getElementById('site-nav');
+  if (header) {
+    function updateHeader() {
+      if (window.scrollY > 50) {
+        header.classList.add('header-scrolled');
+      } else {
+        header.classList.remove('header-scrolled');
+      }
+    }
+    window.addEventListener('scroll', function() {
+      requestAnimationFrame(updateHeader);
+    }, { passive: true });
+    updateHeader();
+  }
+
+  // 5. 3D Tilt Effect on Cards
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.querySelectorAll('.tilt-card').forEach(function(card) {
+      card.addEventListener('mousemove', function(e) {
+        var rect = card.getBoundingClientRect();
+        var x = e.clientX - rect.left;
+        var y = e.clientY - rect.top;
+        var centerX = rect.width / 2;
+        var centerY = rect.height / 2;
+        var rotateX = (y - centerY) / centerY * -4;
+        var rotateY = (x - centerX) / centerX * 4;
+        card.style.transform = 'perspective(1000px) rotateX(' + rotateX + 'deg) rotateY(' + rotateY + 'deg) scale3d(1.02, 1.02, 1.02)';
+      });
+      card.addEventListener('mouseleave', function() {
+        card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+      });
+    });
+  }
+
+  // 6. Skeleton loading for images
+  document.querySelectorAll('img[loading="lazy"]').forEach(function(img) {
+    if (!img.complete) {
+      img.classList.add('skeleton');
+      img.addEventListener('load', function() {
+        img.classList.remove('skeleton');
+      });
+      img.addEventListener('error', function() {
+        img.classList.remove('skeleton');
+      });
+    }
+  });
+})();
+</script>
+
 <?php wp_footer(); ?>
 
 </body>

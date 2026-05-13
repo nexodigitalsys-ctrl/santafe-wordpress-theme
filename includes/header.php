@@ -122,38 +122,27 @@ $nav_contact_path = $lang === 'ca' ? 'contacte' : 'contacto';
 <link rel="icon" href="/assets/images/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.svg">
 
-<!-- Fonts -->
+<!-- Performance: preconnect critical origins -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="dns-prefetch" href="https://fonts.googleapis.com">
+<link rel="dns-prefetch" href="https://fonts.gstatic.com">
+
+<!-- Fonts with display=swap for fast text rendering -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-<!-- Tailwind CSS v4 CDN with custom config -->
-<script src="https://cdn.tailwindcss.com"></script>
-<script>
-tailwind.config = {
-  theme: {
-    extend: {
-      fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
-        display: ['Space Grotesk', 'Inter', 'sans-serif'],
-      },
-      colors: {
-                brand: { 50:'#fef2f2',100:'#fee2e2',200:'#fecaca',300:'#fca5a5',400:'#f87171',500:'#AE232A',600:'#991B1B',700:'#7F1D1D',800:'#5C1818',900:'#3D1212',950:'#1A0505' },
-        slate: { 50:'#f4f4f5',100:'#e3e4e6',200:'#c8cace',300:'#a5a9ae',400:'#7e838a',500:'#63676e',600:'#4e5157',700:'#3a3c42',800:'#2a2c31',900:'#212225',950:'#121315' },
-      }
-    }
-  }
-}
-</script>
-<style type="text/tailwindcss">
-@layer base {
+<!-- Tailwind CSS v4 — Built locally, 49KB minified vs 3MB CDN -->
+<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/tailwind-built.css">
+
+<style>
+  /* Base styles */
   body { font-family: 'Inter', system-ui, sans-serif; }
   ::-webkit-scrollbar { width: 8px; }
   ::-webkit-scrollbar-track { background: #121315; }
   ::-webkit-scrollbar-thumb { background: #3a3c42; border-radius: 4px; }
   ::-webkit-scrollbar-thumb:hover { background: #63676e; }
-}
-@layer components {
+
+  /* Component utilities */
   .font-display { font-family: 'Space Grotesk', 'Inter', sans-serif; }
   .industrial-line { height: 2px; background: linear-gradient(90deg, #AE232A 0%, transparent 100%); }
   .card-lift { transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease; }
@@ -161,8 +150,8 @@ tailwind.config = {
   .img-zoom { transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1); }
   .img-zoom:hover { transform: scale(1.08); }
   .big-number { font-variant-numeric: tabular-nums; letter-spacing: -0.04em; }
-}
-@layer utilities {
+
+  /* Animation utilities */
   .animate-slide-up { animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; opacity: 0; }
   .animate-fade-in { animation: fadeIn 1s ease forwards; opacity: 0; }
   .delay-100 { animation-delay: 0.1s; }
@@ -170,24 +159,23 @@ tailwind.config = {
   .delay-300 { animation-delay: 0.3s; }
   .delay-400 { animation-delay: 0.4s; }
   .delay-500 { animation-delay: 0.5s; }
-}
-@keyframes slideUp {
-  from { opacity: 0; transform: translateY(60px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-</style>
-<style>
+
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(60px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
   /* Header scroll-reveal — Architect's Bar */
   .header-scrolled {
     background-color: rgba(12, 12, 14, 0.96) !important;
     backdrop-filter: blur(24px) saturate(1.4);
     -webkit-backdrop-filter: blur(24px) saturate(1.4);
     border-bottom: 2px solid #AE232A;
-    box-shadow: 
+    box-shadow:
       0 0 40px rgba(174, 35, 42, 0.22),
       0 4px 20px rgba(174, 35, 42, 0.14),
       0 8px 40px rgba(0, 0, 0, 0.5);
@@ -212,16 +200,13 @@ tailwind.config = {
   [data-brand-text] { color: #ffffff; }
   [data-brand-sub] { color: rgba(255,255,255,0.65); }
 
-  /* Hero background (moved from inline style) */
-  .hero-bg { background-image: url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1920&q=80'); }
-  
   /* Industrial line reversed */
   .industrial-line-reverse { background: linear-gradient(270deg, #AE232A 0%, transparent 100%) !important; }
-  
-  /* CTA background pattern (moved from inline style) */
+
+  /* CTA background pattern */
   .cta-bg-pattern { background-image: repeating-linear-gradient(90deg, #AE232A 0px, #AE232A 1px, transparent 1px, transparent 80px); }
-  
-  /* Logo aspect ratio (moved from inline style) */
+
+  /* Logo aspect ratio */
   .logo-aspect { aspect-ratio: 1656/551; }
 
   /* Mobile menu */
@@ -232,7 +217,112 @@ tailwind.config = {
   .mobile-menu.open {
     transform: translateX(0);
   }
+
+  /* Scroll progress bar */
+  #scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #AE232A, #f87171);
+    z-index: 9999;
+    width: 0%;
+    transition: width 0.1s linear;
+    box-shadow: 0 0 10px rgba(174, 35, 42, 0.5);
+  }
+
+  /* Sticky CTA mobile */
+  #sticky-cta-mobile {
+    transform: translateY(100%);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  #sticky-cta-mobile.visible {
+    transform: translateY(0);
+  }
+
+  /* 3D Tilt Cards */
+  .tilt-card {
+    transform-style: preserve-3d;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .tilt-card-inner {
+    transform: translateZ(20px);
+  }
+
+  /* Before/After Slider */
+  .before-after { touch-action: pan-y; }
+  .before-after__handle {
+    box-shadow: 0 0 20px rgba(0,0,0,0.5), 0 0 0 4px rgba(255,255,255,0.1);
+    transition: box-shadow 0.3s;
+  }
+  .before-after__handle:hover {
+    box-shadow: 0 0 30px rgba(0,0,0,0.7), 0 0 0 6px rgba(174,35,42,0.3);
+  }
+  .before-after__handle:active {
+    cursor: grabbing;
+  }
+
+  /* Section Dots Navigation */
+  .section-dot {
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+  }
+  .section-dot::after {
+    content: attr(aria-label);
+    position: absolute;
+    right: calc(100% + 12px);
+    top: 50%;
+    transform: translateY(-50%) scale(0.8);
+    background: rgba(12,12,14,0.9);
+    color: #fff;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 11px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s;
+    border: 1px solid rgba(174,35,42,0.3);
+  }
+  .section-dot:hover::after {
+    opacity: 1;
+    transform: translateY(-50%) scale(1);
+  }
+  .section-dot.active {
+    box-shadow: 0 0 12px rgba(174,35,42,0.5);
+  }
+
+  /* Skeleton Loading */
+  .skeleton {
+    background: linear-gradient(90deg, #1c1917 25%, #292524 50%, #1c1917 75%);
+    background-size: 200% 100%;
+    animation: skeleton-loading 1.5s infinite;
+  }
+  @keyframes skeleton-loading {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+    .animate-slide-up, .animate-fade-in {
+      opacity: 1;
+      animation: none;
+    }
+  }
 </style>
+
+<!-- Premium Interactions -->
+<script src="<?php echo get_template_directory_uri(); ?>/assets/js/premium-interactions.js" defer></script>
+<?php if (!function_exists('wp_enqueue_scripts')): ?>
+<script src="<?php echo get_template_directory_uri(); ?>/assets/js/navigation.js" defer></script>
+<script src="<?php echo get_template_directory_uri(); ?>/assets/js/main.js" defer></script>
+<?php endif; ?>
 
 <!-- Schema JSON-LD -->
 <script type="application/ld+json"><?php echo $schema_localbusiness; ?></script>
@@ -260,6 +350,22 @@ gtag('consent', 'default', {
 </head>
 <body class="bg-slate-950 text-slate-50 antialiased selection:bg-brand-500 selection:text-white">
 
+<!-- Scroll Progress Bar -->
+<div id="scroll-progress" aria-hidden="true"></div>
+
+<!-- Sticky Section Dots (desktop only) -->
+<nav class="fixed right-6 top-1/2 -translate-y-1/2 z-40 hidden xl:flex flex-col gap-3" id="section-dots" aria-label="Navegación de secciones">
+    <button class="section-dot w-2.5 h-2.5 rounded-full bg-slate-600 hover:bg-slate-400 transition-all" data-target="#inicio" aria-label="Inicio"></button>
+    <button class="section-dot w-2.5 h-2.5 rounded-full bg-slate-600 hover:bg-slate-400 transition-all" data-target="#dores-solucoes" aria-label="Problemas y soluciones"></button>
+    <button class="section-dot w-2.5 h-2.5 rounded-full bg-slate-600 hover:bg-slate-400 transition-all" data-target="#servicios" aria-label="Servicios"></button>
+    <button class="section-dot w-2.5 h-2.5 rounded-full bg-slate-600 hover:bg-slate-400 transition-all" data-target="#proceso" aria-label="Proceso"></button>
+    <button class="section-dot w-2.5 h-2.5 rounded-full bg-slate-600 hover:bg-slate-400 transition-all" data-target="#portfolio" aria-label="Portfolio"></button>
+    <button class="section-dot w-2.5 h-2.5 rounded-full bg-slate-600 hover:bg-slate-400 transition-all" data-target="#testimonios" aria-label="Testimonios"></button>
+    <button class="section-dot w-2.5 h-2.5 rounded-full bg-slate-600 hover:bg-slate-400 transition-all" data-target="#garantias" aria-label="Garantías"></button>
+    <button class="section-dot w-2.5 h-2.5 rounded-full bg-slate-600 hover:bg-slate-400 transition-all" data-target="#faq" aria-label="FAQ"></button>
+    <button class="section-dot w-2.5 h-2.5 rounded-full bg-slate-600 hover:bg-slate-400 transition-all" data-target="#contacto" aria-label="Contacto"></button>
+</nav>
+
 <!-- Skip Link -->
 <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:bg-brand-600 focus:text-white focus:px-4 focus:py-2 focus:rounded-md focus:font-semibold">
   <?php echo t($translations, 'nav.skip_to_content'); ?>
@@ -284,7 +390,7 @@ gtag('consent', 'default', {
     <nav class="hidden lg:flex items-center gap-8" role="navigation" aria-label="Principal">
       <a href="/<?php echo $lang; ?>/" class="text-sm font-medium transition-colors tracking-wide" data-nav-link><?php echo t($translations, 'nav.home'); ?></a>
       <div class="relative group">
-        <a href="/<?php echo $lang; ?>/<?php echo $nav_services_path; ?>/" class="text-sm font-medium transition-colors tracking-wide inline-flex items-center gap-1" data-nav-link><?php echo t($translations, 'nav.services'); ?><span aria-hidden="true">v</span></a>
+        <a href="/<?php echo $lang; ?>/<?php echo $nav_services_path; ?>/" class="text-sm font-medium transition-colors tracking-wide inline-flex items-center gap-1" data-nav-link><?php echo t($translations, 'nav.services'); ?><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-3 h-3 opacity-60" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"/></svg></a>
         <div class="absolute left-0 top-full pt-4 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all">
           <div class="w-72 bg-slate-950 border border-slate-800 rounded-sm shadow-2xl p-3">
             <a href="/<?php echo $lang; ?>/<?php echo $lang === 'ca' ? 'obra-nova' : 'obra-nueva'; ?>/" class="block px-4 py-3 text-sm text-slate-300 hover:text-white hover:bg-slate-900 rounded-sm">Obra nueva</a>

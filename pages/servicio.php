@@ -1,9 +1,8 @@
 <?php
+declare(strict_types=1);
 /**
  * Template de Landing de Servicio Individual — Tailwind CSS
  */
-
-declare(strict_types=1);
 
 $lang = isset($current_lang) ? $current_lang : (isset($_GET['lang']) && in_array($_GET['lang'], ['es','ca'], true) ? $_GET['lang'] : 'es');
 $route = isset($current_route) ? $current_route : (isset($_GET['route']) ? preg_replace('/[^a-z0-9\-\/]/', '', $_GET['route']) : '');

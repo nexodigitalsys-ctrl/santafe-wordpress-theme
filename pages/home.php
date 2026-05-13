@@ -20,6 +20,10 @@ $page_data = [
             require_once __DIR__ . '/../includes/schema-faq.php';
             return get_schema_faq_page($lang);
         },
+        function() use ($lang) {
+            require_once __DIR__ . '/../includes/schema-reviews.php';
+            return get_schema_reviews($lang);
+        },
     ],
 ];
 
@@ -32,7 +36,10 @@ include __DIR__ . '/../includes/header.php';
 <?php include __DIR__ . '/partials/section-paulo.php'; ?>
 <?php include __DIR__ . '/partials/section-proceso.php'; ?>
 <?php include __DIR__ . '/partials/section-portfolio.php'; ?>
+<?php include __DIR__ . '/partials/section-before-after.php'; ?>
 <?php include __DIR__ . '/partials/section-testimonios.php'; ?>
+<?php include __DIR__ . '/partials/section-garantias.php'; ?>
+<?php include __DIR__ . '/partials/section-faq.php'; ?>
 <?php include __DIR__ . '/partials/section-calculadora.php'; ?>
 <?php include __DIR__ . '/partials/section-contacto.php'; ?>
 

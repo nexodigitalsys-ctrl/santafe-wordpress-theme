@@ -19,14 +19,14 @@ function santafe_get_seo_data(string $route = '', string $lang = 'es'): array {
     ];
 
     $es = [
-        '' => ['Santa Fe Construcciones | Reformas y obra nueva en Cataluña', 'Empresa de reformas, obra nueva, pladur, obra civil y obra pública en Barcelona, Girona y Tarragona. Presupuesto claro y seguimiento directo.'],
-        'contacto' => ['Contacto | Santa Fe Construcciones - Presupuesto en 24h', 'Contacta con Santa Fe Construcciones para solicitar visita técnica, presupuesto de reforma, obra nueva, pladur u obra civil en Cataluña.'],
+        '' => ['Santa Fe Construcciones | Reformas y obra nueva en Barcelona, Girona y Tarragona', 'Empresa de construcción con 17 años de experiencia. Reformas integrales, obra nueva, pladur, obra pública y obra civil. Presupuesto cerrado en 48h, sin sorpresas.'],
+        'contacto' => ['Contacto | Santa Fe Construcciones - Presupuesto en 48h', 'Solicita presupuesto gratuito para reforma, obra nueva o pladur en Barcelona, Girona o Tarragona. Respuesta en menos de 2 horas.'],
         'servicios' => ['Servicios de construcción | Santa Fe Construcciones', 'Servicios de obra nueva, reformas integrales, pladur, obra pública y obra civil en Barcelona, Girona y Tarragona con control técnico.'],
         'proyectos' => ['Ejemplos visuales de construcción | Santa Fe', 'Referencias visuales de obra nueva, reformas, pladur, obra pública y obra civil hasta publicar proyectos reales autorizados.'],
         'sobre-nosotros' => ['Sobre Santa Fe Construcciones | Paulo desde 2008', 'Conoce la trayectoria de Santa Fe Construcciones, empresa dirigida por Paulo para reformas y construcción en Barcelona, Girona y Tarragona.'],
         'blog' => ['Blog de reformas y construcción | Santa Fe', 'Guías sobre precios, licencias, pladur, reformas integrales y obra nueva para decidir mejor antes de empezar una obra en Cataluña.'],
         'obra-nueva' => ['Obra nueva en Barcelona y Girona | Santa Fe', 'Construcción de viviendas y edificaciones con planificación técnica, presupuesto por fases y seguimiento claro desde licencia hasta entrega.'],
-        'reformas-integrales' => ['Reformas integrales en Barcelona y Girona | Santa Fe', 'Reformas integrales con presupuesto claro, coordinación de gremios, control de plazo y acabados cuidados en Barcelona, Girona y Tarragona.'],
+        'reformas-integrales' => ['Reformas integrales Barcelona | Presupuesto cerrado en 48h', 'Reforma integral de pisos y locales en Barcelona, Girona y Tarragona. Presupuesto detallado por partidas, plazo garantizado y seguimiento semanal con fotos.'],
         'pladur-acabados' => ['Pladur y acabados en Barcelona y Girona | Santa Fe', 'Instalación de pladur, techos, trasdosados, divisiones interiores, aislamiento y acabados con criterio técnico en Cataluña.'],
         'obra-publica' => ['Obra pública en Barcelona y Girona | Santa Fe', 'Ejecución de obra pública con documentación, cumplimiento, coordinación técnica y trazabilidad para administraciones y entidades.'],
         'obra-civil' => ['Obra civil en Barcelona y Girona | Santa Fe', 'Obra civil, cimentaciones, muros, canalizaciones y estructuras con planificación, seguridad y ejecución técnica en Cataluña.'],
