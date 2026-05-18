@@ -132,7 +132,7 @@ function santafe_send_to_telegram(array $data): array {
     return ['success' => true];
 }
 
-function santafe_send_contact_email_fallback(array $data): bool {
+function santafe_send_contact_email(array $data): bool {
     $subject = 'Nuevo lead Santa Fe Construcciones';
     $body = "Nombre: {$data['nombre']}\n"
         . "Telefono: {$data['telefono']}\n"
@@ -143,7 +143,9 @@ function santafe_send_contact_email_fallback(array $data): bool {
         . "Fase: {$data['fase']}\n"
         . "Fecha: {$data['fecha']}\n"
         . "Origen: {$data['origen']}\n\n"
-        . "Mensaje:\n{$data['mensaje']}\n";
+        . "Mensaje:\n{$data['mensaje']}\n\n"
+        . "--\n"
+        . "Luna Cto Nexo Digital -";
 
     $headers = [];
     if (is_email($data['email'])) {
@@ -186,14 +188,18 @@ function santafe_tailwind_handle_contact_form(): void {
     }
 
     $telegram = santafe_send_to_telegram($lead);
-    $email_sent = $telegram['success'] ? true : santafe_send_contact_email_fallback($lead);
+    $email_sent = santafe_send_contact_email($lead);
 
     if (!$telegram['success'] && !$email_sent) {
-        error_log('Santa Fe lead delivery failed. Telegram: ' . ($telegram['error'] ?? 'unknown') . ' Email fallback: failed');
+        error_log('Santa Fe lead delivery failed. Telegram: ' . ($telegram['error'] ?? 'unknown') . ' Email: failed');
         santafe_tailwind_contact_response(false, 'No hemos podido enviar el mensaje. Llámanos o escríbenos por WhatsApp.', $is_ajax);
     }
 
-    santafe_tailwind_contact_response(true, 'Mensaje enviado correctamente. Paulo revisará tu solicitud y te contactará.', $is_ajax);
+    $msg = 'Mensaje enviado correctamente. Pablo revisará tu solicitud y te contactará.';
+    if ($email_sent && !$telegram['success']) {
+        $msg .= ' (Email OK — Telegram no configurado)';
+    }
+    santafe_tailwind_contact_response(true, $msg, $is_ajax);
 }
 add_action('admin_post_nopriv_santafe_contact', 'santafe_tailwind_handle_contact_form');
 add_action('admin_post_santafe_contact', 'santafe_tailwind_handle_contact_form');
@@ -325,7 +331,7 @@ function santafe_tailwind_register_rewrites(): void {
 
     add_rewrite_rule('^(es|ca)/?$', 'index.php?santafe_lang=$matches[1]&santafe_route=', 'top');
     add_rewrite_rule('^(es|ca)/(.+?)/?$', 'index.php?santafe_lang=$matches[1]&santafe_route=$matches[2]', 'top');
-    add_rewrite_rule('^(servicios|reformas-integrales|obra-nueva|pladur-acabados|obra-publica|obra-civil|reformas-barcelona|reformas-girona|reformas-tarragona|contacto|sobre-nosotros|proyectos|blog)/?$', 'index.php?santafe_lang=es&santafe_route=$matches[1]', 'top');
+    add_rewrite_rule('^(servicios|reformas-integrales|obra-nueva|pladur-acabados|obra-publica|obra-civil|reformas-barcelona|reformas-girona|reformas-tarragona|contacto|sobre-nosotros|proyectos|blog|garantias)/?$', 'index.php?santafe_lang=es&santafe_route=$matches[1]', 'top');
     add_rewrite_rule('^sitemap\.xml$', 'index.php?santafe_sitemap=1', 'top');
     add_rewrite_rule('^robots\.txt$', 'index.php?santafe_robots=1', 'top');
 }
