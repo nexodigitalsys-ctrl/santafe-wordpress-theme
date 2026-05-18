@@ -64,22 +64,17 @@
             }
 
             const formData = new FormData(form);
-            if (!formData.get('csrf_token') && window.santafeConfig && window.santafeConfig.csrfToken) {
-                formData.set('csrf_token', window.santafeConfig.csrfToken);
-            }
-            const data = {};
-            formData.forEach(function(value, key) {
-                data[key] = value;
-            });
+            // Add CSRF as explicit field for admin-post.php compatibility
+            formData.set('action', 'santafe_contact_form');
+            const csrf = (window.santafeConfig && window.santafeConfig.csrfToken) || window.csrfToken || '';
+            formData.set('csrf_token', csrf);
 
             fetch(form.action || (window.santafeConfig && window.santafeConfig.ajaxUrl) || '/wp-admin/admin-post.php', {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json',
-                    'X-CSRF-Token': (window.santafeConfig && window.santafeConfig.csrfToken) || window.csrfToken || '',
                     'X-Requested-With': 'XMLHttpRequest'
                 },
-                body: JSON.stringify(data)
+                body: formData
             })
             .then(function(response) {
                 if (!response.ok) throw new Error('Error en el envío');

@@ -21,14 +21,23 @@ add_action('after_setup_theme', 'santafe_tailwind_theme_setup');
 
 function santafe_tailwind_enqueue_assets(): void {
     $theme_uri = get_template_directory_uri();
+    $version = '1.2.0';
 
-    wp_enqueue_script('santafe-navigation', $theme_uri . '/assets/js/navigation.js', [], '1.1.0', true);
-    wp_enqueue_script('santafe-cookies', $theme_uri . '/assets/js/cookies.js', [], '1.1.0', true);
-    wp_enqueue_script('santafe-forms', $theme_uri . '/assets/js/forms.js', [], '1.1.0', true);
-    wp_enqueue_script('santafe-main', $theme_uri . '/assets/js/main.js', [], '1.1.0', true);
-    wp_enqueue_script('santafe-premium', $theme_uri . '/assets/js/premium-interactions.js', [], '1.1.0', true);
+    // Core utilities must load first (dependency for slider)
+    wp_enqueue_script('santafe-utils', $theme_uri . '/assets/js/utils.js', [], $version, true);
+    wp_script_add_data('santafe-utils', 'defer', true);
 
-    foreach (['santafe-navigation', 'santafe-cookies', 'santafe-forms', 'santafe-main', 'santafe-premium'] as $handle) {
+    // Slider depends on utils (onReady helper)
+    wp_enqueue_script('santafe-slider', $theme_uri . '/assets/js/slider.js', ['santafe-utils'], $version, true);
+    wp_script_add_data('santafe-slider', 'defer', true);
+
+    wp_enqueue_script('santafe-navigation', $theme_uri . '/assets/js/navigation.js', [], $version, true);
+    wp_enqueue_script('santafe-cookies', $theme_uri . '/assets/js/cookies.js', [], $version, true);
+    wp_enqueue_script('santafe-forms', $theme_uri . '/assets/js/forms.js', ['santafe-utils'], $version, true);
+    wp_enqueue_script('santafe-main', $theme_uri . '/assets/js/main.js', [], $version, true);
+    wp_enqueue_script('santafe-premium', $theme_uri . '/assets/js/premium-interactions.js', [], $version, true);
+
+    foreach (['santafe-utils', 'santafe-slider', 'santafe-navigation', 'santafe-cookies', 'santafe-forms', 'santafe-main', 'santafe-premium'] as $handle) {
         wp_script_add_data($handle, 'defer', true);
     }
 
@@ -38,6 +47,12 @@ function santafe_tailwind_enqueue_assets(): void {
         'ga4Id' => GA4_ID,
         'gtmId' => GTM_ID,
         'analyticsEnabled' => SANTAFE_ENABLE_ANALYTICS,
+        'whatsappNumber' => WHATSAPP_NUMBER,
+    ]);
+
+    wp_localize_script('santafe-main', 'santafeConfig', [
+        'ajaxUrl' => admin_url('admin-post.php'),
+        'csrfToken' => wp_create_nonce('santafe_contact_form'),
         'whatsappNumber' => WHATSAPP_NUMBER,
     ]);
 }

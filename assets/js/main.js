@@ -78,17 +78,16 @@
             if (calcResult) calcResult.innerHTML = '';
 
             var formData = new FormData(calcForm);
-            var data = {};
-            formData.forEach(function(value, key) { data[key] = value; });
+            var csrfToken = (window.santafeConfig && window.santafeConfig.csrfToken) || window.csrfToken || '';
+            formData.set('csrf_token', csrfToken);
+            formData.set('action', 'santafe_calculadora');
 
             fetch(calcForm.action, {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json',
-                    'X-CSRF-Token': (window.santafeConfig && window.santafeConfig.csrfToken) || window.csrfToken || '',
                     'X-Requested-With': 'XMLHttpRequest'
                 },
-                body: JSON.stringify(data)
+                body: formData
             })
             .then(function(r) { return r.json(); })
             .then(function(res) {

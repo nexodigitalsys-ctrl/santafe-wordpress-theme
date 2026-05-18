@@ -40,7 +40,7 @@ $stat_provinces_label = $lang === 'ca' ? 'Províncies' : 'Provincias';
         <div class="max-w-4xl mx-auto text-center lg:text-left lg:mx-0">
             <div class="flex items-center justify-center lg:justify-start gap-4 mb-8 animate-fade-in">
                 <div class="industrial-line w-16"></div>
-                <span class="text-brand-400 text-xs font-semibold uppercase tracking-[0.3em]"><?php echo $badge; ?></span>
+                <span class="text-brand-400 text-xs font-semibold uppercase tracking-[0.3em] "><?php echo $badge; ?></span>
             </div>
 
             <h1 class="font-display font-bold text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-white leading-[0.95] tracking-tight mb-8 animate-slide-up">

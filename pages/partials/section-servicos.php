@@ -104,7 +104,7 @@ $services = $lang === 'ca' ? [
 ];
 
 $cta_card_title = $lang === 'ca' ? 'No saps què necessites exactament?' : '¿No sabes qué necesitas exactamente?';
-$cta_card_subtitle = $lang === 'ca' ? 'Pablo t\'ajuda a decidir-ho' : 'Pablo te ayuda a decidirlo';
+$cta_card_subtitle = $lang === 'ca' ? 'Paulo t\'ajuda a decidir-ho' : 'Paulo te ayuda a decidirlo';
 $cta_card_btn = $lang === 'ca' ? 'Trucar ara — Respon en 2 hores' : 'Llamar ahora — Responde en 2 horas';
 ?>
 

@@ -208,22 +208,6 @@ $current_year = date('Y');
     }, { passive: true });
   }
 
-  // 4. Header scroll detection (if not already handled by navigation.js)
-  var header = document.getElementById('site-nav');
-  if (header) {
-    function updateHeader() {
-      if (window.scrollY > 50) {
-        header.classList.add('header-scrolled');
-      } else {
-        header.classList.remove('header-scrolled');
-      }
-    }
-    window.addEventListener('scroll', function() {
-      requestAnimationFrame(updateHeader);
-    }, { passive: true });
-    updateHeader();
-  }
-
   // 5. 3D Tilt Effect on Cards
   if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     document.querySelectorAll('.tilt-card').forEach(function(card) {

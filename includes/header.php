@@ -135,6 +135,22 @@ $nav_contact_path = $lang === 'ca' ? 'contacte' : 'contacto';
 <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/tailwind-built.css">
 
 <style>
+  /* CSS Custom Properties for z-index layers — Centralized management
+   * @see https://css-tricks.com/z-index-and-stacking-context/
+   */
+  :root {
+    --z-dropdown: 10;
+    --z-sticky-cta: 40;
+    --z-mobile-menu: 40;
+    --z-section-dots: 40;
+    --z-header: 50;
+    --z-whatsapp-float: 100;
+    --z-cookie-banner: 200;
+    --z-cookie-settings: 210;
+    --z-skip-link: 1000;
+    --z-scroll-progress: 9999;
+  }
+
   /* Base styles */
   body { font-family: 'Inter', system-ui, sans-serif; }
   ::-webkit-scrollbar { width: 8px; }
@@ -189,14 +205,14 @@ $nav_contact_path = $lang === 'ca' ? 'contacte' : 'contacto';
   .header-scrolled [data-menu-btn] { color: #ffffff; }
   .header-scrolled [data-logo-dark] { opacity: 1 !important; }
   .header-scrolled [data-logo-light] { opacity: 0 !important; }
-  /* Default top state */
+  /* Default top state — Logo claro aparece no topo (bg transparente) */
   [data-nav-link] { color: #c8cace; transition: color 0.3s; }
   [data-nav-link]:hover { color: #ffffff; }
   [data-lang-btn] { color: #a5a9ae; border-color: #3a3c42; transition: all 0.3s; }
   [data-lang-btn]:hover { color: #ffffff; border-color: #a5a9ae; }
   [data-menu-btn] { color: #ffffff; }
-  [data-logo-dark] { opacity: 1; }
-  [data-logo-light] { opacity: 0 !important; }
+  [data-logo-dark] { opacity: 0 !important; }
+  [data-logo-light] { opacity: 1 !important; }
   [data-brand-text] { color: #ffffff; }
   [data-brand-sub] { color: rgba(255,255,255,0.65); }
 
@@ -225,7 +241,7 @@ $nav_contact_path = $lang === 'ca' ? 'contacte' : 'contacto';
     left: 0;
     height: 3px;
     background: linear-gradient(90deg, #AE232A, #f87171);
-    z-index: 9999;
+    z-index: var(--z-scroll-progress);
     width: 0%;
     transition: width 0.1s linear;
     box-shadow: 0 0 10px rgba(174, 35, 42, 0.5);
@@ -317,10 +333,14 @@ $nav_contact_path = $lang === 'ca' ? 'contacte' : 'contacto';
   }
 </style>
 
+<!-- Core Utilities (must load first) -->
+<script src="<?php echo get_template_directory_uri(); ?>/assets/js/utils.js" defer></script>
 <!-- Premium Interactions -->
 <script src="<?php echo get_template_directory_uri(); ?>/assets/js/premium-interactions.js" defer></script>
 <?php if (!function_exists('wp_enqueue_scripts')): ?>
+<script src="<?php echo get_template_directory_uri(); ?>/assets/js/slider.js" defer></script>
 <script src="<?php echo get_template_directory_uri(); ?>/assets/js/navigation.js" defer></script>
+<script src="<?php echo get_template_directory_uri(); ?>/assets/js/forms.js" defer></script>
 <script src="<?php echo get_template_directory_uri(); ?>/assets/js/main.js" defer></script>
 <?php endif; ?>
 
@@ -353,8 +373,8 @@ gtag('consent', 'default', {
 <!-- Scroll Progress Bar -->
 <div id="scroll-progress" aria-hidden="true"></div>
 
-<!-- Sticky Section Dots (desktop only) -->
-<nav class="fixed right-6 top-1/2 -translate-y-1/2 z-40 hidden xl:flex flex-col gap-3" id="section-dots" aria-label="Navegación de secciones">
+<!-- Sticky Section Dots (desktop only, homepage only) -->
+<nav class="fixed right-6 top-1/2 -translate-y-1/2 z-40 hidden xl:flex-col xl:flex gap-3<?php echo isset($is_homepage) && $is_homepage ? '' : ' hidden'; ?>" id="section-dots" aria-label="Navegación de secciones">
     <button class="section-dot w-2.5 h-2.5 rounded-full bg-slate-600 hover:bg-slate-400 transition-all" data-target="#inicio" aria-label="Inicio"></button>
     <button class="section-dot w-2.5 h-2.5 rounded-full bg-slate-600 hover:bg-slate-400 transition-all" data-target="#dores-solucoes" aria-label="Problemas y soluciones"></button>
     <button class="section-dot w-2.5 h-2.5 rounded-full bg-slate-600 hover:bg-slate-400 transition-all" data-target="#servicios" aria-label="Servicios"></button>
@@ -390,8 +410,8 @@ gtag('consent', 'default', {
     <nav class="hidden lg:flex items-center gap-8" role="navigation" aria-label="Principal">
       <a href="/<?php echo $lang; ?>/" class="text-sm font-medium transition-colors tracking-wide" data-nav-link><?php echo t($translations, 'nav.home'); ?></a>
       <div class="relative group">
-        <a href="/<?php echo $lang; ?>/<?php echo $nav_services_path; ?>/" class="text-sm font-medium transition-colors tracking-wide inline-flex items-center gap-1" data-nav-link><?php echo t($translations, 'nav.services'); ?><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-3 h-3 opacity-60" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"/></svg></a>
-        <div class="absolute left-0 top-full pt-4 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all">
+        <a href="/<?php echo $lang; ?>/<?php echo $nav_services_path; ?>/" class="text-sm font-medium transition-colors tracking-wide inline-flex items-center gap-1" data-nav-link aria-haspopup="true" aria-expanded="false"><?php echo t($translations, 'nav.services'); ?><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-3 h-3 opacity-60" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"/></svg></a>
+        <div class="absolute left-0 top-full pt-4 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto group-focus-within:opacity-100 group-focus-within:pointer-events-auto transition-all" role="menu" aria-label="Submenú de servicios">
           <div class="w-72 bg-slate-950 border border-slate-800 rounded-sm shadow-2xl p-3">
             <a href="/<?php echo $lang; ?>/<?php echo $lang === 'ca' ? 'obra-nova' : 'obra-nueva'; ?>/" class="block px-4 py-3 text-sm text-slate-300 hover:text-white hover:bg-slate-900 rounded-sm">Obra nueva</a>
             <a href="/<?php echo $lang; ?>/<?php echo $lang === 'ca' ? 'reformes-integrals' : 'reformas-integrales'; ?>/" class="block px-4 py-3 text-sm text-slate-300 hover:text-white hover:bg-slate-900 rounded-sm">Reformas integrales</a>
@@ -406,8 +426,8 @@ gtag('consent', 'default', {
       <a href="/<?php echo $lang; ?>/blog/" class="text-sm font-medium transition-colors tracking-wide" data-nav-link>Blog</a>
       <a href="tel:<?php echo COMPANY_PHONE; ?>" class="text-sm font-semibold text-brand-400 hover:text-brand-300 transition-colors" data-track-event="phone_click">Llámanos: <?php echo COMPANY_PHONE_DISPLAY; ?></a>
       <a href="/<?php echo $lang; ?>/<?php echo $nav_contact_path; ?>/" class="text-sm font-semibold bg-brand-600 hover:bg-brand-500 text-slate-950 px-5 py-2.5 rounded-sm transition-all tracking-wide" data-nav-cta>Presupuesto gratuito</a>
-      <a href="<?php echo $alt_url; ?>" hreflang="<?php echo $alt_locale; ?>" class="text-xs font-medium border px-2 py-1 rounded-sm transition-colors <?php echo $lang === 'es' ? 'opacity-100' : 'opacity-60'; ?>" data-lang-btn>ES</a>
-      <a href="<?php echo $alt_url; ?>" hreflang="<?php echo $alt_locale; ?>" class="text-xs font-medium border px-2 py-1 rounded-sm transition-colors <?php echo $lang === 'ca' ? 'opacity-100' : 'opacity-60'; ?>" data-lang-btn>CA</a>
+      <a href="<?php echo get_alt_url($current_route ?? '', 'es'); ?>" hreflang="es_ES" class="text-xs font-medium border px-2 py-1 rounded-sm transition-colors <?php echo $lang === 'es' ? 'opacity-100' : 'opacity-60'; ?>" data-lang-btn>ES</a>
+      <a href="<?php echo get_alt_url($current_route ?? '', 'ca'); ?>" hreflang="ca_ES" class="text-xs font-medium border px-2 py-1 rounded-sm transition-colors <?php echo $lang === 'ca' ? 'opacity-100' : 'opacity-60'; ?>" data-lang-btn>CA</a>
     </nav>
 
     <button type="button" class="lg:hidden p-2 transition-colors duration-500" id="menu-toggle" aria-label="<?php echo t($translations, 'nav.menu_open'); ?>" aria-expanded="false" data-menu-btn>

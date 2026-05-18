@@ -10,6 +10,8 @@ $lang = isset($current_lang) ? $current_lang : (isset($_GET['lang']) && in_array
 require_once __DIR__ . '/../includes/i18n.php';
 $translations = load_translations($lang);
 
+$is_homepage = true;
+
 $page_data = [
     'lang' => $lang,
     'title' => $lang === 'ca' ? 'Empresa de reformes i obra nova a Barcelona, Girona i Tarragona | Santa Fe' : 'Empresa de reformas y obra nueva en Barcelona, Girona y Tarragona | Santa Fe',
