@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+@source "../../pages/**/*.php";
+@source "../../includes/**/*.php";
+
 @theme {
   --font-sans: 'Inter', system-ui, sans-serif;
   --font-display: 'Space Grotesk', 'Inter', sans-serif;
