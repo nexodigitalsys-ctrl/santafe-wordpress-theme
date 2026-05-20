@@ -14,17 +14,17 @@ $cta = $lang === 'ca' ? 'Sol·licitar visita tècnica' : 'Solicitar visita técn
 $cta_phone = $lang === 'ca' ? 'Trucar ara' : 'Llamar ahora';
 ?>
 
-<section class="py-24 md:py-32 bg-slate-950 relative overflow-hidden">
+<section class="py-24 md:py-32 bg-white relative overflow-hidden">
     <div class="absolute inset-0 opacity-5 cta-bg-pattern"></div>
     <div class="max-w-7xl mx-auto px-6 relative z-10 text-center">
-        <h2 class="font-display font-bold text-4xl md:text-5xl text-white tracking-tight mb-6"><?php echo $title; ?></h2>
-        <p class="text-slate-300 text-lg leading-relaxed mb-10 max-w-2xl mx-auto"><?php echo $subtitle; ?></p>
+        <h2 class="font-display font-bold text-4xl md:text-5xl text-gray-900 tracking-tight mb-6"><?php echo $title; ?></h2>
+        <p class="text-gray-600 text-lg leading-relaxed mb-10 max-w-2xl mx-auto"><?php echo $subtitle; ?></p>
         <div class="flex flex-wrap gap-4 justify-center">
             <a href="/<?php echo $lang; ?>/contacto/" class="inline-flex items-center gap-2 bg-brand-600 hover:bg-brand-500 text-white font-semibold px-8 py-4 rounded-sm transition-all tracking-wide text-sm uppercase">
                 <?php echo $cta; ?>
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </a>
-            <a href="tel:<?php echo COMPANY_PHONE; ?>" class="inline-flex items-center gap-2 border border-slate-600 hover:border-slate-400 text-slate-200 font-medium px-8 py-4 rounded-sm transition-all tracking-wide text-sm uppercase">
+            <a href="tel:<?php echo COMPANY_PHONE; ?>" class="inline-flex items-center gap-2 border border-gray-300 hover:border-gray-400 text-gray-700 font-medium px-8 py-4 rounded-sm transition-all tracking-wide text-sm uppercase">
                 <?php echo $cta_phone; ?>
             </a>
         </div>

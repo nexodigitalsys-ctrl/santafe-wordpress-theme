@@ -35,7 +35,7 @@ $back_url = '/' . $lang . '/blog/';
 include __DIR__ . '/../../includes/header.php';
 ?>
 
-<section class="pt-32 pb-16 bg-slate-950">
+<section class="pt-32 pb-16 bg-white">
     <div class="max-w-4xl mx-auto px-6">
         <a href="<?php echo $back_url; ?>" class="inline-flex items-center gap-2 text-brand-500 text-sm font-semibold mb-8 group">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
@@ -43,21 +43,21 @@ include __DIR__ . '/../../includes/header.php';
         </a>
         <div class="flex items-center gap-4 mb-6">
             <span class="text-brand-400 text-xs font-semibold uppercase tracking-[0.3em]"><?php echo $post_tag; ?></span>
-            <span class="text-slate-600">·</span>
-            <span class="text-slate-500 text-sm"><?php echo $post_date; ?></span>
+            <span class="text-gray-500">·</span>
+            <span class="text-gray-500 text-sm"><?php echo $post_date; ?></span>
         </div>
-        <h1 class="font-display font-bold text-3xl md:text-4xl lg:text-5xl text-white tracking-tight mb-8 leading-[1.1]">
+        <h1 class="font-display font-bold text-3xl md:text-4xl lg:text-5xl text-gray-900 tracking-tight mb-8 leading-[1.1]">
             <?php echo $post_title; ?>
         </h1>
-        <p class="text-slate-400 text-lg leading-relaxed mb-10">
+        <p class="text-gray-500 text-lg leading-relaxed mb-10">
             <?php echo $post_description; ?>
         </p>
     </div>
 </section>
 
-<section class="pb-24 bg-slate-950">
+<section class="pb-24 bg-white">
     <div class="max-w-4xl mx-auto px-6">
-        <article class="blog-article max-w-none text-slate-300 leading-relaxed">
+        <article class="blog-article max-w-none text-gray-600 leading-relaxed">
             <?php echo $post_content; ?>
         </article>
         <style>
@@ -74,11 +74,11 @@ include __DIR__ . '/../../includes/header.php';
         .blog-article tbody tr:last-child td { border-bottom: none; }
         </style>
 
-        <div class="mt-16 pt-10 border-t border-slate-800">
-            <h3 class="font-display font-bold text-2xl text-white mb-4">
+        <div class="mt-16 pt-10 border-t border-gray-200">
+            <h3 class="font-display font-bold text-2xl text-gray-900 mb-4">
                 <?php echo $isCa ? '¿Necessites ajuda amb el teu projecte?' : '¿Necesitas ayuda con tu proyecto?'; ?>
             </h3>
-            <p class="text-slate-400 mb-6">
+            <p class="text-gray-500 mb-6">
                 <?php echo $isCa ? 'Contacta amb Paulo per WhatsApp o sol·licita un pressupost tancat gratuït.' : 'Contacta con Paulo por WhatsApp o solicita un presupuesto cerrado gratuito.'; ?>
             </p>
             <div class="flex flex-wrap gap-4">

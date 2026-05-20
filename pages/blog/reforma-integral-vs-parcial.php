@@ -33,17 +33,17 @@ $post_content = '<h2>¿Reformar todo o solo una parte?</h2>
 
 <h2>Comparativa de costes</h2>
 <p>Para un piso de 80 m² en Barcelona:</p>
-<table class="w-full text-sm border border-slate-800 rounded-sm overflow-hidden mt-4 mb-6">
-<thead class="bg-slate-900 text-slate-400 uppercase tracking-wider"><tr><th class="p-3 text-left">Concepto</th><th class="p-3 text-right">Integral</th><th class="p-3 text-right">Parcial</th></tr></thead>
-<tbody class="text-slate-300">
-<tr class="border-b border-slate-800"><td class="p-3">Demolición</td><td class="p-3 text-right">3.000 € - 5.000 €</td><td class="p-3 text-right">500 € - 1.500 €</td></tr>
-<tr class="border-b border-slate-800"><td class="p-3">Albañilería</td><td class="p-3 text-right">8.000 € - 12.000 €</td><td class="p-3 text-right">2.000 € - 4.000 €</td></tr>
-<tr class="border-b border-slate-800"><td class="p-3">Instalaciones</td><td class="p-3 text-right">8.000 € - 15.000 €</td><td class="p-3 text-right">1.000 € - 3.000 €</td></tr>
-<tr class="border-b border-slate-800"><td class="p-3">Cocina completa</td><td class="p-3 text-right">8.000 € - 15.000 €</td><td class="p-3 text-right">8.000 € - 15.000 €</td></tr>
-<tr class="border-b border-slate-800"><td class="p-3">Baño completo</td><td class="p-3 text-right">5.000 € - 10.000 €</td><td class="p-3 text-right">5.000 € - 10.000 €</td></tr>
-<tr class="border-b border-slate-800"><td class="p-3">Carpintería</td><td class="p-3 text-right">4.000 € - 8.000 €</td><td class="p-3 text-right">1.000 € - 3.000 €</td></tr>
-<tr class="border-b border-slate-800"><td class="p-3">Pintura</td><td class="p-3 text-right">2.500 € - 4.000 €</td><td class="p-3 text-right">1.500 € - 3.000 €</td></tr>
-<tr class="font-bold text-white"><td class="p-3">TOTAL</td><td class="p-3 text-right">52.000 € - 80.000 €</td><td class="p-3 text-right">20.000 € - 40.000 €</td></tr>
+<table class="w-full text-sm border border-gray-200 rounded-sm overflow-hidden mt-4 mb-6">
+<thead class="bg-gray-50 text-gray-500 uppercase tracking-wider"><tr><th class="p-3 text-left">Concepto</th><th class="p-3 text-right">Integral</th><th class="p-3 text-right">Parcial</th></tr></thead>
+<tbody class="text-gray-600">
+<tr class="border-b border-gray-200"><td class="p-3">Demolición</td><td class="p-3 text-right">3.000 € - 5.000 €</td><td class="p-3 text-right">500 € - 1.500 €</td></tr>
+<tr class="border-b border-gray-200"><td class="p-3">Albañilería</td><td class="p-3 text-right">8.000 € - 12.000 €</td><td class="p-3 text-right">2.000 € - 4.000 €</td></tr>
+<tr class="border-b border-gray-200"><td class="p-3">Instalaciones</td><td class="p-3 text-right">8.000 € - 15.000 €</td><td class="p-3 text-right">1.000 € - 3.000 €</td></tr>
+<tr class="border-b border-gray-200"><td class="p-3">Cocina completa</td><td class="p-3 text-right">8.000 € - 15.000 €</td><td class="p-3 text-right">8.000 € - 15.000 €</td></tr>
+<tr class="border-b border-gray-200"><td class="p-3">Baño completo</td><td class="p-3 text-right">5.000 € - 10.000 €</td><td class="p-3 text-right">5.000 € - 10.000 €</td></tr>
+<tr class="border-b border-gray-200"><td class="p-3">Carpintería</td><td class="p-3 text-right">4.000 € - 8.000 €</td><td class="p-3 text-right">1.000 € - 3.000 €</td></tr>
+<tr class="border-b border-gray-200"><td class="p-3">Pintura</td><td class="p-3 text-right">2.500 € - 4.000 €</td><td class="p-3 text-right">1.500 € - 3.000 €</td></tr>
+<tr class="font-bold text-gray-900"><td class="p-3">TOTAL</td><td class="p-3 text-right">52.000 € - 80.000 €</td><td class="p-3 text-right">20.000 € - 40.000 €</td></tr>
 </tbody>
 </table>
 

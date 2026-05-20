@@ -32,7 +32,7 @@ $stat_provinces_label = $lang === 'ca' ? 'Províncies' : 'Provincias';
         <!-- Gradientes pesados para legibilidade absoluta -->
         <div class="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/92 to-slate-950/65"></div>
         <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-slate-950/60"></div>
-        <div class="absolute inset-0 bg-slate-950/25"></div>
+        <div class="absolute inset-0 bg-white/25"></div>
     </div>
 
     <!-- Conteúdo -->
@@ -47,16 +47,16 @@ $stat_provinces_label = $lang === 'ca' ? 'Províncies' : 'Provincias';
                 <?php echo $hero_title; ?>
             </h1>
 
-            <p class="text-slate-300 text-lg md:text-xl max-w-2xl mx-auto lg:mx-0 mb-10 leading-relaxed animate-slide-up delay-200">
+            <p class="text-gray-300 text-lg md:text-xl max-w-2xl mx-auto lg:mx-0 mb-10 leading-relaxed animate-slide-up delay-200">
                 <?php echo $hero_subtitle; ?>
             </p>
 
             <div class="flex flex-wrap justify-center lg:justify-start gap-4 mb-16 animate-slide-up delay-300">
-                <a href="#contacto" class="inline-flex items-center gap-2 bg-brand-600 hover:bg-brand-500 text-slate-950 font-semibold px-8 py-4 rounded-sm transition-all tracking-wide text-sm uppercase">
+                <a href="#contacto" class="inline-flex items-center gap-2 bg-brand-600 hover:bg-brand-500 text-white font-semibold px-8 py-4 rounded-sm transition-all tracking-wide text-sm uppercase">
                     <?php echo $cta_primary; ?>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"/></svg>
                 </a>
-                <a href="#portfolio" class="inline-flex items-center gap-2 border border-slate-500 hover:border-white text-slate-200 font-medium px-8 py-4 rounded-sm transition-all tracking-wide text-sm uppercase">
+                <a href="#portfolio" class="inline-flex items-center gap-2 border border-white/30 hover:border-white text-white font-medium px-8 py-4 rounded-sm transition-all tracking-wide text-sm uppercase">
                     <?php echo $cta_secondary; ?>
                 </a>
             </div>
@@ -65,15 +65,15 @@ $stat_provinces_label = $lang === 'ca' ? 'Províncies' : 'Provincias';
             <div class="grid grid-cols-3 gap-8 max-w-2xl mx-auto lg:mx-0 animate-slide-up delay-400">
                 <div class="text-center lg:text-left" data-reveal data-reveal-delay="400">
                     <span class="font-display font-bold text-4xl md:text-5xl text-brand-500 block" data-counter="17" data-counter-duration="2000">0</span>
-                    <span class="text-slate-400 text-sm mt-1 block"><?php echo $stat_years_label; ?></span>
+                    <span class="text-gray-400 text-sm mt-1 block"><?php echo $stat_years_label; ?></span>
                 </div>
                 <div class="text-center lg:text-left" data-reveal data-reveal-delay="500">
                     <span class="font-display font-bold text-4xl md:text-5xl text-brand-500 block" data-counter="500" data-counter-suffix="+" data-counter-duration="2500">0</span>
-                    <span class="text-slate-400 text-sm mt-1 block"><?php echo $stat_projects_label; ?></span>
+                    <span class="text-gray-400 text-sm mt-1 block"><?php echo $stat_projects_label; ?></span>
                 </div>
                 <div class="text-center lg:text-left" data-reveal data-reveal-delay="600">
                     <span class="font-display font-bold text-4xl md:text-5xl text-brand-500 block" data-counter="3" data-counter-duration="1500">0</span>
-                    <span class="text-slate-400 text-sm mt-1 block"><?php echo $stat_provinces_label; ?></span>
+                    <span class="text-gray-400 text-sm mt-1 block"><?php echo $stat_provinces_label; ?></span>
                 </div>
             </div>
         </div>
@@ -81,7 +81,7 @@ $stat_provinces_label = $lang === 'ca' ? 'Províncies' : 'Provincias';
 
     <!-- Scroll indicator -->
     <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 animate-bounce hidden md:block">
-        <a href="#servicios" class="flex flex-col items-center gap-2 text-slate-500 hover:text-brand-400 transition-colors">
+        <a href="#servicios" class="flex flex-col items-center gap-2 text-white/70 hover:text-brand-400 transition-colors">
             <span class="text-xs uppercase tracking-widest"><?php echo $lang === 'ca' ? 'Descobreix' : 'Descubre'; ?></span>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m0 0l6.75-6.75M12 19.5l-6.75-6.75"/></svg>
         </a>

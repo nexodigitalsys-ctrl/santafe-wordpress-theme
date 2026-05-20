@@ -67,48 +67,48 @@ $zone_title = $is_ca ? 'Zona coberta' : 'Zona cubierta';
 $faq_title = $is_ca ? 'Preguntes freqüents' : 'Preguntas frecuentes';
 ?>
 
-<section class="pt-40 pb-20 bg-slate-950">
+<section class="pt-40 pb-20 bg-white">
     <div class="max-w-7xl mx-auto px-6">
         <div class="max-w-4xl">
             <div class="flex items-center gap-4 mb-4">
                 <div class="industrial-line w-12"></div>
                 <span class="text-brand-400 text-xs font-semibold uppercase tracking-[0.3em]">SEO local</span>
             </div>
-            <h1 class="font-display font-bold text-4xl md:text-6xl text-white tracking-tight mb-6"><?php echo esc_html($h1); ?></h1>
-            <p class="text-slate-300 text-lg md:text-xl leading-relaxed max-w-3xl"><?php echo $is_ca ? 'Ajudem clients a ' : 'Ayudamos a clientes en '; ?><?php echo esc_html($data['city']); ?><?php echo $is_ca ? ' a ' : ' a '; ?><?php echo esc_html($data['intent']); ?>, <?php echo $is_ca ? 'amb planificació prèvia, pressupost clar i comunicació directa durant l\'obra.' : 'con planificación previa, presupuesto claro y comunicación directa durante la obra.'; ?></p>
+            <h1 class="font-display font-bold text-4xl md:text-6xl text-gray-900 tracking-tight mb-6"><?php echo esc_html($h1); ?></h1>
+            <p class="text-gray-600 text-lg md:text-xl leading-relaxed max-w-3xl"><?php echo $is_ca ? 'Ajudem clients a ' : 'Ayudamos a clientes en '; ?><?php echo esc_html($data['city']); ?><?php echo $is_ca ? ' a ' : ' a '; ?><?php echo esc_html($data['intent']); ?>, <?php echo $is_ca ? 'amb planificació prèvia, pressupost clar i comunicació directa durant l\'obra.' : 'con planificación previa, presupuesto claro y comunicación directa durante la obra.'; ?></p>
             <div class="flex flex-wrap gap-4 mt-10">
-                <a href="/<?php echo $lang; ?>/contacto/" class="inline-flex items-center bg-brand-600 hover:bg-brand-500 text-white font-semibold px-8 py-4 rounded-sm transition-all tracking-wide text-sm uppercase"><?php echo $cta_budget; ?></a>
-                <a href="tel:<?php echo COMPANY_PHONE; ?>" class="inline-flex items-center border border-slate-600 hover:border-brand-500 text-slate-200 font-medium px-8 py-4 rounded-sm transition-all tracking-wide text-sm uppercase" data-track-event="phone_click"><?php echo $cta_call . COMPANY_PHONE_DISPLAY; ?></a>
+                <a href="/<?php echo $lang; ?>/contacto/" class="inline-flex items-center bg-brand-600 hover:bg-brand-500 text-gray-900 font-semibold px-8 py-4 rounded-sm transition-all tracking-wide text-sm uppercase"><?php echo $cta_budget; ?></a>
+                <a href="tel:<?php echo COMPANY_PHONE; ?>" class="inline-flex items-center border border-gray-300 hover:border-brand-500 text-gray-700 font-medium px-8 py-4 rounded-sm transition-all tracking-wide text-sm uppercase" data-track-event="phone_click"><?php echo $cta_call . COMPANY_PHONE_DISPLAY; ?></a>
             </div>
         </div>
     </div>
 </section>
 
-<section class="py-20 bg-slate-900 border-y border-slate-800">
+<section class="py-20 bg-gray-50 border-y border-gray-200">
     <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-3 gap-6">
-        <article class="bg-slate-950 border border-slate-800 p-7 rounded-sm">
-            <h2 class="font-display font-bold text-2xl text-white mb-3"><?php echo $price_title; ?></h2>
-            <p class="text-slate-400"><?php echo $is_ca ? 'Referència inicial: ' : 'Referencia inicial: '; ?><?php echo esc_html($data['rate']); ?>. <?php echo $is_ca ? 'La xifra final depèn de mesuraments, qualitats, llicències i estat inicial.' : 'La cifra final depende de mediciones, calidades, licencias y estado inicial.'; ?></p>
+        <article class="bg-white border border-gray-200 p-7 rounded-sm">
+            <h2 class="font-display font-bold text-2xl text-gray-900 mb-3"><?php echo $price_title; ?></h2>
+            <p class="text-gray-500"><?php echo $is_ca ? 'Referència inicial: ' : 'Referencia inicial: '; ?><?php echo esc_html($data['rate']); ?>. <?php echo $is_ca ? 'La xifra final depèn de mesuraments, qualitats, llicències i estat inicial.' : 'La cifra final depende de mediciones, calidades, licencias y estado inicial.'; ?></p>
         </article>
-        <article class="bg-slate-950 border border-slate-800 p-7 rounded-sm">
-            <h2 class="font-display font-bold text-2xl text-white mb-3"><?php echo $process_title; ?></h2>
-            <p class="text-slate-400"><?php echo $is_ca ? 'Primer visita i abast. Després partides, calendari i fases. Durant l\'obra, decisions documentades.' : 'Primero visita y alcance. Después partidas, calendario y fases. Durante la obra, decisiones documentadas.'; ?></p>
+        <article class="bg-white border border-gray-200 p-7 rounded-sm">
+            <h2 class="font-display font-bold text-2xl text-gray-900 mb-3"><?php echo $process_title; ?></h2>
+            <p class="text-gray-500"><?php echo $is_ca ? 'Primer visita i abast. Després partides, calendari i fases. Durant l\'obra, decisions documentades.' : 'Primero visita y alcance. Después partidas, calendario y fases. Durante la obra, decisiones documentadas.'; ?></p>
         </article>
-        <article class="bg-slate-950 border border-slate-800 p-7 rounded-sm">
-            <h2 class="font-display font-bold text-2xl text-white mb-3"><?php echo $zone_title; ?></h2>
-            <p class="text-slate-400"><?php echo $is_ca ? 'Traballem a ' : 'Trabajamos en '; ?><?php echo esc_html($data['city']); ?><?php echo $is_ca ? ' i voltants, a més de Barcelona, Girona, Tarragona i altres zones de Catalunya.' : ' y alrededores, además de Barcelona, Girona, Tarragona y otras zonas de Cataluña.'; ?></p>
+        <article class="bg-white border border-gray-200 p-7 rounded-sm">
+            <h2 class="font-display font-bold text-2xl text-gray-900 mb-3"><?php echo $zone_title; ?></h2>
+            <p class="text-gray-500"><?php echo $is_ca ? 'Traballem a ' : 'Trabajamos en '; ?><?php echo esc_html($data['city']); ?><?php echo $is_ca ? ' i voltants, a més de Barcelona, Girona, Tarragona i altres zones de Catalunya.' : ' y alrededores, además de Barcelona, Girona, Tarragona y otras zonas de Cataluña.'; ?></p>
         </article>
     </div>
 </section>
 
-<section class="py-24 bg-slate-950">
+<section class="py-24 bg-white">
     <div class="max-w-4xl mx-auto px-6">
-        <h2 class="font-display font-bold text-3xl md:text-4xl text-white tracking-tight mb-10"><?php echo $faq_title; ?></h2>
+        <h2 class="font-display font-bold text-3xl md:text-4xl text-gray-900 tracking-tight mb-10"><?php echo $faq_title; ?></h2>
         <div class="space-y-4">
             <?php foreach ($faqs as $faq): ?>
-            <details class="bg-slate-900 border border-slate-800 rounded-sm p-6">
-                <summary class="cursor-pointer font-semibold text-white"><?php echo esc_html($faq['q']); ?></summary>
-                <p class="text-slate-400 mt-4 leading-relaxed"><?php echo esc_html($faq['a']); ?></p>
+            <details class="bg-gray-50 border border-gray-200 rounded-sm p-6">
+                <summary class="cursor-pointer font-semibold text-gray-900"><?php echo esc_html($faq['q']); ?></summary>
+                <p class="text-gray-500 mt-4 leading-relaxed"><?php echo esc_html($faq['a']); ?></p>
             </details>
             <?php endforeach; ?>
         </div>

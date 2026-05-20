@@ -58,7 +58,7 @@ $ca_category_to_service = [
 ];
 ?>
 
-<section data-reveal class="py-24 md:py-32 bg-slate-900 border-b border-slate-800" id="portfolio">
+<section data-reveal class="py-24 md:py-32 bg-gray-50 border-b border-gray-200" id="portfolio">
     <div class="max-w-7xl mx-auto px-6">
         <div class="flex flex-col md:flex-row md:items-end md:justify-between mb-12 gap-6">
             <div>
@@ -66,8 +66,8 @@ $ca_category_to_service = [
                     <div class="industrial-line w-12"></div>
                     <span class="text-brand-400 text-xs font-semibold uppercase tracking-[0.3em]">Portfolio</span>
                 </div>
-                <h2 class="font-display font-bold text-4xl md:text-5xl lg:text-6xl text-white tracking-tight"><?php echo $title; ?></h2>
-                <p class="text-slate-400 mt-4 max-w-lg"><?php echo $subtitle; ?></p>
+                <h2 class="font-display font-bold text-4xl md:text-5xl lg:text-6xl text-gray-900 tracking-tight"><?php echo $title; ?></h2>
+                <p class="text-gray-500 mt-4 max-w-lg"><?php echo $subtitle; ?></p>
             </div>
         </div>
 
@@ -75,7 +75,7 @@ $ca_category_to_service = [
         <div class="flex flex-wrap gap-2 mb-10">
             <?php foreach ($filters as $key => $label): ?>
             <button type="button"
-                    class="portfolio-filter__btn px-4 py-2 text-sm font-medium rounded-sm border transition-all <?php echo $key === 'all' ? 'bg-brand-600 border-brand-600 text-slate-950' : 'border-slate-700 text-slate-300 hover:border-brand-500 hover:text-white'; ?>"
+                    class="portfolio-filter__btn px-4 py-2 text-sm font-medium rounded-sm border transition-all <?php echo $key === 'all' ? 'bg-brand-600 border-brand-600 text-white' : 'border-gray-300 text-gray-600 hover:border-brand-500 hover:text-brand-600'; ?>"
                     data-filter="<?php echo $key; ?>">
                 <?php echo $label; ?>
             </button>
@@ -85,7 +85,7 @@ $ca_category_to_service = [
         <!-- Grid -->
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="portfolio-grid">
             <?php foreach ($projects as $proy): ?>
-            <article class="tilt-card portfolio-card group relative overflow-hidden rounded-sm bg-slate-950 border border-slate-800 transition-all duration-300"
+            <article class="tilt-card portfolio-card group relative overflow-hidden rounded-sm bg-white border border-gray-200 transition-all duration-300"
                      data-category="<?php echo $proy['category']; ?>">
                 <div class="aspect-[4/3] overflow-hidden">
                     <img src="<?php echo esc_url(get_template_directory_uri() . $proy['img']); ?>"
@@ -98,8 +98,8 @@ $ca_category_to_service = [
                     </span>
                 </div>
                 <div class="p-5">
-                    <h3 class="font-display font-bold text-lg text-white mb-2"><?php echo htmlspecialchars($proy['title']); ?></h3>
-                    <div class="flex flex-wrap gap-3 text-slate-400 text-sm mb-4">
+                    <h3 class="font-display font-bold text-lg text-gray-900 mb-2"><?php echo htmlspecialchars($proy['title']); ?></h3>
+                    <div class="flex flex-wrap gap-3 text-gray-500 text-sm mb-4">
                         <span class="flex items-center gap-1">
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
                             <?php echo $proy['m2']; ?> m²
@@ -130,12 +130,12 @@ $ca_category_to_service = [
 </section>
 
 <!-- Portfolio Lightbox -->
-<div id="portfolio-lightbox" class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-950/95 backdrop-blur-sm" role="dialog" aria-modal="true">
-    <button id="portfolio-lightbox-close" class="absolute top-6 right-6 text-white hover:text-brand-400 transition-colors z-10" aria-label="Cerrar">
+<div id="portfolio-lightbox" class="fixed inset-0 z-50 hidden items-center justify-center bg-white/95 backdrop-blur-sm" role="dialog" aria-modal="true">
+    <button id="portfolio-lightbox-close" class="absolute top-6 right-6 text-gray-900 hover:text-brand-600 transition-colors z-10" aria-label="Cerrar">
         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
     </button>
     <div class="max-w-5xl max-h-[90vh] px-6">
         <img id="portfolio-lightbox-img" src="" alt="" class="max-w-full max-h-[85vh] object-contain rounded-sm shadow-2xl">
-        <p id="portfolio-lightbox-title" class="text-white text-center mt-4 font-display text-lg"></p>
+        <p id="portfolio-lightbox-title" class="text-gray-900 text-center mt-4 font-display text-lg"></p>
     </div>
 </div>

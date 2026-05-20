@@ -128,7 +128,7 @@ include __DIR__ . '/../includes/header.php';
 <!-- ═══════════════════════════════════════════════════════════════
      1. HERO + STATS
      ═══════════════════════════════════════════════════════════════ -->
-<section class="pt-32 pb-20 md:pb-28 bg-slate-950 relative overflow-hidden">
+<section class="pt-32 pb-20 md:pb-28 bg-white relative overflow-hidden">
     <div class="absolute inset-0 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950"></div>
     <div class="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-px bg-brand-500/40"></div>
     <div class="max-w-7xl mx-auto px-6 relative z-10">
@@ -140,26 +140,26 @@ include __DIR__ . '/../includes/header.php';
             <h1 class="font-display font-bold text-4xl md:text-5xl lg:text-6xl text-white tracking-tight mb-6 leading-[1.1]">
                 <?php echo $t['hero_h1']; ?>
             </h1>
-            <p class="text-slate-300 text-lg md:text-xl leading-relaxed max-w-2xl mb-10">
+            <p class="text-gray-600 text-lg md:text-xl leading-relaxed max-w-2xl mb-10">
                 <?php echo $t['hero_p']; ?>
             </p>
         </div>
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <div class="bg-slate-900/50 border border-slate-800 rounded-sm p-6 text-center">
+            <div class="bg-gray-50/50 border border-gray-200 rounded-sm p-6 text-center">
                 <p class="font-display font-bold text-3xl md:text-4xl text-brand-500">17+</p>
-                <p class="text-slate-400 text-sm mt-1"><?php echo $t['stats_years']; ?></p>
+                <p class="text-gray-500 text-sm mt-1"><?php echo $t['stats_years']; ?></p>
             </div>
-            <div class="bg-slate-900/50 border border-slate-800 rounded-sm p-6 text-center">
+            <div class="bg-gray-50/50 border border-gray-200 rounded-sm p-6 text-center">
                 <p class="font-display font-bold text-3xl md:text-4xl text-brand-500">500+</p>
-                <p class="text-slate-400 text-sm mt-1"><?php echo $t['stats_works']; ?></p>
+                <p class="text-gray-500 text-sm mt-1"><?php echo $t['stats_works']; ?></p>
             </div>
-            <div class="bg-slate-900/50 border border-slate-800 rounded-sm p-6 text-center">
+            <div class="bg-gray-50/50 border border-gray-200 rounded-sm p-6 text-center">
                 <p class="font-display font-bold text-3xl md:text-4xl text-brand-500">350+</p>
-                <p class="text-slate-400 text-sm mt-1"><?php echo $t['stats_clients']; ?></p>
+                <p class="text-gray-500 text-sm mt-1"><?php echo $t['stats_clients']; ?></p>
             </div>
-            <div class="bg-slate-900/50 border border-slate-800 rounded-sm p-6 text-center">
+            <div class="bg-gray-50/50 border border-gray-200 rounded-sm p-6 text-center">
                 <p class="font-display font-bold text-3xl md:text-4xl text-brand-500">2</p>
-                <p class="text-slate-400 text-sm mt-1"><?php echo $t['stats_guarantee']; ?></p>
+                <p class="text-gray-500 text-sm mt-1"><?php echo $t['stats_guarantee']; ?></p>
             </div>
         </div>
     </div>
@@ -168,11 +168,11 @@ include __DIR__ . '/../includes/header.php';
 <!-- ═══════════════════════════════════════════════════════════════
      2. QUIÉN ES SANTA FE
      ═══════════════════════════════════════════════════════════════ -->
-<section class="py-24 md:py-32 bg-slate-900 border-y border-slate-800" data-reveal>
+<section class="py-24 md:py-32 bg-gray-50 border-y border-gray-200" data-reveal>
     <div class="max-w-7xl mx-auto px-6">
         <div class="grid lg:grid-cols-2 gap-16 items-start">
             <div class="relative">
-                <div class="aspect-[4/3] rounded-sm overflow-hidden bg-slate-800">
+                <div class="aspect-[4/3] rounded-sm overflow-hidden bg-gray-100">
                     <img src="<?php echo esc_url($theme_uri . '/assets/images/proceso/proceso-instalacion-azulejos.webp'); ?>"
                          alt="<?php echo $isCa ? 'Equip Santa Fe treballant en obra' : 'Equipo Santa Fe trabajando en obra'; ?>"
                          class="w-full h-full object-cover"
@@ -189,14 +189,14 @@ include __DIR__ . '/../includes/header.php';
                     <div class="industrial-line w-12"></div>
                     <span class="text-brand-400 text-xs font-semibold uppercase tracking-[0.3em]"><?php echo $t['who_label']; ?></span>
                 </div>
-                <h2 class="font-display font-bold text-3xl md:text-4xl text-white tracking-tight mb-8">
+                <h2 class="font-display font-bold text-3xl md:text-4xl text-gray-900 tracking-tight mb-8">
                     <?php echo $t['who_h2']; ?>
                 </h2>
-                <div class="space-y-5 text-slate-300 leading-relaxed text-lg">
+                <div class="space-y-5 text-gray-600 leading-relaxed text-lg">
                     <p><?php echo $t['who_p1']; ?></p>
                     <p><?php echo $t['who_p2']; ?></p>
                     <div class="bg-brand-600/10 border-l-4 border-brand-600 p-6 rounded-r-sm">
-                        <p class="text-white font-semibold italic"><?php echo $t['who_p3']; ?></p>
+                        <p class="text-gray-900 font-semibold italic"><?php echo $t['who_p3']; ?></p>
                     </div>
                 </div>
             </div>
@@ -207,7 +207,7 @@ include __DIR__ . '/../includes/header.php';
 <!-- ═══════════════════════════════════════════════════════════════
      3. TIMELINE
      ═══════════════════════════════════════════════════════════════ -->
-<section class="py-24 md:py-32 bg-slate-950" data-reveal>
+<section class="py-24 md:py-32 bg-white" data-reveal>
     <div class="max-w-5xl mx-auto px-6">
         <div class="text-center mb-16">
             <div class="flex items-center justify-center gap-4 mb-4">
@@ -215,13 +215,13 @@ include __DIR__ . '/../includes/header.php';
                 <span class="text-brand-400 text-xs font-semibold uppercase tracking-[0.3em]"><?php echo $t['timeline_label']; ?></span>
                 <div class="industrial-line w-12"></div>
             </div>
-            <h2 class="font-display font-bold text-3xl md:text-4xl lg:text-5xl text-white tracking-tight">
+            <h2 class="font-display font-bold text-3xl md:text-4xl lg:text-5xl text-gray-900 tracking-tight">
                 <?php echo $t['timeline_h2']; ?>
             </h2>
         </div>
         <div class="relative">
             <!-- Linha vertical -->
-            <div class="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-slate-800 md:-translate-x-px"></div>
+            <div class="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-gray-100 md:-translate-x-px"></div>
             <?php foreach ($timeline as $i => $event): ?>
             <?php $isEven = $i % 2 === 0; ?>
             <div class="relative mb-12 last:mb-0">
@@ -231,8 +231,8 @@ include __DIR__ . '/../includes/header.php';
                 <!-- Mobile: sempre direita -->
                 <div class="pl-10 md:hidden">
                     <p class="font-display font-bold text-2xl text-brand-500 mb-1"><?php echo $event['year']; ?></p>
-                    <h3 class="font-display font-bold text-lg text-white mb-1"><?php echo $event['title']; ?></h3>
-                    <p class="text-slate-400 text-sm leading-relaxed"><?php echo $event['desc']; ?></p>
+                    <h3 class="font-display font-bold text-lg text-gray-900 mb-1"><?php echo $event['title']; ?></h3>
+                    <p class="text-gray-500 text-sm leading-relaxed"><?php echo $event['desc']; ?></p>
                 </div>
 
                 <!-- Desktop: alternância -->
@@ -241,8 +241,8 @@ include __DIR__ . '/../includes/header.php';
                     <!-- Esquerda -->
                     <div class="w-1/2 pr-12 text-right">
                         <p class="font-display font-bold text-3xl text-brand-500 mb-1"><?php echo $event['year']; ?></p>
-                        <h3 class="font-display font-bold text-xl text-white mb-2"><?php echo $event['title']; ?></h3>
-                        <p class="text-slate-400 text-sm leading-relaxed"><?php echo $event['desc']; ?></p>
+                        <h3 class="font-display font-bold text-xl text-gray-900 mb-2"><?php echo $event['title']; ?></h3>
+                        <p class="text-gray-500 text-sm leading-relaxed"><?php echo $event['desc']; ?></p>
                     </div>
                     <div class="w-1/2 pl-12"></div>
                     <?php else: ?>
@@ -250,8 +250,8 @@ include __DIR__ . '/../includes/header.php';
                     <div class="w-1/2 pr-12"></div>
                     <div class="w-1/2 pl-12">
                         <p class="font-display font-bold text-3xl text-brand-500 mb-1"><?php echo $event['year']; ?></p>
-                        <h3 class="font-display font-bold text-xl text-white mb-2"><?php echo $event['title']; ?></h3>
-                        <p class="text-slate-400 text-sm leading-relaxed"><?php echo $event['desc']; ?></p>
+                        <h3 class="font-display font-bold text-xl text-gray-900 mb-2"><?php echo $event['title']; ?></h3>
+                        <p class="text-gray-500 text-sm leading-relaxed"><?php echo $event['desc']; ?></p>
                     </div>
                     <?php endif; ?>
                 </div>
@@ -264,7 +264,7 @@ include __DIR__ . '/../includes/header.php';
 <!-- ═══════════════════════════════════════════════════════════════
      4. EEAT SIGNALS
      ═══════════════════════════════════════════════════════════════ -->
-<section class="py-24 md:py-32 bg-slate-900 border-y border-slate-800" data-reveal>
+<section class="py-24 md:py-32 bg-gray-50 border-y border-gray-200" data-reveal>
     <div class="max-w-7xl mx-auto px-6">
         <div class="text-center mb-16">
             <div class="flex items-center justify-center gap-4 mb-4">
@@ -272,16 +272,16 @@ include __DIR__ . '/../includes/header.php';
                 <span class="text-brand-400 text-xs font-semibold uppercase tracking-[0.3em]"><?php echo $t['eeat_label']; ?></span>
                 <div class="industrial-line w-12"></div>
             </div>
-            <h2 class="font-display font-bold text-3xl md:text-4xl lg:text-5xl text-white tracking-tight">
+            <h2 class="font-display font-bold text-3xl md:text-4xl lg:text-5xl text-gray-900 tracking-tight">
                 <?php echo $t['eeat_h2']; ?>
             </h2>
         </div>
         <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             <?php foreach ($eeat as $item): ?>
-            <div class="bg-slate-950 border border-slate-800 rounded-sm p-6 text-center">
+            <div class="bg-white border border-gray-200 rounded-sm p-6 text-center">
                 <svg class="w-10 h-10 text-brand-500 mx-auto mb-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="<?php echo $item['icon']; ?>"/></svg>
-                <h3 class="font-display font-bold text-lg text-white mb-2"><?php echo $item['title']; ?></h3>
-                <p class="text-slate-400 text-sm leading-relaxed"><?php echo $item['desc']; ?></p>
+                <h3 class="font-display font-bold text-lg text-gray-900 mb-2"><?php echo $item['title']; ?></h3>
+                <p class="text-gray-500 text-sm leading-relaxed"><?php echo $item['desc']; ?></p>
             </div>
             <?php endforeach; ?>
         </div>
@@ -291,7 +291,7 @@ include __DIR__ . '/../includes/header.php';
 <!-- ═══════════════════════════════════════════════════════════════
      5. VALORES
      ═══════════════════════════════════════════════════════════════ -->
-<section class="py-24 md:py-32 bg-slate-950" data-reveal>
+<section class="py-24 md:py-32 bg-white" data-reveal>
     <div class="max-w-7xl mx-auto px-6">
         <div class="text-center mb-16">
             <div class="flex items-center justify-center gap-4 mb-4">
@@ -299,15 +299,15 @@ include __DIR__ . '/../includes/header.php';
                 <span class="text-brand-400 text-xs font-semibold uppercase tracking-[0.3em]"><?php echo $t['values_label']; ?></span>
                 <div class="industrial-line w-12"></div>
             </div>
-            <h2 class="font-display font-bold text-3xl md:text-4xl lg:text-5xl text-white tracking-tight">
+            <h2 class="font-display font-bold text-3xl md:text-4xl lg:text-5xl text-gray-900 tracking-tight">
                 <?php echo $t['values_h2']; ?>
             </h2>
         </div>
         <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             <?php foreach ($values as $value): ?>
-            <div class="bg-slate-900 border border-slate-800 rounded-sm p-6">
-                <h3 class="font-display font-bold text-xl text-white mb-3"><?php echo $value['title']; ?></h3>
-                <p class="text-slate-400 text-sm leading-relaxed"><?php echo $value['desc']; ?></p>
+            <div class="bg-gray-50 border border-gray-200 rounded-sm p-6">
+                <h3 class="font-display font-bold text-xl text-gray-900 mb-3"><?php echo $value['title']; ?></h3>
+                <p class="text-gray-500 text-sm leading-relaxed"><?php echo $value['desc']; ?></p>
             </div>
             <?php endforeach; ?>
         </div>
@@ -317,13 +317,13 @@ include __DIR__ . '/../includes/header.php';
 <!-- ═══════════════════════════════════════════════════════════════
      6. CTA FINAL
      ═══════════════════════════════════════════════════════════════ -->
-<section class="py-24 md:py-32 bg-slate-900 relative overflow-hidden" data-reveal>
+<section class="py-24 md:py-32 bg-gray-50 relative overflow-hidden" data-reveal>
     <div class="absolute inset-0 opacity-5 cta-bg-pattern"></div>
     <div class="max-w-4xl mx-auto px-6 relative z-10 text-center">
-        <h2 class="font-display font-bold text-3xl md:text-4xl lg:text-5xl text-white tracking-tight mb-6">
+        <h2 class="font-display font-bold text-3xl md:text-4xl lg:text-5xl text-gray-900 tracking-tight mb-6">
             <?php echo $t['final_h2']; ?>
         </h2>
-        <p class="text-slate-300 text-lg leading-relaxed mb-10 max-w-2xl mx-auto">
+        <p class="text-gray-600 text-lg leading-relaxed mb-10 max-w-2xl mx-auto">
             <?php echo $t['final_p']; ?>
         </p>
         <div class="flex flex-wrap gap-4 justify-center">
