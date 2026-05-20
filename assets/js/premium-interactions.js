@@ -145,14 +145,15 @@
                     revealObserver.unobserve(el);
                 }
             });
-        }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+        }, { threshold: 0.05, rootMargin: '50px 0px 50px 0px' });
         revealEls.forEach(function(el) {
             el.style.opacity = '0';
             el.style.transform = 'translateY(40px)';
             el.style.transition = 'opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1)';
+            el.style.willChange = 'opacity, transform';
             revealObserver.observe(el);
         });
-        // Fallback: reveal all after 3s if observer never fired (prevents invisible content bugs)
+        // Fallback: reveal all after 1.5s if observer never fired (prevents invisible content bugs)
         setTimeout(function() {
             revealEls.forEach(function(el) {
                 if (!el.classList.contains('is-revealed')) {
@@ -161,7 +162,7 @@
                     el.style.transform = 'translateY(0)';
                 }
             });
-        }, 3000);
+        }, 1500);
     }
 
 })();

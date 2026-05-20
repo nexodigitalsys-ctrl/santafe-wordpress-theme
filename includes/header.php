@@ -88,8 +88,9 @@ $nav_about_path = $lang === 'ca' ? 'sobre-nosaltres' : 'sobre-nosotros';
 $nav_contact_path = $lang === 'ca' ? 'contacte' : 'contacto';
 ?>
 <!DOCTYPE html>
-<html lang="<?php echo $locale; ?>" class="scroll-smooth">
+<html lang="<?php echo $locale; ?>" class="scroll-smooth no-js">
 <head>
+<script>(function(d){d.classList.remove('no-js');d.classList.add('js');})(document.documentElement);</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -331,6 +332,21 @@ $nav_contact_path = $lang === 'ca' ? 'contacte' : 'contacto';
       animation: none;
     }
   }
+
+  /* Fallback CSS: garante que conteúdo data-reveal nunca fique invisível permanentemente */
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  /* Quando JS está ativo e elemento ainda não foi revelado, aplica animação */
+  .js [data-reveal]:not(.is-revealed) {
+    opacity: 0 !important;
+    transform: translateY(40px) !important;
+  }
+  .js [data-reveal].is-revealed {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+  }
 </style>
 
 <!-- Core Utilities (must load first) -->
@@ -368,7 +384,7 @@ gtag('consent', 'default', {
 </script>
 <?php wp_head(); ?>
 </head>
-<body class="bg-slate-950 text-slate-50 antialiased selection:bg-brand-500 selection:text-white">
+<body class="bg-slate-950 text-slate-50 antialiased selection:bg-brand-500 selection:text-white pb-20 lg:pb-0">
 
 <!-- Scroll Progress Bar -->
 <div id="scroll-progress" aria-hidden="true"></div>
