@@ -419,7 +419,7 @@ gtag('consent', 'default', {
       <!-- Brand text: vertically centered with the house icon -->
       <div class="flex flex-col leading-[0.85]">
         <span class="font-display font-bold text-[1.65rem] tracking-[0.02em] block transition-colors duration-500" data-brand-text>SANTA FE</span>
-        <span class="text-[0.7rem] uppercase tracking-[0.3em] transition-colors duration-500 mt-1.5" data-brand-sub><?php echo $lang === 'ca' ? 'Construccions · 2008' : 'Construcciones · 2008'; ?></span>
+        <span class="text-[0.7rem] uppercase tracking-[0.3em] transition-colors duration-500 mt-2.5" data-brand-sub><?php echo $lang === 'ca' ? 'Construccions · 2008' : 'Construcciones · 2008'; ?></span>
       </div>
     </a>
 
@@ -452,7 +452,7 @@ gtag('consent', 'default', {
   </div>
 
   <!-- Mobile Menu -->
-  <div id="mobile-menu" class="mobile-menu fixed inset-0 bg-white/98 backdrop-blur-xl z-40 flex flex-col items-center justify-center gap-8 lg:hidden">
+  <div id="mobile-menu" class="mobile-menu fixed inset-0 bg-white z-[60] flex flex-col items-center justify-center gap-8 lg:hidden">
     <button type="button" id="menu-close" class="absolute top-6 right-6 text-warm-900 p-2" aria-label="<?php echo t($translations, 'nav.menu_close'); ?>">
       <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
     </button>

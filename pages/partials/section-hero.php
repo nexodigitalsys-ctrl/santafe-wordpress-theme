@@ -51,12 +51,12 @@ $stat_provinces_label = $lang === 'ca' ? 'Províncies' : 'Provincias';
                 <?php echo $hero_subtitle; ?>
             </p>
 
-            <div class="flex flex-wrap justify-center lg:justify-start gap-4 mb-16 animate-slide-up delay-300">
-                <a href="#contacto" class="inline-flex items-center gap-2 bg-brand-600 hover:bg-brand-500 text-white font-semibold px-8 py-4 rounded-sm transition-all tracking-wide text-sm uppercase">
+            <div class="flex flex-col sm:flex-row flex-wrap justify-center lg:justify-start gap-3 sm:gap-4 mb-16 animate-slide-up delay-300">
+                <a href="#contacto" class="inline-flex items-center justify-center gap-2 bg-brand-600 hover:bg-brand-700 text-white font-semibold px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl transition-all duration-300 tracking-wide text-sm uppercase whitespace-nowrap">
                     <?php echo $cta_primary; ?>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-4 h-4 flex-shrink-0"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"/></svg>
                 </a>
-                <a href="#portfolio" class="inline-flex items-center gap-2 border border-white/30 hover:border-white text-white font-medium px-8 py-4 rounded-sm transition-all tracking-wide text-sm uppercase">
+                <a href="#portfolio" class="inline-flex items-center justify-center gap-2 border border-white/30 hover:border-white/60 text-white font-medium px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl transition-all duration-300 tracking-wide text-sm uppercase whitespace-nowrap">
                     <?php echo $cta_secondary; ?>
                 </a>
             </div>

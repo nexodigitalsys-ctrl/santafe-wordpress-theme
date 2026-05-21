@@ -137,9 +137,10 @@ $current_year = date('Y');
   <div class="flex items-center gap-3">
     <a href="https://wa.me/<?php echo WHATSAPP_NUMBER; ?>?text=Hola%20Paulo%2C%20quiero%20un%20presupuesto" 
        target="_blank" rel="noopener noreferrer"
-       class="flex-1 bg-[#25d366] hover:bg-[#128c7e] text-white font-semibold py-3 px-4 rounded-xl text-center text-sm transition-all duration-300 shadow-lg"
+       class="flex-1 bg-[#25d366] hover:bg-[#128c7e] text-white font-semibold py-3 px-3 sm:px-4 rounded-xl text-center text-xs sm:text-sm transition-all duration-300 shadow-lg whitespace-nowrap"
        data-track-event="whatsapp_click">
-      WhatsApp — Responde en 2h
+      <span class="hidden sm:inline">WhatsApp — Responde en 2h</span>
+      <span class="sm:hidden">WhatsApp — 2h</span>
     </a>
     <a href="tel:<?php echo COMPANY_PHONE; ?>" 
        class="flex-1 bg-brand-600 hover:bg-brand-700 text-white font-semibold py-3 px-4 rounded-xl text-center text-sm transition-all duration-300 shadow-lg shadow-brand-600/20"
