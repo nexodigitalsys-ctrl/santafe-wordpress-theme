@@ -197,25 +197,25 @@ $nav_contact_path = $lang === 'ca' ? 'contacte' : 'contacto';
       0 4px 20px rgba(174, 35, 42, 0.14),
       0 8px 40px rgba(0, 0, 0, 0.5);
   }
-  .header-scrolled [data-brand-text] { color: #AE232A; text-shadow: 0 0 12px rgba(174,35,42,0.35); }
-  .header-scrolled [data-brand-sub] { color: rgba(174,35,42,0.85); text-shadow: 0 0 8px rgba(174,35,42,0.25); }
-  .header-scrolled [data-nav-link] { color: rgba(0,0,0,0.75); }
-  .header-scrolled [data-nav-link]:hover { color: #111827; }
-  .header-scrolled [data-lang-btn] { color: rgba(0,0,0,0.5); border-color: rgba(0,0,0,0.15); }
-  .header-scrolled [data-lang-btn]:hover { color: #111827; border-color: rgba(0,0,0,0.3); }
-  .header-scrolled [data-menu-btn] { color: #374151; }
-  .header-scrolled [data-logo-dark] { opacity: 1 !important; }
-  .header-scrolled [data-logo-light] { opacity: 0 !important; }
-  /* Default top state — Logo claro aparece no topo (bg transparente) */
-  [data-nav-link] { color: #6b7280; transition: color 0.3s; }
-  [data-nav-link]:hover { color: #111827; }
-  [data-lang-btn] { color: #9ca3af; border-color: #d1d5db; transition: all 0.3s; }
-  [data-lang-btn]:hover { color: #111827; border-color: #9ca3af; }
-  [data-menu-btn] { color: #374151; }
-  [data-logo-dark] { opacity: 1 !important; }
-  [data-logo-light] { opacity: 0 !important; }
-  [data-brand-text] { color: #111827; }
-  [data-brand-sub] { color: rgba(0,0,0,0.5); }
+  .header-scrolled [data-brand-text] { color: #fff; }
+  .header-scrolled [data-brand-sub] { color: rgba(255,255,255,0.6); }
+  .header-scrolled [data-nav-link] { color: rgba(255,255,255,0.85); }
+  .header-scrolled [data-nav-link]:hover { color: #fff; }
+  .header-scrolled [data-lang-btn] { color: rgba(255,255,255,0.6); border-color: rgba(255,255,255,0.2); }
+  .header-scrolled [data-lang-btn]:hover { color: #fff; border-color: rgba(255,255,255,0.4); }
+  .header-scrolled [data-menu-btn] { color: #fff; }
+  .header-scrolled [data-logo-dark] { opacity: 0 !important; }
+  .header-scrolled [data-logo-light] { opacity: 1 !important; }
+  /* Default top state — Sobre hero escuro, textos sempre claros */
+  [data-nav-link] { color: rgba(255,255,255,0.8); transition: color 0.3s; }
+  [data-nav-link]:hover { color: #fff; }
+  [data-lang-btn] { color: rgba(255,255,255,0.6); border-color: rgba(255,255,255,0.2); transition: all 0.3s; }
+  [data-lang-btn]:hover { color: #fff; border-color: rgba(255,255,255,0.4); }
+  [data-menu-btn] { color: #fff; }
+  [data-logo-dark] { opacity: 0 !important; }
+  [data-logo-light] { opacity: 1 !important; }
+  [data-brand-text] { color: #fff; }
+  [data-brand-sub] { color: rgba(255,255,255,0.6); }
 
   /* Industrial line reversed */
   .industrial-line-reverse { background: linear-gradient(270deg, #AE232A 0%, transparent 100%) !important; }
