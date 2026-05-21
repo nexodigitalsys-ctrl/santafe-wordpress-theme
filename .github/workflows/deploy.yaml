@@ -19,7 +19,7 @@ jobs:
           REMOTE_HOST: ${{ secrets.SSH_HOST }}
           REMOTE_USER: ${{ secrets.SSH_USER }}
           REMOTE_PORT: 65002
-          TARGET: "domains/santafe.nexo-digital.app/public_html/wp-content/themes/santafe-wordpress-theme/"
+          TARGET: "domains/santafe.nexo-digital.app/public_html/wp-content/themes/santafe/"
           SOURCE: "/"
           ARGS: "-rlgoDzvc -i --delete"
           EXCLUDE: "/.github/, /.git/, /node_modules/, .gitignore, README.md"
