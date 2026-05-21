@@ -116,26 +116,26 @@ $cta_card_btn = $lang === 'ca' ? 'Trucar ara — Respon en 2 hores' : 'Llamar ah
                     <div class="industrial-line w-12"></div>
                     <span class="text-brand-400 text-xs font-semibold uppercase tracking-[0.3em]"><?php echo t($translations, 'nav.services'); ?></span>
                 </div>
-                <h2 class="font-display font-bold text-4xl md:text-5xl lg:text-6xl text-gray-900 tracking-tight"><?php echo $title; ?></h2>
+                <h2 class="font-display font-bold text-4xl md:text-5xl lg:text-6xl text-warm-900 tracking-tight"><?php echo $title; ?></h2>
             </div>
         </div>
 
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="servicios-grid">
             <?php foreach ($services as $svc): ?>
-            <article class="service-card tilt-card group relative overflow-hidden rounded-sm bg-gray-50 border border-gray-200 hover:border-brand-600/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-brand-900/20">
-                <div class="aspect-[16/10] overflow-hidden bg-gray-100 relative">
+            <article class="service-card tilt-card group relative overflow-hidden rounded-sm bg-white border border-warm-200 hover:border-brand-500/30 shadow-card hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-brand-900/20">
+                <div class="aspect-[16/10] overflow-hidden bg-warm-100 relative">
                     <img src="<?php echo esc_url(get_template_directory_uri() . $svc['img']); ?>"
                          alt="<?php echo esc_attr($svc['title']); ?>"
                          class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
                          loading="lazy"
                          onerror="this.src='<?php echo esc_url(get_template_directory_uri() . '/assets/images/fallback-construction.svg'); ?>'">
-                    <div class="absolute top-4 left-4 w-12 h-12 bg-brand-600/90 backdrop-blur-sm rounded-sm flex items-center justify-center text-white shadow-lg">
+                    <div class="absolute top-4 left-4 w-12 h-12 bg-brand-600/90 backdrop-blur-sm rounded-lg flex items-center justify-center text-white shadow-lg">
                         <?php echo $svc['icon']; ?>
                     </div>
                 </div>
                 <div class="p-6">
-                    <h3 class="font-display font-bold text-xl text-gray-900 mb-2"><?php echo $svc['title']; ?></h3>
-                    <p class="text-gray-500 text-sm leading-relaxed mb-4"><?php echo $svc['desc']; ?></p>
+                    <h3 class="font-display font-bold text-xl text-warm-900 mb-2"><?php echo $svc['title']; ?></h3>
+                    <p class="text-warm-500 text-sm leading-relaxed mb-4"><?php echo $svc['desc']; ?></p>
                     <a href="/<?php echo $lang; ?>/<?php echo $svc['slug']; ?>/" class="inline-flex items-center gap-2 text-brand-500 text-sm font-semibold group/link hover:text-brand-400 transition-colors">
                         <?php echo $svc['cta']; ?>
                         <span class="transition-transform group-hover/link:translate-x-1">→</span>

@@ -64,7 +64,7 @@ $faqs = $lang === 'ca' ? [
 ];
 ?>
 
-<section data-reveal class="py-24 md:py-32 bg-white border-t border-gray-200" id="faq">
+<section data-reveal class="py-24 md:py-32 bg-white border-t border-warm-200" id="faq">
     <div class="max-w-4xl mx-auto px-6">
         <div class="text-center mb-16">
             <div class="flex items-center justify-center gap-4 mb-4">
@@ -72,27 +72,27 @@ $faqs = $lang === 'ca' ? [
                 <span class="text-brand-400 text-xs font-semibold uppercase tracking-[0.3em]">FAQ</span>
                 <div class="industrial-line industrial-line-reverse w-12"></div>
             </div>
-            <h2 class="font-display font-bold text-4xl md:text-5xl text-gray-900 tracking-tight mb-4"><?php echo $title; ?></h2>
-            <p class="text-gray-500 text-lg"><?php echo $subtitle; ?></p>
+            <h2 class="font-display font-bold text-4xl md:text-5xl text-warm-900 tracking-tight mb-4"><?php echo $title; ?></h2>
+            <p class="text-warm-500 text-lg"><?php echo $subtitle; ?></p>
         </div>
 
         <div class="space-y-4" id="faq-accordion">
             <?php foreach ($faqs as $i => $faq): ?>
-            <div class="faq-item bg-gray-50 border border-gray-200 rounded-sm overflow-hidden hover:border-gray-300 transition-colors">
+            <div class="faq-item bg-white border border-warm-200 rounded-xl overflow-hidden hover:border-warm-300 shadow-card hover:shadow-card-hover transition-all duration-300 transition-colors">
                 <button
                     class="faq-trigger w-full flex items-center justify-between p-6 text-left group"
                     aria-expanded="false"
                     data-index="<?php echo $i; ?>"
                 >
-                    <span class="font-display font-semibold text-gray-900 text-lg pr-4 group-hover:text-brand-600 transition-colors"><?php echo htmlspecialchars($faq['q'], ENT_QUOTES, 'UTF-8'); ?></span>
-                    <span class="faq-icon w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-300">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4 text-gray-600 transition-transform duration-300">
+                    <span class="font-display font-semibold text-warm-900 text-lg pr-4 group-hover:text-brand-600 transition-colors"><?php echo htmlspecialchars($faq['q'], ENT_QUOTES, 'UTF-8'); ?></span>
+                    <span class="faq-icon w-8 h-8 bg-warm-100 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-300 group-hover:bg-brand-600 group-hover:text-white">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4 text-warm-500 transition-transform duration-300">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m0 0l6.75-6.75M12 19.5l-6.75-6.75"/>
                         </svg>
                     </span>
                 </button>
                 <div class="faq-content hidden px-6 pb-6">
-                    <p class="text-gray-600 leading-relaxed"><?php echo htmlspecialchars($faq['a'], ENT_QUOTES, 'UTF-8'); ?></p>
+                    <p class="text-warm-600 leading-relaxed"><?php echo htmlspecialchars($faq['a'], ENT_QUOTES, 'UTF-8'); ?></p>
                 </div>
             </div>
             <?php endforeach; ?>
@@ -100,8 +100,8 @@ $faqs = $lang === 'ca' ? [
 
         <!-- CTA debajo del FAQ -->
         <div class="mt-12 text-center">
-            <p class="text-gray-500 mb-4"><?php echo $lang === 'ca' ? 'Encara tens dubtes?' : '¿Todavía tienes dudas?'; ?></p>
-            <a href="#contacto" class="inline-flex items-center gap-2 bg-brand-600 hover:bg-brand-500 text-white font-semibold px-8 py-4 rounded-sm transition-all tracking-wide text-sm uppercase">
+            <p class="text-warm-500 mb-4"><?php echo $lang === 'ca' ? 'Encara tens dubtes?' : '¿Todavía tienes dudas?'; ?></p>
+            <a href="#contacto" class="inline-flex items-center gap-2 bg-brand-600 hover:bg-brand-700 text-white font-semibold px-8 py-4 rounded-xl transition-all duration-300 tracking-wide text-sm uppercase shadow-lg shadow-brand-600/20">
                 <?php echo $lang === 'ca' ? 'Parlar amb Pablo ara' : 'Hablar con Pablo ahora'; ?>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"/></svg>
             </a>
@@ -125,14 +125,14 @@ $faqs = $lang === 'ca' ? [
                     otherItem.querySelector('.faq-content').classList.add('hidden');
                     otherItem.querySelector('.faq-trigger').setAttribute('aria-expanded', 'false');
                     otherItem.querySelector('.faq-icon').classList.remove('bg-brand-600');
-                    otherItem.querySelector('.faq-icon').classList.add('bg-gray-100');
+                    otherItem.querySelector('.faq-icon').classList.add('bg-warm-100');
                     otherItem.querySelector('.faq-icon svg').style.transform = 'rotate(0deg)';
                 });
                 // Toggle current
                 if (!isOpen) {
                     content.classList.remove('hidden');
                     trigger.setAttribute('aria-expanded', 'true');
-                    icon.classList.remove('bg-gray-100');
+                    icon.classList.remove('bg-warm-100');
                     icon.classList.add('bg-brand-600');
                     svg.style.transform = 'rotate(45deg)';
                 }

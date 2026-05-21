@@ -6,15 +6,60 @@
 @theme {
   --font-sans: 'Inter', system-ui, sans-serif;
   --font-display: 'Space Grotesk', 'Inter', sans-serif;
-  --color-brand-50: #fef2f2;
-  --color-brand-100: #fee2e2;
-  --color-brand-200: #fecaca;
-  --color-brand-300: #fca5a5;
-  --color-brand-400: #f87171;
+
+  /* Brand — terracotta / deep red */
+  --color-brand-50: #fdf2f2;
+  --color-brand-100: #fce5e5;
+  --color-brand-200: #f9c9c9;
+  --color-brand-300: #f4a0a0;
+  --color-brand-400: #e86868;
   --color-brand-500: #AE232A;
   --color-brand-600: #991B1B;
   --color-brand-700: #7F1D1D;
   --color-brand-800: #5C1818;
   --color-brand-900: #3D1212;
   --color-brand-950: #1A0505;
+
+  /* Warm neutrals — replaces cold gray */
+  --color-warm-50: #faf9f7;
+  --color-warm-100: #f5f3ef;
+  --color-warm-200: #ebe7e0;
+  --color-warm-300: #ddd8ce;
+  --color-warm-400: #b8b0a3;
+  --color-warm-500: #968d7f;
+  --color-warm-600: #7a7166;
+  --color-warm-700: #635b52;
+  --color-warm-800: #534c45;
+  --color-warm-900: #49433e;
+  --color-warm-950: #282420;
+
+  /* Accent — champagne gold (complements red beautifully) */
+  --color-gold-50: #fbf8f1;
+  --color-gold-100: #f5eedc;
+  --color-gold-200: #ebdcc0;
+  --color-gold-300: #dfc49a;
+  --color-gold-400: #d0a76d;
+  --color-gold-500: #c5924e;
+  --color-gold-600: #b97d3f;
+  --color-gold-700: #9a6234;
+  --color-gold-800: #7f4f30;
+  --color-gold-900: #68422a;
+
+  /* Accent — sage olive (natural, construction feel) */
+  --color-sage-50: #f4f6f2;
+  --color-sage-100: #e5ebe1;
+  --color-sage-200: #cdd8c6;
+  --color-sage-300: #a8bda0;
+  --color-sage-400: #7d9a73;
+  --color-sage-500: #5e7e56;
+  --color-sage-600: #496442;
+  --color-sage-700: #3b5036;
+  --color-sage-800: #31402e;
+  --color-sage-900: #2a3628;
+
+  /* Shadows — warm, soft */
+  --shadow-card: 0 1px 3px 0 rgb(0 0 0 / 0.04), 0 1px 2px -1px rgb(0 0 0 / 0.04);
+  --shadow-card-hover: 0 10px 25px -5px rgb(0 0 0 / 0.08), 0 4px 10px -6px rgb(0 0 0 / 0.04);
+  --shadow-elevated: 0 20px 40px -12px rgb(0 0 0 / 0.12);
+  --shadow-inner-warm: inset 0 2px 4px 0 rgb(0 0 0 / 0.03);
 }

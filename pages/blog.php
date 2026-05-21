@@ -47,25 +47,25 @@ include __DIR__ . '/../includes/header.php';
             <h1 class="font-display font-bold text-4xl md:text-5xl lg:text-6xl text-white tracking-tight mb-6 leading-[1.1]">
                 <?php echo $isCa ? 'Guies per decidir millor<br>abans de començar una obra' : 'Guías para decidir mejor<br>antes de empezar una obra'; ?>
             </h1>
-            <p class="text-gray-600 text-lg md:text-xl leading-relaxed max-w-2xl">
+            <p class="text-warm-600 text-lg md:text-xl leading-relaxed max-w-2xl">
                 <?php echo $isCa ? 'Contingut pràctic sobre costos, llicències, terminis i decisions que convé tancar abans d\'obrir una reforma.' : 'Contenido práctico sobre costes, licencias, plazos y decisiones que conviene cerrar antes de abrir una reforma.'; ?>
             </p>
         </div>
     </div>
 </section>
 
-<section class="py-24 md:py-32 bg-gray-50 border-y border-gray-200">
+<section class="py-24 md:py-32 bg-warm-50 border-y border-warm-200">
     <div class="max-w-7xl mx-auto px-6">
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             <?php foreach ($posts as $post): ?>
-            <article class="bg-white border border-gray-200 rounded-sm p-6 card-lift group">
+            <article class="bg-white border border-warm-200 rounded-sm p-6 card-lift group">
                 <span class="text-brand-400 text-xs font-semibold uppercase tracking-[0.25em]"><?php echo $post['tag']; ?></span>
-                <h2 class="font-display font-bold text-xl text-gray-900 mt-4 mb-3 group-hover:text-brand-400 transition-colors">
+                <h2 class="font-display font-bold text-xl text-warm-900 mt-4 mb-3 group-hover:text-brand-400 transition-colors">
                     <a href="/<?php echo $lang; ?>/blog/<?php echo $post['slug']; ?>/" class="focus:outline-none">
                         <?php echo $post['title']; ?>
                     </a>
                 </h2>
-                <p class="text-gray-500 text-sm leading-relaxed mb-4"><?php echo $post['desc']; ?></p>
+                <p class="text-warm-500 text-sm leading-relaxed mb-4"><?php echo $post['desc']; ?></p>
                 <a href="/<?php echo $lang; ?>/blog/<?php echo $post['slug']; ?>/" class="inline-flex items-center gap-2 text-brand-500 text-sm font-semibold group/link">
                     <?php echo $isCa ? 'Llegir més' : 'Leer más'; ?> <span class="transition-transform group-hover/link:translate-x-1">→</span>
                 </a>
@@ -78,10 +78,10 @@ include __DIR__ . '/../includes/header.php';
 <section class="py-24 md:py-32 bg-white relative overflow-hidden" data-reveal>
     <div class="absolute inset-0 opacity-5 cta-bg-pattern"></div>
     <div class="max-w-4xl mx-auto px-6 relative z-10 text-center">
-        <h2 class="font-display font-bold text-3xl md:text-4xl lg:text-5xl text-gray-900 tracking-tight mb-6">
+        <h2 class="font-display font-bold text-3xl md:text-4xl lg:text-5xl text-warm-900 tracking-tight mb-6">
             <?php echo $isCa ? '¿Necessites ajuda amb el teu projecte?' : '¿Necesitas ayuda con tu proyecto?'; ?>
         </h2>
-        <p class="text-gray-600 text-lg leading-relaxed mb-10 max-w-2xl mx-auto">
+        <p class="text-warm-600 text-lg leading-relaxed mb-10 max-w-2xl mx-auto">
             <?php echo $isCa ? 'Contacta amb Paulo per WhatsApp o sol·licita un pressupost tancat gratuït.' : 'Contacta con Paulo por WhatsApp o solicita un presupuesto cerrado gratuito.'; ?>
         </p>
         <div class="flex flex-wrap gap-4 justify-center">

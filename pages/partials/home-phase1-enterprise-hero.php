@@ -45,7 +45,7 @@ $risks = $lang === 'ca'
                     <?php echo $lang === 'ca' ? 'Sense sorpreses.' : 'Sin sorpresas.'; ?>
                 </h1>
 
-                <p class="text-gray-600 text-lg md:text-xl max-w-2xl mb-10 leading-relaxed animate-slide-up delay-200">
+                <p class="text-warm-600 text-lg md:text-xl max-w-2xl mb-10 leading-relaxed animate-slide-up delay-200">
                     <?php echo $lang === 'ca' ? 'Obra nova, reformes integrals, pladur, obra civil i obra pública amb criteri tècnic, pressupost clar i seguiment real d obra.' : 'Obra nueva, reformas integrales, pladur, obra civil y obra pública con criterio técnico, presupuesto claro y seguimiento real de obra.'; ?>
                 </p>
 
@@ -54,7 +54,7 @@ $risks = $lang === 'ca'
                         <?php echo $lang === 'ca' ? 'Calcular pressupost estimat' : 'Calcular presupuesto estimado'; ?>
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                     </a>
-                    <a href="/<?php echo $lang; ?>/proyectos/" class="inline-flex items-center gap-2 border border-gray-300 hover:border-slate-400 text-gray-700 font-medium px-8 py-4 rounded-sm transition-all tracking-wide text-sm uppercase">
+                    <a href="/<?php echo $lang; ?>/proyectos/" class="inline-flex items-center gap-2 border border-warm-300 hover:border-slate-400 text-warm-700 font-medium px-8 py-4 rounded-sm transition-all tracking-wide text-sm uppercase">
                         <?php echo $lang === 'ca' ? 'Veure exemples visuals' : 'Ver proyectos realizados'; ?>
                     </a>
                 </div>
@@ -62,11 +62,11 @@ $risks = $lang === 'ca'
 
             <div class="grid gap-3 animate-slide-up delay-400">
                 <?php foreach ($audiences as $item): ?>
-                <article class="group border border-gray-300/70 bg-white/55 backdrop-blur-md p-5 rounded-sm hover:border-brand-600/70 hover:bg-gray-50/80 transition-all">
+                <article class="group border border-warm-300/70 bg-white/55 backdrop-blur-md p-5 rounded-sm hover:border-brand-600/70 hover:bg-warm-50/80 transition-all">
                     <div class="flex items-start justify-between gap-4">
                         <div>
                             <h2 class="font-display text-white text-xl font-bold mb-2"><?php echo $item['title']; ?></h2>
-                            <p class="text-gray-500 text-sm leading-relaxed"><?php echo $item['copy']; ?></p>
+                            <p class="text-warm-500 text-sm leading-relaxed"><?php echo $item['copy']; ?></p>
                         </div>
                         <span class="text-brand-500 transition-transform group-hover:translate-x-1">&rarr;</span>
                     </div>
@@ -78,29 +78,29 @@ $risks = $lang === 'ca'
 </section>
 
 <!-- TRUST STRIP -->
-<section class="border-y border-gray-200 bg-gray-50/70">
+<section class="border-y border-warm-200 bg-warm-50/70">
     <div class="max-w-7xl mx-auto px-6 py-8 grid md:grid-cols-4 gap-4">
         <div class="border-l border-brand-700/70 pl-4">
             <p class="font-display font-bold text-2xl text-white"><?php echo $lang === 'ca' ? 'Des de 2008' : 'Desde 2008'; ?></p>
-            <p class="text-gray-500 text-xs uppercase tracking-wider mt-1"><?php echo $lang === 'ca' ? 'Trajectòria professional' : 'Trayectoria profesional'; ?></p>
+            <p class="text-warm-500 text-xs uppercase tracking-wider mt-1"><?php echo $lang === 'ca' ? 'Trajectòria professional' : 'Trayectoria profesional'; ?></p>
         </div>
-        <div class="border-l border-gray-300 pl-4">
+        <div class="border-l border-warm-300 pl-4">
             <p class="font-display font-bold text-2xl text-white">BCN / Girona</p>
-            <p class="text-gray-500 text-xs uppercase tracking-wider mt-1"><?php echo $lang === 'ca' ? 'Zones de servei' : 'Zonas de servicio'; ?></p>
+            <p class="text-warm-500 text-xs uppercase tracking-wider mt-1"><?php echo $lang === 'ca' ? 'Zones de servei' : 'Zonas de servicio'; ?></p>
         </div>
-        <div class="border-l border-gray-300 pl-4">
+        <div class="border-l border-warm-300 pl-4">
             <p class="font-display font-bold text-2xl text-white"><?php echo $lang === 'ca' ? 'Pressupost clar' : 'Presupuesto claro'; ?></p>
-            <p class="text-gray-500 text-xs uppercase tracking-wider mt-1"><?php echo $lang === 'ca' ? 'Abast, fases i decisions per escrit' : 'Alcance, fases y decisiones por escrito'; ?></p>
+            <p class="text-warm-500 text-xs uppercase tracking-wider mt-1"><?php echo $lang === 'ca' ? 'Abast, fases i decisions per escrit' : 'Alcance, fases y decisiones por escrito'; ?></p>
         </div>
-        <div class="border-l border-gray-300 pl-4">
+        <div class="border-l border-warm-300 pl-4">
             <p class="font-display font-bold text-2xl text-white"><?php echo $lang === 'ca' ? 'Seguiment real' : 'Seguimiento real'; ?></p>
-            <p class="text-gray-500 text-xs uppercase tracking-wider mt-1"><?php echo $lang === 'ca' ? 'Sense desaparèixer després del pressupost' : 'Sin desaparecer después del presupuesto'; ?></p>
+            <p class="text-warm-500 text-xs uppercase tracking-wider mt-1"><?php echo $lang === 'ca' ? 'Sense desaparèixer després del pressupost' : 'Sin desaparecer después del presupuesto'; ?></p>
         </div>
     </div>
 </section>
 
 <!-- RISK CONTROL -->
-<section class="py-20 bg-white border-b border-gray-200">
+<section class="py-20 bg-white border-b border-warm-200">
     <div class="max-w-7xl mx-auto px-6">
         <div class="grid lg:grid-cols-[0.8fr_1.2fr] gap-12 items-start">
             <div>
@@ -111,15 +111,15 @@ $risks = $lang === 'ca'
                 <h2 class="font-display font-bold text-3xl md:text-5xl text-white tracking-tight mb-5">
                     <?php echo $lang === 'ca' ? 'El que una obra mal dirigida et pot costar.' : 'Lo que una obra mal dirigida te puede costar.'; ?>
                 </h2>
-                <p class="text-gray-500 leading-relaxed">
+                <p class="text-warm-500 leading-relaxed">
                     <?php echo $lang === 'ca' ? 'El valor no es nomes construir. Es anticipar errors, ordenar gremis, protegir el pressupost i mantenir el client informat.' : 'El valor no es solo construir. Es anticipar errores, ordenar gremios, proteger el presupuesto y mantener al cliente informado.'; ?>
                 </p>
             </div>
             <div class="grid md:grid-cols-2 gap-4">
                 <?php foreach ($risks as $risk): ?>
-                <div class="flex items-center gap-3 bg-gray-50 border border-gray-200 p-4 rounded-sm">
+                <div class="flex items-center gap-3 bg-warm-50 border border-warm-200 p-4 rounded-sm">
                     <span class="w-2 h-2 bg-brand-500 rounded-full flex-shrink-0"></span>
-                    <span class="text-gray-700 text-sm font-medium"><?php echo $risk; ?></span>
+                    <span class="text-warm-700 text-sm font-medium"><?php echo $risk; ?></span>
                 </div>
                 <?php endforeach; ?>
             </div>

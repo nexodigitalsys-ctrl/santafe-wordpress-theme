@@ -44,19 +44,19 @@ $values = $lang === 'ca' ? [
 $cta = $lang === 'ca' ? 'Saber-ne més →' : 'Saber más →';
 ?>
 
-<section data-reveal class="py-24 md:py-32 bg-gray-50 border-b border-gray-200" id="sobre-nosotros">
+<section data-reveal class="py-24 md:py-32 bg-warm-50 border-b border-warm-200" id="sobre-nosotros">
     <div class="max-w-7xl mx-auto px-6">
         <div class="grid lg:grid-cols-2 gap-16 items-center">
             <!-- Foto TOP: piscina con jardín acabada -->
             <div class="relative order-2 lg:order-1">
-                <div class="aspect-[4/5] rounded-sm overflow-hidden bg-gray-100">
+                <div class="aspect-[4/5] rounded-sm overflow-hidden bg-warm-100">
                     <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/servicios/obra-nueva/obra-nueva-piscina-acabada-jardin.webp'); ?>"
                          alt="<?php echo $lang === 'ca' ? 'Obra nova amb piscina i jardí — Santa Fe Construcciones' : 'Obra nueva con piscina y jardín — Santa Fe Construcciones'; ?>"
                          class="w-full h-full object-cover"
                          loading="lazy"
                          onerror="this.src='<?php echo esc_url(get_template_directory_uri() . '/assets/images/hero/hero-piscina-jardin.webp'); ?>'">
                 </div>
-                <div class="absolute -bottom-6 -right-6 bg-brand-600 text-white px-6 py-4 rounded-sm shadow-2xl">
+                <div class="absolute -bottom-6 -right-6 bg-brand-600 text-white px-6 py-4 rounded-xl shadow-elevated">
                     <p class="font-display font-bold text-3xl">500+</p>
                     <p class="text-xs uppercase tracking-wider opacity-90"><?php echo $lang === 'ca' ? 'Obres lliurades' : 'Obras entregadas'; ?></p>
                 </div>
@@ -68,40 +68,40 @@ $cta = $lang === 'ca' ? 'Saber-ne més →' : 'Saber más →';
                     <div class="industrial-line w-12"></div>
                     <span class="text-brand-400 text-xs font-semibold uppercase tracking-[0.3em]"><?php echo t($translations, 'nav.about'); ?></span>
                 </div>
-                <h2 class="font-display font-bold text-4xl md:text-5xl text-gray-900 tracking-tight mb-2"><?php echo $title; ?></h2>
+                <h2 class="font-display font-bold text-4xl md:text-5xl text-warm-900 tracking-tight mb-2"><?php echo $title; ?></h2>
                 <h3 class="font-display font-semibold text-xl text-brand-400 mb-6"><?php echo $subtitle; ?></h3>
 
                 <?php foreach (explode("\n\n", $bio) as $paragraph): ?>
-                <p class="text-gray-600 text-lg leading-relaxed mb-5"><?php echo nl2br(htmlspecialchars($paragraph)); ?></p>
+                <p class="text-warm-600 text-lg leading-relaxed mb-5"><?php echo nl2br(htmlspecialchars($paragraph)); ?></p>
                 <?php endforeach; ?>
 
                 <!-- Stats -->
                 <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8 mt-8">
                     <?php foreach ($stats as $stat): ?>
                     <div class="border-l-2 border-brand-600 pl-4 py-2">
-                        <p class="font-display font-bold text-2xl md:text-3xl text-brand-500"><?php echo $stat['number']; ?></p>
-                        <p class="text-gray-500 text-sm"><?php echo $stat['label']; ?></p>
+                        <p class="font-display font-bold text-2xl md:text-3xl text-gold-500"><?php echo $stat['number']; ?></p>
+                        <p class="text-warm-500 text-sm"><?php echo $stat['label']; ?></p>
                     </div>
                     <?php endforeach; ?>
                 </div>
 
                 <!-- Valores -->
                 <div class="mb-8">
-                    <h4 class="text-gray-900 font-semibold mb-4 text-sm uppercase tracking-wider"><?php echo $values_title; ?></h4>
+                    <h4 class="text-warm-900 font-semibold mb-4 text-sm uppercase tracking-wider"><?php echo $values_title; ?></h4>
                     <div class="grid grid-cols-2 gap-3">
                         <?php foreach ($values as $value): ?>
                         <div class="flex items-start gap-3">
                             <div class="w-2 h-2 rounded-full bg-brand-500 mt-2 shrink-0"></div>
                             <div>
-                                <p class="text-gray-900 font-medium text-sm"><?php echo $value['name']; ?></p>
-                                <p class="text-gray-500 text-xs"><?php echo $value['desc']; ?></p>
+                                <p class="text-warm-900 font-medium text-sm"><?php echo $value['name']; ?></p>
+                                <p class="text-warm-500 text-xs"><?php echo $value['desc']; ?></p>
                             </div>
                         </div>
                         <?php endforeach; ?>
                     </div>
                 </div>
 
-                <a href="/<?php echo $lang; ?>/sobre-nosotros/" class="inline-flex items-center gap-3 text-brand-500 font-semibold hover:text-brand-400 transition-colors">
+                <a href="/<?php echo $lang; ?>/sobre-nosotros/" class="inline-flex items-center gap-3 text-gold-500 font-semibold hover:text-brand-400 transition-colors">
                     <?php echo $cta; ?> <span class="text-xl">→</span>
                 </a>
             </div>

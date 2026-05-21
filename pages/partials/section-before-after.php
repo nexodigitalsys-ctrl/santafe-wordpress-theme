@@ -11,8 +11,8 @@ $label_despues = $isCa ? 'Després' : 'Después';
     <div class="max-w-5xl mx-auto px-6">
         <div class="text-center mb-12">
             <span class="inline-block px-3 py-1 bg-brand-500/10 text-brand-400 text-xs font-bold tracking-widest uppercase rounded-full border border-brand-500/20 mb-4"><?php echo $isCa ? 'Transformació real' : 'Transformación real'; ?></span>
-            <h2 class="font-display font-bold text-4xl md:text-5xl text-gray-900 tracking-tight mb-4"><?php echo $title; ?></h2>
-            <p class="text-gray-500 text-lg"><?php echo $subtitle; ?></p>
+            <h2 class="font-display font-bold text-4xl md:text-5xl text-warm-900 tracking-tight mb-4"><?php echo $title; ?></h2>
+            <p class="text-warm-500 text-lg"><?php echo $subtitle; ?></p>
         </div>
 
         <div class="before-after relative rounded-sm overflow-hidden cursor-ew-resize select-none" style="aspect-ratio: 16/9;">
@@ -30,16 +30,16 @@ $label_despues = $isCa ? 'Després' : 'Después';
                      alt="Antes - Obra en progreso"
                      class="w-full h-full object-cover"
                      loading="lazy">
-                <span class="absolute bottom-4 left-4 bg-gray-100 text-gray-900 text-xs font-bold px-3 py-1 rounded-sm uppercase tracking-wider"><?php echo $label_antes; ?></span>
+                <span class="absolute bottom-4 left-4 bg-warm-100 text-warm-900 text-xs font-bold px-3 py-1 rounded-sm uppercase tracking-wider"><?php echo $label_antes; ?></span>
             </div>
             <!-- Handle -->
             <div class="before-after__handle absolute top-0 bottom-0 w-1 bg-white shadow-lg cursor-ew-resize flex items-center justify-center" style="left: 50%; transform: translateX(-50%);">
                 <div class="w-10 h-10 bg-white rounded-full shadow-xl flex items-center justify-center">
-                    <svg class="w-5 h-5 text-gray-900" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l4-4 4 4m0 6l-4 4-4-4"/></svg>
+                    <svg class="w-5 h-5 text-warm-900" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l4-4 4 4m0 6l-4 4-4-4"/></svg>
                 </div>
             </div>
         </div>
 
-        <p class="text-center text-gray-500 text-sm mt-6"><?php echo $isCa ? 'Reforma integral d\'habitatge a Barcelona. 3 setmanes d\'obra.' : 'Reforma integral de vivienda en Barcelona. 3 semanas de obra.'; ?></p>
+        <p class="text-center text-warm-500 text-sm mt-6"><?php echo $isCa ? 'Reforma integral d\'habitatge a Barcelona. 3 setmanes d\'obra.' : 'Reforma integral de vivienda en Barcelona. 3 semanas de obra.'; ?></p>
     </div>
 </section>

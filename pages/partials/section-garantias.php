@@ -76,7 +76,7 @@ $garantias = $lang === 'ca' ? [
 ];
 ?>
 
-<section data-reveal class="py-24 md:py-32 bg-gray-50 border-b border-gray-200" id="garantias">
+<section data-reveal class="py-24 md:py-32 bg-warm-50 border-b border-warm-200" id="garantias">
     <div class="max-w-7xl mx-auto px-6">
         <div class="text-center mb-16">
             <div class="flex items-center justify-center gap-4 mb-4">
@@ -84,18 +84,18 @@ $garantias = $lang === 'ca' ? [
                 <span class="text-brand-400 text-xs font-semibold uppercase tracking-[0.3em]"><?php echo $lang === 'ca' ? 'Garanties' : 'Garantías'; ?></span>
                 <div class="industrial-line industrial-line-reverse w-12"></div>
             </div>
-            <h2 class="font-display font-bold text-4xl md:text-5xl text-gray-900 tracking-tight mb-4"><?php echo $title; ?></h2>
-            <p class="text-gray-500 text-lg max-w-2xl mx-auto"><?php echo $subtitle; ?></p>
+            <h2 class="font-display font-bold text-4xl md:text-5xl text-warm-900 tracking-tight mb-4"><?php echo $title; ?></h2>
+            <p class="text-warm-500 text-lg max-w-2xl mx-auto"><?php echo $subtitle; ?></p>
         </div>
 
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             <?php foreach ($garantias as $g): ?>
-            <div class="bg-white border border-gray-200 p-8 rounded-sm group hover:border-brand-700/40 transition-all duration-300">
-                <div class="w-12 h-12 bg-brand-900/30 rounded-sm flex items-center justify-center text-brand-500 mb-5 group-hover:bg-brand-900/50 transition-colors">
+            <div class="bg-white border border-warm-200 p-8 rounded-xl shadow-card group hover:border-brand-500/30 hover:shadow-card-hover transition-all duration-300">
+                <div class="w-12 h-12 bg-brand-50 rounded-xl flex items-center justify-center text-brand-600 mb-5 group-hover:bg-brand-100 transition-colors">
                     <?php echo $g['icon']; ?>
                 </div>
-                <h3 class="font-display font-bold text-lg text-gray-900 mb-2"><?php echo $g['title']; ?></h3>
-                <p class="text-gray-500 text-sm leading-relaxed"><?php echo $g['desc']; ?></p>
+                <h3 class="font-display font-bold text-lg text-warm-900 mb-2"><?php echo $g['title']; ?></h3>
+                <p class="text-warm-500 text-sm leading-relaxed"><?php echo $g['desc']; ?></p>
             </div>
             <?php endforeach; ?>
         </div>

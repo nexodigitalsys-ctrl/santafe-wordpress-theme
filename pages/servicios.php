@@ -190,7 +190,7 @@ include __DIR__ . '/../includes/header.php';
             <h1 class="font-display font-bold text-4xl md:text-5xl lg:text-6xl text-white tracking-tight mb-6 leading-[1.1]">
                 <?php echo $t['hero_h1']; ?>
             </h1>
-            <p class="text-gray-600 text-lg md:text-xl leading-relaxed max-w-2xl mb-14">
+            <p class="text-warm-600 text-lg md:text-xl leading-relaxed max-w-2xl mb-14">
                 <?php echo $t['hero_p']; ?>
             </p>
             <div class="flex flex-wrap gap-6">
@@ -206,7 +206,7 @@ include __DIR__ . '/../includes/header.php';
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                 </a>
                 <a href="tel:<?php echo COMPANY_PHONE; ?>"
-                   class="inline-flex items-center gap-2 border border-gray-300 hover:border-slate-400 text-gray-600 hover:text-white font-medium px-10 py-5 rounded-sm transition-all text-base uppercase tracking-wide">
+                   class="inline-flex items-center gap-2 border border-warm-300 hover:border-slate-400 text-warm-600 hover:text-white font-medium px-10 py-5 rounded-sm transition-all text-base uppercase tracking-wide">
                     <?php echo $t['hero_cta_call']; ?>
                 </a>
             </div>
@@ -217,7 +217,7 @@ include __DIR__ . '/../includes/header.php';
 <!-- ═══════════════════════════════════════════════════════════════
      2. GRID DE SERVIÇOS
      ═══════════════════════════════════════════════════════════════ -->
-<section class="py-24 md:py-32 bg-gray-50 border-y border-gray-200" data-reveal>
+<section class="py-24 md:py-32 bg-warm-50 border-y border-warm-200" data-reveal>
     <div class="max-w-7xl mx-auto px-6">
         <div class="text-center mb-16">
             <div class="flex items-center justify-center gap-4 mb-4">
@@ -225,14 +225,14 @@ include __DIR__ . '/../includes/header.php';
                 <span class="text-brand-400 text-xs font-semibold uppercase tracking-[0.3em]"><?php echo $t['services_label']; ?></span>
                 <div class="industrial-line w-12"></div>
             </div>
-            <h2 class="font-display font-bold text-3xl md:text-4xl lg:text-5xl text-gray-900 tracking-tight">
+            <h2 class="font-display font-bold text-3xl md:text-4xl lg:text-5xl text-warm-900 tracking-tight">
                 <?php echo $t['services_h2']; ?>
             </h2>
         </div>
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             <?php foreach ($services as $svc): ?>
-            <article class="group relative overflow-hidden rounded-sm bg-white border border-gray-200 card-lift flex flex-col">
-                <div class="aspect-[16/9] overflow-hidden bg-gray-100 relative">
+            <article class="group relative overflow-hidden rounded-sm bg-white border border-warm-200 card-lift flex flex-col">
+                <div class="aspect-[16/9] overflow-hidden bg-warm-100 relative">
                     <img src="<?php echo $svc['img']; ?>"
                          alt="<?php echo htmlspecialchars($svc['title'], ENT_QUOTES, 'UTF-8'); ?>"
                          class="w-full h-full object-cover img-zoom opacity-80 group-hover:opacity-100 transition-opacity duration-500"
@@ -243,11 +243,11 @@ include __DIR__ . '/../includes/header.php';
                     </div>
                 </div>
                 <div class="p-6 flex-1 flex flex-col">
-                    <h3 class="font-display font-bold text-xl text-gray-900 mb-2"><?php echo $svc['title']; ?></h3>
-                    <p class="text-gray-500 text-sm mb-4 flex-1"><?php echo $svc['desc']; ?></p>
+                    <h3 class="font-display font-bold text-xl text-warm-900 mb-2"><?php echo $svc['title']; ?></h3>
+                    <p class="text-warm-500 text-sm mb-4 flex-1"><?php echo $svc['desc']; ?></p>
                     <div class="flex flex-wrap gap-2 mb-4">
                         <?php foreach ($svc['features'] as $feat): ?>
-                        <span class="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded-sm"><?php echo $feat; ?></span>
+                        <span class="text-xs bg-warm-100 text-warm-600 px-2 py-1 rounded-sm"><?php echo $feat; ?></span>
                         <?php endforeach; ?>
                     </div>
                     <a href="/<?php echo $lang; ?>/<?php echo $slugs[$svc['slug']]; ?>/"
@@ -272,25 +272,25 @@ include __DIR__ . '/../includes/header.php';
                 <span class="text-brand-400 text-xs font-semibold uppercase tracking-[0.3em]"><?php echo $t['guide_label']; ?></span>
                 <div class="industrial-line w-12"></div>
             </div>
-            <h2 class="font-display font-bold text-3xl md:text-4xl lg:text-5xl text-gray-900 tracking-tight">
+            <h2 class="font-display font-bold text-3xl md:text-4xl lg:text-5xl text-warm-900 tracking-tight">
                 <?php echo $t['guide_h2']; ?>
             </h2>
         </div>
-        <div class="bg-gray-50 border border-gray-200 rounded-sm overflow-hidden">
-            <div class="grid grid-cols-3 gap-0 text-sm font-semibold uppercase tracking-wider text-gray-500 border-b border-gray-200">
+        <div class="bg-warm-50 border border-warm-200 rounded-sm overflow-hidden">
+            <div class="grid grid-cols-3 gap-0 text-sm font-semibold uppercase tracking-wider text-warm-500 border-b border-warm-200">
                 <div class="p-4 md:p-6"><?php echo $t['guide_col_need']; ?></div>
                 <div class="p-4 md:p-6"><?php echo $t['guide_col_service']; ?></div>
                 <div class="p-4 md:p-6 text-right"><?php echo $t['guide_col_price']; ?></div>
             </div>
             <?php foreach ($guide as $i => $row): ?>
-            <div class="grid grid-cols-3 gap-0 text-sm border-b border-gray-200/50 hover:bg-gray-100/30 transition-colors">
-                <div class="p-4 md:p-6 text-gray-600"><?php echo $row['need']; ?></div>
-                <div class="p-4 md:p-6 text-gray-900"><?php echo $row['service']; ?></div>
+            <div class="grid grid-cols-3 gap-0 text-sm border-b border-warm-200/50 hover:bg-warm-100/30 transition-colors">
+                <div class="p-4 md:p-6 text-warm-600"><?php echo $row['need']; ?></div>
+                <div class="p-4 md:p-6 text-warm-900"><?php echo $row['service']; ?></div>
                 <div class="p-4 md:p-6 text-brand-500 font-display font-bold text-right"><?php echo $row['price']; ?></div>
             </div>
             <?php endforeach; ?>
         </div>
-        <p class="text-center text-gray-500 text-sm mt-6">
+        <p class="text-center text-warm-500 text-sm mt-6">
             <?php echo $isCa ? 'Els preus són orientatius. El pressupost realista requereix visita tècnica.' : 'Los precios son orientativos. El presupuesto realista requiere visita técnica.'; ?>
         </p>
     </div>
@@ -299,7 +299,7 @@ include __DIR__ . '/../includes/header.php';
 <!-- ═══════════════════════════════════════════════════════════════
      4. PROCESO GENERAL
      ═══════════════════════════════════════════════════════════════ -->
-<section class="py-24 md:py-32 bg-gray-50 border-y border-gray-200" data-reveal>
+<section class="py-24 md:py-32 bg-warm-50 border-y border-warm-200" data-reveal>
     <div class="max-w-7xl mx-auto px-6">
         <div class="text-center mb-16">
             <div class="flex items-center justify-center gap-4 mb-4">
@@ -307,16 +307,16 @@ include __DIR__ . '/../includes/header.php';
                 <span class="text-brand-400 text-xs font-semibold uppercase tracking-[0.3em]"><?php echo $t['process_label']; ?></span>
                 <div class="industrial-line w-12"></div>
             </div>
-            <h2 class="font-display font-bold text-3xl md:text-4xl lg:text-5xl text-gray-900 tracking-tight">
+            <h2 class="font-display font-bold text-3xl md:text-4xl lg:text-5xl text-warm-900 tracking-tight">
                 <?php echo $t['process_h2']; ?>
             </h2>
         </div>
         <div class="grid md:grid-cols-5 gap-6">
             <?php foreach ($process as $step): ?>
-            <div class="bg-gray-50/50 border border-gray-200 rounded-sm p-6 text-center">
+            <div class="bg-warm-50/50 border border-warm-200 rounded-sm p-6 text-center">
                 <span class="font-display font-bold text-3xl text-brand-600/40 block mb-4"><?php echo $step['num']; ?></span>
-                <h3 class="font-display font-bold text-lg text-gray-900 mb-3"><?php echo $step['title']; ?></h3>
-                <p class="text-gray-500 text-sm leading-relaxed"><?php echo $step['desc']; ?></p>
+                <h3 class="font-display font-bold text-lg text-warm-900 mb-3"><?php echo $step['title']; ?></h3>
+                <p class="text-warm-500 text-sm leading-relaxed"><?php echo $step['desc']; ?></p>
             </div>
             <?php endforeach; ?>
         </div>
@@ -334,16 +334,16 @@ include __DIR__ . '/../includes/header.php';
                 <span class="text-brand-400 text-xs font-semibold uppercase tracking-[0.3em]"><?php echo $t['diff_label']; ?></span>
                 <div class="industrial-line w-12"></div>
             </div>
-            <h2 class="font-display font-bold text-3xl md:text-4xl lg:text-5xl text-gray-900 tracking-tight">
+            <h2 class="font-display font-bold text-3xl md:text-4xl lg:text-5xl text-warm-900 tracking-tight">
                 <?php echo $t['diff_h2']; ?>
             </h2>
         </div>
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             <?php foreach ($diffs as $diff): ?>
-            <div class="bg-gray-50/50 border border-gray-200 rounded-sm p-6">
+            <div class="bg-warm-50/50 border border-warm-200 rounded-sm p-6">
                 <svg class="w-8 h-8 text-brand-500 mb-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="<?php echo $diff['icon']; ?>"/></svg>
-                <h3 class="font-display font-bold text-lg text-gray-900 mb-2"><?php echo $diff['title']; ?></h3>
-                <p class="text-gray-500 text-sm leading-relaxed"><?php echo $diff['desc']; ?></p>
+                <h3 class="font-display font-bold text-lg text-warm-900 mb-2"><?php echo $diff['title']; ?></h3>
+                <p class="text-warm-500 text-sm leading-relaxed"><?php echo $diff['desc']; ?></p>
             </div>
             <?php endforeach; ?>
         </div>
@@ -353,7 +353,7 @@ include __DIR__ . '/../includes/header.php';
 <!-- ═══════════════════════════════════════════════════════════════
      6. FAQ + Schema
      ═══════════════════════════════════════════════════════════════ -->
-<section class="py-24 md:py-32 bg-gray-50 border-y border-gray-200" id="faq-servicios" data-reveal>
+<section class="py-24 md:py-32 bg-warm-50 border-y border-warm-200" id="faq-servicios" data-reveal>
     <div class="max-w-4xl mx-auto px-6">
         <div class="text-center mb-16">
             <div class="flex items-center justify-center gap-4 mb-4">
@@ -361,24 +361,24 @@ include __DIR__ . '/../includes/header.php';
                 <span class="text-brand-400 text-xs font-semibold uppercase tracking-[0.3em]"><?php echo $t['faq_label']; ?></span>
                 <div class="industrial-line w-12"></div>
             </div>
-            <h2 class="font-display font-bold text-3xl md:text-4xl lg:text-5xl text-gray-900 tracking-tight">
+            <h2 class="font-display font-bold text-3xl md:text-4xl lg:text-5xl text-warm-900 tracking-tight">
                 <?php echo $t['faq_h2']; ?>
             </h2>
         </div>
         <div class="space-y-4" id="faq-accordion-servicios">
             <?php foreach ($faq_items as $i => $faq): ?>
-            <div class="faq-item bg-gray-50/50 border border-gray-200 rounded-sm overflow-hidden">
+            <div class="faq-item bg-warm-50/50 border border-warm-200 rounded-sm overflow-hidden">
                 <button type="button"
                         class="faq-trigger w-full flex items-center justify-between p-6 text-left group"
                         aria-expanded="false"
                         data-index="<?php echo $i; ?>">
-                    <span class="font-display font-bold text-gray-900 text-lg pr-4"><?php echo $faq['q']; ?></span>
-                    <span class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center flex-shrink-0 group-hover:bg-brand-600 transition-colors">
-                        <svg class="faq-icon w-4 h-4 text-gray-600 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                    <span class="font-display font-bold text-warm-900 text-lg pr-4"><?php echo $faq['q']; ?></span>
+                    <span class="w-8 h-8 rounded-full bg-warm-100 flex items-center justify-center flex-shrink-0 group-hover:bg-brand-600 transition-colors">
+                        <svg class="faq-icon w-4 h-4 text-warm-600 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
                     </span>
                 </button>
                 <div class="faq-content hidden px-6 pb-6">
-                    <p class="text-gray-600 leading-relaxed"><?php echo $faq['a']; ?></p>
+                    <p class="text-warm-600 leading-relaxed"><?php echo $faq['a']; ?></p>
                 </div>
             </div>
             <?php endforeach; ?>
@@ -439,10 +439,10 @@ include __DIR__ . '/../includes/header.php';
 <section class="py-24 md:py-32 bg-white relative overflow-hidden" data-reveal>
     <div class="absolute inset-0 opacity-5 cta-bg-pattern"></div>
     <div class="max-w-4xl mx-auto px-6 relative z-10 text-center">
-        <h2 class="font-display font-bold text-3xl md:text-4xl lg:text-5xl text-gray-900 tracking-tight mb-6">
+        <h2 class="font-display font-bold text-3xl md:text-4xl lg:text-5xl text-warm-900 tracking-tight mb-6">
             <?php echo $t['final_h2']; ?>
         </h2>
-        <p class="text-gray-600 text-lg leading-relaxed mb-14 max-w-2xl mx-auto">
+        <p class="text-warm-600 text-lg leading-relaxed mb-14 max-w-2xl mx-auto">
             <?php echo $t['final_p']; ?>
         </p>
         <div class="flex flex-wrap gap-4 justify-center">

@@ -384,7 +384,7 @@ gtag('consent', 'default', {
 </script>
 <?php wp_head(); ?>
 </head>
-<body class="bg-white text-gray-900 antialiased selection:bg-brand-500 selection:text-white pb-20 lg:pb-0">
+<body class="bg-white text-warm-900 antialiased selection:bg-brand-500 selection:text-white pb-20 lg:pb-0">
 
 <!-- Scroll Progress Bar -->
 <div id="scroll-progress" aria-hidden="true"></div>
@@ -428,12 +428,12 @@ gtag('consent', 'default', {
       <div class="relative group">
         <a href="/<?php echo $lang; ?>/<?php echo $nav_services_path; ?>/" class="text-sm font-medium transition-colors tracking-wide inline-flex items-center gap-1" data-nav-link aria-haspopup="true" aria-expanded="false"><?php echo t($translations, 'nav.services'); ?><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-3 h-3 opacity-60" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"/></svg></a>
         <div class="absolute left-0 top-full pt-4 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto group-focus-within:opacity-100 group-focus-within:pointer-events-auto transition-all" role="menu" aria-label="Submenú de servicios">
-          <div class="w-72 bg-white border border-gray-200 rounded-sm shadow-2xl p-3">
-            <a href="/<?php echo $lang; ?>/<?php echo $lang === 'ca' ? 'obra-nova' : 'obra-nueva'; ?>/" class="block px-4 py-3 text-sm text-gray-600 hover:text-brand-600 hover:bg-gray-50 rounded-sm">Obra nueva</a>
-            <a href="/<?php echo $lang; ?>/<?php echo $lang === 'ca' ? 'reformes-integrals' : 'reformas-integrales'; ?>/" class="block px-4 py-3 text-sm text-gray-600 hover:text-brand-600 hover:bg-gray-50 rounded-sm">Reformas integrales</a>
-            <a href="/<?php echo $lang; ?>/<?php echo $lang === 'ca' ? 'pladur-acabats' : 'pladur-acabados'; ?>/" class="block px-4 py-3 text-sm text-gray-600 hover:text-brand-600 hover:bg-gray-50 rounded-sm">Pladur y acabados</a>
-            <a href="/<?php echo $lang; ?>/obra-publica/" class="block px-4 py-3 text-sm text-gray-600 hover:text-brand-600 hover:bg-gray-50 rounded-sm">Obra pública</a>
-            <a href="/<?php echo $lang; ?>/obra-civil/" class="block px-4 py-3 text-sm text-gray-600 hover:text-brand-600 hover:bg-gray-50 rounded-sm">Obra civil</a>
+          <div class="w-72 bg-white border border-warm-200 rounded-sm shadow-2xl p-3">
+            <a href="/<?php echo $lang; ?>/<?php echo $lang === 'ca' ? 'obra-nova' : 'obra-nueva'; ?>/" class="block px-4 py-3 text-sm text-warm-600 hover:text-brand-600 hover:bg-warm-50 rounded-sm">Obra nueva</a>
+            <a href="/<?php echo $lang; ?>/<?php echo $lang === 'ca' ? 'reformes-integrals' : 'reformas-integrales'; ?>/" class="block px-4 py-3 text-sm text-warm-600 hover:text-brand-600 hover:bg-warm-50 rounded-sm">Reformas integrales</a>
+            <a href="/<?php echo $lang; ?>/<?php echo $lang === 'ca' ? 'pladur-acabats' : 'pladur-acabados'; ?>/" class="block px-4 py-3 text-sm text-warm-600 hover:text-brand-600 hover:bg-warm-50 rounded-sm">Pladur y acabados</a>
+            <a href="/<?php echo $lang; ?>/obra-publica/" class="block px-4 py-3 text-sm text-warm-600 hover:text-brand-600 hover:bg-warm-50 rounded-sm">Obra pública</a>
+            <a href="/<?php echo $lang; ?>/obra-civil/" class="block px-4 py-3 text-sm text-warm-600 hover:text-brand-600 hover:bg-warm-50 rounded-sm">Obra civil</a>
           </div>
         </div>
       </div>
@@ -453,18 +453,18 @@ gtag('consent', 'default', {
 
   <!-- Mobile Menu -->
   <div id="mobile-menu" class="mobile-menu fixed inset-0 bg-white/98 backdrop-blur-xl z-40 flex flex-col items-center justify-center gap-8 lg:hidden">
-    <button type="button" id="menu-close" class="absolute top-6 right-6 text-gray-900 p-2" aria-label="<?php echo t($translations, 'nav.menu_close'); ?>">
+    <button type="button" id="menu-close" class="absolute top-6 right-6 text-warm-900 p-2" aria-label="<?php echo t($translations, 'nav.menu_close'); ?>">
       <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
     </button>
-    <a href="/<?php echo $lang; ?>/<?php echo $nav_services_path; ?>/" class="text-2xl font-display font-bold text-gray-900 mobile-nav-link"><?php echo t($translations, 'nav.services'); ?></a>
-    <a href="/<?php echo $lang; ?>/<?php echo $nav_projects_path; ?>/" class="text-2xl font-display font-bold text-gray-900 mobile-nav-link"><?php echo t($translations, 'nav.projects'); ?></a>
-    <a href="/<?php echo $lang; ?>/<?php echo $nav_about_path; ?>/" class="text-2xl font-display font-bold text-gray-900 mobile-nav-link"><?php echo t($translations, 'nav.about'); ?></a>
-    <a href="/<?php echo $lang; ?>/blog/" class="text-2xl font-display font-bold text-gray-900 mobile-nav-link">Blog</a>
+    <a href="/<?php echo $lang; ?>/<?php echo $nav_services_path; ?>/" class="text-2xl font-display font-bold text-warm-900 mobile-nav-link"><?php echo t($translations, 'nav.services'); ?></a>
+    <a href="/<?php echo $lang; ?>/<?php echo $nav_projects_path; ?>/" class="text-2xl font-display font-bold text-warm-900 mobile-nav-link"><?php echo t($translations, 'nav.projects'); ?></a>
+    <a href="/<?php echo $lang; ?>/<?php echo $nav_about_path; ?>/" class="text-2xl font-display font-bold text-warm-900 mobile-nav-link"><?php echo t($translations, 'nav.about'); ?></a>
+    <a href="/<?php echo $lang; ?>/blog/" class="text-2xl font-display font-bold text-warm-900 mobile-nav-link">Blog</a>
     <a href="tel:<?php echo COMPANY_PHONE; ?>" class="text-xl font-display font-bold text-brand-600 mobile-nav-link" data-track-event="phone_click"><?php echo COMPANY_PHONE_DISPLAY; ?></a>
     <a href="/<?php echo $lang; ?>/<?php echo $nav_contact_path; ?>/" class="text-2xl font-display font-bold text-brand-600 mobile-nav-link"><?php echo t($translations, 'nav.contact'); ?></a>
     <div class="flex items-center gap-4 mt-4">
-      <a href="<?php echo get_alt_url($current_route ?? '', 'es'); ?>" hreflang="es_ES" class="text-lg font-medium border-2 px-4 py-2 rounded-sm transition-colors <?php echo $lang === 'es' ? 'text-brand-500 border-brand-500' : 'text-gray-500 border-gray-300 hover:text-brand-500 hover:border-brand-500'; ?>">ES</a>
-      <a href="<?php echo get_alt_url($current_route ?? '', 'ca'); ?>" hreflang="ca_ES" class="text-lg font-medium border-2 px-4 py-2 rounded-sm transition-colors <?php echo $lang === 'ca' ? 'text-brand-500 border-brand-500' : 'text-gray-500 border-gray-300 hover:text-brand-500 hover:border-brand-500'; ?>">CA</a>
+      <a href="<?php echo get_alt_url($current_route ?? '', 'es'); ?>" hreflang="es_ES" class="text-lg font-medium border-2 px-4 py-2 rounded-sm transition-colors <?php echo $lang === 'es' ? 'text-brand-500 border-brand-500' : 'text-warm-500 border-warm-300 hover:text-brand-500 hover:border-brand-500'; ?>">ES</a>
+      <a href="<?php echo get_alt_url($current_route ?? '', 'ca'); ?>" hreflang="ca_ES" class="text-lg font-medium border-2 px-4 py-2 rounded-sm transition-colors <?php echo $lang === 'ca' ? 'text-brand-500 border-brand-500' : 'text-warm-500 border-warm-300 hover:text-brand-500 hover:border-brand-500'; ?>">CA</a>
     </div>
   </div>
 </header>

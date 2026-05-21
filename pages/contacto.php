@@ -73,15 +73,15 @@ $ciudades = $lang === 'ca' ? [
                 <div class="industrial-line w-12"></div>
                 <span class="text-brand-400 text-xs font-semibold uppercase tracking-[0.3em]"><?php echo t($translations, 'nav.contact'); ?></span>
             </div>
-            <h1 class="font-display font-bold text-4xl md:text-5xl text-gray-900 tracking-tight"><?php echo t($translations, 'contact.form_title'); ?></h1>
-            <p class="text-gray-500 mt-4 max-w-lg"><?php echo t($translations, 'contact.form_subtitle'); ?></p>
+            <h1 class="font-display font-bold text-4xl md:text-5xl text-warm-900 tracking-tight"><?php echo t($translations, 'contact.form_title'); ?></h1>
+            <p class="text-warm-500 mt-4 max-w-lg"><?php echo t($translations, 'contact.form_subtitle'); ?></p>
         </div>
 
         <div class="grid lg:grid-cols-2 gap-16">
             <!-- Form -->
-            <div class="bg-gray-50 border border-gray-200 rounded-sm p-8 md:p-10">
+            <div class="bg-warm-50 border border-warm-200 rounded-sm p-8 md:p-10">
                 <?php if (isset($_GET['sent'], $_GET['msg'])): ?>
-                <div class="mb-6 border <?php echo $_GET['sent'] === '1' ? 'border-green-500' : 'border-red-500'; ?> bg-white p-4 rounded-sm text-gray-900" role="alert">
+                <div class="mb-6 border <?php echo $_GET['sent'] === '1' ? 'border-green-500' : 'border-red-500'; ?> bg-white p-4 rounded-sm text-warm-900" role="alert">
                     <?php echo esc_html(rawurldecode((string) $_GET['msg'])); ?>
                 </div>
                 <?php endif; ?>
@@ -94,30 +94,30 @@ $ciudades = $lang === 'ca' ? [
                     </div>
                     <div class="grid md:grid-cols-2 gap-5 mb-5">
                         <div>
-                            <label class="block text-gray-500 text-xs uppercase tracking-wider mb-2"><?php echo $label_nombre; ?> *</label>
-                            <input type="text" name="name" required class="w-full bg-white border border-gray-300 rounded-sm px-4 py-3 text-gray-900 focus:border-brand-500 focus:outline-none transition-colors">
+                            <label class="block text-warm-500 text-xs uppercase tracking-wider mb-2"><?php echo $label_nombre; ?> *</label>
+                            <input type="text" name="name" required class="w-full bg-white border border-warm-300 rounded-sm px-4 py-3 text-warm-900 focus:border-brand-500 focus:outline-none transition-colors">
                         </div>
                         <div>
-                            <label class="block text-gray-500 text-xs uppercase tracking-wider mb-2"><?php echo $label_telefono; ?> *</label>
-                            <input type="tel" name="phone" required class="w-full bg-white border border-gray-300 rounded-sm px-4 py-3 text-gray-900 focus:border-brand-500 focus:outline-none transition-colors">
+                            <label class="block text-warm-500 text-xs uppercase tracking-wider mb-2"><?php echo $label_telefono; ?> *</label>
+                            <input type="tel" name="phone" required class="w-full bg-white border border-warm-300 rounded-sm px-4 py-3 text-warm-900 focus:border-brand-500 focus:outline-none transition-colors">
                         </div>
                     </div>
                     <div class="mb-5">
-                        <label class="block text-gray-500 text-xs uppercase tracking-wider mb-2"><?php echo $label_email; ?> *</label>
-                        <input type="email" name="email" required class="w-full bg-white border border-gray-300 rounded-sm px-4 py-3 text-gray-900 focus:border-brand-500 focus:outline-none transition-colors">
+                        <label class="block text-warm-500 text-xs uppercase tracking-wider mb-2"><?php echo $label_email; ?> *</label>
+                        <input type="email" name="email" required class="w-full bg-white border border-warm-300 rounded-sm px-4 py-3 text-warm-900 focus:border-brand-500 focus:outline-none transition-colors">
                     </div>
                     <div class="grid md:grid-cols-2 gap-5 mb-5">
                         <div>
-                            <label class="block text-gray-500 text-xs uppercase tracking-wider mb-2"><?php echo $label_tipo; ?> *</label>
-                            <select name="service_interest" required class="w-full bg-white border border-gray-300 rounded-sm px-4 py-3 text-gray-600 focus:border-brand-500 focus:outline-none transition-colors">
+                            <label class="block text-warm-500 text-xs uppercase tracking-wider mb-2"><?php echo $label_tipo; ?> *</label>
+                            <select name="service_interest" required class="w-full bg-white border border-warm-300 rounded-sm px-4 py-3 text-warm-600 focus:border-brand-500 focus:outline-none transition-colors">
                                 <?php foreach ($tipos as $key => $val): ?>
                                 <option value="<?php echo $key; ?>"><?php echo $val; ?></option>
                                 <?php endforeach; ?>
                             </select>
                         </div>
                         <div>
-                            <label class="block text-gray-500 text-xs uppercase tracking-wider mb-2"><?php echo $label_ciudad; ?> *</label>
-                            <select name="city" required class="w-full bg-white border border-gray-300 rounded-sm px-4 py-3 text-gray-600 focus:border-brand-500 focus:outline-none transition-colors">
+                            <label class="block text-warm-500 text-xs uppercase tracking-wider mb-2"><?php echo $label_ciudad; ?> *</label>
+                            <select name="city" required class="w-full bg-white border border-warm-300 rounded-sm px-4 py-3 text-warm-600 focus:border-brand-500 focus:outline-none transition-colors">
                                 <?php foreach ($ciudades as $key => $val): ?>
                                 <option value="<?php echo $key; ?>"><?php echo $val; ?></option>
                                 <?php endforeach; ?>
@@ -125,19 +125,19 @@ $ciudades = $lang === 'ca' ? [
                         </div>
                     </div>
                     <div class="mb-5">
-                        <label class="block text-gray-500 text-xs uppercase tracking-wider mb-2"><?php echo $label_mensaje; ?> *</label>
-                        <textarea name="message" rows="4" required placeholder="<?php echo $placeholder_mensaje; ?>" class="w-full bg-white border border-gray-300 rounded-sm px-4 py-3 text-gray-900 focus:border-brand-500 focus:outline-none transition-colors resize-y"></textarea>
+                        <label class="block text-warm-500 text-xs uppercase tracking-wider mb-2"><?php echo $label_mensaje; ?> *</label>
+                        <textarea name="message" rows="4" required placeholder="<?php echo $placeholder_mensaje; ?>" class="w-full bg-white border border-warm-300 rounded-sm px-4 py-3 text-warm-900 focus:border-brand-500 focus:outline-none transition-colors resize-y"></textarea>
                     </div>
                     <div class="mb-6">
                         <label class="flex items-start gap-3 cursor-pointer">
                             <input type="checkbox" name="privacy" required class="mt-1 accent-brand-600">
-                            <span class="text-gray-500 text-sm"><?php echo $label_privacy; ?></span>
+                            <span class="text-warm-500 text-sm"><?php echo $label_privacy; ?></span>
                         </label>
                     </div>
                     <button type="submit" class="w-full bg-brand-600 hover:bg-brand-500 text-white font-semibold py-4 rounded-sm transition-all tracking-wide uppercase text-sm">
                         <?php echo $cta; ?>
                     </button>
-                    <p class="text-gray-500 text-xs text-center mt-4">
+                    <p class="text-warm-500 text-xs text-center mt-4">
                         <?php echo str_replace('{privacy_link}', '<a href="/' . $lang . '/politica-privacidad/" class="text-brand-400 underline">' . t($translations, 'contact.privacy_link_text') . '</a>', t($translations, 'contact.privacy_note')); ?>
                     </p>
                 </form>
@@ -146,44 +146,44 @@ $ciudades = $lang === 'ca' ? [
             <!-- Contact Info -->
             <aside class="space-y-8">
                 <div>
-                    <h3 class="font-display font-bold text-2xl text-gray-900 mb-6"><?php echo $lang === 'ca' ? 'Contacte directe' : 'Contacto directo'; ?></h3>
+                    <h3 class="font-display font-bold text-2xl text-warm-900 mb-6"><?php echo $lang === 'ca' ? 'Contacte directe' : 'Contacto directo'; ?></h3>
                     <div class="space-y-5">
                         <a href="tel:<?php echo COMPANY_PHONE; ?>" class="flex items-center gap-4 group">
-                            <div class="w-12 h-12 bg-gray-50 rounded-sm flex items-center justify-center group-hover:bg-brand-900/30 transition-colors">
+                            <div class="w-12 h-12 bg-warm-50 rounded-sm flex items-center justify-center group-hover:bg-brand-900/30 transition-colors">
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#AE232A" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
                             </div>
                             <div>
-                                <p class="text-gray-500 text-xs uppercase tracking-wider"><?php echo $lang === 'ca' ? 'Truca ara' : 'Llamar ahora'; ?></p>
-                                <p class="text-gray-900 font-semibold text-lg"><?php echo COMPANY_PHONE_DISPLAY; ?></p>
+                                <p class="text-warm-500 text-xs uppercase tracking-wider"><?php echo $lang === 'ca' ? 'Truca ara' : 'Llamar ahora'; ?></p>
+                                <p class="text-warm-900 font-semibold text-lg"><?php echo COMPANY_PHONE_DISPLAY; ?></p>
                             </div>
                         </a>
                         <a href="https://wa.me/<?php echo WHATSAPP_NUMBER; ?>" target="_blank" rel="noopener noreferrer" class="flex items-center gap-4 group">
-                            <div class="w-12 h-12 bg-gray-50 rounded-sm flex items-center justify-center group-hover:bg-brand-900/30 transition-colors">
+                            <div class="w-12 h-12 bg-warm-50 rounded-sm flex items-center justify-center group-hover:bg-brand-900/30 transition-colors">
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#AE232A" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
                             </div>
                             <div>
-                                <p class="text-gray-500 text-xs uppercase tracking-wider">WhatsApp</p>
-                                <p class="text-gray-900 font-semibold text-lg"><?php echo COMPANY_PHONE_DISPLAY; ?></p>
+                                <p class="text-warm-500 text-xs uppercase tracking-wider">WhatsApp</p>
+                                <p class="text-warm-900 font-semibold text-lg"><?php echo COMPANY_PHONE_DISPLAY; ?></p>
                             </div>
                         </a>
                         <a href="mailto:<?php echo COMPANY_EMAIL; ?>" class="flex items-center gap-4 group">
-                            <div class="w-12 h-12 bg-gray-50 rounded-sm flex items-center justify-center group-hover:bg-brand-900/30 transition-colors">
+                            <div class="w-12 h-12 bg-warm-50 rounded-sm flex items-center justify-center group-hover:bg-brand-900/30 transition-colors">
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#AE232A" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-8.97 5.7a1.94 1.94 0 01-2.06 0L2 7"/></svg>
                             </div>
                             <div>
-                                <p class="text-gray-500 text-xs uppercase tracking-wider">Email</p>
-                                <p class="text-gray-900 font-semibold text-lg"><?php echo COMPANY_EMAIL; ?></p>
+                                <p class="text-warm-500 text-xs uppercase tracking-wider">Email</p>
+                                <p class="text-warm-900 font-semibold text-lg"><?php echo COMPANY_EMAIL; ?></p>
                             </div>
                         </a>
                     </div>
                 </div>
                 <div>
-                    <h3 class="font-semibold text-gray-900 mb-3"><?php echo $lang === 'ca' ? 'Horari' : 'Horario'; ?></h3>
-                    <p class="text-gray-500"><?php echo t($translations, 'footer.hours'); ?></p>
+                    <h3 class="font-semibold text-warm-900 mb-3"><?php echo $lang === 'ca' ? 'Horari' : 'Horario'; ?></h3>
+                    <p class="text-warm-500"><?php echo t($translations, 'footer.hours'); ?></p>
                 </div>
                 <div>
-                    <h3 class="font-semibold text-gray-900 mb-3"><?php echo $lang === 'ca' ? 'Zona d\'actuació' : 'Zona de actuación'; ?></h3>
-                    <p class="text-gray-500">Barcelona, Girona, Tarragona</p>
+                    <h3 class="font-semibold text-warm-900 mb-3"><?php echo $lang === 'ca' ? 'Zona d\'actuació' : 'Zona de actuación'; ?></h3>
+                    <p class="text-warm-500">Barcelona, Girona, Tarragona</p>
                 </div>
             </aside>
         </div>

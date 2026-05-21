@@ -150,7 +150,7 @@ include __DIR__ . '/../includes/header.php';
 </div>
 
 <!-- Hero -->
-<section class="relative py-20 md:py-28 bg-white border-b border-gray-200">
+<section class="relative py-20 md:py-28 bg-white border-b border-warm-200">
     <div class="absolute inset-0 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950"></div>
     <div class="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-px bg-brand-500/40"></div>
     <div class="max-w-7xl mx-auto px-6 relative z-10 text-center">
@@ -160,7 +160,7 @@ include __DIR__ . '/../includes/header.php';
             <div class="industrial-line industrial-line-reverse w-12"></div>
         </div>
         <h1 class="font-display font-bold text-4xl md:text-6xl text-white tracking-tight mb-6"><?php echo $t['hero_title']; ?></h1>
-        <p class="text-gray-600 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed"><?php echo $t['hero_subtitle']; ?></p>
+        <p class="text-warm-600 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed"><?php echo $t['hero_subtitle']; ?></p>
         <a href="/<?php echo $lang; ?>/contacto/" class="inline-flex items-center gap-2 bg-brand-600 hover:bg-brand-500 text-white font-semibold px-8 py-4 rounded-sm transition-all tracking-wide text-sm uppercase">
             <?php echo $t['hero_cta']; ?>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -169,24 +169,24 @@ include __DIR__ . '/../includes/header.php';
 </section>
 
 <!-- Cobertura legal -->
-<section class="py-24 md:py-32 bg-gray-50 border-b border-gray-200" data-reveal>
+<section class="py-24 md:py-32 bg-warm-50 border-b border-warm-200" data-reveal>
     <div class="max-w-7xl mx-auto px-6">
         <div class="text-center mb-16">
-            <h2 class="font-display font-bold text-3xl md:text-4xl text-gray-900 tracking-tight mb-4"><?php echo $t['section_legal']; ?></h2>
-            <p class="text-gray-500 text-lg max-w-2xl mx-auto"><?php echo $t['section_legal_desc']; ?></p>
+            <h2 class="font-display font-bold text-3xl md:text-4xl text-warm-900 tracking-tight mb-4"><?php echo $t['section_legal']; ?></h2>
+            <p class="text-warm-500 text-lg max-w-2xl mx-auto"><?php echo $t['section_legal_desc']; ?></p>
         </div>
 
-        <div class="max-w-3xl mx-auto bg-white border border-gray-200 rounded-sm p-8 md:p-12">
-            <h3 class="text-gray-900 font-semibold mb-6 text-lg"><?php echo $t['contract_intro']; ?></h3>
+        <div class="max-w-3xl mx-auto bg-white border border-warm-200 rounded-sm p-8 md:p-12">
+            <h3 class="text-warm-900 font-semibold mb-6 text-lg"><?php echo $t['contract_intro']; ?></h3>
             <ul class="space-y-4 mb-8">
                 <?php foreach ($t['contract_items'] as $item): ?>
                 <li class="flex items-start gap-3">
                     <svg class="w-5 h-5 text-brand-500 mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-                    <span class="text-gray-600"><?php echo $item; ?></span>
+                    <span class="text-warm-600"><?php echo $item; ?></span>
                 </li>
                 <?php endforeach; ?>
             </ul>
-            <div class="border-t border-gray-200 pt-6">
+            <div class="border-t border-warm-200 pt-6">
                 <p class="text-brand-400 font-medium flex items-center gap-2">
                     <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z"/></svg>
                     <?php echo $t['contract_price']; ?>
@@ -197,22 +197,22 @@ include __DIR__ . '/../includes/header.php';
 </section>
 
 <!-- Garantías detalladas -->
-<section class="py-24 md:py-32 bg-white border-b border-gray-200" data-reveal>
+<section class="py-24 md:py-32 bg-white border-b border-warm-200" data-reveal>
     <div class="max-w-7xl mx-auto px-6">
         <div class="text-center mb-16">
-            <h2 class="font-display font-bold text-3xl md:text-4xl text-gray-900 tracking-tight mb-4"><?php echo $t['section_garantias']; ?></h2>
-            <p class="text-gray-500 text-lg max-w-2xl mx-auto"><?php echo $t['section_garantias_desc']; ?></p>
+            <h2 class="font-display font-bold text-3xl md:text-4xl text-warm-900 tracking-tight mb-4"><?php echo $t['section_garantias']; ?></h2>
+            <p class="text-warm-500 text-lg max-w-2xl mx-auto"><?php echo $t['section_garantias_desc']; ?></p>
         </div>
 
         <div class="grid md:grid-cols-2 gap-6">
             <?php foreach ($garantias_detalle as $g): ?>
-            <div class="bg-gray-50 border border-gray-200 p-8 rounded-sm flex gap-5">
+            <div class="bg-warm-50 border border-warm-200 p-8 rounded-sm flex gap-5">
                 <div class="w-12 h-12 bg-brand-900/30 rounded-sm flex items-center justify-center text-brand-500 shrink-0">
                     <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="<?php echo $g['icon']; ?>"/></svg>
                 </div>
                 <div>
-                    <h3 class="font-display font-bold text-lg text-gray-900 mb-2"><?php echo $g['title']; ?></h3>
-                    <p class="text-gray-500 text-sm leading-relaxed"><?php echo $g['desc']; ?></p>
+                    <h3 class="font-display font-bold text-lg text-warm-900 mb-2"><?php echo $g['title']; ?></h3>
+                    <p class="text-warm-500 text-sm leading-relaxed"><?php echo $g['desc']; ?></p>
                 </div>
             </div>
             <?php endforeach; ?>
@@ -221,21 +221,21 @@ include __DIR__ . '/../includes/header.php';
 </section>
 
 <!-- Seguros -->
-<section class="py-24 md:py-32 bg-gray-50 border-b border-gray-200" data-reveal>
+<section class="py-24 md:py-32 bg-warm-50 border-b border-warm-200" data-reveal>
     <div class="max-w-7xl mx-auto px-6">
         <div class="text-center mb-16">
-            <h2 class="font-display font-bold text-3xl md:text-4xl text-gray-900 tracking-tight mb-4"><?php echo $t['section_insurance']; ?></h2>
-            <p class="text-gray-500 text-lg max-w-2xl mx-auto"><?php echo $t['section_insurance_desc']; ?></p>
+            <h2 class="font-display font-bold text-3xl md:text-4xl text-warm-900 tracking-tight mb-4"><?php echo $t['section_insurance']; ?></h2>
+            <p class="text-warm-500 text-lg max-w-2xl mx-auto"><?php echo $t['section_insurance_desc']; ?></p>
         </div>
 
         <div class="grid md:grid-cols-3 gap-6">
             <?php foreach ($seguros as $s): ?>
-            <div class="bg-white border border-gray-200 p-8 rounded-sm text-center">
+            <div class="bg-white border border-warm-200 p-8 rounded-sm text-center">
                 <div class="inline-flex items-center gap-2 px-3 py-1 bg-emerald-500/10 text-emerald-400 text-xs font-bold tracking-wider uppercase rounded-full border border-emerald-500/20 mb-4">
                     <?php echo $s['policy']; ?>
                 </div>
-                <h3 class="font-display font-bold text-xl text-gray-900 mb-3"><?php echo $s['name']; ?></h3>
-                <p class="text-gray-500 text-sm"><?php echo $s['desc']; ?></p>
+                <h3 class="font-display font-bold text-xl text-warm-900 mb-3"><?php echo $s['name']; ?></h3>
+                <p class="text-warm-500 text-sm"><?php echo $s['desc']; ?></p>
             </div>
             <?php endforeach; ?>
         </div>
@@ -247,8 +247,8 @@ include __DIR__ . '/../includes/header.php';
 <!-- CTA Final -->
 <section class="py-24 md:py-32 bg-white" data-reveal>
     <div class="max-w-4xl mx-auto px-6 text-center">
-        <h2 class="font-display font-bold text-3xl md:text-5xl text-gray-900 tracking-tight mb-6"><?php echo $t['final_cta']; ?></h2>
-        <p class="text-gray-500 text-lg mb-10"><?php echo $t['final_cta_sub']; ?></p>
+        <h2 class="font-display font-bold text-3xl md:text-5xl text-warm-900 tracking-tight mb-6"><?php echo $t['final_cta']; ?></h2>
+        <p class="text-warm-500 text-lg mb-10"><?php echo $t['final_cta_sub']; ?></p>
         <a href="/<?php echo $lang; ?>/contacto/" class="inline-flex items-center gap-2 bg-brand-600 hover:bg-brand-500 text-white font-semibold px-10 py-5 rounded-sm transition-all tracking-wide text-base uppercase shadow-lg">
             <?php echo $t['hero_cta']; ?>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>

@@ -73,7 +73,7 @@ $steps = $lang === 'ca' ? [
 ];
 ?>
 
-<section data-reveal class="py-24 md:py-32 bg-white border-b border-gray-200" id="proceso">
+<section data-reveal class="py-24 md:py-32 bg-white border-b border-warm-200" id="proceso">
     <div class="max-w-7xl mx-auto px-6">
         <div class="text-center mb-16">
             <div class="flex items-center justify-center gap-4 mb-4">
@@ -81,35 +81,35 @@ $steps = $lang === 'ca' ? [
                 <span class="text-brand-400 text-xs font-semibold uppercase tracking-[0.3em]"><?php echo $lang === 'ca' ? 'Procés' : 'Proceso'; ?></span>
                 <div class="industrial-line industrial-line-reverse w-12"></div>
             </div>
-            <h2 class="font-display font-bold text-4xl md:text-5xl text-gray-900 tracking-tight mb-4"><?php echo $title; ?></h2>
-            <p class="text-gray-500 text-lg max-w-2xl mx-auto"><?php echo $subtitle; ?></p>
+            <h2 class="font-display font-bold text-4xl md:text-5xl text-warm-900 tracking-tight mb-4"><?php echo $title; ?></h2>
+            <p class="text-warm-500 text-lg max-w-2xl mx-auto"><?php echo $subtitle; ?></p>
         </div>
 
         <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             <?php foreach ($steps as $i => $step): ?>
-            <div class="relative bg-gray-50 border border-gray-200 p-8 rounded-sm group hover:border-brand-700/50 transition-all duration-300 hover:-translate-y-1">
+            <div class="relative bg-white border border-warm-200 p-8 rounded-xl shadow-card group hover:border-brand-500/30 hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1">
                 <!-- Linha conectora (desktop) -->
                 <?php if ($i < count($steps) - 1): ?>
-                <div class="hidden lg:block absolute top-12 -right-3 w-6 h-px bg-gray-200 group-hover:bg-brand-900/50 transition-colors"></div>
+                <div class="hidden lg:block absolute top-12 -right-3 w-6 h-px bg-warm-200 group-hover:bg-brand-900/50 transition-colors"></div>
                 <?php endif; ?>
                 
                 <div class="flex items-center gap-3 mb-4">
-                    <div class="w-10 h-10 bg-brand-900/40 rounded-sm flex items-center justify-center text-brand-500">
+                    <div class="w-10 h-10 bg-brand-900/40 rounded-sm flex items-center justify-center text-gold-500">
                         <?php echo $step['icon']; ?>
                     </div>
-                    <span class="font-display font-bold text-3xl text-gray-700 group-hover:text-brand-900/40 transition-colors"><?php echo $step['num']; ?></span>
+                    <span class="font-display font-bold text-3xl text-warm-700 group-hover:text-brand-900/40 transition-colors"><?php echo $step['num']; ?></span>
                 </div>
-                <h3 class="font-display font-bold text-xl text-gray-900 mb-3"><?php echo $step['title']; ?></h3>
-                <p class="text-gray-500 text-sm leading-relaxed"><?php echo $step['desc']; ?></p>
+                <h3 class="font-display font-bold text-xl text-warm-900 mb-3"><?php echo $step['title']; ?></h3>
+                <p class="text-warm-500 text-sm leading-relaxed"><?php echo $step['desc']; ?></p>
             </div>
             <?php endforeach; ?>
         </div>
         
         <!-- Garantía destacada -->
         <div class="mt-12 text-center">
-            <div class="inline-flex items-center gap-3 bg-gray-50 border border-gray-200 rounded-sm px-6 py-4">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-brand-500"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z"/></svg>
-                <span class="text-gray-600 text-sm"><?php echo $lang === 'ca' ? 'Segur de responsabilitat civil · Llicències incloses · Garantia de 2 anys' : 'Seguro de responsabilidad civil · Licencias incluidas · Garantía de 2 años'; ?></span>
+            <div class="inline-flex items-center gap-3 bg-white border border-warm-200 rounded-xl px-6 py-4 shadow-card">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-gold-500"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z"/></svg>
+                <span class="text-warm-600 text-sm"><?php echo $lang === 'ca' ? 'Segur de responsabilitat civil · Llicències incloses · Garantia de 2 anys' : 'Seguro de responsabilidad civil · Licencias incluidas · Garantía de 2 años'; ?></span>
             </div>
         </div>
     </div>

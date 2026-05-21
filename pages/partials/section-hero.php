@@ -47,7 +47,7 @@ $stat_provinces_label = $lang === 'ca' ? 'Províncies' : 'Provincias';
                 <?php echo $hero_title; ?>
             </h1>
 
-            <p class="text-gray-300 text-lg md:text-xl max-w-2xl mx-auto lg:mx-0 mb-10 leading-relaxed animate-slide-up delay-200">
+            <p class="text-warm-300 text-lg md:text-xl max-w-2xl mx-auto lg:mx-0 mb-10 leading-relaxed animate-slide-up delay-200">
                 <?php echo $hero_subtitle; ?>
             </p>
 
@@ -64,16 +64,16 @@ $stat_provinces_label = $lang === 'ca' ? 'Províncies' : 'Provincias';
             <!-- Stats -->
             <div class="grid grid-cols-3 gap-8 max-w-2xl mx-auto lg:mx-0 animate-slide-up delay-400">
                 <div class="text-center lg:text-left" data-reveal data-reveal-delay="400">
-                    <span class="font-display font-bold text-4xl md:text-5xl text-brand-500 block" data-counter="17" data-counter-duration="2000">0</span>
-                    <span class="text-gray-400 text-sm mt-1 block"><?php echo $stat_years_label; ?></span>
+                    <span class="font-display font-bold text-4xl md:text-5xl text-gold-400 block" data-counter="17" data-counter-duration="2000">0</span>
+                    <span class="text-warm-400 text-sm mt-1 block"><?php echo $stat_years_label; ?></span>
                 </div>
                 <div class="text-center lg:text-left" data-reveal data-reveal-delay="500">
-                    <span class="font-display font-bold text-4xl md:text-5xl text-brand-500 block" data-counter="500" data-counter-suffix="+" data-counter-duration="2500">0</span>
-                    <span class="text-gray-400 text-sm mt-1 block"><?php echo $stat_projects_label; ?></span>
+                    <span class="font-display font-bold text-4xl md:text-5xl text-gold-400 block" data-counter="500" data-counter-suffix="+" data-counter-duration="2500">0</span>
+                    <span class="text-warm-400 text-sm mt-1 block"><?php echo $stat_projects_label; ?></span>
                 </div>
                 <div class="text-center lg:text-left" data-reveal data-reveal-delay="600">
-                    <span class="font-display font-bold text-4xl md:text-5xl text-brand-500 block" data-counter="3" data-counter-duration="1500">0</span>
-                    <span class="text-gray-400 text-sm mt-1 block"><?php echo $stat_provinces_label; ?></span>
+                    <span class="font-display font-bold text-4xl md:text-5xl text-gold-400 block" data-counter="3" data-counter-duration="1500">0</span>
+                    <span class="text-warm-400 text-sm mt-1 block"><?php echo $stat_provinces_label; ?></span>
                 </div>
             </div>
         </div>
