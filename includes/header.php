@@ -317,6 +317,14 @@ $nav_contact_path = $lang === 'ca' ? 'contacte' : 'contacto';
   html.dark footer { background-color: #0c0a09; }
   html.dark #scroll-progress { box-shadow: 0 0 10px rgba(248, 113, 113, 0.5); }
 
+  /* Smooth theme transitions — dark/light toggle */
+  body, #site-nav, footer, .mobile-menu, section, .bg-white, .bg-warm-50, .bg-warm-100,
+  [data-nav-link], [data-lang-btn], [data-menu-btn], [data-brand-text], [data-brand-sub],
+  [data-theme-btn], [data-logo-dark], [data-logo-light],
+  .mobile-nav-link, .mobile-submenu-panel a, .mobile-submenu-toggle, #menu-close {
+    transition: background-color 0.35s ease, color 0.35s ease, border-color 0.35s ease, opacity 0.35s ease, box-shadow 0.35s ease;
+  }
+
   /* Scroll progress bar */
   #scroll-progress {
     position: fixed;
