@@ -13,12 +13,18 @@ document.addEventListener('DOMContentLoaded', function() {
     var submenuToggles = document.querySelectorAll('.mobile-submenu-toggle');
 
     // Header scroll-reveal — Architect's Bar
+    var logoImg = document.getElementById('logo-img');
+    var logoDarkSrc = '/assets/img/logo-casa-cut-darkmode.png';
+    var logoLightSrc = '/assets/img/logo-casa-cut.png';
+
     if (header) {
         function onScroll() {
             if (window.scrollY > 60) {
                 header.classList.add('header-scrolled');
+                if (logoImg) logoImg.src = logoLightSrc;
             } else {
                 header.classList.remove('header-scrolled');
+                if (logoImg) logoImg.src = logoDarkSrc;
             }
         }
         window.addEventListener('scroll', onScroll, { passive: true });
