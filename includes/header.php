@@ -235,6 +235,31 @@ $nav_contact_path = $lang === 'ca' ? 'contacte' : 'contacto';
     transform: translateX(0);
   }
 
+  /* Scroll lock when mobile menu is open — prevents flash/reflow */
+  html.menu-open,
+  html.menu-open body {
+    overflow: hidden;
+    touch-action: none;
+  }
+
+  /* Mobile submenu accordion */
+  .mobile-submenu-panel {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
+  }
+  .mobile-submenu-panel.open {
+    max-height: 400px;
+    opacity: 1;
+  }
+  .mobile-submenu-toggle[aria-expanded="true"] .submenu-chevron {
+    transform: rotate(180deg);
+  }
+  .submenu-chevron {
+    transition: transform 0.3s ease;
+  }
+
   /* Scroll progress bar */
   #scroll-progress {
     position: fixed;
@@ -451,12 +476,31 @@ gtag('consent', 'default', {
     </button>
   </div>
 
+
   <!-- Mobile Menu -->
-  <div id="mobile-menu" class="mobile-menu fixed inset-0 bg-white z-[60] flex flex-col items-center justify-center gap-8 lg:hidden">
+  <div id="mobile-menu" class="mobile-menu fixed inset-0 bg-white z-[60] flex flex-col items-center justify-center gap-6 lg:hidden overflow-y-auto py-20">
     <button type="button" id="menu-close" class="absolute top-6 right-6 text-warm-900 p-2" aria-label="<?php echo t($translations, 'nav.menu_close'); ?>">
       <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
     </button>
-    <a href="/<?php echo $lang; ?>/<?php echo $nav_services_path; ?>/" class="text-2xl font-display font-bold text-warm-900 mobile-nav-link"><?php echo t($translations, 'nav.services'); ?></a>
+
+    <!-- Services with accordion submenu -->
+    <div class="w-full max-w-xs px-6">
+      <div class="flex items-center justify-between">
+        <a href="/<?php echo $lang; ?>/<?php echo $nav_services_path; ?>/" class="text-2xl font-display font-bold text-warm-900 mobile-nav-link"><?php echo t($translations, 'nav.services'); ?></a>
+        <button type="button" class="mobile-submenu-toggle p-2 text-warm-500 hover:text-brand-600 transition-colors" aria-expanded="false" aria-controls="mobile-submenu-services" aria-label="<?php echo t($translations, 'nav.toggle_services'); ?>">
+          <svg class="submenu-chevron w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"/></svg>
+        </button>
+      </div>
+      <div id="mobile-submenu-services" class="mobile-submenu-panel mt-2 space-y-1">
+        <a href="/<?php echo $lang; ?>/<?php echo $nav_services_path; ?>/" class="block px-4 py-2 text-sm font-medium text-warm-600 hover:text-brand-600 hover:bg-warm-50 rounded-sm mobile-nav-link"><?php echo t($translations, 'nav.all_services'); ?></a>
+        <a href="/<?php echo $lang; ?>/<?php echo $lang === 'ca' ? 'obra-nova' : 'obra-nueva'; ?>/" class="block px-4 py-2 text-sm text-warm-500 hover:text-brand-600 hover:bg-warm-50 rounded-sm mobile-nav-link">Obra nueva</a>
+        <a href="/<?php echo $lang; ?>/<?php echo $lang === 'ca' ? 'reformes-integrals' : 'reformas-integrales'; ?>/" class="block px-4 py-2 text-sm text-warm-500 hover:text-brand-600 hover:bg-warm-50 rounded-sm mobile-nav-link">Reformas integrales</a>
+        <a href="/<?php echo $lang; ?>/<?php echo $lang === 'ca' ? 'pladur-acabats' : 'pladur-acabados'; ?>/" class="block px-4 py-2 text-sm text-warm-500 hover:text-brand-600 hover:bg-warm-50 rounded-sm mobile-nav-link">Pladur y acabados</a>
+        <a href="/<?php echo $lang; ?>/obra-publica/" class="block px-4 py-2 text-sm text-warm-500 hover:text-brand-600 hover:bg-warm-50 rounded-sm mobile-nav-link">Obra pública</a>
+        <a href="/<?php echo $lang; ?>/obra-civil/" class="block px-4 py-2 text-sm text-warm-500 hover:text-brand-600 hover:bg-warm-50 rounded-sm mobile-nav-link">Obra civil</a>
+      </div>
+    </div>
+
     <a href="/<?php echo $lang; ?>/<?php echo $nav_projects_path; ?>/" class="text-2xl font-display font-bold text-warm-900 mobile-nav-link"><?php echo t($translations, 'nav.projects'); ?></a>
     <a href="/<?php echo $lang; ?>/<?php echo $nav_about_path; ?>/" class="text-2xl font-display font-bold text-warm-900 mobile-nav-link"><?php echo t($translations, 'nav.about'); ?></a>
     <a href="/<?php echo $lang; ?>/blog/" class="text-2xl font-display font-bold text-warm-900 mobile-nav-link">Blog</a>

@@ -13,7 +13,9 @@
     "cta": "Visita tecnica",
     "menu_open": "Obrir menú",
     "menu_close": "Tancar menú",
-    "skip_to_content": "Saltar al contingut principal"
+    "skip_to_content": "Saltar al contingut principal",
+    "toggle_services": "Mostrar serveis",
+    "all_services": "Tots els serveis"
   },
   "hero": {
     "slide1_title": "Construïm la llar que t'imagines",
