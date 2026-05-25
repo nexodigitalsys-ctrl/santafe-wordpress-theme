@@ -304,18 +304,47 @@ $nav_contact_path = $lang === 'ca' ? 'contacte' : 'contacto';
   html.dark .header-scrolled [data-nav-cta] { background-color: #dc2626; }
   html.dark .header-scrolled [data-nav-cta]:hover { background-color: #b91c1c; }
   html.dark section.bg-white,
-  html.dark .bg-white { background-color: #1e293b !important; }
+  html.dark .bg-white,
+  html.dark [class*="bg-white"] { background-color: #1e293b !important; }
   html.dark .bg-warm-50,
-  html.dark .bg-warm-100 { background-color: #1e293b !important; }
-  html.dark .text-warm-900 { color: #e2e8f0 !important; }
-  html.dark .text-warm-800 { color: #cbd5e1 !important; }
-  html.dark .text-warm-700 { color: #94a3b8 !important; }
-  html.dark .text-warm-600 { color: #94a3b8 !important; }
-  html.dark .text-warm-500 { color: #94a3b8 !important; }
+  html.dark .bg-warm-100,
+  html.dark [class*="bg-warm-50"],
+  html.dark [class*="bg-warm-100"] { background-color: #1e293b !important; }
+  html.dark .text-warm-900,
+  html.dark [class*="text-warm-900"] { color: #e2e8f0 !important; }
+  html.dark .text-warm-800,
+  html.dark [class*="text-warm-800"] { color: #cbd5e1 !important; }
+  html.dark .text-warm-700,
+  html.dark [class*="text-warm-700"] { color: #94a3b8 !important; }
+  html.dark .text-warm-600,
+  html.dark [class*="text-warm-600"] { color: #94a3b8 !important; }
+  html.dark .text-warm-500,
+  html.dark [class*="text-warm-500"] { color: #94a3b8 !important; }
   html.dark .border-warm-200,
-  html.dark .border-warm-100 { border-color: #334155 !important; }
+  html.dark .border-warm-100,
+  html.dark [class*="border-warm-200"],
+  html.dark [class*="border-warm-100"] { border-color: #334155 !important; }
   html.dark footer { background-color: #0c0a09; }
   html.dark #scroll-progress { box-shadow: 0 0 10px rgba(248, 113, 113, 0.5); }
+
+  /* Catch-all for gray/slate text colors in dark mode */
+  html.dark .text-gray-500,
+  html.dark .text-gray-600,
+  html.dark .text-slate-500,
+  html.dark .text-slate-600,
+  html.dark .text-slate-700,
+  html.dark .text-slate-800 { color: #94a3b8 !important; }
+
+  /* Inputs and selects in dark mode */
+  html.dark input,
+  html.dark select,
+  html.dark textarea {
+    background-color: #1e293b !important;
+    color: #e2e8f0 !important;
+    border-color: #334155 !important;
+  }
+  html.dark input::placeholder,
+  html.dark textarea::placeholder { color: #64748b !important; }
 
   /* Smooth theme transitions — dark/light toggle */
   body, #site-nav, footer, .mobile-menu, section, .bg-white, .bg-warm-50, .bg-warm-100,
