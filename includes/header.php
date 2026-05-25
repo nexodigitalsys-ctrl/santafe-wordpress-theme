@@ -419,7 +419,7 @@ gtag('consent', 'default', {
       <!-- Brand text: vertically centered with the house icon -->
       <div class="flex flex-col leading-[0.85]">
         <span class="font-display font-bold text-[1.65rem] tracking-[0.02em] block transition-colors duration-500" data-brand-text>SANTA FE</span>
-        <span class="text-[0.7rem] uppercase tracking-[0.3em] transition-colors duration-500 mt-2.5" data-brand-sub><?php echo $lang === 'ca' ? 'Construccions · 2008' : 'Construcciones · 2008'; ?></span>
+        <span class="text-[0.7rem] uppercase tracking-[0.3em] transition-colors duration-500 mt-2.5" data-brand-sub><?php echo $lang === 'ca' ? 'Construccions' : 'Construcciones'; ?></span>
       </div>
     </a>
 
