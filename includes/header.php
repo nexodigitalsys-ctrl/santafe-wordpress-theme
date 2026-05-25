@@ -204,12 +204,16 @@ $nav_contact_path = $lang === 'ca' ? 'contacte' : 'contacto';
   .header-scrolled [data-lang-btn] { color: rgba(255,255,255,0.6); border-color: rgba(255,255,255,0.2); }
   .header-scrolled [data-lang-btn]:hover { color: #fff; border-color: rgba(255,255,255,0.4); }
   .header-scrolled [data-menu-btn] { color: #fff; }
+  .header-scrolled [data-logo-dark] { opacity: 0 !important; }
+  .header-scrolled [data-logo-light] { opacity: 1 !important; }
   /* Default top state — Sobre hero escuro, textos sempre claros */
   [data-nav-link] { color: rgba(255,255,255,0.8); transition: color 0.3s; }
   [data-nav-link]:hover { color: #fff; }
   [data-lang-btn] { color: rgba(255,255,255,0.6); border-color: rgba(255,255,255,0.2); transition: all 0.3s; }
   [data-lang-btn]:hover { color: #fff; border-color: rgba(255,255,255,0.4); }
   [data-menu-btn] { color: #fff; }
+  [data-logo-dark] { opacity: 0 !important; }
+  [data-logo-light] { opacity: 1 !important; }
   [data-brand-text] { color: #fff; }
   [data-brand-sub] { color: rgba(255,255,255,0.6); }
 
@@ -466,8 +470,9 @@ gtag('consent', 'default', {
   <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between transition-all duration-500" data-header-inner>
     <a href="/<?php echo $lang; ?>/" class="flex items-end gap-3.5 group" aria-label="Construcciones Santa Fe — Inicio">
       <!-- Logo house: aspect-ratio maintains proportions, only height is fixed -->
-      <div class="flex-shrink-0 h-[3.25rem] logo-aspect">
-        <img id="logo-img" src="/assets/img/logo-casa-cut-darkmode.png" alt="Construcciones Santa Fe" class="h-full w-auto">
+      <div class="relative flex-shrink-0 h-[3.25rem] logo-aspect">
+        <img src="/assets/img/logo-casa-cut-darkmode.png" alt="Construcciones Santa Fe" class="h-full w-auto absolute inset-0 transition-opacity duration-500" data-logo-dark>
+        <img src="/assets/img/logo-casa-cut.png" alt="Construcciones Santa Fe" class="h-full w-auto absolute inset-0 opacity-0 transition-opacity duration-500" data-logo-light>
       </div>
       <!-- Brand text: vertically centered with the house icon -->
       <div class="flex flex-col leading-[0.85]">
