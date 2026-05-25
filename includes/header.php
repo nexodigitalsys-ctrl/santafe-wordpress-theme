@@ -186,36 +186,59 @@ $nav_contact_path = $lang === 'ca' ? 'contacte' : 'contacto';
     to { opacity: 1; }
   }
 
-  /* Header scroll-reveal — Architect's Bar */
-  .header-scrolled {
-    background-color: rgba(12, 12, 14, 0.96) !important;
-    backdrop-filter: blur(24px) saturate(1.4);
-    -webkit-backdrop-filter: blur(24px) saturate(1.4);
-    border-bottom: 2px solid #AE232A;
-    box-shadow:
-      0 0 40px rgba(174, 35, 42, 0.22),
-      0 4px 20px rgba(174, 35, 42, 0.14),
-      0 8px 40px rgba(0, 0, 0, 0.5);
+  /* Header — Light mode (default): white, Dark mode: slate */
+   * Scroll only adds shadow, colors are theme-driven
+   */
+  #site-nav {
+    background-color: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
   }
-  .header-scrolled [data-brand-text] { color: #fff; }
-  .header-scrolled [data-brand-sub] { color: rgba(255,255,255,0.6); }
-  .header-scrolled [data-nav-link] { color: rgba(255,255,255,0.85); }
-  .header-scrolled [data-nav-link]:hover { color: #fff; }
-  .header-scrolled [data-lang-btn] { color: rgba(255,255,255,0.6); border-color: rgba(255,255,255,0.2); }
-  .header-scrolled [data-lang-btn]:hover { color: #fff; border-color: rgba(255,255,255,0.4); }
-  .header-scrolled [data-menu-btn] { color: #fff; }
-  .header-scrolled [data-logo-dark] { opacity: 0 !important; }
-  .header-scrolled [data-logo-light] { opacity: 1 !important; }
-  /* Default top state — Sobre hero escuro, textos sempre claros */
-  [data-nav-link] { color: rgba(255,255,255,0.8); transition: color 0.3s; }
-  [data-nav-link]:hover { color: #fff; }
-  [data-lang-btn] { color: rgba(255,255,255,0.6); border-color: rgba(255,255,255,0.2); transition: all 0.3s; }
-  [data-lang-btn]:hover { color: #fff; border-color: rgba(255,255,255,0.4); }
-  [data-menu-btn] { color: #fff; }
+  html.dark #site-nav {
+    background-color: rgba(15, 23, 42, 0.96);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  }
+  #site-nav.header-scrolled {
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+  }
+  html.dark #site-nav.header-scrolled {
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+  }
+
+  /* Light mode text colors */
+  [data-nav-link] { color: #44403c; transition: color 0.3s; }
+  [data-nav-link]:hover { color: #1c1917; }
+  [data-lang-btn] { color: #78716c; border-color: rgba(0,0,0,0.15); transition: all 0.3s; }
+  [data-lang-btn]:hover { color: #1c1917; border-color: rgba(0,0,0,0.3); }
+  [data-menu-btn] { color: #44403c; }
+  [data-brand-text] { color: #1c1917; }
+  [data-brand-sub] { color: #78716c; }
+
+  /* Theme toggle button */
+  [data-theme-btn] { color: #44403c; }
+  [data-theme-btn]:hover { color: #dc2626; }
+
+  /* Dark mode text colors */
+  html.dark [data-nav-link] { color: rgba(255,255,255,0.85); }
+  html.dark [data-nav-link]:hover { color: #fff; }
+  html.dark [data-lang-btn] { color: rgba(255,255,255,0.6); border-color: rgba(255,255,255,0.2); }
+  html.dark [data-lang-btn]:hover { color: #fff; border-color: rgba(255,255,255,0.4); }
+  html.dark [data-menu-btn] { color: #fff; }
+  html.dark [data-brand-text] { color: #fff; }
+  html.dark [data-brand-sub] { color: rgba(255,255,255,0.6); }
+  html.dark [data-theme-btn] { color: rgba(255,255,255,0.85); }
+  html.dark [data-theme-btn]:hover { color: #f87171; }
+
+  /* Logo: light mode shows dark logo, dark mode shows light logo */
   [data-logo-dark] { opacity: 0 !important; }
   [data-logo-light] { opacity: 1 !important; }
-  [data-brand-text] { color: #fff; }
-  [data-brand-sub] { color: rgba(255,255,255,0.6); }
+  html.dark [data-logo-dark] { opacity: 1 !important; }
+  html.dark [data-logo-light] { opacity: 0 !important; }
+
+  /* Phone link adjusts per theme */
+  html.dark [data-track-event="phone_click"] { color: #f87171 !important; }
+  html.dark [data-track-event="phone_click"]:hover { color: #fca5a5 !important; }
 
   /* Industrial line reversed */
   .industrial-line-reverse { background: linear-gradient(270deg, #AE232A 0%, transparent 100%) !important; }
@@ -264,6 +287,9 @@ $nav_contact_path = $lang === 'ca' ? 'contacte' : 'contacto';
   html.dark { color-scheme: dark; }
   html.dark body { background-color: #0f172a; color: #e2e8f0; }
   html.dark .mobile-menu { background-color: #0f172a; }
+  html.dark #menu-close { color: #e2e8f0; }
+  html.dark .mobile-submenu-toggle { color: #94a3b8; }
+  html.dark .mobile-submenu-toggle:hover { color: #f87171; }
   html.dark .mobile-submenu-panel a { color: #cbd5e1; }
   html.dark .mobile-submenu-panel a:hover { color: #f87171; background-color: #1e293b; }
   html.dark .mobile-nav-link { color: #e2e8f0 !important; }
@@ -502,7 +528,7 @@ gtag('consent', 'default', {
       <a href="/<?php echo $lang; ?>/<?php echo $nav_contact_path; ?>/" class="text-sm font-semibold bg-brand-600 hover:bg-brand-500 text-white px-5 py-2.5 rounded-sm transition-all tracking-wide" data-nav-cta>Presupuesto gratuito</a>
       <a href="<?php echo get_alt_url($current_route ?? '', 'es'); ?>" hreflang="es_ES" class="text-xs font-medium border px-2 py-1 rounded-sm transition-colors <?php echo $lang === 'es' ? 'opacity-100' : 'opacity-60'; ?>" data-lang-btn>ES</a>
       <a href="<?php echo get_alt_url($current_route ?? '', 'ca'); ?>" hreflang="ca_ES" class="text-xs font-medium border px-2 py-1 rounded-sm transition-colors <?php echo $lang === 'ca' ? 'opacity-100' : 'opacity-60'; ?>" data-lang-btn>CA</a>
-      <button type="button" id="theme-toggle" class="p-2 rounded-sm transition-colors text-white hover:text-brand-400" aria-label="<?php echo t($translations, 'nav.toggle_theme'); ?>">
+      <button type="button" id="theme-toggle" class="p-2 rounded-sm transition-colors" data-theme-btn aria-label="<?php echo t($translations, 'nav.toggle_theme'); ?>">
         <svg id="theme-icon-sun" class="w-5 h-5 hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"/></svg>
         <svg id="theme-icon-moon" class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z"/></svg>
       </button>
@@ -546,7 +572,7 @@ gtag('consent', 'default', {
     <div class="flex items-center gap-4 mt-4">
       <a href="<?php echo get_alt_url($current_route ?? '', 'es'); ?>" hreflang="es_ES" class="text-lg font-medium border-2 px-4 py-2 rounded-sm transition-colors <?php echo $lang === 'es' ? 'text-brand-500 border-brand-500' : 'text-warm-500 border-warm-300 hover:text-brand-500 hover:border-brand-500'; ?>">ES</a>
       <a href="<?php echo get_alt_url($current_route ?? '', 'ca'); ?>" hreflang="ca_ES" class="text-lg font-medium border-2 px-4 py-2 rounded-sm transition-colors <?php echo $lang === 'ca' ? 'text-brand-500 border-brand-500' : 'text-warm-500 border-warm-300 hover:text-brand-500 hover:border-brand-500'; ?>">CA</a>
-      <button type="button" id="theme-toggle-mobile" class="p-2 rounded-sm transition-colors text-warm-500 hover:text-brand-600" aria-label="<?php echo t($translations, 'nav.toggle_theme'); ?>">
+      <button type="button" id="theme-toggle-mobile" class="p-2 rounded-sm transition-colors" data-theme-btn aria-label="<?php echo t($translations, 'nav.toggle_theme'); ?>">
         <svg class="theme-icon-sun w-6 h-6 hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"/></svg>
         <svg class="theme-icon-moon w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z"/></svg>
       </button>
