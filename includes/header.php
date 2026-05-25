@@ -190,13 +190,11 @@ $nav_contact_path = $lang === 'ca' ? 'contacte' : 'contacto';
    * Scroll only adds shadow, colors are theme-driven
    */
   #site-nav {
-    background-color: rgba(255, 255, 255, 0.96);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    background-color: #ffffff;
     border-bottom: 1px solid rgba(0, 0, 0, 0.06);
   }
   html.dark #site-nav {
-    background-color: rgba(15, 23, 42, 0.96);
+    background-color: #0f172a;
     border-bottom: 1px solid rgba(255, 255, 255, 0.06);
   }
   #site-nav.header-scrolled {
