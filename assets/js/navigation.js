@@ -1,6 +1,6 @@
 /**
  * Navigation.js — Santa Fe Header
- * Architect's Bar scroll effect, mobile menu with accordion submenu
+ * Architect's Bar scroll effect, mobile menu with accordion submenu, theme toggle
  * iOS-safe scroll lock using overflow:hidden on <html>
  */
 
@@ -100,4 +100,59 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+
+    // Theme toggle — Dark / Light mode
+    (function() {
+        var STORAGE_KEY = 'santafe-theme';
+        var html = document.documentElement;
+        var desktopBtn = document.getElementById('theme-toggle');
+        var mobileBtn = document.getElementById('theme-toggle-mobile');
+
+        function getPreferredTheme() {
+            var stored = localStorage.getItem(STORAGE_KEY);
+            if (stored === 'dark' || stored === 'light') return stored;
+            return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
+
+        function setTheme(theme) {
+            if (theme === 'dark') {
+                html.classList.add('dark');
+            } else {
+                html.classList.remove('dark');
+            }
+            localStorage.setItem(STORAGE_KEY, theme);
+            updateIcons(theme);
+        }
+
+        function toggleTheme() {
+            setTheme(html.classList.contains('dark') ? 'light' : 'dark');
+        }
+
+        function updateIcons(theme) {
+            var isDark = theme === 'dark';
+            // Desktop icons
+            var sunD = document.getElementById('theme-icon-sun');
+            var moonD = document.getElementById('theme-icon-moon');
+            if (sunD) sunD.classList.toggle('hidden', !isDark);
+            if (moonD) moonD.classList.toggle('hidden', isDark);
+            // Mobile icons
+            var sunM = mobileBtn ? mobileBtn.querySelector('.theme-icon-sun') : null;
+            var moonM = mobileBtn ? mobileBtn.querySelector('.theme-icon-moon') : null;
+            if (sunM) sunM.classList.toggle('hidden', !isDark);
+            if (moonM) moonM.classList.toggle('hidden', isDark);
+        }
+
+        // Init
+        setTheme(getPreferredTheme());
+
+        if (desktopBtn) desktopBtn.addEventListener('click', toggleTheme);
+        if (mobileBtn) mobileBtn.addEventListener('click', toggleTheme);
+
+        // Listen for system changes
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
+            if (!localStorage.getItem(STORAGE_KEY)) {
+                setTheme(e.matches ? 'dark' : 'light');
+            }
+        });
+    })();
 });

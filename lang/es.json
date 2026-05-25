@@ -15,7 +15,8 @@
     "menu_close": "Cerrar menú",
     "skip_to_content": "Saltar al contenido principal",
     "toggle_services": "Mostrar servicios",
-    "all_services": "Todos los servicios"
+    "all_services": "Todos los servicios",
+    "toggle_theme": "Cambiar tema"
   },
   "hero": {
     "slide1_title": "Construimos el hogar que imaginas",

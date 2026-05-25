@@ -15,7 +15,8 @@
     "menu_close": "Tancar menú",
     "skip_to_content": "Saltar al contingut principal",
     "toggle_services": "Mostrar serveis",
-    "all_services": "Tots els serveis"
+    "all_services": "Tots els serveis",
+    "toggle_theme": "Canviar tema"
   },
   "hero": {
     "slide1_title": "Construïm la llar que t'imagines",
