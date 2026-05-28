@@ -149,7 +149,7 @@ $es = [
         'problem' => 'Un suelo desgastado, levantado o mal instalado arruina la estética de cualquier estancia y puede generar humedades estructurales.',
         'agitate' => 'Parquet barato mal colocado acaba levantándose, crujiendo y requiere rehacer la obra completa. La diferencia está en la preparación del soporte y la calidad de la instalación.',
         'solution' => 'En Santa Fe preparamos el soporte, nivelamos, instalamos con junta perimetral correcta y acabamos con rodapiés y sellado profesional.',
-        'prices' => 'Referencia orientativa: parquet laminado desde 45 €/m², multicapa desde 75 €/m².',
+        'prices' => 'Referencia orientativa: parquet laminado desde 35 €/m², multicapa desde 65 €/m², macizo desde 110 €/m².',
         'features' => ['Preparación y nivelación de soporte', 'Instalación flotante, encolado y clavado', 'Renovación de suelos deteriorados', 'Reparación de zonas dañadas', 'Rodapiés y remates integrados', 'Tratamiento de barniz y mantenimiento'],
         'phases' => [
             ['title' => 'Medición', 'desc' => 'Tomamos medidas, evaluamos el soporte y definimos el tipo de instalación.'],
@@ -158,7 +158,7 @@ $es = [
             ['title' => 'Instalación', 'desc' => 'Colocamos el parquet con técnicas profesionales y acabamos con rodapiés.'],
         ],
         'faq' => [
-            ['q' => '¿Cuánto cuesta instalar parquet?', 'a' => 'Desde 45 €/m² para parquet laminado con instalación incluida. El precio varía según el tipo de parquet y el estado del soporte.'],
+            ['q' => '¿Cuánto cuesta instalar parquet?', 'a' => 'Desde 35 €/m² para parquet laminado con instalación incluida. Multicapa desde 65 €/m² y macizo desde 110 €/m². El precio varía según el tipo de parquet y el estado del soporte.'],
             ['q' => '¿Cuánto dura una instalación de parquet?', 'a' => 'Una habitación de 20 m² suele tardar 1-2 días. Una vivienda completa puede tardar entre 3 y 5 días.'],
             ['q' => '¿Puedo instalar parquet sobre baldosa?', 'a' => 'Sí, siempre que la baldosa esté nivelada y firme. Evaluamos el estado durante la visita técnica.'],
             ['q' => '¿Qué diferencia hay entre flotante y encolado?', 'a' => 'El flotante se coloca sobre una base aislante sin fijar al suelo. El encolado se pega directamente al soporte, ofreciendo mayor estabilidad y acústica.'],
@@ -175,7 +175,7 @@ $es = [
         'problem' => 'Un baño antiguo con humedades, azulejos rotos o instalaciones obsoletas baja el valor de toda la vivienda y genera problemas diarios.',
         'agitate' => 'Reformar solo lo visible sin revisar fontanería, impermeabilización o desagües es tirar el dinero. Al año vuelven las goteras y el mal olor.',
         'solution' => 'Reformamos baños completos: demoler, revisar instalaciones, impermeabilizar, colocar nuevo equipamiento y acabar con garantía de estanqueidad.',
-        'prices' => 'Referencia orientativa: cambio de equipamiento desde 3.500 €, reforma completa desde 6.500 €.',
+        'prices' => 'Referencia orientativa: cambio de equipamiento desde 3.200 €, reforma completa desde 5.500 €, baño de diseño desde 9.000 €.',
         'features' => ['Demolición y retirada de escombros', 'Revisión de fontanería y desagües', 'Impermeabilización completa', 'Colocación de azulejos y pavimento', 'Instalación de plato de ducha o bañera', 'Iluminación y ventilación'],
         'phases' => [
             ['title' => 'Diagnóstico', 'desc' => 'Evaluamos humedades, fontanería y estado del baño actual.'],
@@ -184,7 +184,7 @@ $es = [
             ['title' => 'Acabados', 'desc' => 'Impermeabilizamos, colocamos azulejos, sanitarios y accesorios.'],
         ],
         'faq' => [
-            ['q' => '¿Cuánto cuesta reformar un baño completo?', 'a' => 'Una reforma completa de baño suele costar entre 6.500 € y 12.000 € según m² y calidad de materiales.'],
+            ['q' => '¿Cuánto cuesta reformar un baño completo?', 'a' => 'Una reforma completa de baño suele costar entre 5.500 € y 9.000 € según m² y calidad de materiales.'],
             ['q' => '¿Cuánto tarda la reforma de un baño?', 'a' => 'Entre 2 y 4 semanas según el alcance. Te damos calendario exacto tras la visita.'],
             ['q' => '¿Incluís los sanitarios y azulejos?', 'a' => 'Sí, podemos incluir materiales o trabajar con los que elija el cliente. Preparamos memoria de calidades.'],
             ['q' => '¿Impermeabilizáis antes de colocar azulejos?', 'a' => 'Sí, es imprescindible. Aplicamos membrana impermeabilizante en suelos y paredes húmedas.'],
@@ -201,7 +201,7 @@ $es = [
         'problem' => 'Las grietas, humedades y desprendimientos en fachadas no son solo un problema estético: afectan la estructura, el aislamiento y la seguridad del edificio.',
         'agitate' => 'En Barcelona y Girona, el clima mediterráneo acelera el deterioro. Una fachada sin mantenimiento pierde eficiencia energética y puede generar sanciones del ayuntamiento.',
         'solution' => 'Analizamos el estado de la fachada, reparamos estructuralmente, aplicamos aislamiento si es necesario y acabamos con soluciones duraderas contra la humedad.',
-        'prices' => 'Referencia orientativa: reparación puntual desde 35 €/m², rehabilitación integral desde 65 €/m².',
+        'prices' => 'Referencia orientativa: reparación puntual desde 30 €/m², rehabilitación con mortero desde 55 €/m², aislamiento SATE desde 95 €/m².',
         'features' => ['Diagnóstico estructural de fachada', 'Reparación de grietas y desprendimientos', 'Tratamiento anti-humedad', 'Aislamiento térmico exterior (SATE)', 'Acabados con mortero monocapa', 'Limpieza y pintura de fachada'],
         'phases' => [
             ['title' => 'Inspección', 'desc' => 'Evaluamos grietas, humedades y estado general de la fachada.'],
@@ -210,7 +210,7 @@ $es = [
             ['title' => 'Acabado', 'desc' => 'Aplicamos mortero monocapa, pintura o revestimiento final.'],
         ],
         'faq' => [
-            ['q' => '¿Cuánto cuesta rehabilitar una fachada?', 'a' => 'Depende del estado y los m². Reparaciones puntuales desde 35 €/m². Rehabilitación integral con aislamiento desde 120 €/m².'],
+            ['q' => '¿Cuánto cuesta rehabilitar una fachada?', 'a' => 'Depende del estado y los m². Reparaciones puntuales desde 30 €/m². Rehabilitación con mortero técnico desde 55 €/m². Aislamiento SATE desde 95 €/m².'],
             ['q' => '¿Necesito licencia para rehabilitar la fachada?', 'a' => 'Sí, en la mayoría de casos se requiere licencia de obra menor. Nosotros la gestionamos.'],
             ['q' => '¿Qué es el SATE?', 'a' => 'Sistema de Aislamiento Térmico por el Exterior. Mejora la eficiencia energética sin reducir metros interiores.'],
             ['q' => '¿Cuánto dura una rehabilitación de fachada?', 'a' => 'Una fachada de 100 m² con reparación y pintura suele tardar 2-3 semanas. Con SATE puede tardar 4-6 semanas.'],
@@ -227,7 +227,7 @@ $es = [
         'problem' => 'Reformar un local comercial sin planificar genera pérdida de ventas, retrasos en la apertura y costes imprevistos que afectan directamente al negocio.',
         'agitate' => 'Cada día cerrado es dinero perdido. Una reforma mal coordinada puede extenderse semanas más de lo previsto y superar el presupuesto inicial.',
         'solution' => 'Planificamos la reforma comercial por fases, coordinamos horarios para minimizar el cierre y ejecutamos con rapidez profesional para que abra lo antes posible.',
-        'prices' => 'Referencia orientativa: acondicionamiento desde 350 €/m², reforma completa desde 550 €/m².',
+        'prices' => 'Referencia orientativa: acondicionamiento desde 450 €/m², reforma completa desde 850 €/m², diseño premium desde 1.400 €/m².',
         'features' => ['Licencia de obra menor incluida', 'Ejecución por fases (negocio parcialmente abierto)', 'Instalación eléctrica y climatización', 'Mobiliario comercial a medida', 'Señalética y rotulación', 'Limpieza final y entrega inmediata'],
         'phases' => [
             ['title' => 'Planificación', 'desc' => 'Definimos alcance, horarios y fases para minimizar cierre.'],

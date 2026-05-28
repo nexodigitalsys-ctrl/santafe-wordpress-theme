@@ -190,36 +190,49 @@ $nav_contact_path = $lang === 'ca' ? 'contacte' : 'contacto';
     to { opacity: 1; }
   }
 
-  /* Header — Light mode (default): white, Dark mode: slate */
-   * Scroll only adds shadow, colors are theme-driven
-   */
+  /* Header — Transparent over dark hero by default, solid on scroll */
   #site-nav {
-    background-color: #ffffff;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    background-color: transparent;
+    border-bottom: 1px solid transparent;
   }
   html.dark #site-nav {
-    background-color: #0f172a;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    background-color: transparent;
+    border-bottom: 1px solid transparent;
   }
   #site-nav.header-scrolled {
+    background-color: #ffffff;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
     box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
   }
   html.dark #site-nav.header-scrolled {
+    background-color: #0f172a;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
     box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
   }
 
-  /* Light mode text colors */
-  [data-nav-link] { color: #44403c; transition: color 0.3s; }
-  [data-nav-link]:hover { color: #1c1917; }
-  [data-lang-btn] { color: #78716c; border-color: rgba(0,0,0,0.15); transition: all 0.3s; }
-  [data-lang-btn]:hover { color: #1c1917; border-color: rgba(0,0,0,0.3); }
-  [data-menu-btn] { color: #44403c; }
-  [data-brand-text] { color: #1c1917; }
-  [data-brand-sub] { color: #78716c; }
+  /* Light mode text colors — WHITE over dark hero, dark when scrolled */
+  [data-nav-link] { color: rgba(255,255,255,0.9); transition: color 0.3s; }
+  [data-nav-link]:hover { color: #ffffff; }
+  [data-lang-btn] { color: rgba(255,255,255,0.7); border-color: rgba(255,255,255,0.25); transition: all 0.3s; }
+  [data-lang-btn]:hover { color: #ffffff; border-color: rgba(255,255,255,0.5); }
+  [data-menu-btn] { color: #ffffff; }
+  [data-brand-text] { color: #ffffff; }
+  [data-brand-sub] { color: rgba(255,255,255,0.7); }
 
   /* Theme toggle button */
-  [data-theme-btn] { color: #44403c; }
-  [data-theme-btn]:hover { color: #dc2626; }
+  [data-theme-btn] { color: rgba(255,255,255,0.9); }
+  [data-theme-btn]:hover { color: #f87171; }
+
+  /* Scrolled light mode — dark text on white bg */
+  #site-nav.header-scrolled [data-nav-link] { color: #44403c; }
+  #site-nav.header-scrolled [data-nav-link]:hover { color: #1c1917; }
+  #site-nav.header-scrolled [data-lang-btn] { color: #78716c; border-color: rgba(0,0,0,0.15); }
+  #site-nav.header-scrolled [data-lang-btn]:hover { color: #1c1917; border-color: rgba(0,0,0,0.3); }
+  #site-nav.header-scrolled [data-menu-btn] { color: #44403c; }
+  #site-nav.header-scrolled [data-brand-text] { color: #1c1917; }
+  #site-nav.header-scrolled [data-brand-sub] { color: #78716c; }
+  #site-nav.header-scrolled [data-theme-btn] { color: #44403c; }
+  #site-nav.header-scrolled [data-theme-btn]:hover { color: #dc2626; }
 
   /* Dark mode text colors */
   html.dark [data-nav-link] { color: rgba(255,255,255,0.85); }
@@ -307,6 +320,32 @@ $nav_contact_path = $lang === 'ca' ? 'contacte' : 'contacto';
   html.dark .header-scrolled [data-brand-sub] { color: rgba(226, 232, 240, 0.6); }
   html.dark .header-scrolled [data-nav-cta] { background-color: #dc2626; }
   html.dark .header-scrolled [data-nav-cta]:hover { background-color: #b91c1c; }
+
+  /* Pages without dark hero — force solid header from start */
+  body.header-solid #site-nav {
+    background-color: #ffffff;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  }
+  body.header-solid [data-nav-link] { color: #44403c; }
+  body.header-solid [data-nav-link]:hover { color: #1c1917; }
+  body.header-solid [data-lang-btn] { color: #78716c; border-color: rgba(0,0,0,0.15); }
+  body.header-solid [data-lang-btn]:hover { color: #1c1917; border-color: rgba(0,0,0,0.3); }
+  body.header-solid [data-menu-btn] { color: #44403c; }
+  body.header-solid [data-brand-text] { color: #1c1917; }
+  body.header-solid [data-brand-sub] { color: #78716c; }
+  body.header-solid [data-theme-btn] { color: #44403c; }
+  html.dark body.header-solid #site-nav {
+    background-color: #0f172a;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  }
+  html.dark body.header-solid [data-nav-link] { color: rgba(255,255,255,0.85); }
+  html.dark body.header-solid [data-nav-link]:hover { color: #fff; }
+  html.dark body.header-solid [data-lang-btn] { color: rgba(255,255,255,0.6); border-color: rgba(255,255,255,0.2); }
+  html.dark body.header-solid [data-lang-btn]:hover { color: #fff; border-color: rgba(255,255,255,0.4); }
+  html.dark body.header-solid [data-menu-btn] { color: #fff; }
+  html.dark body.header-solid [data-brand-text] { color: #fff; }
+  html.dark body.header-solid [data-brand-sub] { color: rgba(255,255,255,0.6); }
+  html.dark body.header-solid [data-theme-btn] { color: rgba(255,255,255,0.85); }
   html.dark section.bg-white,
   html.dark .bg-white,
   html.dark [class*="bg-white"] { background-color: #1e293b !important; }
@@ -507,7 +546,7 @@ gtag('consent', 'default', {
 </script>
 <?php wp_head(); ?>
 </head>
-<body class="bg-white text-warm-900 antialiased selection:bg-brand-500 selection:text-white pb-20 lg:pb-0">
+<body class="bg-white text-warm-900 antialiased selection:bg-brand-500 selection:text-white pb-20 lg:pb-0 <?php echo isset($body_class) ? esc_attr($body_class) : ''; ?>">
 
 <!-- Scroll Progress Bar -->
 <div id="scroll-progress" aria-hidden="true"></div>

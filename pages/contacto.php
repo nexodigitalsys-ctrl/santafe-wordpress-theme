@@ -21,6 +21,7 @@ $page_data = [
     'schemas' => [function() use ($breadcrumb_items) { return get_schema_breadcrumb($breadcrumb_items); }]
 ];
 
+$body_class = 'header-solid';
 include __DIR__ . '/../includes/header.php';
 
 $label_nombre = $lang === 'ca' ? 'Nom complet' : 'Nombre completo';

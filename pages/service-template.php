@@ -178,24 +178,24 @@ $price_tiers = [
         ['title' => $t['prices_card_premium'], 'desc' => $isCa ? 'Estructura completa amb coordinació tècnica.' : 'Estructura completa con coordinación técnica.', 'price' => $isCa ? 'A convenir' : 'A convenir'],
     ],
     'parquet-pavimentos' => [
-        ['title' => $t['prices_card_basic'], 'desc' => $isCa ? 'Parquet laminat, funcionalitat prioritària.' : 'Parquet laminado, funcionalidad prioritaria.', 'price' => $isCa ? 'Des de 45 €/m²' : 'Desde 45 €/m²'],
-        ['title' => $t['prices_card_standard'], 'desc' => $isCa ? 'Parquet multicapa, qualitat equilibrada.' : 'Parquet multicapa, calidad equilibrada.', 'price' => $isCa ? 'Des de 75 €/m²' : 'Desde 75 €/m²'],
-        ['title' => $t['prices_card_premium'], 'desc' => $isCa ? 'Parquet massís, tractament professional.' : 'Parquet macizo, tratamiento profesional.', 'price' => $isCa ? 'Des de 120 €/m²' : 'Desde 120 €/m²'],
+        ['title' => $t['prices_card_basic'], 'desc' => $isCa ? 'Parquet laminat, funcionalitat prioritària.' : 'Parquet laminado, funcionalidad prioritaria.', 'price' => $isCa ? 'Des de 35 €/m²' : 'Desde 35 €/m²'],
+        ['title' => $t['prices_card_standard'], 'desc' => $isCa ? 'Parquet multicapa, qualitat equilibrada.' : 'Parquet multicapa, calidad equilibrada.', 'price' => $isCa ? 'Des de 65 €/m²' : 'Desde 65 €/m²'],
+        ['title' => $t['prices_card_premium'], 'desc' => $isCa ? 'Parquet massís, tractament professional.' : 'Parquet macizo, tratamiento profesional.', 'price' => $isCa ? 'Des de 110 €/m²' : 'Desde 110 €/m²'],
     ],
     'reformas-banos' => [
-        ['title' => $t['prices_card_basic'], 'desc' => $isCa ? 'Canvi d\'equipament sense obra major.' : 'Cambio de equipamiento sin obra mayor.', 'price' => $isCa ? 'Des de 3.500 €' : 'Desde 3.500 €'],
-        ['title' => $t['prices_card_standard'], 'desc' => $isCa ? 'Reforma completa amb albañileria.' : 'Reforma completa con albañilería.', 'price' => $isCa ? 'Des de 6.500 €' : 'Desde 6.500 €'],
-        ['title' => $t['prices_card_premium'], 'desc' => $isCa ? 'Bany a mida amb materials de disseny.' : 'Baño a medida con materiales de diseño.', 'price' => $isCa ? 'Des de 12.000 €' : 'Desde 12.000 €'],
+        ['title' => $t['prices_card_basic'], 'desc' => $isCa ? 'Canvi d\'equipament sense obra major.' : 'Cambio de equipamiento sin obra mayor.', 'price' => $isCa ? 'Des de 3.200 €' : 'Desde 3.200 €'],
+        ['title' => $t['prices_card_standard'], 'desc' => $isCa ? 'Reforma completa amb albañileria.' : 'Reforma completa con albañilería.', 'price' => $isCa ? 'Des de 5.500 €' : 'Desde 5.500 €'],
+        ['title' => $t['prices_card_premium'], 'desc' => $isCa ? 'Bany a mida amb materials de disseny.' : 'Baño a medida con materiales de diseño.', 'price' => $isCa ? 'Des de 9.000 €' : 'Desde 9.000 €'],
     ],
     'rehabilitacion-fachadas' => [
-        ['title' => $t['prices_card_basic'], 'desc' => $isCa ? 'Reparació puntual i pintura.' : 'Reparación puntual y pintura.', 'price' => $isCa ? 'Des de 35 €/m²' : 'Desde 35 €/m²'],
-        ['title' => $t['prices_card_standard'], 'desc' => $isCa ? 'Rehabilitació amb morter tècnic.' : 'Rehabilitación con mortero técnico.', 'price' => $isCa ? 'Des de 65 €/m²' : 'Desde 65 €/m²'],
-        ['title' => $t['prices_card_premium'], 'desc' => $isCa ? 'Rehabilitació integral amb aïllament SATE.' : 'Rehabilitación integral con aislamiento SATE.', 'price' => $isCa ? 'Des de 120 €/m²' : 'Desde 120 €/m²'],
+        ['title' => $t['prices_card_basic'], 'desc' => $isCa ? 'Reparació puntual i pintura.' : 'Reparación puntual y pintura.', 'price' => $isCa ? 'Des de 30 €/m²' : 'Desde 30 €/m²'],
+        ['title' => $t['prices_card_standard'], 'desc' => $isCa ? 'Rehabilitació amb morter tècnic.' : 'Rehabilitación con mortero técnico.', 'price' => $isCa ? 'Des de 55 €/m²' : 'Desde 55 €/m²'],
+        ['title' => $t['prices_card_premium'], 'desc' => $isCa ? 'Rehabilitació integral amb aïllament SATE.' : 'Rehabilitación integral con aislamiento SATE.', 'price' => $isCa ? 'Des de 95 €/m²' : 'Desde 95 €/m²'],
     ],
     'reformas-comerciales' => [
-        ['title' => $t['prices_card_basic'], 'desc' => $isCa ? 'Acondicionament bàsic per a obertura ràpida.' : 'Acondicionamiento básico para apertura rápida.', 'price' => $isCa ? 'Des de 350 €/m²' : 'Desde 350 €/m²'],
-        ['title' => $t['prices_card_standard'], 'desc' => $isCa ? 'Reforma completa amb acabats professionals.' : 'Reforma completa con acabados profesionales.', 'price' => $isCa ? 'Des de 550 €/m²' : 'Desde 550 €/m²'],
-        ['title' => $t['prices_card_premium'], 'desc' => $isCa ? 'Disseny a mida amb materials d\'alta gamma.' : 'Diseño a medida con materiales de alta gama.', 'price' => $isCa ? 'Des de 900 €/m²' : 'Desde 900 €/m²'],
+        ['title' => $t['prices_card_basic'], 'desc' => $isCa ? 'Acondicionament bàsic per a obertura ràpida.' : 'Acondicionamiento básico para apertura rápida.', 'price' => $isCa ? 'Des de 450 €/m²' : 'Desde 450 €/m²'],
+        ['title' => $t['prices_card_standard'], 'desc' => $isCa ? 'Reforma completa amb acabats professionals.' : 'Reforma completa con acabados profesionales.', 'price' => $isCa ? 'Des de 850 €/m²' : 'Desde 850 €/m²'],
+        ['title' => $t['prices_card_premium'], 'desc' => $isCa ? 'Disseny a mida amb materials d\'alta gamma.' : 'Diseño a medida con materiales de alta gama.', 'price' => $isCa ? 'Des de 1.400 €/m²' : 'Desde 1.400 €/m²'],
     ],
 ];
 $prices = $price_tiers[$service_slug] ?? $price_tiers['obra-nueva'];

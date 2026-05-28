@@ -15,6 +15,7 @@ $page_data = [
     'schemas' => [],
 ];
 
+$body_class = 'header-solid';
 include __DIR__ . '/../includes/header.php';
 ?>
 
