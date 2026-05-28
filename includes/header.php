@@ -183,6 +183,83 @@ $nav_contact_path = $lang === 'ca' ? 'contacte' : 'contacto';
 
     /* Industrial line */
     --industrial-line-color: var(--color-brand);
+
+    /* ========== SECTION: HERO ========== */
+    --hero-bg-overlay-start: #020617;
+    --hero-bg-overlay-mid: rgba(2, 6, 23, 0.92);
+    --hero-bg-overlay-end: rgba(2, 6, 23, 0.65);
+    --hero-bg-overlay-top: rgba(2, 6, 23, 0.60);
+    --hero-bg-overlay-vignette: rgba(255, 255, 255, 0.25);
+    --hero-text-primary: #ffffff;
+    --hero-text-secondary: #d4d4d4;
+    --hero-text-tertiary: #a3a3a3;
+    --hero-accent: #f87171;
+    --hero-badge-text: #f87171;
+    --hero-btn-primary-bg: var(--color-brand);
+    --hero-btn-primary-hover: var(--color-brand-hover);
+    --hero-btn-primary-text: #ffffff;
+    --hero-btn-secondary-border: rgba(255,255,255,0.3);
+    --hero-btn-secondary-border-hover: rgba(255,255,255,0.6);
+    --hero-btn-secondary-text: #ffffff;
+    --hero-scroll-indicator: rgba(255,255,255,0.7);
+
+    /* ========== SECTION: TESTIMONIOS ========== */
+    --testimonios-bg: #ffffff;
+    --testimonios-text-title: #1a1a1a;
+    --testimonios-text-body: #6b6b6b;
+    --testimonios-text-secondary: #525252;
+    --testimonios-border-top: rgba(245, 158, 11, 0.4);
+    --testimonios-badge-bg: rgba(245, 158, 11, 0.1);
+    --testimonios-badge-text: #d97706;
+    --testimonios-badge-border: rgba(245, 158, 11, 0.2);
+    --testimonios-card-bg: rgba(255, 255, 255, 0.8);
+    --testimonios-card-border: #e5e5e5;
+    --testimonios-card-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    --testimonios-card-shadow-hover: 0 8px 30px rgba(0,0,0,0.12);
+    --testimonios-arrow-bg: rgba(245, 245, 244, 0.9);
+    --testimonios-arrow-border: #d4d4d4;
+    --testimonios-arrow-text: #737373;
+    --testimonios-arrow-hover-text: var(--color-brand);
+    --testimonios-arrow-hover-border: var(--color-brand);
+    --testimonios-dot-active: var(--color-brand);
+    --testimonios-dot-inactive: #e5e5e5;
+    --testimonios-avatar-bg-start: var(--color-brand);
+    --testimonios-avatar-bg-end: #7f1d1d;
+    --testimonios-imperfection-bg: #fffbeb;
+    --testimonios-imperfection-border: #fde68a;
+    --testimonios-imperfection-text: #d97706;
+    --testimonios-link-text: #737373;
+    --testimonios-link-hover: #d97706;
+
+    /* ========== SECTION: CTA FINAL ========== */
+    --cta-bg-start: var(--color-brand);
+    --cta-bg-end: #7f1d1d;
+    --cta-text-primary: #ffffff;
+    --cta-text-secondary: rgba(255,255,255,0.8);
+    --cta-pattern-opacity: 0.05;
+    --cta-btn-bg: #ffffff;
+    --cta-btn-text: var(--color-brand);
+    --cta-btn-hover-bg: #fef2f2;
+    --cta-btn-outline-border: rgba(255,255,255,0.3);
+    --cta-btn-outline-border-hover: rgba(255,255,255,0.6);
+    --cta-btn-outline-text: #ffffff;
+  }
+
+  /* Dark mode overrides for section tokens */
+  html.dark {
+    --testimonios-bg: #1e293b;
+    --testimonios-text-title: #e2e8f0;
+    --testimonios-text-body: #94a3b8;
+    --testimonios-text-secondary: #94a3b8;
+    --testimonios-card-bg: rgba(30, 41, 59, 0.9);
+    --testimonios-card-border: #334155;
+    --testimonios-arrow-bg: rgba(30, 41, 59, 0.9);
+    --testimonios-arrow-border: #334155;
+    --testimonios-arrow-text: #94a3b8;
+    --testimonios-dot-inactive: #334155;
+    --testimonios-imperfection-bg: rgba(245, 158, 11, 0.1);
+    --testimonios-imperfection-border: rgba(245, 158, 11, 0.3);
+    --testimonios-link-text: #94a3b8;
   }
 
   /* Base styles */
@@ -292,6 +369,120 @@ $nav_contact_path = $lang === 'ca' ? 'contacte' : 'contacto';
 
   /* Logo aspect ratio */
   .logo-aspect { aspect-ratio: 1656/551; }
+
+  /* ================================================================
+     SECTION DESIGN TOKENS — Custom utility classes
+     These map CSS custom properties to section-specific styles.
+     Changing the --* variables above updates ALL pages automatically.
+     ================================================================ */
+
+  /* ----- HERO ----- */
+  .section-hero-overlay-1 {
+    background: linear-gradient(90deg, var(--hero-bg-overlay-start) 0%, var(--hero-bg-overlay-mid) 55%, var(--hero-bg-overlay-end) 100%);
+  }
+  .section-hero-overlay-2 {
+    background: linear-gradient(to top, var(--hero-bg-overlay-start) 0%, transparent 50%, var(--hero-bg-overlay-top) 100%);
+  }
+  .section-hero-overlay-vignette {
+    background: var(--hero-bg-overlay-vignette);
+  }
+  .section-hero-text { color: var(--hero-text-primary); }
+  .section-hero-text-secondary { color: var(--hero-text-secondary); }
+  .section-hero-text-tertiary { color: var(--hero-text-tertiary); }
+  .section-hero-accent { color: var(--hero-accent); }
+  .section-hero-badge { color: var(--hero-badge-text); }
+  .section-hero-btn-primary {
+    background-color: var(--hero-btn-primary-bg);
+    color: var(--hero-btn-primary-text);
+  }
+  .section-hero-btn-primary:hover {
+    background-color: var(--hero-btn-primary-hover);
+  }
+  .section-hero-btn-secondary {
+    border-color: var(--hero-btn-secondary-border);
+    color: var(--hero-btn-secondary-text);
+  }
+  .section-hero-btn-secondary:hover {
+    border-color: var(--hero-btn-secondary-border-hover);
+  }
+  .section-hero-scroll { color: var(--hero-scroll-indicator); }
+  .section-hero-scroll:hover { color: var(--hero-accent); }
+
+  /* ----- TESTIMONIOS ----- */
+  .section-testimonios { background-color: var(--testimonios-bg); }
+  .section-testimonios-border-top {
+    background: linear-gradient(90deg, transparent 0%, var(--testimonios-border-top) 50%, transparent 100%);
+  }
+  .section-testimonios-badge {
+    background-color: var(--testimonios-badge-bg);
+    color: var(--testimonios-badge-text);
+    border-color: var(--testimonios-badge-border);
+  }
+  .section-testimonios-title { color: var(--testimonios-text-title); }
+  .section-testimonios-body { color: var(--testimonios-text-body); }
+  .section-testimonios-secondary { color: var(--testimonios-text-secondary); }
+  .section-testimonios-card {
+    background-color: var(--testimonios-card-bg);
+    border-color: var(--testimonios-card-border);
+    box-shadow: var(--testimonios-card-shadow);
+  }
+  .section-testimonios-card-hover:hover {
+    box-shadow: var(--testimonios-card-shadow-hover);
+  }
+  .section-testimonios-arrow {
+    background-color: var(--testimonios-arrow-bg);
+    border-color: var(--testimonios-arrow-border);
+    color: var(--testimonios-arrow-text);
+  }
+  .section-testimonios-arrow:hover {
+    color: var(--testimonios-arrow-hover-text);
+    border-color: var(--testimonios-arrow-hover-border);
+  }
+  .section-testimonios-dot-active {
+    background-color: var(--testimonios-dot-active);
+  }
+  .section-testimonios-dot-inactive {
+    background-color: var(--testimonios-dot-inactive);
+  }
+  .section-testimonios-avatar {
+    background: linear-gradient(to bottom right, var(--testimonios-avatar-bg-start), var(--testimonios-avatar-bg-end));
+    color: #ffffff;
+  }
+  .section-testimonios-imperfection {
+    background-color: var(--testimonios-imperfection-bg);
+    border-color: var(--testimonios-imperfection-border);
+    color: var(--testimonios-imperfection-text);
+  }
+  .section-testimonios-link {
+    color: var(--testimonios-link-text);
+  }
+  .section-testimonios-link:hover {
+    color: var(--testimonios-link-hover);
+  }
+
+  /* ----- CTA FINAL ----- */
+  .section-cta {
+    background: linear-gradient(135deg, var(--cta-bg-start), var(--cta-bg-end));
+  }
+  .section-cta-pattern {
+    opacity: var(--cta-pattern-opacity);
+  }
+  .section-cta-text { color: var(--cta-text-primary); }
+  .section-cta-text-secondary { color: var(--cta-text-secondary); }
+  .section-cta-btn {
+    background-color: var(--cta-btn-bg);
+    color: var(--cta-btn-text);
+  }
+  .section-cta-btn:hover {
+    background-color: var(--cta-btn-hover-bg);
+  }
+  .section-cta-btn-outline {
+    border-color: var(--cta-btn-outline-border);
+    color: var(--cta-btn-outline-text);
+  }
+  .section-cta-btn-outline:hover {
+    border-color: var(--cta-btn-outline-border-hover);
+  }
 
   /* Mobile menu */
   .mobile-menu {
