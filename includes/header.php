@@ -146,6 +146,7 @@ $nav_contact_path = $lang === 'ca' ? 'contacte' : 'contacto';
    * @see https://css-tricks.com/z-index-and-stacking-context/
    */
   :root {
+    /* Z-index layers */
     --z-dropdown: 10;
     --z-sticky-cta: 40;
     --z-mobile-menu: 40;
@@ -156,6 +157,32 @@ $nav_contact_path = $lang === 'ca' ? 'contacte' : 'contacto';
     --z-cookie-settings: 210;
     --z-skip-link: 1000;
     --z-scroll-progress: 9999;
+
+    /* Brand colors */
+    --color-brand: #AE232A;
+    --color-brand-light: #dc2626;
+    --color-brand-hover: #b91c1c;
+    --color-brand-dark: #991b1b;
+
+    /* Button primary (red bg, white text) */
+    --btn-primary-bg: var(--color-brand-light);
+    --btn-primary-bg-hover: var(--color-brand-hover);
+    --btn-primary-text: #ffffff;
+
+    /* Button secondary (transparent/outline, white text) */
+    --btn-secondary-bg: transparent;
+    --btn-secondary-border: rgba(255,255,255,0.3);
+    --btn-secondary-border-hover: rgba(255,255,255,0.6);
+    --btn-secondary-text: #ffffff;
+
+    /* Scroll progress */
+    --scroll-progress-start: var(--color-brand);
+    --scroll-progress-end: #f87171;
+    --color-accent-hover: #f87171;
+    --color-accent-hover-light: #fca5a5;
+
+    /* Industrial line */
+    --industrial-line-color: var(--color-brand);
   }
 
   /* Base styles */
@@ -167,7 +194,7 @@ $nav_contact_path = $lang === 'ca' ? 'contacte' : 'contacto';
 
   /* Component utilities */
   .font-display { font-family: 'Space Grotesk', 'Inter', sans-serif; }
-  .industrial-line { height: 2px; background: linear-gradient(90deg, #AE232A 0%, transparent 100%); }
+  .industrial-line { height: 2px; background: linear-gradient(90deg, var(--industrial-line-color) 0%, transparent 100%); }
   .card-lift { transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease; }
   .card-lift:hover { transform: translateY(-8px); box-shadow: 0 24px 48px -12px rgba(0,0,0,0.4); }
   .img-zoom { transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1); }
@@ -223,7 +250,7 @@ $nav_contact_path = $lang === 'ca' ? 'contacte' : 'contacto';
 
   /* Theme toggle button */
   [data-theme-btn] { color: rgba(255,255,255,0.9); }
-  [data-theme-btn]:hover { color: #f87171; }
+  [data-theme-btn]:hover { color: var(--color-accent-hover); }
 
   /* Scrolled light mode — dark text on white bg */
   #site-nav.header-scrolled [data-nav-link] { color: #44403c; }
@@ -234,7 +261,7 @@ $nav_contact_path = $lang === 'ca' ? 'contacte' : 'contacto';
   #site-nav.header-scrolled [data-brand-text] { color: #1c1917; }
   #site-nav.header-scrolled [data-brand-sub] { color: #78716c; }
   #site-nav.header-scrolled [data-theme-btn] { color: #44403c; }
-  #site-nav.header-scrolled [data-theme-btn]:hover { color: #dc2626; }
+  #site-nav.header-scrolled [data-theme-btn]:hover { color: var(--color-brand-light); }
 
   /* Dark mode text colors */
   html.dark [data-nav-link] { color: rgba(255,255,255,0.85); }
@@ -245,7 +272,7 @@ $nav_contact_path = $lang === 'ca' ? 'contacte' : 'contacto';
   html.dark [data-brand-text] { color: #fff; }
   html.dark [data-brand-sub] { color: rgba(255,255,255,0.6); }
   html.dark [data-theme-btn] { color: rgba(255,255,255,0.85); }
-  html.dark [data-theme-btn]:hover { color: #f87171; }
+  html.dark [data-theme-btn]:hover { color: var(--color-accent-hover); }
 
   /* Logo: light mode shows dark logo, dark mode shows light logo */
   [data-logo-dark] { opacity: 0 !important; }
@@ -254,14 +281,14 @@ $nav_contact_path = $lang === 'ca' ? 'contacte' : 'contacto';
   html.dark [data-logo-light] { opacity: 0 !important; }
 
   /* Phone link adjusts per theme */
-  html.dark [data-track-event="phone_click"] { color: #f87171 !important; }
-  html.dark [data-track-event="phone_click"]:hover { color: #fca5a5 !important; }
+  html.dark [data-track-event="phone_click"] { color: var(--color-accent-hover) !important; }
+  html.dark [data-track-event="phone_click"]:hover { color: var(--color-accent-hover-light) !important; }
 
   /* Industrial line reversed */
-  .industrial-line-reverse { background: linear-gradient(270deg, #AE232A 0%, transparent 100%) !important; }
+  .industrial-line-reverse { background: linear-gradient(270deg, var(--industrial-line-color) 0%, transparent 100%) !important; }
 
   /* CTA background pattern */
-  .cta-bg-pattern { background-image: repeating-linear-gradient(90deg, #AE232A 0px, #AE232A 1px, transparent 1px, transparent 80px); }
+  .cta-bg-pattern { background-image: repeating-linear-gradient(90deg, var(--industrial-line-color) 0px, var(--industrial-line-color) 1px, transparent 1px, transparent 80px); }
 
   /* Logo aspect ratio */
   .logo-aspect { aspect-ratio: 1656/551; }
@@ -306,11 +333,11 @@ $nav_contact_path = $lang === 'ca' ? 'contacte' : 'contacto';
   html.dark .mobile-menu { background-color: #0f172a; }
   html.dark #menu-close { color: #e2e8f0; }
   html.dark .mobile-submenu-toggle { color: #94a3b8; }
-  html.dark .mobile-submenu-toggle:hover { color: #f87171; }
+  html.dark .mobile-submenu-toggle:hover { color: var(--color-accent-hover); }
   html.dark .mobile-submenu-panel a { color: #cbd5e1; }
-  html.dark .mobile-submenu-panel a:hover { color: #f87171; background-color: #1e293b; }
+  html.dark .mobile-submenu-panel a:hover { color: var(--color-accent-hover); background-color: #1e293b; }
   html.dark .mobile-nav-link { color: #e2e8f0 !important; }
-  html.dark .mobile-nav-link[data-track-event="phone_click"] { color: #f87171 !important; }
+  html.dark .mobile-nav-link[data-track-event="phone_click"] { color: var(--color-accent-hover) !important; }
   html.dark #menu-close { color: #e2e8f0; }
   html.dark .header-scrolled { background-color: rgba(15, 23, 42, 0.95) !important; backdrop-filter: blur(12px); }
   html.dark .header-scrolled [data-nav-link] { color: rgba(226, 232, 240, 0.85); }
@@ -320,8 +347,8 @@ $nav_contact_path = $lang === 'ca' ? 'contacte' : 'contacto';
   html.dark .header-scrolled [data-menu-btn] { color: #e2e8f0; }
   html.dark .header-scrolled [data-brand-text] { color: #e2e8f0; }
   html.dark .header-scrolled [data-brand-sub] { color: rgba(226, 232, 240, 0.6); }
-  html.dark .header-scrolled [data-nav-cta] { background-color: #dc2626; }
-  html.dark .header-scrolled [data-nav-cta]:hover { background-color: #b91c1c; }
+  html.dark .header-scrolled [data-nav-cta] { background-color: var(--btn-primary-bg); }
+  html.dark .header-scrolled [data-nav-cta]:hover { background-color: var(--btn-primary-bg-hover); }
 
   /* Pages without dark hero — force solid header from start */
   body.header-solid #site-nav {
@@ -405,7 +432,7 @@ $nav_contact_path = $lang === 'ca' ? 'contacte' : 'contacto';
     top: 0;
     left: 0;
     height: 3px;
-    background: linear-gradient(90deg, #AE232A, #f87171);
+    background: linear-gradient(90deg, var(--scroll-progress-start), var(--scroll-progress-end));
     z-index: var(--z-scroll-progress);
     width: 0%;
     transition: width 0.1s linear;

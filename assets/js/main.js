@@ -129,11 +129,11 @@
             btn.addEventListener('click', function() {
                 var filter = btn.dataset.filter;
                 filterBtns.forEach(function(b) {
-                    b.classList.remove('bg-brand-600', 'border-brand-600', 'text-slate-950');
+                    b.classList.remove('bg-brand-600', 'border-brand-600', 'text-white');
                     b.classList.add('border-slate-700', 'text-slate-300');
                 });
                 btn.classList.remove('border-slate-700', 'text-slate-300');
-                btn.classList.add('bg-brand-600', 'border-brand-600', 'text-slate-950');
+                btn.classList.add('bg-brand-600', 'border-brand-600', 'text-white');
 
                 portfolioItems.forEach(function(item) {
                     var category = item.dataset.category;

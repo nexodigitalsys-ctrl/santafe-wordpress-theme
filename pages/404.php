@@ -25,7 +25,7 @@ include __DIR__ . '/../includes/header.php';
         <p class="text-brand-400 text-xs font-semibold uppercase tracking-[0.3em] mb-4">404</p>
         <h1 class="font-display font-bold text-4xl md:text-6xl text-warm-900 tracking-tight mb-6">Página no encontrada</h1>
         <p class="text-warm-500 text-lg mb-10">La ruta que buscas no está disponible o ha cambiado.</p>
-        <a href="/<?php echo $lang; ?>/" class="inline-flex items-center bg-brand-600 hover:bg-brand-500 text-warm-900 font-semibold px-8 py-4 rounded-sm transition-all tracking-wide text-sm uppercase">Volver al inicio</a>
+        <a href="/<?php echo $lang; ?>/" class="inline-flex items-center bg-brand-600 hover:bg-brand-500 text-white font-semibold px-8 py-4 rounded-sm transition-all tracking-wide text-sm uppercase">Volver al inicio</a>
     </div>
 </section>
 

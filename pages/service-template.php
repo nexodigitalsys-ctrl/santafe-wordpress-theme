@@ -566,7 +566,7 @@ include __DIR__ . '/../includes/header.php';
                 <h3 class="font-display font-bold text-xl text-warm-900 mb-2"><?php echo $price['title']; ?></h3>
                 <p class="text-warm-500 text-sm mb-6"><?php echo $price['desc']; ?></p>
                 <p class="font-display font-bold text-3xl text-brand-500 mb-6"><?php echo $price['price']; ?></p>
-                <a href="/<?php echo $lang; ?>/contacto/" class="block w-full text-center <?php echo $i === 1 ? 'bg-brand-600 hover:bg-brand-500' : 'bg-warm-100 hover:bg-warm-200'; ?> text-warm-900 font-semibold py-3 rounded-sm transition-all text-sm uppercase tracking-wide">
+                <a href="/<?php echo $lang; ?>/contacto/" class="block w-full text-center <?php echo $i === 1 ? 'bg-brand-600 hover:bg-brand-500 text-white' : 'bg-warm-100 hover:bg-warm-200 text-warm-900'; ?> font-semibold py-3 rounded-sm transition-all text-sm uppercase tracking-wide">
                     <?php echo $t['prices_cta']; ?>
                 </a>
             </div>
