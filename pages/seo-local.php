@@ -57,6 +57,7 @@ $page_data = [
     ],
 ];
 
+$body_class = 'header-solid';
 include __DIR__ . '/../includes/header.php';
 
 $cta_budget = $is_ca ? 'Sol·licitar pressupost' : 'Solicitar presupuesto';

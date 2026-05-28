@@ -396,7 +396,10 @@ function santafe_tailwind_output_sitemap(): void {
         '/ca/reformes-integrals-barcelona/', '/ca/reformes-integrals-girona/', '/ca/reformes-integrals-tarragona/',
         '/ca/pladur-barcelona/', '/ca/pladur-girona/', '/ca/pladur-tarragona/',
         '/ca/reformes-barcelona/', '/ca/reformes-girona/', '/ca/reformes-tarragona/',
-        '/blog/',
+        '/garantias/', '/es/garantias/', '/ca/garanties/',
+        '/aviso-legal/', '/es/aviso-legal/', '/ca/avis-legal/',
+        '/politica-privacidad/', '/es/politica-privacidad/', '/ca/politica-privacitat/',
+        '/politica-cookies/', '/es/politica-cookies/', '/ca/politica-cookies/',
     ];
 
     header('Content-Type: application/xml; charset=UTF-8');

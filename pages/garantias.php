@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-$lang = $_GET['lang'] ?? 'es';
+$lang = isset($current_lang) ? $current_lang : 'es';
 $isCa = $lang === 'ca';
 
 // Traducciones
@@ -138,6 +138,7 @@ $page_data = [
     ],
 ];
 
+$body_class = 'header-solid';
 include __DIR__ . '/../includes/header.php';
 ?>
 

@@ -22,11 +22,17 @@ $breadcrumb_items = [
     ['name' => $post_title, 'url' => ''],
 ];
 
+// Derive canonical from current route if available (blog posts accessed via router)
+$blog_canonical = COMPANY_DOMAIN . '/' . $lang . '/blog/';
+if (isset($current_route) && strpos($current_route, 'blog/') === 0) {
+    $blog_canonical = COMPANY_DOMAIN . '/' . $lang . '/' . $current_route . '/';
+}
+
 $page_data = [
     'lang' => $lang,
     'title' => $post_title . ' | Blog Santa Fe',
     'description' => $post_description,
-    'canonical' => COMPANY_DOMAIN . '/' . $lang . '/blog/',
+    'canonical' => $blog_canonical,
     'schemas' => [function() use ($breadcrumb_items) { return get_schema_breadcrumb($breadcrumb_items); }],
 ];
 

@@ -101,14 +101,16 @@ $nav_contact_path = $lang === 'ca' ? 'contacte' : 'contacto';
 
 <title><?php echo $page_title; ?></title>
 <meta name="description" content="<?php echo $page_desc; ?>">
-<meta name="robots" content="index, follow">
+<meta name="robots" content="<?php echo isset($page_data['robots']) ? htmlspecialchars($page_data['robots'], ENT_QUOTES, 'UTF-8') : 'index, follow'; ?>">
 <meta name="author" content="Construcciones Santa Fe Siglo XXI SLU">
 <meta name="geo.region" content="ES-CT">
 <meta name="geo.placename" content="Barcelona, Girona">
 
+<?php if ($canonical): ?>
 <link rel="canonical" href="<?php echo $canonical; ?>">
 <link rel="alternate" hreflang="<?php echo $locale; ?>" href="<?php echo $canonical; ?>">
 <link rel="alternate" hreflang="<?php echo $alt_locale; ?>" href="<?php echo $domain . $alt_url; ?>">
+<?php endif; ?>
 <link rel="alternate" hreflang="x-default" href="<?php echo $domain . '/es/'; ?>">
 
 <meta property="og:title" content="<?php echo $page_title; ?>">

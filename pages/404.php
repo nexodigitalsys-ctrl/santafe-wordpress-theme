@@ -11,7 +11,8 @@ $page_data = [
     'lang' => $lang,
     'title' => 'Página no encontrada | Santa Fe Construcciones',
     'description' => 'La página solicitada no existe.',
-    'canonical' => COMPANY_DOMAIN . '/' . $lang . '/',
+    'canonical' => '',
+    'robots' => 'noindex, nofollow',
     'schemas' => [],
 ];
 
