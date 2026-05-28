@@ -21,8 +21,8 @@ $data = $services_data[$service_slug][$lang] ?? $services_data['obra-nueva']['es
 
 $service_name = $data['h1'] ?? ($isCa ? 'Servei' : 'Servicio');
 $service_name_short = $isCa
-    ? (['obra-nueva'=>'Obra nova','reformas-integrales'=>'Reformes','pladur-acabados'=>'Pladur','obra-publica'=>'Obra pública','obra-civil'=>'Obra civil'][$service_slug] ?? 'Servei')
-    : (['obra-nueva'=>'Obra nueva','reformas-integrales'=>'Reformas','pladur-acabados'=>'Pladur','obra-publica'=>'Obra pública','obra-civil'=>'Obra civil'][$service_slug] ?? 'Servicio');
+    ? (['obra-nueva'=>'Obra nova','reformas-integrales'=>'Reformes','pladur-acabados'=>'Pladur','obra-publica'=>'Obra pública','obra-civil'=>'Obra civil','parquet-pavimentos'=>'Parquet','reformas-banos'=>'Banys','rehabilitacion-fachadas'=>'Façanes','reformas-comerciales'=>'Comercial'][$service_slug] ?? 'Servei')
+    : (['obra-nueva'=>'Obra nueva','reformas-integrales'=>'Reformas','pladur-acabados'=>'Pladur','obra-publica'=>'Obra pública','obra-civil'=>'Obra civil','parquet-pavimentos'=>'Parquet','reformas-banos'=>'Baños','rehabilitacion-fachadas'=>'Fachadas','reformas-comerciales'=>'Comercial'][$service_slug] ?? 'Servicio');
 
 // ── Page metadata ─────────────────────────────────────────────────
 $page_data = [
@@ -49,34 +49,58 @@ $theme_uri = get_template_directory_uri();
 // ── Galerias por serviço ──────────────────────────────────────────
 $galleries = [
     'obra-nueva' => [
-        ['img' => '/assets/images/portfolio/portfolio-obra-nueva-piscina.webp', 'title' => $isCa ? 'Casa amb piscina · Girona · 2024' : 'Casa con piscina · Girona · 2024', 'cat' => $isCa ? 'Obra nova' : 'Obra nueva'],
-        ['img' => '/assets/images/portfolio/portfolio-obra-nueva-fachada-piedra.webp', 'title' => $isCa ? 'Façana en pedra · Girona · 2023' : 'Fachada en piedra · Girona · 2023', 'cat' => $isCa ? 'Obra nova' : 'Obra nueva'],
-        ['img' => '/assets/images/portfolio/portfolio-obra-nueva-casa-moderna.webp', 'title' => $isCa ? 'Vivenda unifamiliar · Barcelona · 2024' : 'Vivienda unifamiliar · Barcelona · 2024', 'cat' => $isCa ? 'Obra nova' : 'Obra nueva'],
-        ['img' => '/assets/images/servicios/obra-nueva/obra-nueva-piscina-acabada-jardin.webp', 'title' => $isCa ? 'Jardí i piscina · Girona' : 'Jardín y piscina · Girona', 'cat' => $isCa ? 'Obra nova' : 'Obra nueva'],
+        ['img' => '/assets/images/real/obra-nueva-desde-cero.webp', 'title' => $isCa ? 'Construcció des de zero · Barcelona · 2024' : 'Construcción desde cero · Barcelona · 2024', 'cat' => $isCa ? 'Obra nova' : 'Obra nueva'],
+        ['img' => '/assets/images/real/obra-nueva-girona.webp', 'title' => $isCa ? 'Obra nova · Girona · 2024' : 'Obra nueva · Girona · 2024', 'cat' => $isCa ? 'Obra nova' : 'Obra nueva'],
+        ['img' => '/assets/images/real/obra-nueva-construcciones-girona.webp', 'title' => $isCa ? 'Vivenda unifamiliar · Girona · 2023' : 'Vivienda unifamiliar · Girona · 2023', 'cat' => $isCa ? 'Obra nova' : 'Obra nueva'],
+        ['img' => '/assets/images/real/obra-nueva-construcciones-santafe.webp', 'title' => $isCa ? 'Construcció residencial · Santa Fe · 2024' : 'Construcción residencial · Santa Fe · 2024', 'cat' => $isCa ? 'Obra nova' : 'Obra nueva'],
     ],
     'reformas-integrales' => [
-        ['img' => '/assets/images/portfolio/portfolio-reforma-recepcion.webp', 'title' => $isCa ? 'Recepció reformada · Barcelona · 2024' : 'Recepción reformada · Barcelona · 2024', 'cat' => $isCa ? 'Reforma integral' : 'Reforma integral'],
-        ['img' => '/assets/images/portfolio/portfolio-reforma-ducha.webp', 'title' => $isCa ? 'Bany complet · Barcelona · 2024' : 'Baño completo · Barcelona · 2024', 'cat' => $isCa ? 'Reforma parcial' : 'Reforma parcial'],
-        ['img' => '/assets/images/portfolio/portfolio-reforma-suelo.webp', 'title' => $isCa ? 'Sòl porcelànic · Tarragona · 2023' : 'Suelo porcelánico · Tarragona · 2023', 'cat' => $isCa ? 'Acabados' : 'Acabados'],
-        ['img' => '/assets/images/servicios/reformas/reforma-recepcion-acabada.webp', 'title' => $isCa ? 'Espai comercial · Barcelona' : 'Espacio comercial · Barcelona', 'cat' => $isCa ? 'Reforma integral' : 'Reforma integral'],
+        ['img' => '/assets/images/real/reforma-completa-casa-barcelona.webp', 'title' => $isCa ? 'Reforma completa casa · Barcelona · 2024' : 'Reforma completa casa · Barcelona · 2024', 'cat' => $isCa ? 'Reforma integral' : 'Reforma integral'],
+        ['img' => '/assets/images/real/reforma-completa-santafe.webp', 'title' => $isCa ? 'Reforma integral · Santa Fe · 2024' : 'Reforma integral · Santa Fe · 2024', 'cat' => $isCa ? 'Reforma integral' : 'Reforma integral'],
+        ['img' => '/assets/images/real/reforma-gerona.webp', 'title' => $isCa ? 'Reforma pis · Girona · 2023' : 'Reforma piso · Girona · 2023', 'cat' => $isCa ? 'Reforma integral' : 'Reforma integral'],
+        ['img' => '/assets/images/real/reforma-integral-girona.webp', 'title' => $isCa ? 'Reforma integral · Girona · 2024' : 'Reforma integral · Girona · 2024', 'cat' => $isCa ? 'Reforma integral' : 'Reforma integral'],
     ],
     'pladur-acabados' => [
+        ['img' => '/assets/images/real/pladur-instalacion.webp', 'title' => $isCa ? 'Instal·lació pladur · Barcelona · 2024' : 'Instalación pladur · Barcelona · 2024', 'cat' => $isCa ? 'Pladur' : 'Pladur'],
         ['img' => '/assets/images/servicios/pladur/pladur-hall-acabado.webp', 'title' => $isCa ? 'Hall residencial · Gràcia · 2024' : 'Hall residencial · Gràcia · 2024', 'cat' => $isCa ? 'Pladur' : 'Pladur'],
-        ['img' => '/assets/images/portfolio/portfolio-reforma-recepcion.webp', 'title' => $isCa ? 'Sostre registrable · Barcelona' : 'Techo registrable · Barcelona', 'cat' => $isCa ? 'Pladur' : 'Pladur'],
-        ['img' => '/assets/images/portfolio/portfolio-reforma-ducha.webp', 'title' => $isCa ? 'Trasdosat bany · Barcelona' : 'Trasdosado baño · Barcelona', 'cat' => $isCa ? 'Pladur' : 'Pladur'],
-        ['img' => '/assets/images/servicios/reformas/reforma-recepcion-acabada.webp', 'title' => $isCa ? 'Acabats interiors · Barcelona' : 'Acabados interiores · Barcelona', 'cat' => $isCa ? 'Pladur' : 'Pladur'],
+        ['img' => '/assets/images/real/reforma-interiores-vivienda.webp', 'title' => $isCa ? 'Acabats interiors · Barcelona' : 'Acabados interiores · Barcelona', 'cat' => $isCa ? 'Pladur' : 'Pladur'],
+        ['img' => '/assets/images/servicios/reformas/reforma-recepcion-acabada.webp', 'title' => $isCa ? 'Sostre registrable · Barcelona' : 'Techo registrable · Barcelona', 'cat' => $isCa ? 'Pladur' : 'Pladur'],
     ],
     'obra-publica' => [
-        ['img' => '/assets/images/portfolio/portfolio-obra-publica-calzada.webp', 'title' => $isCa ? 'Pavimentació urbana · Barcelona · 2024' : 'Pavimentación urbana · Barcelona · 2024', 'cat' => $isCa ? 'Obra pública' : 'Obra pública'],
-        ['img' => '/assets/images/servicios/obra-publica/obra-publica-calzada-acabada.webp', 'title' => $isCa ? 'Calçada acabada · Barcelona' : 'Calzada acabada · Barcelona', 'cat' => $isCa ? 'Obra pública' : 'Obra pública'],
-        ['img' => '/assets/images/servicios/obra-publica/obra-civil-bordillo-curva.webp', 'title' => $isCa ? 'Bordillos · Tarragona · 2023' : 'Bordillos · Tarragona · 2023', 'cat' => $isCa ? 'Obra pública' : 'Obra pública'],
-        ['img' => '/assets/images/servicios/obra-publica/obra-civil-aceras-construccion.webp', 'title' => $isCa ? 'Aceres i mobiliari · Tarragona' : 'Aceras y mobiliario · Tarragona', 'cat' => $isCa ? 'Obra pública' : 'Obra pública'],
+        ['img' => '/assets/images/real/obra-publica-general.webp', 'title' => $isCa ? 'Obra pública · Barcelona · 2024' : 'Obra pública · Barcelona · 2024', 'cat' => $isCa ? 'Obra pública' : 'Obra pública'],
+        ['img' => '/assets/images/real/obra-publica-calzada-reformada.webp', 'title' => $isCa ? 'Calçada reformada · Barcelona · 2024' : 'Calzada reformada · Barcelona · 2024', 'cat' => $isCa ? 'Obra pública' : 'Obra pública'],
+        ['img' => '/assets/images/real/obra-publica-mantenimiento.webp', 'title' => $isCa ? 'Manteniment obra pública · Tarragona' : 'Mantenimiento obra pública · Tarragona', 'cat' => $isCa ? 'Obra pública' : 'Obra pública'],
+        ['img' => '/assets/images/real/obra-publica-reforma-completa.webp', 'title' => $isCa ? 'Reforma completa · Barcelona' : 'Reforma completa · Barcelona', 'cat' => $isCa ? 'Obra pública' : 'Obra pública'],
     ],
     'obra-civil' => [
+        ['img' => '/assets/images/real/obra-civil-muros.webp', 'title' => $isCa ? 'Construcció de murs · Barcelona · 2024' : 'Construcción de muros · Barcelona · 2024', 'cat' => $isCa ? 'Obra civil' : 'Obra civil'],
         ['img' => '/assets/images/servicios/obra-publica/obra-civil-bordillo-curva.webp', 'title' => $isCa ? 'Bordillos corba · Tarragona · 2023' : 'Bordillos curva · Tarragona · 2023', 'cat' => $isCa ? 'Obra civil' : 'Obra civil'],
         ['img' => '/assets/images/servicios/obra-publica/obra-civil-aceras-construccion.webp', 'title' => $isCa ? 'Aceres construcció · Tarragona' : 'Aceras construcción · Tarragona', 'cat' => $isCa ? 'Obra civil' : 'Obra civil'],
-        ['img' => '/assets/images/portfolio/portfolio-obra-publica-calzada.webp', 'title' => $isCa ? 'Pavimentació · Barcelona · 2024' : 'Pavimentación · Barcelona · 2024', 'cat' => $isCa ? 'Obra civil' : 'Obra civil'],
         ['img' => '/assets/images/servicios/obra-nueva/obra-nueva-piscina-acabada-jardin.webp', 'title' => $isCa ? 'Preparació terreny · Girona' : 'Preparación terreno · Girona', 'cat' => $isCa ? 'Obra civil' : 'Obra civil'],
+    ],
+    'parquet-pavimentos' => [
+        ['img' => '/assets/images/real/parquet-instalacion.webp', 'title' => $isCa ? 'Instal·lació parquet · Barcelona · 2024' : 'Instalación parquet · Barcelona · 2024', 'cat' => $isCa ? 'Parquet' : 'Parquet'],
+        ['img' => '/assets/images/real/parquet-renovacion-suelo.webp', 'title' => $isCa ? 'Renovació de terra · Barcelona · 2024' : 'Renovación de suelo · Barcelona · 2024', 'cat' => $isCa ? 'Parquet' : 'Parquet'],
+        ['img' => '/assets/images/real/parquet-reparacion.webp', 'title' => $isCa ? 'Reparació de parquet · Barcelona · 2023' : 'Reparación de parquet · Barcelona · 2023', 'cat' => $isCa ? 'Parquet' : 'Parquet'],
+        ['img' => '/assets/images/real/reforma-interiores-vivienda.webp', 'title' => $isCa ? 'Interiors acabats · Barcelona' : 'Interiores acabados · Barcelona', 'cat' => $isCa ? 'Parquet' : 'Parquet'],
+    ],
+    'reformas-banos' => [
+        ['img' => '/assets/images/real/reforma-banos-lavabos.webp', 'title' => $isCa ? 'Reforma bany complet · Barcelona · 2024' : 'Reforma baño completo · Barcelona · 2024', 'cat' => $isCa ? 'Reforma bany' : 'Reforma baño'],
+        ['img' => '/assets/images/servicios/reformas/reforma-banio-azulejos-blancos.webp', 'title' => $isCa ? 'Bany amb rajoles blanques · Barcelona' : 'Baño con azulejos blancos · Barcelona', 'cat' => $isCa ? 'Reforma bany' : 'Reforma baño'],
+        ['img' => '/assets/images/servicios/reformas/reforma-banio-ducha-ventana.webp', 'title' => $isCa ? 'Dutxa amb finestra · Girona' : 'Ducha con ventana · Girona', 'cat' => $isCa ? 'Reforma bany' : 'Reforma baño'],
+        ['img' => '/assets/images/servicios/reformas/reforma-banio-madera-piedra.webp', 'title' => $isCa ? 'Bany fusta i pedra · Barcelona' : 'Baño madera y piedra · Barcelona', 'cat' => $isCa ? 'Reforma bany' : 'Reforma baño'],
+    ],
+    'rehabilitacion-fachadas' => [
+        ['img' => '/assets/images/real/rehabilitacion-casa.webp', 'title' => $isCa ? 'Rehabilitació façana · Barcelona · 2024' : 'Rehabilitación fachada · Barcelona · 2024', 'cat' => $isCa ? 'Rehabilitació' : 'Rehabilitación'],
+        ['img' => '/assets/images/servicios/reformas/reforma-pared-gris-azulejos.webp', 'title' => $isCa ? 'Reparació parament · Barcelona' : 'Reparación paramento · Barcelona', 'cat' => $isCa ? 'Rehabilitació' : 'Rehabilitación'],
+        ['img' => '/assets/images/servicios/reformas/reforma-pared-madera-acabada.webp', 'title' => $isCa ? 'Revestiment fusta · Girona' : 'Revestimiento madera · Girona', 'cat' => $isCa ? 'Rehabilitació' : 'Rehabilitación'],
+        ['img' => '/assets/images/real/obra-nueva-construcciones-santafe.webp', 'title' => $isCa ? 'Restauració completa · Santa Fe' : 'Restauración completa · Santa Fe', 'cat' => $isCa ? 'Rehabilitació' : 'Rehabilitación'],
+    ],
+    'reformas-comerciales' => [
+        ['img' => '/assets/images/real/reforma-comercial-tienda.webp', 'title' => $isCa ? 'Reforma botiga · Barcelona · 2024' : 'Reforma tienda · Barcelona · 2024', 'cat' => $isCa ? 'Comercial' : 'Comercial'],
+        ['img' => '/assets/images/real/reforma-general-santafe.webp', 'title' => $isCa ? 'Reforma local · Santa Fe · 2024' : 'Reforma local · Santa Fe · 2024', 'cat' => $isCa ? 'Comercial' : 'Comercial'],
+        ['img' => '/assets/images/real/reforma-interiores-vivienda.webp', 'title' => $isCa ? 'Interiorisme comercial · Barcelona' : 'Interiorismo comercial · Barcelona', 'cat' => $isCa ? 'Comercial' : 'Comercial'],
+        ['img' => '/assets/images/real/reforma-completa-santafe.webp', 'title' => $isCa ? 'Acabats professionals · Santa Fe' : 'Acabados profesionales · Santa Fe', 'cat' => $isCa ? 'Comercial' : 'Comercial'],
     ],
 ];
 $gallery = $galleries[$service_slug] ?? $galleries['obra-nueva'];
@@ -152,6 +176,26 @@ $price_tiers = [
         ['title' => $t['prices_card_basic'], 'desc' => $isCa ? 'Preparació de terreny, moviments de terres.' : 'Preparación de terreno, movimientos de tierra.', 'price' => $isCa ? 'A convenir' : 'A convenir'],
         ['title' => $t['prices_card_standard'], 'desc' => $isCa ? 'Cimentacions, murs, canalitzacions.' : 'Cimentaciones, muros, canalizaciones.', 'price' => $isCa ? 'A convenir' : 'A convenir'],
         ['title' => $t['prices_card_premium'], 'desc' => $isCa ? 'Estructura completa amb coordinació tècnica.' : 'Estructura completa con coordinación técnica.', 'price' => $isCa ? 'A convenir' : 'A convenir'],
+    ],
+    'parquet-pavimentos' => [
+        ['title' => $t['prices_card_basic'], 'desc' => $isCa ? 'Parquet laminat, funcionalitat prioritària.' : 'Parquet laminado, funcionalidad prioritaria.', 'price' => $isCa ? 'Des de 45 €/m²' : 'Desde 45 €/m²'],
+        ['title' => $t['prices_card_standard'], 'desc' => $isCa ? 'Parquet multicapa, qualitat equilibrada.' : 'Parquet multicapa, calidad equilibrada.', 'price' => $isCa ? 'Des de 75 €/m²' : 'Desde 75 €/m²'],
+        ['title' => $t['prices_card_premium'], 'desc' => $isCa ? 'Parquet massís, tractament professional.' : 'Parquet macizo, tratamiento profesional.', 'price' => $isCa ? 'Des de 120 €/m²' : 'Desde 120 €/m²'],
+    ],
+    'reformas-banos' => [
+        ['title' => $t['prices_card_basic'], 'desc' => $isCa ? 'Canvi d\'equipament sense obra major.' : 'Cambio de equipamiento sin obra mayor.', 'price' => $isCa ? 'Des de 3.500 €' : 'Desde 3.500 €'],
+        ['title' => $t['prices_card_standard'], 'desc' => $isCa ? 'Reforma completa amb albañileria.' : 'Reforma completa con albañilería.', 'price' => $isCa ? 'Des de 6.500 €' : 'Desde 6.500 €'],
+        ['title' => $t['prices_card_premium'], 'desc' => $isCa ? 'Bany a mida amb materials de disseny.' : 'Baño a medida con materiales de diseño.', 'price' => $isCa ? 'Des de 12.000 €' : 'Desde 12.000 €'],
+    ],
+    'rehabilitacion-fachadas' => [
+        ['title' => $t['prices_card_basic'], 'desc' => $isCa ? 'Reparació puntual i pintura.' : 'Reparación puntual y pintura.', 'price' => $isCa ? 'Des de 35 €/m²' : 'Desde 35 €/m²'],
+        ['title' => $t['prices_card_standard'], 'desc' => $isCa ? 'Rehabilitació amb morter tècnic.' : 'Rehabilitación con mortero técnico.', 'price' => $isCa ? 'Des de 65 €/m²' : 'Desde 65 €/m²'],
+        ['title' => $t['prices_card_premium'], 'desc' => $isCa ? 'Rehabilitació integral amb aïllament SATE.' : 'Rehabilitación integral con aislamiento SATE.', 'price' => $isCa ? 'Des de 120 €/m²' : 'Desde 120 €/m²'],
+    ],
+    'reformas-comerciales' => [
+        ['title' => $t['prices_card_basic'], 'desc' => $isCa ? 'Acondicionament bàsic per a obertura ràpida.' : 'Acondicionamiento básico para apertura rápida.', 'price' => $isCa ? 'Des de 350 €/m²' : 'Desde 350 €/m²'],
+        ['title' => $t['prices_card_standard'], 'desc' => $isCa ? 'Reforma completa amb acabats professionals.' : 'Reforma completa con acabados profesionales.', 'price' => $isCa ? 'Des de 550 €/m²' : 'Desde 550 €/m²'],
+        ['title' => $t['prices_card_premium'], 'desc' => $isCa ? 'Disseny a mida amb materials d\'alta gamma.' : 'Diseño a medida con materiales de alta gama.', 'price' => $isCa ? 'Des de 900 €/m²' : 'Desde 900 €/m²'],
     ],
 ];
 $prices = $price_tiers[$service_slug] ?? $price_tiers['obra-nueva'];
@@ -232,6 +276,66 @@ $feature_lists = [
         'Preparación de terreno',
         'Coordinación técnica',
         'Control de seguridad',
+    ],
+    'parquet-pavimentos' => $isCa ? [
+        'Preparació i nivellació de suport',
+        'Instal·lació flotant, encolada i clavada',
+        'Renovació de terres deteriorats',
+        'Reparació de zones danyades',
+        'Rodapeus i remats integrats',
+        'Tractament de vernís i manteniment',
+    ] : [
+        'Preparación y nivelación de soporte',
+        'Instalación flotante, encolada y clavada',
+        'Renovación de suelos deteriorados',
+        'Reparación de zonas dañadas',
+        'Rodapiés y remates integrados',
+        'Tratamiento de barniz y mantenimiento',
+    ],
+    'reformas-banos' => $isCa ? [
+        'Enderroc i retirada de runa',
+        'Revisió de fontaneria i desguassos',
+        'Impermeabilització completa',
+        'Col·locació de rajoles i paviment',
+        'Instal·lació de plat de dutxa o banyera',
+        'Il·luminació i ventilació',
+    ] : [
+        'Demolición y retirada de escombros',
+        'Revisión de fontanería y desagües',
+        'Impermeabilización completa',
+        'Colocación de azulejos y pavimento',
+        'Instalación de plato de ducha o bañera',
+        'Iluminación y ventilación',
+    ],
+    'rehabilitacion-fachadas' => $isCa ? [
+        'Diagnòstic estructural de façana',
+        'Reparació d\'esquerdes i despreniments',
+        'Tractament anti-humitat',
+        'Aïllament tèrmic exterior (SATE)',
+        'Acabats amb morter monocapa',
+        'Neteja i pintura de façana',
+    ] : [
+        'Diagnóstico estructural de fachada',
+        'Reparación de grietas y desprendimientos',
+        'Tratamiento anti-humedad',
+        'Aislamiento térmico exterior (SATE)',
+        'Acabados con mortero monocapa',
+        'Limpieza y pintura de fachada',
+    ],
+    'reformas-comerciales' => $isCa ? [
+        'Llicència d\'obra menor inclosa',
+        'Execució per fases (negoci parcialment obert)',
+        'Instal·lació elèctrica i climatització',
+        'Mobiliari comercial a mida',
+        'Senyalètica i rotulació',
+        'Neteja final i lliurament immediat',
+    ] : [
+        'Licencia de obra menor incluida',
+        'Ejecución por fases (negocio parcialmente abierto)',
+        'Instalación eléctrica y climatización',
+        'Mobiliario comercial a medida',
+        'Señalética y rotulación',
+        'Limpieza final y entrega inmediata',
     ],
 ];
 $features = $feature_lists[$service_slug] ?? $feature_lists['obra-nueva'];

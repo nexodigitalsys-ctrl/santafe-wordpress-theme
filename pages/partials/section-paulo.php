@@ -50,8 +50,8 @@ $cta = $lang === 'ca' ? 'Saber-ne més →' : 'Saber más →';
             <!-- Foto TOP: piscina con jardín acabada -->
             <div class="relative order-2 lg:order-1">
                 <div class="aspect-[4/5] rounded-sm overflow-hidden bg-warm-100">
-                    <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/servicios/obra-nueva/obra-nueva-piscina-acabada-jardin.webp'); ?>"
-                         alt="<?php echo $lang === 'ca' ? 'Obra nova amb piscina i jardí — Santa Fe Construcciones' : 'Obra nueva con piscina y jardín — Santa Fe Construcciones'; ?>"
+                    <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/real/obra-nueva-desde-cero.webp'); ?>"
+                         alt="<?php echo $lang === 'ca' ? 'Obra nova des de zero — Santa Fe Construcciones' : 'Obra nueva desde cero — Santa Fe Construcciones'; ?>"
                          class="w-full h-full object-cover"
                          loading="lazy"
                          onerror="this.src='<?php echo esc_url(get_template_directory_uri() . '/assets/images/hero/hero-piscina-jardin.webp'); ?>'">

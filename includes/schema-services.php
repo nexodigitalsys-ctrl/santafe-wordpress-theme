@@ -66,6 +66,54 @@ function get_schema_service($service_slug, $lang = 'es', $domain = null) {
                 'description' => 'Estructures de formigó, fonamentacions, murs de contenció, canalitzacions i obra civil d\'alta resistència.',
                 'url' => $domain . '/ca/serveis/obra-civil/'
             ]
+        ],
+        'parquet-pavimentos' => [
+            'es' => [
+                'name' => 'Instalación de parquet y pavimentos en Barcelona y Girona',
+                'description' => 'Instalación, renovación y reparación de parquet y pavimentos. Presupuesto cerrado, materiales de calidad y acabado profesional.',
+                'url' => $domain . '/es/servicios/parquet-pavimentos/'
+            ],
+            'ca' => [
+                'name' => 'Instal·lació de parquet i paviments a Barcelona i Girona',
+                'description' => 'Instal·lació, renovació i reparació de parquet i paviments. Pressupost tancat, materials de qualitat i acabat professional.',
+                'url' => $domain . '/ca/serveis/parquet-paviments/'
+            ]
+        ],
+        'reformas-banos' => [
+            'es' => [
+                'name' => 'Reforma de baños en Barcelona y Girona',
+                'description' => 'Reforma completa de baños con impermeabilización, cambio de azulejos, sanitarios y fontanería. Presupuesto cerrado en 48h.',
+                'url' => $domain . '/es/servicios/reformas-banos/'
+            ],
+            'ca' => [
+                'name' => 'Reforma de banys a Barcelona i Girona',
+                'description' => 'Reforma completa de banys amb impermeabilització, canvi de rajoles, sanitaris i fontaneria. Pressupost tancat en 48h.',
+                'url' => $domain . '/ca/serveis/reformes-banys/'
+            ]
+        ],
+        'rehabilitacion-fachadas' => [
+            'es' => [
+                'name' => 'Rehabilitación de fachadas en Barcelona y Girona',
+                'description' => 'Rehabilitación integral de fachadas. Reparación de grietas, humedades, aislamiento térmico y acabados exteriores duraderos.',
+                'url' => $domain . '/es/servicios/rehabilitacion-fachadas/'
+            ],
+            'ca' => [
+                'name' => 'Rehabilitació de façanes a Barcelona i Girona',
+                'description' => 'Rehabilitació integral de façanes. Reparació d\'esquerdes, humitats, aïllament tèrmic i acabats exteriors duradors.',
+                'url' => $domain . '/ca/serveis/rehabilitacio-facanes/'
+            ]
+        ],
+        'reformas-comerciales' => [
+            'es' => [
+                'name' => 'Reformas de locales comerciales en Barcelona y Girona',
+                'description' => 'Reformas de tiendas, oficinas y locales comerciales. Ejecución rápida, licencias incluidas y mínima interrupción de negocio.',
+                'url' => $domain . '/es/servicios/reformas-comerciales/'
+            ],
+            'ca' => [
+                'name' => 'Reformes de locals comercials a Barcelona i Girona',
+                'description' => 'Reformes de botigues, oficines i locals comercials. Execució ràpida, llicències incloses i mínima interrupció de negoci.',
+                'url' => $domain . '/ca/serveis/reformes-comercials/'
+            ]
         ]
     ];
 

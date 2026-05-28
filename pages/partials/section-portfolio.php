@@ -29,15 +29,15 @@ $filters = $lang === 'ca' ? [
 
 // Proyectos reales con fotos propias
 $projects = [
-    ['img' => '/assets/images/portfolio/portfolio-obra-nueva-piscina.webp', 'title' => 'Obra nueva con piscina · Girona · 2024', 'm2' => '320', 'duration' => '10 meses', 'city' => 'Girona', 'category' => 'obra-nueva'],
-    ['img' => '/assets/images/portfolio/portfolio-reforma-recepcion.webp', 'title' => 'Reforma recepción · Barcelona · 2024', 'm2' => '180', 'duration' => '3 meses', 'city' => 'Barcelona', 'category' => 'reformas'],
-    ['img' => '/assets/images/portfolio/portfolio-obra-publica-calzada.webp', 'title' => 'Pavimentación urbana · Barcelona · 2024', 'm2' => '850', 'duration' => '4 meses', 'city' => 'Barcelona', 'category' => 'obra-publica'],
-    ['img' => '/assets/images/portfolio/portfolio-obra-nueva-fachada-piedra.webp', 'title' => 'Fachada en piedra natural · Girona · 2023', 'm2' => '240', 'duration' => '8 meses', 'city' => 'Girona', 'category' => 'obra-nueva'],
-    ['img' => '/assets/images/portfolio/portfolio-reforma-ducha.webp', 'title' => 'Reforma baño completo · Barcelona · 2024', 'm2' => '12', 'duration' => '3 semanas', 'city' => 'Barcelona', 'category' => 'reformas'],
-    ['img' => '/assets/images/portfolio/portfolio-reforma-suelo.webp', 'title' => 'Suelo porcelánico imitación madera · Tarragona · 2023', 'm2' => '95', 'duration' => '2 semanas', 'city' => 'Tarragona', 'category' => 'reformas'],
-    ['img' => '/assets/images/portfolio/portfolio-obra-nueva-casa-moderna.webp', 'title' => 'Vivienda unifamiliar moderna · Barcelona · 2024', 'm2' => '280', 'duration' => '12 meses', 'city' => 'Barcelona', 'category' => 'obra-nueva'],
-    ['img' => '/assets/images/servicios/pladur/pladur-hall-acabado.webp', 'title' => 'Pladur y acabados · Gràcia · 2024', 'm2' => '120', 'duration' => '1 mes', 'city' => 'Barcelona', 'category' => 'pladur'],
-    ['img' => '/assets/images/servicios/obra-publica/obra-civil-aceras-construccion.webp', 'title' => 'Aceras y mobiliario urbano · Tarragona · 2023', 'm2' => '450', 'duration' => '5 meses', 'city' => 'Tarragona', 'category' => 'obra-civil'],
+    ['img' => '/assets/images/real/obra-nueva-desde-cero.webp', 'title' => 'Construcción desde cero · Barcelona · 2024', 'm2' => '320', 'duration' => '10 meses', 'city' => 'Barcelona', 'category' => 'obra-nueva'],
+    ['img' => '/assets/images/real/reforma-completa-casa-barcelona.webp', 'title' => 'Reforma completa casa · Barcelona · 2024', 'm2' => '180', 'duration' => '3 meses', 'city' => 'Barcelona', 'category' => 'reformas'],
+    ['img' => '/assets/images/real/obra-publica-calzada-reformada.webp', 'title' => 'Calzada reformada · Barcelona · 2024', 'm2' => '850', 'duration' => '4 meses', 'city' => 'Barcelona', 'category' => 'obra-publica'],
+    ['img' => '/assets/images/real/obra-nueva-construcciones-girona.webp', 'title' => 'Construcción residencial · Girona · 2023', 'm2' => '240', 'duration' => '8 meses', 'city' => 'Girona', 'category' => 'obra-nueva'],
+    ['img' => '/assets/images/real/reforma-gerona.webp', 'title' => 'Reforma piso · Girona · 2024', 'm2' => '85', 'duration' => '6 semanas', 'city' => 'Girona', 'category' => 'reformas'],
+    ['img' => '/assets/images/real/reforma-interiores-vivienda.webp', 'title' => 'Interiores de vivienda · Barcelona · 2023', 'm2' => '95', 'duration' => '2 semanas', 'city' => 'Barcelona', 'category' => 'reformas'],
+    ['img' => '/assets/images/real/obra-nueva-construcciones-santafe.webp', 'title' => 'Obra nueva Santa Fe · Barcelona · 2024', 'm2' => '280', 'duration' => '12 meses', 'city' => 'Barcelona', 'category' => 'obra-nueva'],
+    ['img' => '/assets/images/real/pladur-instalacion.webp', 'title' => 'Instalación pladur · Barcelona · 2024', 'm2' => '120', 'duration' => '1 mes', 'city' => 'Barcelona', 'category' => 'pladur'],
+    ['img' => '/assets/images/real/obra-civil-muros.webp', 'title' => 'Construcción de muros · Barcelona · 2024', 'm2' => '450', 'duration' => '5 meses', 'city' => 'Barcelona', 'category' => 'obra-civil'],
 ];
 
 $ver_proyecto = $lang === 'ca' ? 'Veure projecte →' : 'Ver proyecto →';

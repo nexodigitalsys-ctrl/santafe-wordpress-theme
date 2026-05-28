@@ -34,6 +34,10 @@ $slugs = [
     'pladur-acabados' => $isCa ? 'pladur-acabats' : 'pladur-acabados',
     'obra-publica' => 'obra-publica',
     'obra-civil' => 'obra-civil',
+    'parquet-pavimentos' => $isCa ? 'parquet-paviments' : 'parquet-pavimentos',
+    'reformas-banos' => $isCa ? 'reformes-banys' : 'reformas-banos',
+    'rehabilitacion-fachadas' => $isCa ? 'rehabilitacio-facanes' : 'rehabilitacion-fachadas',
+    'reformas-comerciales' => $isCa ? 'reformes-comercials' : 'reformas-comerciales',
 ];
 
 // ── Textos do template ────────────────────────────────────────────
@@ -78,7 +82,7 @@ $services = [
         'desc' => $isCa ? 'Vivendes i edificacions des de zero amb planificació tècnica i control de costos.' : 'Viviendas y edificaciones desde cero con planificación técnica y control de costes.',
         'features' => $isCa ? ['Llicències', 'Estructura', 'Instal·lacions', 'Acabats'] : ['Licencias', 'Estructura', 'Instalaciones', 'Acabados'],
         'price' => $isCa ? 'Des de 800 €/m²' : 'Desde 800 €/m²',
-        'img' => $theme_uri . '/assets/images/servicios/obra-nueva/obra-nueva-piscina-acabada-jardin.webp',
+        'img' => $theme_uri . '/assets/images/real/obra-nueva-desde-cero.webp',
     ],
     [
         'slug' => 'reformas-integrales',
@@ -86,7 +90,7 @@ $services = [
         'desc' => $isCa ? 'Transformació completa de pisos, locals i oficines amb presupost tancat.' : 'Transformación completa de pisos, locales y oficinas con presupuesto cerrado.',
         'features' => $isCa ? ['Albañileria', 'Cuina i bany', 'Instal·lacions', 'Acabats'] : ['Albañilería', 'Cocina y baño', 'Instalaciones', 'Acabados'],
         'price' => $isCa ? 'Des de 450 €/m²' : 'Desde 450 €/m²',
-        'img' => $theme_uri . '/assets/images/servicios/reformas/reforma-recepcion-acabada.webp',
+        'img' => $theme_uri . '/assets/images/real/reforma-completa-casa-barcelona.webp',
     ],
     [
         'slug' => 'pladur-acabados',
@@ -94,7 +98,7 @@ $services = [
         'desc' => $isCa ? 'Tabiques, sostres, trasdosats i acabats interiors amb criteri tècnic.' : 'Tabiques, techos, trasdosados y acabados interiores con criterio técnico.',
         'features' => $isCa ? ['Acústic', 'Tèrmic', 'Registrable', 'Il·luminació'] : ['Acústico', 'Térmico', 'Registrable', 'Iluminación'],
         'price' => $isCa ? 'Des de 35 €/m²' : 'Desde 35 €/m²',
-        'img' => $theme_uri . '/assets/images/servicios/pladur/pladur-hall-acabado.webp',
+        'img' => $theme_uri . '/assets/images/real/pladur-instalacion.webp',
     ],
     [
         'slug' => 'obra-publica',
@@ -102,7 +106,7 @@ $services = [
         'desc' => $isCa ? 'Pavimentació, aceres, mobiliari urbà i rehabilitació amb documentació completa.' : 'Pavimentación, aceras, mobiliario urbano y rehabilitación con documentación completa.',
         'features' => $isCa ? ['Documentació', 'Certificacions', 'Garantia', 'Trazabilitat'] : ['Documentación', 'Certificaciones', 'Garantía', 'Trazabilidad'],
         'price' => 'A convenir',
-        'img' => $theme_uri . '/assets/images/servicios/obra-publica/obra-publica-calzada-acabada.webp',
+        'img' => $theme_uri . '/assets/images/real/obra-publica-general.webp',
     ],
     [
         'slug' => 'obra-civil',
@@ -110,7 +114,39 @@ $services = [
         'desc' => $isCa ? 'Cimentacions, murs, canalitzacions i preparació de terreny amb seguretat.' : 'Cimentaciones, muros, canalizaciones y preparación de terreno con seguridad.',
         'features' => $isCa ? ['Cimentacions', 'Murs', 'Drenatges', 'Seguretat'] : ['Cimentaciones', 'Muros', 'Drenajes', 'Seguridad'],
         'price' => 'A convenir',
-        'img' => $theme_uri . '/assets/images/servicios/obra-publica/obra-civil-bordillo-curva.webp',
+        'img' => $theme_uri . '/assets/images/real/obra-civil-muros.webp',
+    ],
+    [
+        'slug' => 'parquet-pavimentos',
+        'title' => $isCa ? 'Parquet i paviments' : 'Parquet y pavimentos',
+        'desc' => $isCa ? 'Instal·lació, renovació i reparació de parquet amb acabat professional.' : 'Instalación, renovación y reparación de parquet con acabado profesional.',
+        'features' => $isCa ? ['Flotant', 'Encolat', 'Renovació', 'Reparació'] : ['Flotante', 'Encolado', 'Renovación', 'Reparación'],
+        'price' => $isCa ? 'Des de 45 €/m²' : 'Desde 45 €/m²',
+        'img' => $theme_uri . '/assets/images/real/parquet-instalacion.webp',
+    ],
+    [
+        'slug' => 'reformas-banos',
+        'title' => $isCa ? 'Reforma de banys' : 'Reforma de baños',
+        'desc' => $isCa ? 'Reforma completa de banys amb impermeabilització i garantia d\'estanqueïtat.' : 'Reforma completa de baños con impermeabilización y garantía de estanqueidad.',
+        'features' => $isCa ? ['Impermeabilització', 'Rajoles', 'Sanitaris', 'Il·luminació'] : ['Impermeabilización', 'Azulejos', 'Sanitarios', 'Iluminación'],
+        'price' => $isCa ? 'Des de 3.500 €' : 'Desde 3.500 €',
+        'img' => $theme_uri . '/assets/images/real/reforma-banos-lavabos.webp',
+    ],
+    [
+        'slug' => 'rehabilitacion-fachadas',
+        'title' => $isCa ? 'Rehabilitació de façanes' : 'Rehabilitación de fachadas',
+        'desc' => $isCa ? 'Reparació de grietes, humitats i aïllament tèrmic exterior (SATE).' : 'Reparación de grietas, humedades y aislamiento térmico exterior (SATE).',
+        'features' => $isCa ? ['Reparació', 'SATE', 'Pintura', 'Impermeabilització'] : ['Reparación', 'SATE', 'Pintura', 'Impermeabilización'],
+        'price' => $isCa ? 'Des de 35 €/m²' : 'Desde 35 €/m²',
+        'img' => $theme_uri . '/assets/images/real/rehabilitacion-casa.webp',
+    ],
+    [
+        'slug' => 'reformas-comerciales',
+        'title' => $isCa ? 'Reformes comercials' : 'Reformas comerciales',
+        'desc' => $isCa ? 'Reformes de botigues i locals amb llicència inclosa i mínima interrupció.' : 'Reformas de tiendas y locales con licencia incluida y mínima interrupción.',
+        'features' => $isCa ? ['Llicència', 'Fases', 'Mobiliari', 'Rotulació'] : ['Licencia', 'Fases', 'Mobiliario', 'Rotulación'],
+        'price' => $isCa ? 'Des de 350 €/m²' : 'Desde 350 €/m²',
+        'img' => $theme_uri . '/assets/images/real/reforma-comercial-tienda.webp',
     ],
 ];
 
@@ -140,6 +176,26 @@ $guide = [
         'need' => $isCa ? 'Cimentacions, murs o preparació de terreny' : 'Cimentaciones, muros o preparación de terreno',
         'service' => $isCa ? '<strong>Obra civil</strong>' : '<strong>Obra civil</strong>',
         'price' => 'A convenir',
+    ],
+    [
+        'need' => $isCa ? 'Instal·lar, renovar o reparar parquet' : 'Instalar, renovar o reparar parquet',
+        'service' => $isCa ? '<strong>Parquet i paviments</strong>' : '<strong>Parquet y pavimentos</strong>',
+        'price' => $isCa ? 'Des de 45 €/m²' : 'Desde 45 €/m²',
+    ],
+    [
+        'need' => $isCa ? 'Reformar un bany complet' : 'Reformar un baño completo',
+        'service' => $isCa ? '<strong>Reforma de banys</strong>' : '<strong>Reforma de baños</strong>',
+        'price' => $isCa ? 'Des de 3.500 €' : 'Desde 3.500 €',
+    ],
+    [
+        'need' => $isCa ? 'Reparar grietes o rehabilitar façana' : 'Reparar grietas o rehabilitar fachada',
+        'service' => $isCa ? '<strong>Rehabilitació de façanes</strong>' : '<strong>Rehabilitación de fachadas</strong>',
+        'price' => $isCa ? 'Des de 35 €/m²' : 'Desde 35 €/m²',
+    ],
+    [
+        'need' => $isCa ? 'Reformar una botiga o local comercial' : 'Reformar una tienda o local comercial',
+        'service' => $isCa ? '<strong>Reformes comercials</strong>' : '<strong>Reformas comerciales</strong>',
+        'price' => $isCa ? 'Des de 350 €/m²' : 'Desde 350 €/m²',
     ],
 ];
 

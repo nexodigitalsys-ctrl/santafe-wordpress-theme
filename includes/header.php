@@ -59,6 +59,10 @@ function get_alt_url($current_route, $target_lang) {
         'servicios/pladur-acabados' => 'serveis/pladur-acabats',
         'servicios/obra-publica' => 'serveis/obra-publica',
         'servicios/obra-civil' => 'serveis/obra-civil',
+        'servicios/parquet-pavimentos' => 'serveis/parquet-paviments',
+        'servicios/reformas-banos' => 'serveis/reformes-banys',
+        'servicios/rehabilitacion-fachadas' => 'serveis/rehabilitacio-facanes',
+        'servicios/reformas-comerciales' => 'serveis/reformes-comercials',
         'obra-nueva' => 'obra-nova',
         'reformas-integrales' => 'reformes-integrals',
         'pladur-acabados' => 'pladur-acabats',
@@ -553,6 +557,10 @@ gtag('consent', 'default', {
             <a href="/<?php echo $lang; ?>/<?php echo $lang === 'ca' ? 'pladur-acabats' : 'pladur-acabados'; ?>/" class="block px-4 py-3 text-sm text-warm-600 hover:text-brand-600 hover:bg-warm-50 rounded-sm">Pladur y acabados</a>
             <a href="/<?php echo $lang; ?>/obra-publica/" class="block px-4 py-3 text-sm text-warm-600 hover:text-brand-600 hover:bg-warm-50 rounded-sm">Obra pública</a>
             <a href="/<?php echo $lang; ?>/obra-civil/" class="block px-4 py-3 text-sm text-warm-600 hover:text-brand-600 hover:bg-warm-50 rounded-sm">Obra civil</a>
+            <a href="/<?php echo $lang; ?>/<?php echo $lang === 'ca' ? 'parquet-paviments' : 'parquet-pavimentos'; ?>/" class="block px-4 py-3 text-sm text-warm-600 hover:text-brand-600 hover:bg-warm-50 rounded-sm">Parquet y pavimentos</a>
+            <a href="/<?php echo $lang; ?>/<?php echo $lang === 'ca' ? 'reformes-banys' : 'reformas-banos'; ?>/" class="block px-4 py-3 text-sm text-warm-600 hover:text-brand-600 hover:bg-warm-50 rounded-sm">Reforma de baños</a>
+            <a href="/<?php echo $lang; ?>/<?php echo $lang === 'ca' ? 'rehabilitacio-facanes' : 'rehabilitacion-fachadas'; ?>/" class="block px-4 py-3 text-sm text-warm-600 hover:text-brand-600 hover:bg-warm-50 rounded-sm">Rehabilitación de fachadas</a>
+            <a href="/<?php echo $lang; ?>/<?php echo $lang === 'ca' ? 'reformes-comercials' : 'reformas-comerciales'; ?>/" class="block px-4 py-3 text-sm text-warm-600 hover:text-brand-600 hover:bg-warm-50 rounded-sm">Reformas comerciales</a>
           </div>
         </div>
       </div>
@@ -596,6 +604,10 @@ gtag('consent', 'default', {
         <a href="/<?php echo $lang; ?>/<?php echo $lang === 'ca' ? 'pladur-acabats' : 'pladur-acabados'; ?>/" class="block px-4 py-2 text-sm text-warm-500 hover:text-brand-600 hover:bg-warm-50 rounded-sm mobile-nav-link">Pladur y acabados</a>
         <a href="/<?php echo $lang; ?>/obra-publica/" class="block px-4 py-2 text-sm text-warm-500 hover:text-brand-600 hover:bg-warm-50 rounded-sm mobile-nav-link">Obra pública</a>
         <a href="/<?php echo $lang; ?>/obra-civil/" class="block px-4 py-2 text-sm text-warm-500 hover:text-brand-600 hover:bg-warm-50 rounded-sm mobile-nav-link">Obra civil</a>
+        <a href="/<?php echo $lang; ?>/<?php echo $lang === 'ca' ? 'parquet-paviments' : 'parquet-pavimentos'; ?>/" class="block px-4 py-2 text-sm text-warm-500 hover:text-brand-600 hover:bg-warm-50 rounded-sm mobile-nav-link">Parquet y pavimentos</a>
+        <a href="/<?php echo $lang; ?>/<?php echo $lang === 'ca' ? 'reformes-banys' : 'reformas-banos'; ?>/" class="block px-4 py-2 text-sm text-warm-500 hover:text-brand-600 hover:bg-warm-50 rounded-sm mobile-nav-link">Reforma de baños</a>
+        <a href="/<?php echo $lang; ?>/<?php echo $lang === 'ca' ? 'rehabilitacio-facanes' : 'rehabilitacion-fachadas'; ?>/" class="block px-4 py-2 text-sm text-warm-500 hover:text-brand-600 hover:bg-warm-50 rounded-sm mobile-nav-link">Rehabilitación de fachadas</a>
+        <a href="/<?php echo $lang; ?>/<?php echo $lang === 'ca' ? 'reformes-comercials' : 'reformas-comerciales'; ?>/" class="block px-4 py-2 text-sm text-warm-500 hover:text-brand-600 hover:bg-warm-50 rounded-sm mobile-nav-link">Reformas comerciales</a>
       </div>
     </div>
 
