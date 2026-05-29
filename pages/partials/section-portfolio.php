@@ -58,16 +58,16 @@ $ca_category_to_service = [
 ];
 ?>
 
-<section data-reveal class="py-24 md:py-32 bg-warm-50 border-b border-warm-200" id="portfolio">
+<section data-reveal class="py-24 md:py-32 section-portfolio border-b" id="portfolio">
     <div class="max-w-7xl mx-auto px-6">
         <div class="flex flex-col md:flex-row md:items-end md:justify-between mb-12 gap-6">
             <div>
                 <div class="flex items-center gap-4 mb-4">
                     <div class="industrial-line w-12"></div>
-                    <span class="text-brand-400 text-xs font-semibold uppercase tracking-[0.3em]">Portfolio</span>
+                    <span class="section-portfolio-badge text-xs font-semibold uppercase tracking-[0.3em]">Portfolio</span>
                 </div>
-                <h2 class="font-display font-bold text-4xl md:text-5xl lg:text-6xl text-warm-900 tracking-tight"><?php echo $title; ?></h2>
-                <p class="text-warm-500 mt-4 max-w-lg"><?php echo $subtitle; ?></p>
+                <h2 class="font-display font-bold text-4xl md:text-5xl lg:text-6xl section-portfolio-title tracking-tight"><?php echo $title; ?></h2>
+                <p class="section-portfolio-body mt-4 max-w-lg"><?php echo $subtitle; ?></p>
             </div>
         </div>
 
@@ -75,7 +75,7 @@ $ca_category_to_service = [
         <div class="flex flex-wrap gap-2 mb-10">
             <?php foreach ($filters as $key => $label): ?>
             <button type="button"
-                    class="portfolio-filter__btn px-4 py-2 text-sm font-medium rounded-sm border transition-all <?php echo $key === 'all' ? 'bg-brand-600 border-brand-600 text-white' : 'border-warm-300 text-warm-600 hover:border-brand-500 hover:text-brand-600'; ?>"
+                    class="portfolio-filter__btn px-4 py-2 text-sm font-medium rounded-sm border transition-all <?php echo $key === 'all' ? 'section-portfolio-filter-active' : 'section-portfolio-filter-inactive hover:border-brand-500 hover:text-brand-600'; ?>"
                     data-filter="<?php echo $key; ?>">
                 <?php echo $label; ?>
             </button>
@@ -85,7 +85,7 @@ $ca_category_to_service = [
         <!-- Grid -->
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="portfolio-grid">
             <?php foreach ($projects as $proy): ?>
-            <article class="tilt-card portfolio-card group relative overflow-hidden rounded-sm bg-white border border-warm-200 rounded-xl shadow-card hover:shadow-card-hover transition-all duration-300"
+            <article class="tilt-card portfolio-card group relative overflow-hidden rounded-sm section-portfolio-card border rounded-xl shadow-card hover:shadow-card-hover transition-all duration-300"
                      data-category="<?php echo $proy['category']; ?>">
                 <div class="aspect-[4/3] overflow-hidden">
                     <img src="<?php echo esc_url(get_template_directory_uri() . $proy['img']); ?>"
@@ -93,13 +93,13 @@ $ca_category_to_service = [
                          class="w-full h-full object-cover img-zoom"
                          loading="lazy"
                          onerror="this.parentElement.style.display='none'">
-                    <span class="absolute top-4 left-4 px-3 py-1 bg-brand-600 text-white text-xs font-semibold uppercase tracking-wider rounded-sm">
+                    <span class="absolute top-4 left-4 px-3 py-1 section-portfolio-tag text-xs font-semibold uppercase tracking-wider rounded-sm">
                         <?php echo $filters[$proy['category']] ?? $proy['category']; ?>
                     </span>
                 </div>
                 <div class="p-5">
-                    <h3 class="font-display font-bold text-lg text-warm-900 mb-2"><?php echo htmlspecialchars($proy['title']); ?></h3>
-                    <div class="flex flex-wrap gap-3 text-warm-500 text-sm mb-4">
+                    <h3 class="font-display font-bold text-lg section-portfolio-title mb-2"><?php echo htmlspecialchars($proy['title']); ?></h3>
+                    <div class="flex flex-wrap gap-3 section-portfolio-meta text-sm mb-4">
                         <span class="flex items-center gap-1">
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
                             <?php echo $proy['m2']; ?> m²
@@ -118,7 +118,7 @@ $ca_category_to_service = [
                         ? ($ca_category_to_service[$proy['category']] ?? $proy['category'])
                         : ($category_to_service[$proy['category']] ?? $proy['category']);
                     ?>
-                    <a href="/<?php echo $lang; ?>/<?php echo $svc_slug; ?>/" class="inline-flex items-center gap-1 text-brand-500 text-sm font-semibold hover:text-brand-400 transition-colors group/link">
+                    <a href="/<?php echo $lang; ?>/<?php echo $svc_slug; ?>/" class="inline-flex items-center gap-1 section-portfolio-link text-sm font-semibold transition-colors group/link">
                         <?php echo $ver_proyecto; ?>
                         <svg class="w-4 h-4 transition-transform group-hover/link:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
                     </a>

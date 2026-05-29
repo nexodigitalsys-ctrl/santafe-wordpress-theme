@@ -28,29 +28,29 @@ $soluciones = $lang === 'ca' ? [
 $cta = $lang === 'ca' ? 'Evitar aquests problemes →' : 'Evitar estos problemas →';
 ?>
 
-<section data-reveal class="py-24 md:py-32 bg-white border-b border-warm-200" id="dores-solucoes">
+<section data-reveal class="py-24 md:py-32 section-dores border-b" id="dores-solucoes">
     <div class="max-w-7xl mx-auto px-6">
         <div class="grid lg:grid-cols-[0.8fr_1.2fr] gap-12 items-start">
             <div>
                 <div class="flex items-center gap-4 mb-4">
                     <div class="industrial-line w-12"></div>
-                    <span class="text-brand-400 text-xs font-semibold uppercase tracking-[0.3em]"><?php echo $lang === 'ca' ? 'Control de risc' : 'Control de riesgo'; ?></span>
+                    <span class="section-dores-badge text-xs font-semibold uppercase tracking-[0.3em]"><?php echo $lang === 'ca' ? 'Control de risc' : 'Control de riesgo'; ?></span>
                 </div>
-                <h2 class="font-display font-bold text-3xl md:text-5xl text-warm-900 tracking-tight mb-5"><?php echo $title; ?></h2>
-                <p class="text-warm-500 leading-relaxed"><?php echo $subtitle; ?></p>
+                <h2 class="font-display font-bold text-3xl md:text-5xl section-dores-title tracking-tight mb-5"><?php echo $title; ?></h2>
+                <p class="section-dores-body leading-relaxed"><?php echo $subtitle; ?></p>
             </div>
 
             <div class="space-y-4">
                 <?php foreach ($soluciones as $sol): ?>
-                <div class="flex items-center gap-4 bg-white border border-warm-200 p-5 rounded-xl shadow-card hover:shadow-card-hover transition-shadow duration-300">
-                    <div class="w-8 h-8 bg-brand-900/50 rounded-full flex items-center justify-center flex-shrink-0">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#AE232A" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+                <div class="flex items-center gap-4 section-dores-item border p-5 rounded-xl shadow-card hover:shadow-card-hover transition-shadow duration-300">
+                    <div class="w-8 h-8 section-dores-item-icon rounded-full flex items-center justify-center flex-shrink-0">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
                     </div>
-                    <span class="text-warm-700 font-medium"><?php echo $sol; ?></span>
+                    <span class="section-dores-item-text font-medium"><?php echo $sol; ?></span>
                 </div>
                 <?php endforeach; ?>
 
-                <a href="#contacto" class="inline-flex items-center gap-2 text-brand-500 font-semibold hover:text-brand-400 transition-colors mt-4">
+                <a href="#contacto" class="inline-flex items-center gap-2 section-dores-link font-semibold transition-colors mt-4">
                     <?php echo $cta; ?>
                 </a>
             </div>

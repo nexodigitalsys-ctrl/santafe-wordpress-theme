@@ -243,6 +243,202 @@ $nav_contact_path = $lang === 'ca' ? 'contacte' : 'contacto';
     --cta-btn-outline-border: rgba(255,255,255,0.3);
     --cta-btn-outline-border-hover: rgba(255,255,255,0.6);
     --cta-btn-outline-text: #ffffff;
+
+    /* ========== SECTION: SERVICIOS ========== */
+    --servicios-bg: #ffffff;
+    --servicios-text-title: #1a1a1a;
+    --servicios-text-body: #6b6b6b;
+    --servicios-badge-text: #f87171;
+    --servicios-card-bg: #ffffff;
+    --servicios-card-border: #e5e5e5;
+    --servicios-card-hover-border: rgba(174, 35, 42, 0.3);
+    --servicios-card-icon-bg: rgba(174, 35, 42, 0.9);
+    --servicios-card-icon-text: #ffffff;
+    --servicios-link-text: #ef4444;
+    --servicios-link-hover: #f87171;
+    --servicios-cta-card-bg: rgba(69, 10, 10, 0.3);
+    --servicios-cta-card-border: rgba(69, 10, 10, 0.5);
+    --servicios-cta-card-text: #f87171;
+    --servicios-cta-card-title: #ffffff;
+
+    /* ========== SECTION: PORTFOLIO ========== */
+    --portfolio-bg: #faf9f7;
+    --portfolio-text-title: #1a1a1a;
+    --portfolio-text-body: #6b6b6b;
+    --portfolio-badge-text: #f87171;
+    --portfolio-border: #e5e5e5;
+    --portfolio-filter-active-bg: var(--color-brand);
+    --portfolio-filter-active-border: var(--color-brand);
+    --portfolio-filter-active-text: #ffffff;
+    --portfolio-filter-inactive-border: #d4d4d4;
+    --portfolio-filter-inactive-text: #525252;
+    --portfolio-card-bg: #ffffff;
+    --portfolio-card-border: #e5e5e5;
+    --portfolio-card-tag-bg: var(--color-brand);
+    --portfolio-card-tag-text: #ffffff;
+    --portfolio-card-meta-text: #737373;
+    --portfolio-card-link-text: #ef4444;
+    --portfolio-card-link-hover: #f87171;
+
+    /* ========== SECTION: PROCESO ========== */
+    --proceso-bg: #ffffff;
+    --proceso-text-title: #1a1a1a;
+    --proceso-text-body: #6b6b6b;
+    --proceso-badge-text: #f87171;
+    --proceso-card-bg: #ffffff;
+    --proceso-card-border: #e5e5e5;
+    --proceso-card-hover-border: rgba(174, 35, 42, 0.3);
+    --proceso-step-num: #404040;
+    --proceso-step-num-hover: rgba(69, 10, 10, 0.4);
+    --proceso-icon-bg: rgba(69, 10, 10, 0.4);
+    --proceso-icon-text: #fbbf24;
+    --proceso-connector: #e5e5e5;
+    --proceso-connector-hover: rgba(69, 10, 10, 0.5);
+    --proceso-guarantee-bg: #ffffff;
+    --proceso-guarantee-border: #e5e5e5;
+
+    /* ========== SECTION: FAQ ========== */
+    --faq-bg: #ffffff;
+    --faq-text-title: #1a1a1a;
+    --faq-text-body: #737373;
+    --faq-badge-text: #f87171;
+    --faq-card-bg: #ffffff;
+    --faq-card-border: #e5e5e5;
+    --faq-card-hover-border: #d4d4d4;
+    --faq-question-text: #1a1a1a;
+    --faq-question-hover: var(--color-brand);
+    --faq-icon-bg: #f5f5f4;
+    --faq-icon-text: #737373;
+    --faq-icon-hover-bg: var(--color-brand);
+    --faq-icon-hover-text: #ffffff;
+    --faq-answer-text: #525252;
+    --faq-cta-bg: var(--color-brand);
+    --faq-cta-hover: var(--color-brand-hover);
+    --faq-cta-text: #ffffff;
+
+    /* ========== SECTION: GARANTIAS ========== */
+    --garantias-bg: #faf9f7;
+    --garantias-text-title: #1a1a1a;
+    --garantias-text-body: #737373;
+    --garantias-badge-text: #f87171;
+    --garantias-card-bg: #ffffff;
+    --garantias-card-border: #e5e5e5;
+    --garantias-card-hover-border: rgba(174, 35, 42, 0.3);
+    --garantias-icon-bg: #fef2f2;
+    --garantias-icon-text: var(--color-brand);
+    --garantias-icon-hover-bg: #fee2e2;
+
+    /* ========== SECTION: CONTACTO ========== */
+    --contacto-bg: #ffffff;
+    --contacto-text-title: #1a1a1a;
+    --contacto-text-body: #525252;
+    --contacto-badge-text: #f87171;
+    --contacto-form-bg: #faf9f7;
+    --contacto-form-border: #e5e5e5;
+    --contacto-label-text: #737373;
+    --contacto-input-bg: #ffffff;
+    --contacto-input-border: #d4d4d4;
+    --contacto-input-text: #1a1a1a;
+    --contacto-info-title: #1a1a1a;
+    --contacto-info-icon-bg: #f5f5f4;
+    --contacto-info-icon-text: #ef4444;
+    --contacto-info-icon-hover: #fef2f2;
+    --contacto-info-text: #1a1a1a;
+    --contacto-info-label: #737373;
+    --contacto-financing-bg-start: var(--color-brand);
+    --contacto-financing-bg-end: #b91c1c;
+    --contacto-financing-text: #ffffff;
+    --contacto-map-border: #e5e5e5;
+    --contacto-submit-bg: var(--color-brand);
+    --contacto-submit-hover: var(--color-brand-hover);
+    --contacto-submit-text: #ffffff;
+
+    /* ========== SECTION: CALCULADORA ========== */
+    --calculadora-bg: #ffffff;
+    --calculadora-text-title: #1a1a1a;
+    --calculadora-text-body: #6b6b6b;
+    --calculadora-badge-text: #f87171;
+    --calculadora-form-bg: #faf9f7;
+    --calculadora-form-border: #e5e5e5;
+    --calculadora-label-text: #737373;
+    --calculadora-input-bg: #ffffff;
+    --calculadora-input-border: #d4d4d4;
+    --calculadora-input-text: #404040;
+    --calculadora-result-bg: #ffffff;
+    --calculadora-result-border: #e5e5e5;
+    --calculadora-result-label: #737373;
+    --calculadora-result-value: #1a1a1a;
+    --calculadora-cta-bg: var(--color-brand);
+    --calculadora-cta-hover: var(--color-brand-hover);
+    --calculadora-cta-text: #ffffff;
+    --calculadora-whatsapp-border: #d4d4d4;
+    --calculadora-whatsapp-hover: var(--color-brand);
+    --calculadora-whatsapp-text: #404040;
+
+    /* ========== SECTION: DORES/SOLUCOES ========== */
+    --dores-bg: #ffffff;
+    --dores-text-title: #1a1a1a;
+    --dores-text-body: #6b6b6b;
+    --dores-badge-text: #f87171;
+    --dores-item-bg: #ffffff;
+    --dores-item-border: #e5e5e5;
+    --dores-item-icon-bg: rgba(69, 10, 10, 0.5);
+    --dores-item-icon-stroke: #AE232A;
+    --dores-item-text: #404040;
+    --dores-link-text: #ef4444;
+    --dores-link-hover: #f87171;
+
+    /* ========== SECTION: SOBRE NOSOTROS (PAULO) ========== */
+    --sobre-bg: #faf9f7;
+    --sobre-text-title: #1a1a1a;
+    --sobre-text-subtitle: #f87171;
+    --sobre-text-body: #525252;
+    --sobre-badge-text: #f87171;
+    --sobre-stat-border: var(--color-brand);
+    --sobre-stat-value: #fbbf24;
+    --sobre-stat-label: #737373;
+    --sobre-value-dot: var(--color-brand);
+    --sobre-value-name: #1a1a1a;
+    --sobre-value-desc: #737373;
+    --sobre-cta-text: #fbbf24;
+    --sobre-cta-hover: #f87171;
+    --sobre-float-bg: var(--color-brand);
+    --sobre-float-text: #ffffff;
+    --sobre-image-bg: #f5f5f4;
+
+    /* ========== SECTION: BEFORE/AFTER ========== */
+    --beforeafter-bg: #ffffff;
+    --beforeafter-text-title: #1a1a1a;
+    --beforeafter-text-body: #737373;
+    --beforeafter-badge-bg: rgba(174, 35, 42, 0.1);
+    --beforeafter-badge-text: #f87171;
+    --beforeafter-badge-border: rgba(174, 35, 42, 0.2);
+    --beforeafter-border-top: rgba(174, 35, 42, 0.4);
+    --beforeafter-handle-bg: #ffffff;
+    --beforeafter-handle-text: #1a1a1a;
+    --beforeafter-after-label-bg: var(--color-brand);
+    --beforeafter-after-label-text: #ffffff;
+    --beforeafter-before-label-bg: #f5f5f4;
+    --beforeafter-before-label-text: #1a1a1a;
+    --beforeafter-caption-text: #737373;
+
+    /* ========== SECTION: GOOGLE REVIEWS ========== */
+    --reviews-bg: #faf9f7;
+    --reviews-text-title: #1a1a1a;
+    --reviews-badge-bg: rgba(59, 130, 246, 0.1);
+    --reviews-badge-text: #60a5fa;
+    --reviews-badge-border: rgba(59, 130, 246, 0.2);
+    --reviews-rating-text: #1a1a1a;
+    --reviews-card-bg: #ffffff;
+    --reviews-card-avatar-start: #3b82f6;
+    --reviews-card-avatar-end: #1d4ed8;
+    --reviews-card-avatar-text: #ffffff;
+    --reviews-card-author: #1a1a1a;
+    --reviews-card-text: #737373;
+    --reviews-verified-icon: #22c55e;
+    --reviews-verified-text: #737373;
+    --reviews-link-text: #60a5fa;
+    --reviews-link-hover: #93c5fd;
   }
 
   /* Dark mode overrides for section tokens */
@@ -260,6 +456,96 @@ $nav_contact_path = $lang === 'ca' ? 'contacte' : 'contacto';
     --testimonios-imperfection-bg: rgba(245, 158, 11, 0.1);
     --testimonios-imperfection-border: rgba(245, 158, 11, 0.3);
     --testimonios-link-text: #94a3b8;
+    /* Dark mode: remaining sections */
+    --servicios-bg: #1e293b;
+    --servicios-text-title: #e2e8f0;
+    --servicios-text-body: #94a3b8;
+    --servicios-card-bg: rgba(30, 41, 59, 0.9);
+    --servicios-card-border: #334155;
+    --servicios-cta-card-bg: rgba(15, 23, 42, 0.5);
+    --servicios-cta-card-border: #334155;
+    --portfolio-bg: #0f172a;
+    --portfolio-text-title: #e2e8f0;
+    --portfolio-text-body: #94a3b8;
+    --portfolio-card-bg: #1e293b;
+    --portfolio-card-border: #334155;
+    --portfolio-filter-inactive-border: #334155;
+    --portfolio-filter-inactive-text: #94a3b8;
+    --proceso-bg: #1e293b;
+    --proceso-text-title: #e2e8f0;
+    --proceso-text-body: #94a3b8;
+    --proceso-card-bg: rgba(30, 41, 59, 0.9);
+    --proceso-card-border: #334155;
+    --proceso-step-num: #94a3b8;
+    --proceso-guarantee-bg: rgba(30, 41, 59, 0.9);
+    --proceso-guarantee-border: #334155;
+    --faq-bg: #1e293b;
+    --faq-text-title: #e2e8f0;
+    --faq-text-body: #94a3b8;
+    --faq-card-bg: rgba(30, 41, 59, 0.9);
+    --faq-card-border: #334155;
+    --faq-icon-bg: #334155;
+    --faq-icon-text: #94a3b8;
+    --faq-answer-text: #94a3b8;
+    --garantias-bg: #0f172a;
+    --garantias-text-title: #e2e8f0;
+    --garantias-text-body: #94a3b8;
+    --garantias-card-bg: #1e293b;
+    --garantias-card-border: #334155;
+    --garantias-icon-bg: rgba(174, 35, 42, 0.2);
+    --contacto-bg: #1e293b;
+    --contacto-text-title: #e2e8f0;
+    --contacto-text-body: #94a3b8;
+    --contacto-form-bg: rgba(30, 41, 59, 0.9);
+    --contacto-form-border: #334155;
+    --contacto-label-text: #94a3b8;
+    --contacto-input-bg: #1e293b;
+    --contacto-input-border: #334155;
+    --contacto-input-text: #e2e8f0;
+    --contacto-info-title: #e2e8f0;
+    --contacto-info-icon-bg: #334155;
+    --contacto-info-text: #e2e8f0;
+    --contacto-info-label: #94a3b8;
+    --contacto-map-border: #334155;
+    --calculadora-bg: #1e293b;
+    --calculadora-text-title: #e2e8f0;
+    --calculadora-text-body: #94a3b8;
+    --calculadora-form-bg: rgba(30, 41, 59, 0.9);
+    --calculadora-form-border: #334155;
+    --calculadora-label-text: #94a3b8;
+    --calculadora-input-bg: #1e293b;
+    --calculadora-input-border: #334155;
+    --calculadora-input-text: #e2e8f0;
+    --calculadora-result-bg: #1e293b;
+    --calculadora-result-border: #334155;
+    --calculadora-result-label: #94a3b8;
+    --calculadora-result-value: #e2e8f0;
+    --calculadora-whatsapp-border: #334155;
+    --calculadora-whatsapp-text: #94a3b8;
+    --dores-bg: #1e293b;
+    --dores-text-title: #e2e8f0;
+    --dores-text-body: #94a3b8;
+    --dores-item-bg: rgba(30, 41, 59, 0.9);
+    --dores-item-border: #334155;
+    --dores-item-text: #94a3b8;
+    --sobre-bg: #0f172a;
+    --sobre-text-title: #e2e8f0;
+    --sobre-text-body: #94a3b8;
+    --sobre-stat-label: #94a3b8;
+    --sobre-value-name: #e2e8f0;
+    --sobre-value-desc: #94a3b8;
+    --sobre-image-bg: #334155;
+    --beforeafter-bg: #1e293b;
+    --beforeafter-text-title: #e2e8f0;
+    --beforeafter-text-body: #94a3b8;
+    --beforeafter-before-label-bg: #334155;
+    --beforeafter-before-label-text: #e2e8f0;
+    --beforeafter-caption-text: #94a3b8;
+    --reviews-bg: #0f172a;
+    --reviews-text-title: #e2e8f0;
+    --reviews-card-bg: #1e293b;
+    --reviews-card-text: #94a3b8;
+    --reviews-verified-text: #94a3b8;
   }
 
   /* Base styles */
@@ -483,6 +769,163 @@ $nav_contact_path = $lang === 'ca' ? 'contacte' : 'contacto';
   .section-cta-btn-outline:hover {
     border-color: var(--cta-btn-outline-border-hover);
   }
+
+  /* ----- SERVICIOS ----- */
+  .section-servicios { background-color: var(--servicios-bg); }
+  .section-servicios-title { color: var(--servicios-text-title); }
+  .section-servicios-body { color: var(--servicios-text-body); }
+  .section-servicios-badge { color: var(--servicios-badge-text); }
+  .section-servicios-card { background-color: var(--servicios-card-bg); border-color: var(--servicios-card-border); }
+  .section-servicios-card:hover { border-color: var(--servicios-card-hover-border); }
+  .section-servicios-card-icon { background-color: var(--servicios-card-icon-bg); color: var(--servicios-card-icon-text); }
+  .section-servicios-link { color: var(--servicios-link-text); }
+  .section-servicios-link:hover { color: var(--servicios-link-hover); }
+  .section-servicios-cta-card { background-color: var(--servicios-cta-card-bg); border-color: var(--servicios-cta-card-border); }
+  .section-servicios-cta-text { color: var(--servicios-cta-card-text); }
+  .section-servicios-cta-title { color: var(--servicios-cta-card-title); }
+
+  /* ----- PORTFOLIO ----- */
+  .section-portfolio { background-color: var(--portfolio-bg); border-color: var(--portfolio-border); }
+  .section-portfolio-title { color: var(--portfolio-text-title); }
+  .section-portfolio-body { color: var(--portfolio-text-body); }
+  .section-portfolio-badge { color: var(--portfolio-badge-text); }
+  .section-portfolio-filter-active { background-color: var(--portfolio-filter-active-bg); border-color: var(--portfolio-filter-active-border); color: var(--portfolio-filter-active-text); }
+  .section-portfolio-filter-inactive { border-color: var(--portfolio-filter-inactive-border); color: var(--portfolio-filter-inactive-text); }
+  .section-portfolio-card { background-color: var(--portfolio-card-bg); border-color: var(--portfolio-card-border); }
+  .section-portfolio-tag { background-color: var(--portfolio-card-tag-bg); color: var(--portfolio-card-tag-text); }
+  .section-portfolio-meta { color: var(--portfolio-card-meta-text); }
+  .section-portfolio-link { color: var(--portfolio-card-link-text); }
+  .section-portfolio-link:hover { color: var(--portfolio-card-link-hover); }
+
+  /* ----- PROCESO ----- */
+  .section-proceso { background-color: var(--proceso-bg); }
+  .section-proceso-title { color: var(--proceso-text-title); }
+  .section-proceso-body { color: var(--proceso-text-body); }
+  .section-proceso-badge { color: var(--proceso-badge-text); }
+  .section-proceso-card { background-color: var(--proceso-card-bg); border-color: var(--proceso-card-border); }
+  .section-proceso-card:hover { border-color: var(--proceso-card-hover-border); }
+  .section-proceso-step-num { color: var(--proceso-step-num); }
+  .section-proceso-card:hover .section-proceso-step-num { color: var(--proceso-step-num-hover); }
+  .section-proceso-icon { background-color: var(--proceso-icon-bg); color: var(--proceso-icon-text); }
+  .section-proceso-connector { background-color: var(--proceso-connector); }
+  .section-proceso-card:hover .section-proceso-connector { background-color: var(--proceso-connector-hover); }
+  .section-proceso-guarantee { background-color: var(--proceso-guarantee-bg); border-color: var(--proceso-guarantee-border); }
+
+  /* ----- FAQ ----- */
+  .section-faq { background-color: var(--faq-bg); }
+  .section-faq-title { color: var(--faq-text-title); }
+  .section-faq-body { color: var(--faq-text-body); }
+  .section-faq-badge { color: var(--faq-badge-text); }
+  .section-faq-card { background-color: var(--faq-card-bg); border-color: var(--faq-card-border); }
+  .section-faq-card:hover { border-color: var(--faq-card-hover-border); }
+  .section-faq-question { color: var(--faq-question-text); }
+  .section-faq-question:hover { color: var(--faq-question-hover); }
+  .section-faq-icon { background-color: var(--faq-icon-bg); color: var(--faq-icon-text); }
+  .section-faq-trigger:hover .section-faq-icon { background-color: var(--faq-icon-hover-bg); color: var(--faq-icon-hover-text); }
+  .section-faq-answer { color: var(--faq-answer-text); }
+  .section-faq-cta { background-color: var(--faq-cta-bg); color: var(--faq-cta-text); }
+  .section-faq-cta:hover { background-color: var(--faq-cta-hover); }
+
+  /* ----- GARANTIAS ----- */
+  .section-garantias { background-color: var(--garantias-bg); }
+  .section-garantias-title { color: var(--garantias-text-title); }
+  .section-garantias-body { color: var(--garantias-text-body); }
+  .section-garantias-badge { color: var(--garantias-badge-text); }
+  .section-garantias-card { background-color: var(--garantias-card-bg); border-color: var(--garantias-card-border); }
+  .section-garantias-card:hover { border-color: var(--garantias-card-hover-border); }
+  .section-garantias-icon { background-color: var(--garantias-icon-bg); color: var(--garantias-icon-text); }
+  .section-garantias-card:hover .section-garantias-icon { background-color: var(--garantias-icon-hover-bg); }
+
+  /* ----- CONTACTO ----- */
+  .section-contacto { background-color: var(--contacto-bg); }
+  .section-contacto-title { color: var(--contacto-text-title); }
+  .section-contacto-body { color: var(--contacto-text-body); }
+  .section-contacto-badge { color: var(--contacto-badge-text); }
+  .section-contacto-form { background-color: var(--contacto-form-bg); border-color: var(--contacto-form-border); }
+  .section-contacto-label { color: var(--contacto-label-text); }
+  .section-contacto-input { background-color: var(--contacto-input-bg); border-color: var(--contacto-input-border); color: var(--contacto-input-text); }
+  .section-contacto-input:focus { border-color: var(--color-brand); outline: none; }
+  .section-contacto-info-title { color: var(--contacto-info-title); }
+  .section-contacto-info-icon { background-color: var(--contacto-info-icon-bg); color: var(--contacto-info-icon-text); }
+  .section-contacto-info-row:hover .section-contacto-info-icon { background-color: var(--contacto-info-icon-hover); }
+  .section-contacto-info-text { color: var(--contacto-info-text); }
+  .section-contacto-info-label { color: var(--contacto-info-label); }
+  .section-contacto-financing { background: linear-gradient(135deg, var(--contacto-financing-bg-start), var(--contacto-financing-bg-end)); }
+  .section-contacto-financing-text { color: var(--contacto-financing-text); }
+  .section-contacto-map { border-color: var(--contacto-map-border); }
+  .section-contacto-submit { background-color: var(--contacto-submit-bg); color: var(--contacto-submit-text); }
+  .section-contacto-submit:hover { background-color: var(--contacto-submit-hover); }
+
+  /* ----- CALCULADORA ----- */
+  .section-calculadora { background-color: var(--calculadora-bg); }
+  .section-calculadora-title { color: var(--calculadora-text-title); }
+  .section-calculadora-body { color: var(--calculadora-text-body); }
+  .section-calculadora-badge { color: var(--calculadora-badge-text); }
+  .section-calculadora-form { background-color: var(--calculadora-form-bg); border-color: var(--calculadora-form-border); }
+  .section-calculadora-label { color: var(--calculadora-label-text); }
+  .section-calculadora-input { background-color: var(--calculadora-input-bg); border-color: var(--calculadora-input-border); color: var(--calculadora-input-text); }
+  .section-calculadora-input:focus { border-color: var(--color-brand); outline: none; }
+  .section-calculadora-result { background-color: var(--calculadora-result-bg); border-color: var(--calculadora-result-border); }
+  .section-calculadora-result-label { color: var(--calculadora-result-label); }
+  .section-calculadora-result-value { color: var(--calculadora-result-value); }
+  .section-calculadora-cta { background-color: var(--calculadora-cta-bg); color: var(--calculadora-cta-text); }
+  .section-calculadora-cta:hover { background-color: var(--calculadora-cta-hover); }
+  .section-calculadora-whatsapp { border-color: var(--calculadora-whatsapp-border); color: var(--calculadora-whatsapp-text); }
+  .section-calculadora-whatsapp:hover { border-color: var(--calculadora-whatsapp-hover); }
+
+  /* ----- DORES/SOLUCOES ----- */
+  .section-dores { background-color: var(--dores-bg); }
+  .section-dores-title { color: var(--dores-text-title); }
+  .section-dores-body { color: var(--dores-text-body); }
+  .section-dores-badge { color: var(--dores-badge-text); }
+  .section-dores-item { background-color: var(--dores-item-bg); border-color: var(--dores-item-border); }
+  .section-dores-item-icon { background-color: var(--dores-item-icon-bg); }
+  .section-dores-item-icon svg { stroke: var(--dores-item-icon-stroke); }
+  .section-dores-item-text { color: var(--dores-item-text); }
+  .section-dores-link { color: var(--dores-link-text); }
+  .section-dores-link:hover { color: var(--dores-link-hover); }
+
+  /* ----- SOBRE NOSOTROS (PAULO) ----- */
+  .section-sobre { background-color: var(--sobre-bg); }
+  .section-sobre-title { color: var(--sobre-text-title); }
+  .section-sobre-subtitle { color: var(--sobre-text-subtitle); }
+  .section-sobre-body { color: var(--sobre-text-body); }
+  .section-sobre-badge { color: var(--sobre-badge-text); }
+  .section-sobre-stat { border-color: var(--sobre-stat-border); }
+  .section-sobre-stat-value { color: var(--sobre-stat-value); }
+  .section-sobre-stat-label { color: var(--sobre-stat-label); }
+  .section-sobre-value-dot { background-color: var(--sobre-value-dot); }
+  .section-sobre-value-name { color: var(--sobre-value-name); }
+  .section-sobre-value-desc { color: var(--sobre-value-desc); }
+  .section-sobre-cta { color: var(--sobre-cta-text); }
+  .section-sobre-cta:hover { color: var(--sobre-cta-hover); }
+  .section-sobre-float { background-color: var(--sobre-float-bg); color: var(--sobre-float-text); }
+  .section-sobre-image { background-color: var(--sobre-image-bg); }
+
+  /* ----- BEFORE/AFTER ----- */
+  .section-beforeafter { background-color: var(--beforeafter-bg); }
+  .section-beforeafter-title { color: var(--beforeafter-text-title); }
+  .section-beforeafter-body { color: var(--beforeafter-text-body); }
+  .section-beforeafter-badge { background-color: var(--beforeafter-badge-bg); color: var(--beforeafter-badge-text); border-color: var(--beforeafter-badge-border); }
+  .section-beforeafter-border-top { background: linear-gradient(90deg, transparent 0%, var(--beforeafter-border-top) 50%, transparent 100%); }
+  .section-beforeafter-handle { background-color: var(--beforeafter-handle-bg); color: var(--beforeafter-handle-text); }
+  .section-beforeafter-after-label { background-color: var(--beforeafter-after-label-bg); color: var(--beforeafter-after-label-text); }
+  .section-beforeafter-before-label { background-color: var(--beforeafter-before-label-bg); color: var(--beforeafter-before-label-text); }
+  .section-beforeafter-caption { color: var(--beforeafter-caption-text); }
+
+  /* ----- GOOGLE REVIEWS ----- */
+  .section-reviews { background-color: var(--reviews-bg); }
+  .section-reviews-title { color: var(--reviews-text-title); }
+  .section-reviews-badge { background-color: var(--reviews-badge-bg); color: var(--reviews-badge-text); border-color: var(--reviews-badge-border); }
+  .section-reviews-rating { color: var(--reviews-rating-text); }
+  .section-reviews-card { background-color: var(--reviews-card-bg); }
+  .section-reviews-avatar { background: linear-gradient(to bottom right, var(--reviews-card-avatar-start), var(--reviews-card-avatar-end)); color: var(--reviews-card-avatar-text); }
+  .section-reviews-author { color: var(--reviews-card-author); }
+  .section-reviews-text { color: var(--reviews-card-text); }
+  .section-reviews-verified-icon { color: var(--reviews-verified-icon); }
+  .section-reviews-verified-text { color: var(--reviews-verified-text); }
+  .section-reviews-link { color: var(--reviews-link-text); }
+  .section-reviews-link:hover { color: var(--reviews-link-hover); }
 
   /* Mobile menu */
   .mobile-menu {

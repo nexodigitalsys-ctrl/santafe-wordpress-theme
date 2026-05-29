@@ -172,35 +172,35 @@ $cta_card_subtitle = $lang === 'ca' ? 'Paulo t\'ajuda a decidir-ho' : 'Paulo te 
 $cta_card_btn = $lang === 'ca' ? 'Trucar ara — Respon en 2 hores' : 'Llamar ahora — Responde en 2 horas';
 ?>
 
-<section data-reveal class="py-24 md:py-32 bg-white" id="servicios">
+<section data-reveal class="py-24 md:py-32 section-servicios" id="servicios">
     <div class="max-w-7xl mx-auto px-6">
         <div class="flex flex-col md:flex-row md:items-end md:justify-between mb-16 gap-6">
             <div>
                 <div class="flex items-center gap-4 mb-4">
                     <div class="industrial-line w-12"></div>
-                    <span class="text-brand-400 text-xs font-semibold uppercase tracking-[0.3em]"><?php echo t($translations, 'nav.services'); ?></span>
+                    <span class="section-servicios-badge text-xs font-semibold uppercase tracking-[0.3em]"><?php echo t($translations, 'nav.services'); ?></span>
                 </div>
-                <h2 class="font-display font-bold text-4xl md:text-5xl lg:text-6xl text-warm-900 tracking-tight"><?php echo $title; ?></h2>
+                <h2 class="font-display font-bold text-4xl md:text-5xl lg:text-6xl section-servicios-title tracking-tight"><?php echo $title; ?></h2>
             </div>
         </div>
 
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="servicios-grid">
             <?php foreach ($services as $svc): ?>
-            <article class="service-card tilt-card group relative overflow-hidden rounded-sm bg-white border border-warm-200 hover:border-brand-500/30 shadow-card hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-brand-900/20">
-                <div class="aspect-[16/10] overflow-hidden bg-warm-100 relative">
+            <article class="service-card tilt-card group relative overflow-hidden rounded-sm section-servicios-card border shadow-card hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-brand-900/20">
+                <div class="aspect-[16/10] overflow-hidden section-sobre-image relative">
                     <img src="<?php echo esc_url(get_template_directory_uri() . $svc['img']); ?>"
                          alt="<?php echo esc_attr($svc['title']); ?>"
                          class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
                          loading="lazy"
                          onerror="this.src='<?php echo esc_url(get_template_directory_uri() . '/assets/images/fallback-construction.svg'); ?>'">
-                    <div class="absolute top-4 left-4 w-12 h-12 bg-brand-600/90 backdrop-blur-sm rounded-lg flex items-center justify-center text-white shadow-lg">
+                    <div class="absolute top-4 left-4 w-12 h-12 section-servicios-card-icon backdrop-blur-sm rounded-lg flex items-center justify-center shadow-lg">
                         <?php echo $svc['icon']; ?>
                     </div>
                 </div>
                 <div class="p-6">
-                    <h3 class="font-display font-bold text-xl text-warm-900 mb-2"><?php echo $svc['title']; ?></h3>
-                    <p class="text-warm-500 text-sm leading-relaxed mb-4"><?php echo $svc['desc']; ?></p>
-                    <a href="/<?php echo $lang; ?>/<?php echo $svc['slug']; ?>/" class="inline-flex items-center gap-2 text-brand-500 text-sm font-semibold group/link hover:text-brand-400 transition-colors">
+                    <h3 class="font-display font-bold text-xl section-servicios-title mb-2"><?php echo $svc['title']; ?></h3>
+                    <p class="section-servicios-body text-sm leading-relaxed mb-4"><?php echo $svc['desc']; ?></p>
+                    <a href="/<?php echo $lang; ?>/<?php echo $svc['slug']; ?>/" class="inline-flex items-center gap-2 section-servicios-link text-sm font-semibold group/link transition-colors">
                         <?php echo $svc['cta']; ?>
                         <span class="transition-transform group-hover/link:translate-x-1">→</span>
                     </a>
@@ -209,9 +209,9 @@ $cta_card_btn = $lang === 'ca' ? 'Trucar ara — Respon en 2 hores' : 'Llamar ah
             <?php endforeach; ?>
 
             <!-- CTA Card -->
-            <div class="flex flex-col justify-center items-center p-8 bg-brand-950/30 border border-brand-900/50 rounded-sm text-center">
-                <p class="text-brand-400 text-sm uppercase tracking-widest mb-3"><?php echo $cta_card_title; ?></p>
-                <p class="font-display font-bold text-2xl text-white mb-6"><?php echo $cta_card_subtitle; ?></p>
+            <div class="flex flex-col justify-center items-center p-8 section-servicios-cta-card border rounded-sm text-center">
+                <p class="section-servicios-cta-text text-sm uppercase tracking-widest mb-3"><?php echo $cta_card_title; ?></p>
+                <p class="font-display font-bold text-2xl section-servicios-cta-title mb-6"><?php echo $cta_card_subtitle; ?></p>
                 <a href="/<?php echo $lang; ?>/contacto/" class="inline-flex items-center gap-2 bg-brand-600 hover:bg-brand-500 text-white font-semibold px-6 py-3 rounded-sm transition-all text-sm uppercase tracking-wide">
                     <?php echo $cta_card_btn; ?>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"/></svg>
