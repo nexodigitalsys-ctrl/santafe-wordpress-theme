@@ -96,7 +96,7 @@ $nav_contact_path = $lang === 'ca' ? 'contacte' : 'contacto';
 <head>
 <script>(function(d){d.classList.remove('no-js');d.classList.add('js');})(document.documentElement);</script>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
 <title><?php echo $page_title; ?></title>
@@ -656,6 +656,79 @@ $nav_contact_path = $lang === 'ca' ? 'contacte' : 'contacto';
   /* Logo aspect ratio */
   .logo-aspect { aspect-ratio: 1656/551; }
 
+  /* ═══════════════════════════════════════════════════════════
+     RESPONSIVE HEADER — Mobile-first adaptive sizing
+     From smallest phone (320px) up to tablet (768px)
+     ═══════════════════════════════════════════════════════════ */
+
+  /* Base mobile: 320px+ */
+  [data-header-inner] {
+    padding-left: clamp(0.75rem, 3vw, 1.5rem) !important;
+    padding-right: clamp(0.75rem, 3vw, 1.5rem) !important;
+    padding-top: clamp(0.75rem, 2vw, 1.25rem) !important;
+    padding-bottom: clamp(0.75rem, 2vw, 1.25rem) !important;
+    max-width: 100vw !important;
+    width: 100% !important;
+  }
+  [data-brand-text] {
+    font-size: clamp(1.1rem, 5vw, 1.65rem) !important;
+  }
+  [data-brand-sub] {
+    font-size: clamp(0.55rem, 2vw, 0.7rem) !important;
+    letter-spacing: clamp(0.15em, 1vw, 0.3em) !important;
+    margin-top: clamp(0.25rem, 1vw, 0.625rem) !important;
+  }
+  .logo-aspect {
+    height: clamp(2.25rem, 8vw, 3.25rem) !important;
+  }
+
+  /* Tiny phones: 320px–360px */
+  @media (max-width: 360px) {
+    [data-header-inner] { padding-left: 0.5rem !important; padding-right: 0.5rem !important; }
+    [data-brand-text] { font-size: 1rem !important; }
+    [data-brand-sub] { font-size: 0.5rem !important; letter-spacing: 0.12em !important; }
+    .logo-aspect { height: 2rem !important; }
+    #menu-toggle { padding: 0.25rem !important; }
+    #menu-toggle svg { width: 20px !important; height: 20px !important; }
+  }
+
+  /* Small phones: 361px–480px */
+  @media (min-width: 361px) and (max-width: 480px) {
+    [data-brand-text] { font-size: 1.2rem !important; }
+    [data-brand-sub] { font-size: 0.58rem !important; }
+    .logo-aspect { height: 2.5rem !important; }
+  }
+
+  /* Medium phones: 481px–640px */
+  @media (min-width: 481px) and (max-width: 640px) {
+    [data-brand-text] { font-size: 1.4rem !important; }
+    [data-brand-sub] { font-size: 0.62rem !important; }
+    .logo-aspect { height: 2.75rem !important; }
+  }
+
+  /* Large phones / small tablets: 641px–768px */
+  @media (min-width: 641px) and (max-width: 768px) {
+    [data-brand-text] { font-size: 1.55rem !important; }
+    .logo-aspect { height: 3rem !important; }
+  }
+
+  /* Ensure menu toggle is ALWAYS visible on mobile */
+  @media (max-width: 1023px) {
+    #menu-toggle {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      flex-shrink: 0 !important;
+      margin-left: auto !important;
+      z-index: 51 !important;
+    }
+    [data-header-inner] > a:first-child {
+      flex-shrink: 1 !important;
+      min-width: 0 !important;
+      overflow: hidden !important;
+    }
+  }
+
   /* ================================================================
      SECTION DESIGN TOKENS — Custom utility classes
      These map CSS custom properties to section-specific styles.
@@ -964,25 +1037,43 @@ $nav_contact_path = $lang === 'ca' ? 'contacte' : 'contacto';
   /* Dark mode */
   html.dark { color-scheme: dark; }
   html.dark body { background-color: #0f172a; color: #e2e8f0; }
-  html.dark .mobile-menu { background-color: #0f172a; }
+
+  /* Mobile menu dark mode — refined background with subtle gradient */
+  html.dark .mobile-menu {
+    background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%) !important;
+  }
+  html.dark .mobile-menu::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at top, rgba(30,58,138,0.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
   html.dark #menu-close { color: #e2e8f0; }
   html.dark .mobile-submenu-toggle { color: #94a3b8; }
   html.dark .mobile-submenu-toggle:hover { color: var(--color-accent-hover); }
   html.dark .mobile-submenu-panel a { color: #cbd5e1; }
-  html.dark .mobile-submenu-panel a:hover { color: var(--color-accent-hover); background-color: #1e293b; }
-  html.dark .mobile-nav-link { color: #e2e8f0 !important; }
+  html.dark .mobile-submenu-panel a:hover { color: var(--color-accent-hover); background-color: rgba(30,41,59,0.8); }
+  html.dark .mobile-nav-link { color: #f1f5f9 !important; }
   html.dark .mobile-nav-link[data-track-event="phone_click"] { color: var(--color-accent-hover) !important; }
-  html.dark #menu-close { color: #e2e8f0; }
+  html.dark #menu-close { color: #f1f5f9; }
   html.dark .header-scrolled { background-color: rgba(15, 23, 42, 0.95) !important; backdrop-filter: blur(12px); }
   html.dark .header-scrolled [data-nav-link] { color: rgba(226, 232, 240, 0.85); }
   html.dark .header-scrolled [data-nav-link]:hover { color: #fff; }
   html.dark .header-scrolled [data-lang-btn] { color: rgba(226, 232, 240, 0.6); border-color: rgba(226, 232, 240, 0.2); }
   html.dark .header-scrolled [data-lang-btn]:hover { color: #fff; border-color: rgba(226, 232, 240, 0.4); }
-  html.dark .header-scrolled [data-menu-btn] { color: #e2e8f0; }
-  html.dark .header-scrolled [data-brand-text] { color: #e2e8f0; }
+  html.dark .header-scrolled [data-menu-btn] { color: #f1f5f9; }
+  html.dark .header-scrolled [data-brand-text] { color: #ffffff !important; }
   html.dark .header-scrolled [data-brand-sub] { color: rgba(226, 232, 240, 0.6); }
   html.dark .header-scrolled [data-nav-cta] { background-color: var(--btn-primary-bg); }
   html.dark .header-scrolled [data-nav-cta]:hover { background-color: var(--btn-primary-bg-hover); }
+
+  /* ── FORCE white header text in ALL dark mode states ── */
+  html.dark [data-brand-text] { color: #ffffff !important; }
+  html.dark [data-brand-sub] { color: rgba(255,255,255,0.7) !important; }
+  html.dark body.header-solid [data-brand-text] { color: #ffffff !important; }
+  html.dark body.header-solid [data-brand-sub] { color: rgba(255,255,255,0.7) !important; }
+  html.dark body.header-solid [data-menu-btn] { color: #f1f5f9 !important; }
 
   /* Pages without dark hero — force solid header from start */
   body.header-solid #site-nav {
