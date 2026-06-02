@@ -46,7 +46,7 @@
 
             const phoneField = form.querySelector('input[type="tel"]');
             if (phoneField && phoneField.value) {
-                const phoneRegex = /^[\+]?[\d\s\-\(\)]{9,20}$/;
+                const phoneRegex = /^[\+]?[\d\s\-\(\)\.]{9,20}$/;
                 if (!phoneRegex.test(phoneField.value)) {
                     phoneField.setCustomValidity('Por favor, introduce un teléfono válido.');
                     phoneField.reportValidity();
