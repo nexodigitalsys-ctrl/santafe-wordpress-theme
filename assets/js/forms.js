@@ -69,7 +69,7 @@
             const csrf = (window.santafeConfig && window.santafeConfig.csrfToken) || window.csrfToken || '';
             formData.set('csrf_token', csrf);
 
-            fetch(form.action || (window.santafeConfig && window.santafeConfig.ajaxUrl) || '/wp-admin/admin-post.php', {
+            fetch(form.getAttribute('action') || (window.santafeConfig && window.santafeConfig.ajaxUrl) || '/wp-admin/admin-post.php', {
                 method: 'POST',
                 headers: {
                     'X-Requested-With': 'XMLHttpRequest'
