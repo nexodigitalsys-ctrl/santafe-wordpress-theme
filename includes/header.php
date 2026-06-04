@@ -394,9 +394,18 @@ $nav_contact_path = $lang === 'ca' ? 'contacte' : 'contacto';
     --sobre-text-subtitle: #f87171;
     --sobre-text-body: #525252;
     --sobre-badge-text: #f87171;
-    --sobre-stat-border: var(--color-brand);
-    --sobre-stat-value: #fbbf24;
-    --sobre-stat-label: #737373;
+    --sobre-stat-bg: rgba(15, 23, 42, 0.7);
+    --sobre-stat-border: rgba(251, 191, 36, 0.25);
+    --sobre-stat-value: #ffffff;
+    --sobre-stat-label: #cbd5e1;
+    --sobre-eeat-bg: #ffffff;
+    --sobre-eeat-border: #e5e5e5;
+    --sobre-eeat-title: #1a1a1a;
+    --sobre-eeat-body: #737373;
+    --sobre-values-bg: #faf9f7;
+    --sobre-values-border: #e5e5e5;
+    --sobre-values-title: #1a1a1a;
+    --sobre-values-body: #737373;
     --sobre-value-dot: var(--color-brand);
     --sobre-value-name: #1a1a1a;
     --sobre-value-desc: #737373;
@@ -531,9 +540,19 @@ $nav_contact_path = $lang === 'ca' ? 'contacte' : 'contacto';
     --sobre-bg: #0f172a;
     --sobre-text-title: #e2e8f0;
     --sobre-text-body: #94a3b8;
+    --sobre-stat-bg: rgba(15, 23, 42, 0.85);
+    --sobre-stat-border: rgba(251, 191, 36, 0.3);
     --sobre-stat-label: #94a3b8;
     --sobre-value-name: #e2e8f0;
     --sobre-value-desc: #94a3b8;
+    --sobre-eeat-bg: rgba(30, 41, 59, 0.8);
+    --sobre-eeat-border: #334155;
+    --sobre-eeat-title: #e2e8f0;
+    --sobre-eeat-body: #94a3b8;
+    --sobre-values-bg: rgba(30, 41, 59, 0.6);
+    --sobre-values-border: #334155;
+    --sobre-values-title: #e2e8f0;
+    --sobre-values-body: #94a3b8;
     --sobre-image-bg: #334155;
     --beforeafter-bg: #1e293b;
     --beforeafter-text-title: #e2e8f0;
@@ -964,9 +983,15 @@ $nav_contact_path = $lang === 'ca' ? 'contacte' : 'contacto';
   .section-sobre-subtitle { color: var(--sobre-text-subtitle); }
   .section-sobre-body { color: var(--sobre-text-body); }
   .section-sobre-badge { color: var(--sobre-badge-text); }
-  .section-sobre-stat { border-color: var(--sobre-stat-border); }
+  .section-sobre-stat { background-color: var(--sobre-stat-bg); border-color: var(--sobre-stat-border); }
   .section-sobre-stat-value { color: var(--sobre-stat-value); }
   .section-sobre-stat-label { color: var(--sobre-stat-label); }
+  .section-sobre-eeat { background-color: var(--sobre-eeat-bg); border-color: var(--sobre-eeat-border); }
+  .section-sobre-eeat-title { color: var(--sobre-eeat-title); }
+  .section-sobre-eeat-body { color: var(--sobre-eeat-body); }
+  .section-sobre-values { background-color: var(--sobre-values-bg); border-color: var(--sobre-values-border); }
+  .section-sobre-values-title { color: var(--sobre-values-title); }
+  .section-sobre-values-body { color: var(--sobre-values-body); }
   .section-sobre-value-dot { background-color: var(--sobre-value-dot); }
   .section-sobre-value-name { color: var(--sobre-value-name); }
   .section-sobre-value-desc { color: var(--sobre-value-desc); }

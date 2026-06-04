@@ -145,21 +145,25 @@ include __DIR__ . '/../includes/header.php';
             </p>
         </div>
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <div class="bg-warm-50/50 border border-warm-200 rounded-sm p-6 text-center">
-                <p class="font-display font-bold text-3xl md:text-4xl text-brand-500">17+</p>
-                <p class="text-warm-500 text-sm mt-1"><?php echo $t['stats_years']; ?></p>
+            <div class="section-sobre-stat border backdrop-blur-md rounded-xl p-6 text-center shadow-lg hover:shadow-xl hover:-translate-y-1 hover:border-brand-400/40 transition-all duration-300 relative overflow-hidden group">
+                <div class="absolute top-0 right-0 w-16 h-16 bg-brand-500/10 rounded-bl-full -mr-4 -mt-4 transition-transform group-hover:scale-110"></div>
+                <p class="font-display font-bold text-3xl md:text-4xl lg:text-5xl section-sobre-stat-value relative z-10">17+</p>
+                <p class="section-sobre-stat-label text-sm mt-2 relative z-10 font-medium"><?php echo $t['stats_years']; ?></p>
             </div>
-            <div class="bg-warm-50/50 border border-warm-200 rounded-sm p-6 text-center">
-                <p class="font-display font-bold text-3xl md:text-4xl text-brand-500">500+</p>
-                <p class="text-warm-500 text-sm mt-1"><?php echo $t['stats_works']; ?></p>
+            <div class="section-sobre-stat border backdrop-blur-md rounded-xl p-6 text-center shadow-lg hover:shadow-xl hover:-translate-y-1 hover:border-brand-400/40 transition-all duration-300 relative overflow-hidden group">
+                <div class="absolute top-0 right-0 w-16 h-16 bg-brand-500/10 rounded-bl-full -mr-4 -mt-4 transition-transform group-hover:scale-110"></div>
+                <p class="font-display font-bold text-3xl md:text-4xl lg:text-5xl section-sobre-stat-value relative z-10">500+</p>
+                <p class="section-sobre-stat-label text-sm mt-2 relative z-10 font-medium"><?php echo $t['stats_works']; ?></p>
             </div>
-            <div class="bg-warm-50/50 border border-warm-200 rounded-sm p-6 text-center">
-                <p class="font-display font-bold text-3xl md:text-4xl text-brand-500">350+</p>
-                <p class="text-warm-500 text-sm mt-1"><?php echo $t['stats_clients']; ?></p>
+            <div class="section-sobre-stat border backdrop-blur-md rounded-xl p-6 text-center shadow-lg hover:shadow-xl hover:-translate-y-1 hover:border-brand-400/40 transition-all duration-300 relative overflow-hidden group">
+                <div class="absolute top-0 right-0 w-16 h-16 bg-brand-500/10 rounded-bl-full -mr-4 -mt-4 transition-transform group-hover:scale-110"></div>
+                <p class="font-display font-bold text-3xl md:text-4xl lg:text-5xl section-sobre-stat-value relative z-10">350+</p>
+                <p class="section-sobre-stat-label text-sm mt-2 relative z-10 font-medium"><?php echo $t['stats_clients']; ?></p>
             </div>
-            <div class="bg-warm-50/50 border border-warm-200 rounded-sm p-6 text-center">
-                <p class="font-display font-bold text-3xl md:text-4xl text-brand-500">2</p>
-                <p class="text-warm-500 text-sm mt-1"><?php echo $t['stats_guarantee']; ?></p>
+            <div class="section-sobre-stat border backdrop-blur-md rounded-xl p-6 text-center shadow-lg hover:shadow-xl hover:-translate-y-1 hover:border-brand-400/40 transition-all duration-300 relative overflow-hidden group">
+                <div class="absolute top-0 right-0 w-16 h-16 bg-brand-500/10 rounded-bl-full -mr-4 -mt-4 transition-transform group-hover:scale-110"></div>
+                <p class="font-display font-bold text-3xl md:text-4xl lg:text-5xl section-sobre-stat-value relative z-10">2</p>
+                <p class="section-sobre-stat-label text-sm mt-2 relative z-10 font-medium"><?php echo $t['stats_guarantee']; ?></p>
             </div>
         </div>
     </div>
@@ -278,10 +282,10 @@ include __DIR__ . '/../includes/header.php';
         </div>
         <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             <?php foreach ($eeat as $item): ?>
-            <div class="bg-white border border-warm-200 rounded-sm p-6 text-center">
+            <div class="section-sobre-eeat border rounded-xl p-6 text-center shadow-card hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300">
                 <svg class="w-10 h-10 text-brand-500 mx-auto mb-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="<?php echo $item['icon']; ?>"/></svg>
-                <h3 class="font-display font-bold text-lg text-warm-900 mb-2"><?php echo $item['title']; ?></h3>
-                <p class="text-warm-500 text-sm leading-relaxed"><?php echo $item['desc']; ?></p>
+                <h3 class="font-display font-bold text-lg section-sobre-eeat-title mb-2"><?php echo $item['title']; ?></h3>
+                <p class="section-sobre-eeat-body text-sm leading-relaxed"><?php echo $item['desc']; ?></p>
             </div>
             <?php endforeach; ?>
         </div>
@@ -305,9 +309,9 @@ include __DIR__ . '/../includes/header.php';
         </div>
         <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             <?php foreach ($values as $value): ?>
-            <div class="bg-warm-50 border border-warm-200 rounded-sm p-6">
-                <h3 class="font-display font-bold text-xl text-warm-900 mb-3"><?php echo $value['title']; ?></h3>
-                <p class="text-warm-500 text-sm leading-relaxed"><?php echo $value['desc']; ?></p>
+            <div class="section-sobre-values border rounded-xl p-6 shadow-card hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300">
+                <h3 class="font-display font-bold text-xl section-sobre-values-title mb-3"><?php echo $value['title']; ?></h3>
+                <p class="section-sobre-values-body text-sm leading-relaxed"><?php echo $value['desc']; ?></p>
             </div>
             <?php endforeach; ?>
         </div>
