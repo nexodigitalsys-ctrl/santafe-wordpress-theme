@@ -108,6 +108,46 @@ $galleries = [
 ];
 $gallery = $galleries[$service_slug] ?? $galleries['obra-nueva'];
 
+// ── Configurações do Carrossel (escaláveis) ────────────────────────
+// Defaults globais — altere aqui para afetar TODOS os serviços
+$carousel_defaults = [
+    'autoplay_delay'            => 4000,        // ms entre slides
+    'autoplay_stopOnInteraction'=> false,       // true = para ao clicar
+    'autoplay_stopOnMouseEnter' => true,        // true = para ao hover
+    'loop'                      => true,        // loop infinito
+    'slides_mobile'             => 1,           // slides visíveis mobile (<768px)
+    'slides_tablet'             => 2,           // slides visíveis tablet (768-1023px)
+    'slides_desktop'            => 3,           // slides visíveis desktop (>=1024px)
+    'image_aspect'              => '4/3',       // aspect-ratio das imagens
+    'align'                     => 'start',     // alinhamento do carrossel
+    'containScroll'             => false,       // evita espaço vazio no fim
+];
+
+// Overrides por serviço — sobrescrevem apenas o que for definido
+// Exemplo: mais slides para serviços com muitas imagens
+$carousel_per_service = [
+    'parquet-pavimentos' => [
+        'slides_desktop' => 4,
+        'autoplay_delay' => 3500,
+    ],
+    'obra-nueva' => [
+        'slides_desktop' => 3,
+        'autoplay_delay' => 5000,
+    ],
+    'reformas-integrales' => [
+        'slides_desktop' => 3,
+        'autoplay_delay' => 4500,
+    ],
+    'obra-publica' => [
+        'slides_desktop' => 3,
+        'autoplay_delay' => 5000,
+    ],
+    // Adicione novos serviços aqui quando necessário
+];
+
+// Merge: defaults + específico do serviço
+$carousel = array_merge($carousel_defaults, $carousel_per_service[$service_slug] ?? []);
+
 // ── Traduções do template ─────────────────────────────────────────
 $t = [
     'hero_cta_whatsapp' => $isCa ? 'WhatsApp — Respon en 2 h' : 'WhatsApp — Responde en 2 h',
@@ -628,7 +668,7 @@ include __DIR__ . '/../includes/header.php';
                 <div class="embla__container flex">
                     <?php foreach ($gallery as $g): ?>
                     <div class="embla__slide min-w-0 px-2" style="flex: 0 0 100%;">
-                        <article class="group relative overflow-hidden rounded-sm aspect-[4/3]">
+                        <article class="group relative overflow-hidden rounded-sm" style="aspect-ratio: <?php echo $carousel['image_aspect']; ?>">
                             <img src="<?php echo esc_url($theme_uri . $g['img']); ?>"
                                  alt="<?php echo esc_attr($g['title']); ?>"
                                  class="w-full h-full object-cover img-zoom transition-transform duration-700 group-hover:scale-105"
@@ -673,27 +713,41 @@ include __DIR__ . '/../includes/header.php';
             var nextBtn = emblaNode.querySelector('.embla__next');
             var dots = emblaNode.querySelectorAll('.embla__dot');
 
+            // Configurações dinâmicas do carrossel (via PHP)
+            var cfg = {
+                slidesMobile:  <?php echo (int)$carousel['slides_mobile']; ?>,
+                slidesTablet:  <?php echo (int)$carousel['slides_tablet']; ?>,
+                slidesDesktop: <?php echo (int)$carousel['slides_desktop']; ?>,
+                autoplayDelay: <?php echo (int)$carousel['autoplay_delay']; ?>,
+                stopOnInteraction: <?php echo $carousel['autoplay_stopOnInteraction'] ? 'true' : 'false'; ?>,
+                stopOnMouseEnter: <?php echo $carousel['autoplay_stopOnMouseEnter'] ? 'true' : 'false'; ?>,
+                loop: <?php echo $carousel['loop'] ? 'true' : 'false'; ?>,
+                align: '<?php echo $carousel['align']; ?>',
+                containScroll: <?php echo $carousel['containScroll'] ? 'true' : 'false'; ?>
+            };
+
             // Responsive slide sizes via CSS override
             var slideNodes = emblaNode.querySelectorAll('.embla__slide');
             function updateSlideSizes() {
                 var w = window.innerWidth;
-                var size = w >= 1024 ? '33.333%' : (w >= 768 ? '50%' : '100%');
+                var slides = w >= 1024 ? cfg.slidesDesktop : (w >= 768 ? cfg.slidesTablet : cfg.slidesMobile);
+                var size = (100 / slides) + '%';
                 slideNodes.forEach(function(s) { s.style.flex = '0 0 ' + size; });
             }
             updateSlideSizes();
             window.addEventListener('resize', updateSlideSizes);
 
             var autoplayPlugin = EmblaCarouselAutoplay({
-                delay: 4000,
-                stopOnInteraction: false,
-                stopOnMouseEnter: true,
+                delay: cfg.autoplayDelay,
+                stopOnInteraction: cfg.stopOnInteraction,
+                stopOnMouseEnter: cfg.stopOnMouseEnter,
                 rootNode: function(emblaRoot) { return emblaRoot.parentNode; }
             });
 
             var embla = EmblaCarousel(viewportNode, {
-                loop: true,
-                align: 'start',
-                containScroll: false,
+                loop: cfg.loop,
+                align: cfg.align,
+                containScroll: cfg.containScroll,
                 skipSnaps: false
             }, [autoplayPlugin]);
 
