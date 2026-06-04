@@ -46,26 +46,26 @@ $page_data = [
 
 $theme_uri = get_template_directory_uri();
 
-// ── Galerias por serviço — imagens reais do cliente ─────────────────
+// ── Galerias por serviço — REGRA: cada carrossel mostra APENAS imagens
+//    do serviço dessa página. Nunca misturar fotos de serviços diferentes.
 $galleries = [
     'obra-nueva' => [
         ['img' => '/assets/images/real/obra-nueva-desde-cero.webp', 'title' => $isCa ? 'Construcció des de zero · Barcelona · 2024' : 'Construcción desde cero · Barcelona · 2024', 'cat' => $isCa ? 'Obra nova' : 'Obra nueva'],
         ['img' => '/assets/images/real/obra-nueva-construcciones-girona.webp', 'title' => $isCa ? 'Vivenda unifamiliar · Girona · 2023' : 'Vivienda unifamiliar · Girona · 2023', 'cat' => $isCa ? 'Obra nova' : 'Obra nueva'],
         ['img' => '/assets/images/real/obra-nueva-construcciones-santafe.webp', 'title' => $isCa ? 'Construcció residencial · Santa Fe · 2024' : 'Construcción residencial · Santa Fe · 2024', 'cat' => $isCa ? 'Obra nova' : 'Obra nueva'],
-        ['img' => '/assets/images/real/reforma-general-santafe.webp', 'title' => $isCa ? 'Construcció en curs · Santa Fe · 2024' : 'Construcción en curso · Santa Fe · 2024', 'cat' => $isCa ? 'Obra nova' : 'Obra nueva'],
-        ['img' => '/assets/images/real/rehabilitacion-casa.webp', 'title' => $isCa ? 'Construcció de nova planta · Barcelona · 2023' : 'Construcción de nueva planta · Barcelona · 2023', 'cat' => $isCa ? 'Obra nova' : 'Obra nueva'],
+        ['img' => '/assets/images/servicios/obra-nueva/obra-nueva-fachada-piedra.webp', 'title' => $isCa ? 'Façana de pedra · Barcelona · 2024' : 'Fachada de piedra · Barcelona · 2024', 'cat' => $isCa ? 'Obra nova' : 'Obra nueva'],
+        ['img' => '/assets/images/servicios/obra-nueva/obra-nueva-piscina-acabada-jardin.webp', 'title' => $isCa ? 'Piscina i jardí acabats · Barcelona · 2024' : 'Piscina y jardín acabados · Barcelona · 2024', 'cat' => $isCa ? 'Obra nova' : 'Obra nueva'],
     ],
     'reformas-integrales' => [
         ['img' => '/assets/images/real/reforma-completa-casa-barcelona.webp', 'title' => $isCa ? 'Reforma completa casa · Barcelona · 2024' : 'Reforma completa casa · Barcelona · 2024', 'cat' => $isCa ? 'Reforma integral' : 'Reforma integral'],
         ['img' => '/assets/images/real/reforma-completa-santafe.webp', 'title' => $isCa ? 'Reforma integral · Santa Fe · 2024' : 'Reforma integral · Santa Fe · 2024', 'cat' => $isCa ? 'Reforma integral' : 'Reforma integral'],
-        ['img' => '/assets/images/reforma-gerona.webp', 'title' => $isCa ? 'Reforma pis · Girona · 2023' : 'Reforma piso · Girona · 2023', 'cat' => $isCa ? 'Reforma integral' : 'Reforma integral'],
+        ['img' => '/assets/images/real/reforma-gerona.webp', 'title' => $isCa ? 'Reforma pis · Girona · 2023' : 'Reforma piso · Girona · 2023', 'cat' => $isCa ? 'Reforma integral' : 'Reforma integral'],
         ['img' => '/assets/images/real/reforma-integral-girona.webp', 'title' => $isCa ? 'Reforma integral · Girona · 2024' : 'Reforma integral · Girona · 2024', 'cat' => $isCa ? 'Reforma integral' : 'Reforma integral'],
-        ['img' => '/assets/images/real/reforma-interiores-vivienda.webp', 'title' => $isCa ? 'Interiors reformats · Barcelona · 2024' : 'Interiores reformados · Barcelona · 2024', 'cat' => $isCa ? 'Reforma integral' : 'Reforma integral'],
+        ['img' => '/assets/images/servicios/reformas/reforma-trabajadores-azulejos-pared.webp', 'title' => $isCa ? 'Reforma en curs · Barcelona · 2024' : 'Reforma en curso · Barcelona · 2024', 'cat' => $isCa ? 'Reforma integral' : 'Reforma integral'],
     ],
     'pladur-acabados' => [
         ['img' => '/assets/images/real/pladur-instalacion.webp', 'title' => $isCa ? 'Instal·lació pladur · Barcelona · 2024' : 'Instalación pladur · Barcelona · 2024', 'cat' => $isCa ? 'Pladur' : 'Pladur'],
         ['img' => '/assets/images/servicios/pladur/pladur-hall-acabado.webp', 'title' => $isCa ? 'Hall residencial · Gràcia · 2024' : 'Hall residencial · Gràcia · 2024', 'cat' => $isCa ? 'Pladur' : 'Pladur'],
-        ['img' => '/assets/images/real/reforma-interiores-vivienda.webp', 'title' => $isCa ? 'Acabats interiors · Barcelona' : 'Acabados interiores · Barcelona', 'cat' => $isCa ? 'Pladur' : 'Pladur'],
         ['img' => '/assets/images/servicios/reformas/reforma-recepcion-acabada.webp', 'title' => $isCa ? 'Sostre registrable · Barcelona' : 'Techo registrable · Barcelona', 'cat' => $isCa ? 'Pladur' : 'Pladur'],
     ],
     'obra-publica' => [
@@ -73,10 +73,10 @@ $galleries = [
         ['img' => '/assets/images/real/obra-publica-calzada-reformada.webp', 'title' => $isCa ? 'Calçada reformada · Barcelona · 2024' : 'Calzada reformada · Barcelona · 2024', 'cat' => $isCa ? 'Obra pública' : 'Obra pública'],
         ['img' => '/assets/images/real/obra-publica-mantenimiento.webp', 'title' => $isCa ? 'Manteniment obra pública · Tarragona' : 'Mantenimiento obra pública · Tarragona', 'cat' => $isCa ? 'Obra pública' : 'Obra pública'],
         ['img' => '/assets/images/real/obra-publica-reforma-completa.webp', 'title' => $isCa ? 'Reforma completa · Barcelona' : 'Reforma completa · Barcelona', 'cat' => $isCa ? 'Obra pública' : 'Obra pública'],
+        ['img' => '/assets/images/servicios/obra-publica/obra-publica-calzada-acabada.webp', 'title' => $isCa ? 'Calçada acabada · Tarragona · 2024' : 'Calzada acabada · Tarragona · 2024', 'cat' => $isCa ? 'Obra pública' : 'Obra pública'],
     ],
     'obra-civil' => [
         ['img' => '/assets/images/real/obra-civil-muros.webp', 'title' => $isCa ? 'Construcció de murs · Barcelona · 2024' : 'Construcción de muros · Barcelona · 2024', 'cat' => $isCa ? 'Obra civil' : 'Obra civil'],
-        ['img' => '/assets/images/real/obra-nueva-construcciones-girona.webp', 'title' => $isCa ? 'Murs de càrrega · Girona · 2023' : 'Muros de carga · Girona · 2023', 'cat' => $isCa ? 'Obra civil' : 'Obra civil'],
         ['img' => '/assets/images/servicios/obra-publica/obra-civil-bordillo-curva.webp', 'title' => $isCa ? 'Bordillos corba · Tarragona · 2023' : 'Bordillos curva · Tarragona · 2023', 'cat' => $isCa ? 'Obra civil' : 'Obra civil'],
         ['img' => '/assets/images/servicios/obra-publica/obra-civil-aceras-construccion.webp', 'title' => $isCa ? 'Aceres construcció · Tarragona' : 'Aceras construcción · Tarragona', 'cat' => $isCa ? 'Obra civil' : 'Obra civil'],
     ],
@@ -84,8 +84,6 @@ $galleries = [
         ['img' => '/assets/images/real/parquet-instalacion.webp', 'title' => $isCa ? 'Instal·lació parquet · Barcelona · 2024' : 'Instalación parquet · Barcelona · 2024', 'cat' => $isCa ? 'Parquet' : 'Parquet'],
         ['img' => '/assets/images/real/parquet-renovacion-suelo.webp', 'title' => $isCa ? 'Renovació de terra · Barcelona · 2024' : 'Renovación de suelo · Barcelona · 2024', 'cat' => $isCa ? 'Parquet' : 'Parquet'],
         ['img' => '/assets/images/real/parquet-reparacion.webp', 'title' => $isCa ? 'Reparació de parquet · Barcelona · 2023' : 'Reparación de parquet · Barcelona · 2023', 'cat' => $isCa ? 'Parquet' : 'Parquet'],
-        ['img' => '/assets/images/real/reforma-interiores-vivienda.webp', 'title' => $isCa ? 'Col·locació de paviment · Barcelona' : 'Colocación de pavimento · Barcelona', 'cat' => $isCa ? 'Parquet' : 'Parquet'],
-        ['img' => '/assets/images/real/reforma-gerona.webp', 'title' => $isCa ? 'Pavimentació exterior · Girona' : 'Pavimentación exterior · Girona', 'cat' => $isCa ? 'Parquet' : 'Parquet'],
     ],
     'reformas-banos' => [
         ['img' => '/assets/images/real/reforma-banos-lavabos.webp', 'title' => $isCa ? 'Reforma bany complet · Barcelona · 2024' : 'Reforma baño completo · Barcelona · 2024', 'cat' => $isCa ? 'Reforma bany' : 'Reforma baño'],
@@ -97,12 +95,10 @@ $galleries = [
         ['img' => '/assets/images/real/rehabilitacion-casa.webp', 'title' => $isCa ? 'Rehabilitació façana · Barcelona · 2024' : 'Rehabilitación fachada · Barcelona · 2024', 'cat' => $isCa ? 'Rehabilitació' : 'Rehabilitación'],
         ['img' => '/assets/images/servicios/reformas/reforma-pared-gris-azulejos.webp', 'title' => $isCa ? 'Reparació parament · Barcelona' : 'Reparación paramento · Barcelona', 'cat' => $isCa ? 'Rehabilitació' : 'Rehabilitación'],
         ['img' => '/assets/images/servicios/reformas/reforma-pared-madera-acabada.webp', 'title' => $isCa ? 'Revestiment fusta · Girona' : 'Revestimiento madera · Girona', 'cat' => $isCa ? 'Rehabilitació' : 'Rehabilitación'],
-        ['img' => '/assets/images/real/obra-nueva-construcciones-santafe.webp', 'title' => $isCa ? 'Restauració completa · Santa Fe' : 'Restauración completa · Santa Fe', 'cat' => $isCa ? 'Rehabilitació' : 'Rehabilitación'],
     ],
     'reformas-comerciales' => [
         ['img' => '/assets/images/real/reforma-comercial-tienda.webp', 'title' => $isCa ? 'Reforma botiga · Barcelona · 2024' : 'Reforma tienda · Barcelona · 2024', 'cat' => $isCa ? 'Comercial' : 'Comercial'],
         ['img' => '/assets/images/real/reforma-general-santafe.webp', 'title' => $isCa ? 'Reforma local · Santa Fe · 2024' : 'Reforma local · Santa Fe · 2024', 'cat' => $isCa ? 'Comercial' : 'Comercial'],
-        ['img' => '/assets/images/real/reforma-interiores-vivienda.webp', 'title' => $isCa ? 'Interiorisme comercial · Barcelona' : 'Interiorismo comercial · Barcelona', 'cat' => $isCa ? 'Comercial' : 'Comercial'],
         ['img' => '/assets/images/real/reforma-completa-santafe.webp', 'title' => $isCa ? 'Acabats professionals · Santa Fe' : 'Acabados profesionales · Santa Fe', 'cat' => $isCa ? 'Comercial' : 'Comercial'],
     ],
 ];

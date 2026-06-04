@@ -66,3 +66,14 @@ if (!defined('GTM_ID')) {
 if (!defined('SANTAFE_ENABLE_ANALYTICS')) {
     define('SANTAFE_ENABLE_ANALYTICS', GA4_ID !== '' || GTM_ID !== '');
 }
+
+// ── Redes sociais (preencher URLs reais) ────────────────────────────
+if (!defined('SOCIAL_INSTAGRAM')) {
+    define('SOCIAL_INSTAGRAM', '');
+}
+if (!defined('SOCIAL_FACEBOOK')) {
+    define('SOCIAL_FACEBOOK', '');
+}
+if (!defined('SOCIAL_LINKEDIN')) {
+    define('SOCIAL_LINKEDIN', '');
+}
