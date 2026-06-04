@@ -46,19 +46,21 @@ $page_data = [
 
 $theme_uri = get_template_directory_uri();
 
-// ── Galerias por serviço ──────────────────────────────────────────
+// ── Galerias por serviço — imagens reais do cliente ─────────────────
 $galleries = [
     'obra-nueva' => [
         ['img' => '/assets/images/real/obra-nueva-desde-cero.webp', 'title' => $isCa ? 'Construcció des de zero · Barcelona · 2024' : 'Construcción desde cero · Barcelona · 2024', 'cat' => $isCa ? 'Obra nova' : 'Obra nueva'],
-        ['img' => '/assets/images/real/obra-nueva-girona.webp', 'title' => $isCa ? 'Obra nova · Girona · 2024' : 'Obra nueva · Girona · 2024', 'cat' => $isCa ? 'Obra nova' : 'Obra nueva'],
         ['img' => '/assets/images/real/obra-nueva-construcciones-girona.webp', 'title' => $isCa ? 'Vivenda unifamiliar · Girona · 2023' : 'Vivienda unifamiliar · Girona · 2023', 'cat' => $isCa ? 'Obra nova' : 'Obra nueva'],
         ['img' => '/assets/images/real/obra-nueva-construcciones-santafe.webp', 'title' => $isCa ? 'Construcció residencial · Santa Fe · 2024' : 'Construcción residencial · Santa Fe · 2024', 'cat' => $isCa ? 'Obra nova' : 'Obra nueva'],
+        ['img' => '/assets/images/real/reforma-general-santafe.webp', 'title' => $isCa ? 'Construcció en curs · Santa Fe · 2024' : 'Construcción en curso · Santa Fe · 2024', 'cat' => $isCa ? 'Obra nova' : 'Obra nueva'],
+        ['img' => '/assets/images/real/rehabilitacion-casa.webp', 'title' => $isCa ? 'Construcció de nova planta · Barcelona · 2023' : 'Construcción de nueva planta · Barcelona · 2023', 'cat' => $isCa ? 'Obra nova' : 'Obra nueva'],
     ],
     'reformas-integrales' => [
         ['img' => '/assets/images/real/reforma-completa-casa-barcelona.webp', 'title' => $isCa ? 'Reforma completa casa · Barcelona · 2024' : 'Reforma completa casa · Barcelona · 2024', 'cat' => $isCa ? 'Reforma integral' : 'Reforma integral'],
         ['img' => '/assets/images/real/reforma-completa-santafe.webp', 'title' => $isCa ? 'Reforma integral · Santa Fe · 2024' : 'Reforma integral · Santa Fe · 2024', 'cat' => $isCa ? 'Reforma integral' : 'Reforma integral'],
-        ['img' => '/assets/images/real/reforma-gerona.webp', 'title' => $isCa ? 'Reforma pis · Girona · 2023' : 'Reforma piso · Girona · 2023', 'cat' => $isCa ? 'Reforma integral' : 'Reforma integral'],
+        ['img' => '/assets/images/reforma-gerona.webp', 'title' => $isCa ? 'Reforma pis · Girona · 2023' : 'Reforma piso · Girona · 2023', 'cat' => $isCa ? 'Reforma integral' : 'Reforma integral'],
         ['img' => '/assets/images/real/reforma-integral-girona.webp', 'title' => $isCa ? 'Reforma integral · Girona · 2024' : 'Reforma integral · Girona · 2024', 'cat' => $isCa ? 'Reforma integral' : 'Reforma integral'],
+        ['img' => '/assets/images/real/reforma-interiores-vivienda.webp', 'title' => $isCa ? 'Interiors reformats · Barcelona · 2024' : 'Interiores reformados · Barcelona · 2024', 'cat' => $isCa ? 'Reforma integral' : 'Reforma integral'],
     ],
     'pladur-acabados' => [
         ['img' => '/assets/images/real/pladur-instalacion.webp', 'title' => $isCa ? 'Instal·lació pladur · Barcelona · 2024' : 'Instalación pladur · Barcelona · 2024', 'cat' => $isCa ? 'Pladur' : 'Pladur'],
@@ -74,15 +76,16 @@ $galleries = [
     ],
     'obra-civil' => [
         ['img' => '/assets/images/real/obra-civil-muros.webp', 'title' => $isCa ? 'Construcció de murs · Barcelona · 2024' : 'Construcción de muros · Barcelona · 2024', 'cat' => $isCa ? 'Obra civil' : 'Obra civil'],
+        ['img' => '/assets/images/real/obra-nueva-construcciones-girona.webp', 'title' => $isCa ? 'Murs de càrrega · Girona · 2023' : 'Muros de carga · Girona · 2023', 'cat' => $isCa ? 'Obra civil' : 'Obra civil'],
         ['img' => '/assets/images/servicios/obra-publica/obra-civil-bordillo-curva.webp', 'title' => $isCa ? 'Bordillos corba · Tarragona · 2023' : 'Bordillos curva · Tarragona · 2023', 'cat' => $isCa ? 'Obra civil' : 'Obra civil'],
         ['img' => '/assets/images/servicios/obra-publica/obra-civil-aceras-construccion.webp', 'title' => $isCa ? 'Aceres construcció · Tarragona' : 'Aceras construcción · Tarragona', 'cat' => $isCa ? 'Obra civil' : 'Obra civil'],
-        ['img' => '/assets/images/servicios/obra-nueva/obra-nueva-piscina-acabada-jardin.webp', 'title' => $isCa ? 'Preparació terreny · Girona' : 'Preparación terreno · Girona', 'cat' => $isCa ? 'Obra civil' : 'Obra civil'],
     ],
     'parquet-pavimentos' => [
         ['img' => '/assets/images/real/parquet-instalacion.webp', 'title' => $isCa ? 'Instal·lació parquet · Barcelona · 2024' : 'Instalación parquet · Barcelona · 2024', 'cat' => $isCa ? 'Parquet' : 'Parquet'],
         ['img' => '/assets/images/real/parquet-renovacion-suelo.webp', 'title' => $isCa ? 'Renovació de terra · Barcelona · 2024' : 'Renovación de suelo · Barcelona · 2024', 'cat' => $isCa ? 'Parquet' : 'Parquet'],
         ['img' => '/assets/images/real/parquet-reparacion.webp', 'title' => $isCa ? 'Reparació de parquet · Barcelona · 2023' : 'Reparación de parquet · Barcelona · 2023', 'cat' => $isCa ? 'Parquet' : 'Parquet'],
-        ['img' => '/assets/images/real/reforma-interiores-vivienda.webp', 'title' => $isCa ? 'Interiors acabats · Barcelona' : 'Interiores acabados · Barcelona', 'cat' => $isCa ? 'Parquet' : 'Parquet'],
+        ['img' => '/assets/images/real/reforma-interiores-vivienda.webp', 'title' => $isCa ? 'Col·locació de paviment · Barcelona' : 'Colocación de pavimento · Barcelona', 'cat' => $isCa ? 'Parquet' : 'Parquet'],
+        ['img' => '/assets/images/real/reforma-gerona.webp', 'title' => $isCa ? 'Pavimentació exterior · Girona' : 'Pavimentación exterior · Girona', 'cat' => $isCa ? 'Parquet' : 'Parquet'],
     ],
     'reformas-banos' => [
         ['img' => '/assets/images/real/reforma-banos-lavabos.webp', 'title' => $isCa ? 'Reforma bany complet · Barcelona · 2024' : 'Reforma baño completo · Barcelona · 2024', 'cat' => $isCa ? 'Reforma bany' : 'Reforma baño'],
@@ -604,36 +607,127 @@ include __DIR__ . '/../includes/header.php';
 </section>
 
 <!-- ═══════════════════════════════════════════════════════════════
-     6. GALERÍA
+     6. GALERÍA — Carrossel Embla por serviço
      ═══════════════════════════════════════════════════════════════ -->
 <section class="py-24 md:py-32 bg-warm-50 border-y border-warm-200" data-reveal>
     <div class="max-w-7xl mx-auto px-6">
         <div class="text-center mb-16">
             <div class="flex items-center justify-center gap-4 mb-4">
                 <div class="industrial-line w-12"></div>
-                <span class="text-brand-400 text-xs font-semibold uppercase tracking-[0.3em]"><?php echo $t['gallery_label']; ?></span>
+                <span class="text-brand-400 text-xs font-semibold uppercase tracking-[0.3em]"><?php echo $service_name_short; ?></span>
                 <div class="industrial-line w-12"></div>
             </div>
             <h2 class="font-display font-bold text-3xl md:text-4xl lg:text-5xl text-warm-900 tracking-tight">
                 <?php echo $t['gallery_h2']; ?>
             </h2>
         </div>
-        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
-            <?php foreach ($gallery as $g): ?>
-            <article class="group relative overflow-hidden rounded-sm aspect-[4/3]">
-                <img src="<?php echo esc_url($theme_uri . $g['img']); ?>"
-                     alt="<?php echo esc_attr($g['title']); ?>"
-                     class="w-full h-full object-cover img-zoom transition-transform duration-700 group-hover:scale-105"
-                     loading="lazy"
-                     onerror="this.style.display='none'">
-                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent"></div>
-                <div class="absolute bottom-0 left-0 right-0 p-4">
-                    <span class="text-brand-400 text-xs font-semibold uppercase tracking-widest"><?php echo $g['cat']; ?></span>
-                    <h3 class="font-display font-bold text-warm-900 text-sm mt-1"><?php echo $g['title']; ?></h3>
+
+        <!-- Embla Carousel -->
+        <div class="embla relative" id="gallery-embla-<?php echo $service_slug; ?>">
+            <div class="embla__viewport overflow-hidden rounded-sm">
+                <div class="embla__container flex">
+                    <?php foreach ($gallery as $g): ?>
+                    <div class="embla__slide min-w-0 px-2" style="flex: 0 0 100%;">
+                        <article class="group relative overflow-hidden rounded-sm aspect-[4/3]">
+                            <img src="<?php echo esc_url($theme_uri . $g['img']); ?>"
+                                 alt="<?php echo esc_attr($g['title']); ?>"
+                                 class="w-full h-full object-cover img-zoom transition-transform duration-700 group-hover:scale-105"
+                                 loading="lazy"
+                                 onerror="this.style.display='none'">
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent"></div>
+                            <div class="absolute bottom-0 left-0 right-0 p-4">
+                                <span class="text-brand-400 text-xs font-semibold uppercase tracking-widest"><?php echo $g['cat']; ?></span>
+                                <h3 class="font-display font-bold text-white text-sm mt-1"><?php echo $g['title']; ?></h3>
+                            </div>
+                        </article>
+                    </div>
+                    <?php endforeach; ?>
                 </div>
-            </article>
-            <?php endforeach; ?>
+            </div>
+
+            <!-- Arrows -->
+            <button type="button" class="embla__prev absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 md:-translate-x-6 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/90 border border-warm-200 text-warm-700 hover:text-brand-600 hover:border-brand-500 flex items-center justify-center transition-all z-10 shadow-lg" aria-label="Anterior">
+                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+            </button>
+            <button type="button" class="embla__next absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 md:translate-x-6 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/90 border border-warm-200 text-warm-700 hover:text-brand-600 hover:border-brand-500 flex items-center justify-center transition-all z-10 shadow-lg" aria-label="Siguiente">
+                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            </button>
+
+            <!-- Dots -->
+            <div class="embla__dots flex justify-center gap-2 mt-6">
+                <?php foreach ($gallery as $i => $g): ?>
+                <button type="button" class="embla__dot w-2 h-2 rounded-full transition-all duration-300 <?php echo $i === 0 ? 'bg-brand-500 w-6' : 'bg-warm-300 hover:bg-warm-400'; ?>" data-index="<?php echo $i; ?>"></button>
+                <?php endforeach; ?>
+            </div>
         </div>
+
+        <script src="<?php echo get_template_directory_uri(); ?>/assets/js/embla-carousel.umd.js"></script>
+        <script src="<?php echo get_template_directory_uri(); ?>/assets/js/embla-carousel-autoplay.umd.js"></script>
+        <script>
+        (function() {
+            var emblaNode = document.getElementById('gallery-embla-<?php echo $service_slug; ?>');
+            if (!emblaNode || typeof EmblaCarousel === 'undefined') return;
+
+            var viewportNode = emblaNode.querySelector('.embla__viewport');
+            var prevBtn = emblaNode.querySelector('.embla__prev');
+            var nextBtn = emblaNode.querySelector('.embla__next');
+            var dots = emblaNode.querySelectorAll('.embla__dot');
+
+            // Responsive slide sizes via CSS override
+            var slideNodes = emblaNode.querySelectorAll('.embla__slide');
+            function updateSlideSizes() {
+                var w = window.innerWidth;
+                var size = w >= 1024 ? '33.333%' : (w >= 768 ? '50%' : '100%');
+                slideNodes.forEach(function(s) { s.style.flex = '0 0 ' + size; });
+            }
+            updateSlideSizes();
+            window.addEventListener('resize', updateSlideSizes);
+
+            var autoplayPlugin = EmblaCarouselAutoplay({
+                delay: 4000,
+                stopOnInteraction: false,
+                stopOnMouseEnter: true,
+                rootNode: function(emblaRoot) { return emblaRoot.parentNode; }
+            });
+
+            var embla = EmblaCarousel(viewportNode, {
+                loop: true,
+                align: 'start',
+                containScroll: false,
+                skipSnaps: false
+            }, [autoplayPlugin]);
+
+            function updateDots() {
+                var selected = embla.selectedScrollSnap();
+                dots.forEach(function(dot, i) {
+                    var isActive = i === selected;
+                    dot.classList.toggle('bg-brand-500', isActive);
+                    dot.classList.toggle('w-6', isActive);
+                    dot.classList.toggle('bg-warm-300', !isActive);
+                    dot.classList.toggle('w-2', !isActive);
+                });
+            }
+
+            embla.on('select', updateDots);
+
+            prevBtn.addEventListener('click', function() {
+                embla.scrollPrev();
+                autoplayPlugin.reset();
+            });
+            nextBtn.addEventListener('click', function() {
+                embla.scrollNext();
+                autoplayPlugin.reset();
+            });
+            dots.forEach(function(dot) {
+                dot.addEventListener('click', function() {
+                    embla.scrollTo(parseInt(dot.dataset.index));
+                    autoplayPlugin.reset();
+                });
+            });
+
+            updateDots();
+        })();
+        </script>
     </div>
 </section>
 
