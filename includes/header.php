@@ -1049,13 +1049,29 @@ $nav_contact_path = $lang === 'ca' ? 'contacte' : 'contacto';
     background: radial-gradient(ellipse at top, rgba(30,58,138,0.15) 0%, transparent 70%);
     pointer-events: none;
   }
-  html.dark #menu-close { color: #e2e8f0; }
-  html.dark .mobile-submenu-toggle { color: #94a3b8; }
-  html.dark .mobile-submenu-toggle:hover { color: var(--color-accent-hover); }
+  html.dark .mobile-menu .sticky.top-0 { background-color: rgba(15, 23, 42, 0.95) !important; backdrop-filter: blur(12px); border-color: #334155 !important; }
+  html.dark #menu-close { color: #e2e8f0; background-color: #1e293b !important; }
+  html.dark #menu-close:hover { background-color: var(--color-accent) !important; color: #fff !important; }
+  html.dark .mobile-submenu-toggle { color: #94a3b8; background-color: #1e293b !important; }
+  html.dark .mobile-submenu-toggle:hover { color: #fff; background-color: var(--color-accent) !important; }
   html.dark .mobile-submenu-panel a { color: #cbd5e1; }
-  html.dark .mobile-submenu-panel a:hover { color: var(--color-accent-hover); background-color: rgba(30,41,59,0.8); }
+  html.dark .mobile-submenu-panel a:hover { color: #fff; background-color: rgba(30,41,59,0.8); }
   html.dark .mobile-nav-link { color: #f1f5f9 !important; }
   html.dark .mobile-nav-link[data-track-event="phone_click"] { color: var(--color-accent-hover) !important; }
+  html.dark .mobile-nav-group { border-color: #334155 !important; }
+  html.dark .mobile-nav-item { border-color: #334155 !important; }
+  html.dark .mobile-nav-group .mobile-nav-link,
+  html.dark .mobile-nav-item.mobile-nav-link { color: #ffffff !important; }
+  html.dark .mobile-menu .border-warm-100 { border-color: #334155 !important; }
+  html.dark .mobile-menu .border-warm-200 { border-color: #334155 !important; }
+  html.dark .mobile-menu .border-warm-300 { border-color: #475569 !important; }
+  html.dark .mobile-menu .bg-warm-50 { background-color: #1e293b !important; }
+  html.dark .mobile-menu .text-warm-500 { color: #94a3b8 !important; }
+  html.dark .mobile-menu .text-warm-600 { color: #cbd5e1 !important; }
+  html.dark .mobile-menu .text-warm-700 { color: #e2e8f0 !important; }
+  html.dark .mobile-menu .text-warm-900 { color: #ffffff !important; }
+  html.dark .mobile-menu a[hreflang] { color: #94a3b8 !important; border-color: #475569 !important; }
+  html.dark .mobile-menu a[hreflang].text-brand-500 { color: var(--color-accent) !important; border-color: var(--color-accent) !important; }
   html.dark #menu-close { color: #f1f5f9; }
   html.dark .header-scrolled { background-color: rgba(15, 23, 42, 0.95) !important; backdrop-filter: blur(12px); }
   html.dark .header-scrolled [data-nav-link] { color: rgba(226, 232, 240, 0.85); }
@@ -1112,9 +1128,9 @@ $nav_contact_path = $lang === 'ca' ? 'contacte' : 'contacto';
   html.dark .text-warm-800,
   html.dark [class*="text-warm-800"] { color: #cbd5e1 !important; }
   html.dark .text-warm-700,
-  html.dark [class*="text-warm-700"] { color: #94a3b8 !important; }
+  html.dark [class*="text-warm-700"] { color: #cbd5e1 !important; }
   html.dark .text-warm-600,
-  html.dark [class*="text-warm-600"] { color: #94a3b8 !important; }
+  html.dark [class*="text-warm-600"] { color: #cbd5e1 !important; }
   html.dark .text-warm-500,
   html.dark [class*="text-warm-500"] { color: #94a3b8 !important; }
   html.dark .border-warm-200,
@@ -1124,13 +1140,93 @@ $nav_contact_path = $lang === 'ca' ? 'contacte' : 'contacto';
   html.dark footer { background-color: #0c0a09; }
   html.dark #scroll-progress { box-shadow: 0 0 10px rgba(248, 113, 113, 0.5); }
 
-  /* Catch-all for gray/slate text colors in dark mode */
+  /* Catch-all for gray/slate text colors in dark mode — LIGHTER for visibility */
   html.dark .text-gray-500,
   html.dark .text-gray-600,
   html.dark .text-slate-500,
   html.dark .text-slate-600,
   html.dark .text-slate-700,
-  html.dark .text-slate-800 { color: #94a3b8 !important; }
+  html.dark .text-slate-800 { color: #cbd5e1 !important; }
+
+  /* ALL card/section text in dark mode — ensure white */
+  html.dark section p,
+  html.dark section li,
+  html.dark section span:not(.sr-only):not([class*="icon"]),
+  html.dark .card p,
+  html.dark .card span,
+  html.dark [class*="card"] p,
+  html.dark [class*="card"] span,
+  html.dark .bg-white p,
+  html.dark .bg-white span,
+  html.dark .bg-warm-50 p,
+  html.dark .bg-warm-50 span,
+  html.dark [class*="bg-white"] p,
+  html.dark [class*="bg-warm-50"] p { color: #f1f5f9 !important; }
+
+  /* Card titles in dark mode — pure white */
+  html.dark section h1,
+  html.dark section h2,
+  html.dark section h3,
+  html.dark section h4,
+  html.dark section h5,
+  html.dark .card h1,
+  html.dark .card h2,
+  html.dark .card h3,
+  html.dark .card h4,
+  html.dark .card h5,
+  html.dark [class*="card"] h1,
+  html.dark [class*="card"] h2,
+  html.dark [class*="card"] h3,
+  html.dark [class*="card"] h4,
+  html.dark [class*="card"] h5,
+  html.dark .bg-white h1,
+  html.dark .bg-white h2,
+  html.dark .bg-white h3,
+  html.dark .bg-white h4,
+  html.dark .bg-white h5,
+  html.dark .bg-warm-50 h1,
+  html.dark .bg-warm-50 h2,
+  html.dark .bg-warm-50 h3,
+  html.dark .bg-warm-50 h4,
+  html.dark .bg-warm-50 h5 { color: #ffffff !important; }
+
+  /* Labels, captions, small text — lighter gray */
+  html.dark section label,
+  html.dark section small,
+  html.dark section .text-xs,
+  html.dark section .text-sm.text-warm-500,
+  html.dark .card label,
+  html.dark .card small,
+  html.dark [class*="card"] label,
+  html.dark [class*="card"] small { color: #94a3b8 !important; }
+
+  /* Dark mode section tokens — brighter text */
+  html.dark {
+    --testimonios-text-body: #cbd5e1;
+    --testimonios-text-secondary: #cbd5e1;
+    --servicios-text-body: #cbd5e1;
+    --portfolio-text-body: #cbd5e1;
+    --proceso-text-body: #cbd5e1;
+    --proceso-step-num: #cbd5e1;
+    --faq-text-body: #cbd5e1;
+    --faq-answer-text: #cbd5e1;
+    --garantias-text-body: #cbd5e1;
+    --contacto-text-body: #cbd5e1;
+    --contacto-label-text: #94a3b8;
+    --contacto-info-label: #94a3b8;
+    --calculadora-text-body: #cbd5e1;
+    --calculadora-label-text: #94a3b8;
+    --calculadora-whatsapp-text: #94a3b8;
+    --dores-text-body: #cbd5e1;
+    --dores-item-text: #cbd5e1;
+    --sobre-text-body: #cbd5e1;
+    --sobre-stat-label: #94a3b8;
+    --sobre-value-desc: #cbd5e1;
+    --beforeafter-text-body: #cbd5e1;
+    --beforeafter-caption-text: #94a3b8;
+    --reviews-card-text: #cbd5e1;
+    --reviews-verified-text: #94a3b8;
+  }
 
   /* Inputs and selects in dark mode */
   html.dark input,
@@ -1376,46 +1472,62 @@ gtag('consent', 'default', {
   </div>
 
 
-  <!-- Mobile Menu -->
-  <div id="mobile-menu" class="mobile-menu fixed inset-0 bg-white z-[60] flex flex-col items-center justify-center gap-6 lg:hidden overflow-y-auto py-20">
-    <button type="button" id="menu-close" class="absolute top-6 right-6 text-warm-900 p-2" aria-label="<?php echo t($translations, 'nav.menu_close'); ?>">
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-    </button>
-
-    <!-- Services with accordion submenu -->
-    <div class="w-full max-w-xs px-6">
-      <div class="flex items-center justify-between">
-        <a href="/<?php echo $lang; ?>/<?php echo $nav_services_path; ?>/" class="text-2xl font-display font-bold text-warm-900 mobile-nav-link"><?php echo t($translations, 'nav.services'); ?></a>
-        <button type="button" class="mobile-submenu-toggle p-2 text-warm-500 hover:text-brand-600 transition-colors" aria-expanded="false" aria-controls="mobile-submenu-services" aria-label="<?php echo t($translations, 'nav.toggle_services'); ?>">
-          <svg class="submenu-chevron w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"/></svg>
-        </button>
-      </div>
-      <div id="mobile-submenu-services" class="mobile-submenu-panel mt-2 space-y-1">
-        <a href="/<?php echo $lang; ?>/<?php echo $nav_services_path; ?>/" class="block px-4 py-2 text-sm font-medium text-warm-600 hover:text-brand-600 hover:bg-warm-50 rounded-sm mobile-nav-link"><?php echo t($translations, 'nav.all_services'); ?></a>
-        <a href="/<?php echo $lang; ?>/<?php echo $lang === 'ca' ? 'obra-nova' : 'obra-nueva'; ?>/" class="block px-4 py-2 text-sm text-warm-500 hover:text-brand-600 hover:bg-warm-50 rounded-sm mobile-nav-link">Obra nueva</a>
-        <a href="/<?php echo $lang; ?>/<?php echo $lang === 'ca' ? 'reformes-integrals' : 'reformas-integrales'; ?>/" class="block px-4 py-2 text-sm text-warm-500 hover:text-brand-600 hover:bg-warm-50 rounded-sm mobile-nav-link">Reformas integrales</a>
-        <a href="/<?php echo $lang; ?>/<?php echo $lang === 'ca' ? 'pladur-acabats' : 'pladur-acabados'; ?>/" class="block px-4 py-2 text-sm text-warm-500 hover:text-brand-600 hover:bg-warm-50 rounded-sm mobile-nav-link">Pladur y acabados</a>
-        <a href="/<?php echo $lang; ?>/obra-publica/" class="block px-4 py-2 text-sm text-warm-500 hover:text-brand-600 hover:bg-warm-50 rounded-sm mobile-nav-link">Obra pública</a>
-        <a href="/<?php echo $lang; ?>/obra-civil/" class="block px-4 py-2 text-sm text-warm-500 hover:text-brand-600 hover:bg-warm-50 rounded-sm mobile-nav-link">Obra civil</a>
-        <a href="/<?php echo $lang; ?>/<?php echo $lang === 'ca' ? 'parquet-paviments' : 'parquet-pavimentos'; ?>/" class="block px-4 py-2 text-sm text-warm-500 hover:text-brand-600 hover:bg-warm-50 rounded-sm mobile-nav-link">Parquet y pavimentos</a>
-        <a href="/<?php echo $lang; ?>/<?php echo $lang === 'ca' ? 'reformes-banys' : 'reformas-banos'; ?>/" class="block px-4 py-2 text-sm text-warm-500 hover:text-brand-600 hover:bg-warm-50 rounded-sm mobile-nav-link">Reforma de baños</a>
-        <a href="/<?php echo $lang; ?>/<?php echo $lang === 'ca' ? 'rehabilitacio-facanes' : 'rehabilitacion-fachadas'; ?>/" class="block px-4 py-2 text-sm text-warm-500 hover:text-brand-600 hover:bg-warm-50 rounded-sm mobile-nav-link">Rehabilitación de fachadas</a>
-        <a href="/<?php echo $lang; ?>/<?php echo $lang === 'ca' ? 'reformes-comercials' : 'reformas-comerciales'; ?>/" class="block px-4 py-2 text-sm text-warm-500 hover:text-brand-600 hover:bg-warm-50 rounded-sm mobile-nav-link">Reformas comerciales</a>
-      </div>
+  <!-- Mobile Menu — Fullscreen, Masterfully Designed -->
+  <div id="mobile-menu" class="mobile-menu fixed inset-0 w-screen h-screen bg-white z-[60] flex flex-col lg:hidden overflow-y-auto">
+    <!-- Fixed Header Bar with X -->
+    <div class="sticky top-0 z-10 flex items-center justify-end px-6 py-4 bg-white/95 backdrop-blur-sm border-b border-warm-100">
+      <button type="button" id="menu-close" class="flex items-center justify-center w-10 h-10 rounded-full bg-warm-100 text-warm-900 hover:bg-brand-600 hover:text-white transition-all duration-300" aria-label="<?php echo t($translations, 'nav.menu_close'); ?>">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
     </div>
 
-    <a href="/<?php echo $lang; ?>/<?php echo $nav_projects_path; ?>/" class="text-2xl font-display font-bold text-warm-900 mobile-nav-link"><?php echo t($translations, 'nav.projects'); ?></a>
-    <a href="/<?php echo $lang; ?>/<?php echo $nav_about_path; ?>/" class="text-2xl font-display font-bold text-warm-900 mobile-nav-link"><?php echo t($translations, 'nav.about'); ?></a>
-    <a href="/<?php echo $lang; ?>/blog/" class="text-2xl font-display font-bold text-warm-900 mobile-nav-link">Blog</a>
-    <a href="tel:<?php echo COMPANY_PHONE; ?>" class="text-xl font-display font-bold text-brand-600 mobile-nav-link" data-track-event="phone_click"><?php echo COMPANY_PHONE_DISPLAY; ?></a>
-    <a href="/<?php echo $lang; ?>/<?php echo $nav_contact_path; ?>/" class="text-2xl font-display font-bold text-brand-600 mobile-nav-link"><?php echo t($translations, 'nav.contact'); ?></a>
-    <div class="flex items-center gap-4 mt-4">
-      <a href="<?php echo get_alt_url($current_route ?? '', 'es'); ?>" hreflang="es_ES" class="text-lg font-medium border-2 px-4 py-2 rounded-sm transition-colors <?php echo $lang === 'es' ? 'text-brand-500 border-brand-500' : 'text-warm-500 border-warm-300 hover:text-brand-500 hover:border-brand-500'; ?>">ES</a>
-      <a href="<?php echo get_alt_url($current_route ?? '', 'ca'); ?>" hreflang="ca_ES" class="text-lg font-medium border-2 px-4 py-2 rounded-sm transition-colors <?php echo $lang === 'ca' ? 'text-brand-500 border-brand-500' : 'text-warm-500 border-warm-300 hover:text-brand-500 hover:border-brand-500'; ?>">CA</a>
-      <button type="button" id="theme-toggle-mobile" class="p-2 rounded-sm transition-colors" data-theme-btn aria-label="<?php echo t($translations, 'nav.toggle_theme'); ?>">
-        <svg class="theme-icon-sun w-6 h-6 hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"/></svg>
-        <svg class="theme-icon-moon w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z"/></svg>
-      </button>
+    <!-- Scrollable Menu Content -->
+    <div class="flex-1 flex flex-col px-6 py-6 gap-1">
+      <!-- Services with accordion submenu -->
+      <div class="mobile-nav-group border-b border-warm-100 pb-4 mb-2">
+        <div class="flex items-center justify-between py-3">
+          <a href="/<?php echo $lang; ?>/<?php echo $nav_services_path; ?>/" class="text-xl font-display font-bold text-warm-900 mobile-nav-link tracking-tight"><?php echo t($translations, 'nav.services'); ?></a>
+          <button type="button" class="mobile-submenu-toggle flex items-center justify-center w-10 h-10 rounded-full bg-warm-50 text-warm-500 hover:bg-brand-600 hover:text-white transition-all duration-300" aria-expanded="false" aria-controls="mobile-submenu-services" aria-label="<?php echo t($translations, 'nav.toggle_services'); ?>">
+            <svg class="submenu-chevron w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"/></svg>
+          </button>
+        </div>
+        <div id="mobile-submenu-services" class="mobile-submenu-panel space-y-0.5 pl-2">
+          <a href="/<?php echo $lang; ?>/<?php echo $nav_services_path; ?>/" class="block px-4 py-2.5 text-sm font-semibold text-warm-700 hover:text-brand-600 hover:bg-warm-50 rounded-lg mobile-nav-link transition-colors"><?php echo t($translations, 'nav.all_services'); ?></a>
+          <a href="/<?php echo $lang; ?>/<?php echo $lang === 'ca' ? 'obra-nova' : 'obra-nueva'; ?>/" class="block px-4 py-2.5 text-sm text-warm-600 hover:text-brand-600 hover:bg-warm-50 rounded-lg mobile-nav-link transition-colors">Obra nueva</a>
+          <a href="/<?php echo $lang; ?>/<?php echo $lang === 'ca' ? 'reformes-integrals' : 'reformas-integrales'; ?>/" class="block px-4 py-2.5 text-sm text-warm-600 hover:text-brand-600 hover:bg-warm-50 rounded-lg mobile-nav-link transition-colors">Reformas integrales</a>
+          <a href="/<?php echo $lang; ?>/<?php echo $lang === 'ca' ? 'pladur-acabats' : 'pladur-acabados'; ?>/" class="block px-4 py-2.5 text-sm text-warm-600 hover:text-brand-600 hover:bg-warm-50 rounded-lg mobile-nav-link transition-colors">Pladur y acabados</a>
+          <a href="/<?php echo $lang; ?>/obra-publica/" class="block px-4 py-2.5 text-sm text-warm-600 hover:text-brand-600 hover:bg-warm-50 rounded-lg mobile-nav-link transition-colors">Obra pública</a>
+          <a href="/<?php echo $lang; ?>/obra-civil/" class="block px-4 py-2.5 text-sm text-warm-600 hover:text-brand-600 hover:bg-warm-50 rounded-lg mobile-nav-link transition-colors">Obra civil</a>
+          <a href="/<?php echo $lang; ?>/<?php echo $lang === 'ca' ? 'parquet-paviments' : 'parquet-pavimentos'; ?>/" class="block px-4 py-2.5 text-sm text-warm-600 hover:text-brand-600 hover:bg-warm-50 rounded-lg mobile-nav-link transition-colors">Parquet y pavimentos</a>
+          <a href="/<?php echo $lang; ?>/<?php echo $lang === 'ca' ? 'reformes-banys' : 'reformas-banos'; ?>/" class="block px-4 py-2.5 text-sm text-warm-600 hover:text-brand-600 hover:bg-warm-50 rounded-lg mobile-nav-link transition-colors">Reforma de baños</a>
+          <a href="/<?php echo $lang; ?>/<?php echo $lang === 'ca' ? 'rehabilitacio-facanes' : 'rehabilitacion-fachadas'; ?>/" class="block px-4 py-2.5 text-sm text-warm-600 hover:text-brand-600 hover:bg-warm-50 rounded-lg mobile-nav-link transition-colors">Rehabilitación de fachadas</a>
+          <a href="/<?php echo $lang; ?>/<?php echo $lang === 'ca' ? 'reformes-comercials' : 'reformas-comerciales'; ?>/" class="block px-4 py-2.5 text-sm text-warm-600 hover:text-brand-600 hover:bg-warm-50 rounded-lg mobile-nav-link transition-colors">Reformas comerciales</a>
+        </div>
+      </div>
+
+      <!-- Main Nav Links -->
+      <a href="/<?php echo $lang; ?>/<?php echo $nav_projects_path; ?>/" class="mobile-nav-item block py-3 text-xl font-display font-bold text-warm-900 mobile-nav-link border-b border-warm-100 tracking-tight"><?php echo t($translations, 'nav.projects'); ?></a>
+      <a href="/<?php echo $lang; ?>/<?php echo $nav_about_path; ?>/" class="mobile-nav-item block py-3 text-xl font-display font-bold text-warm-900 mobile-nav-link border-b border-warm-100 tracking-tight"><?php echo t($translations, 'nav.about'); ?></a>
+      <a href="/<?php echo $lang; ?>/blog/" class="mobile-nav-item block py-3 text-xl font-display font-bold text-warm-900 mobile-nav-link border-b border-warm-100 tracking-tight">Blog</a>
+
+      <!-- CTA Section -->
+      <div class="mt-auto pt-6 pb-8 flex flex-col gap-4">
+        <a href="tel:<?php echo COMPANY_PHONE; ?>" class="flex items-center gap-3 text-lg font-semibold text-brand-600 mobile-nav-link" data-track-event="phone_click">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+          <?php echo COMPANY_PHONE_DISPLAY; ?>
+        </a>
+        <a href="/<?php echo $lang; ?>/<?php echo $nav_contact_path; ?>/" class="block w-full text-center py-3.5 bg-brand-600 hover:bg-brand-500 text-white font-semibold rounded-lg transition-all tracking-wide">
+          <?php echo t($translations, 'nav.contact'); ?>
+        </a>
+        <div class="flex items-center justify-center gap-4 mt-2">
+          <a href="<?php echo get_alt_url($current_route ?? '', 'es'); ?>" hreflang="es_ES" class="text-base font-medium border-2 px-4 py-2 rounded-lg transition-colors <?php echo $lang === 'es' ? 'text-brand-500 border-brand-500' : 'text-warm-500 border-warm-300 hover:text-brand-500 hover:border-brand-500'; ?>">ES</a>
+          <a href="<?php echo get_alt_url($current_route ?? '', 'ca'); ?>" hreflang="ca_ES" class="text-base font-medium border-2 px-4 py-2 rounded-lg transition-colors <?php echo $lang === 'ca' ? 'text-brand-500 border-brand-500' : 'text-warm-500 border-warm-300 hover:text-brand-500 hover:border-brand-500'; ?>">CA</a>
+          <button type="button" id="theme-toggle-mobile" class="flex items-center justify-center w-10 h-10 rounded-full border-2 border-warm-200 text-warm-600 hover:border-brand-500 hover:text-brand-500 transition-all" data-theme-btn aria-label="<?php echo t($translations, 'nav.toggle_theme'); ?>">
+            <svg class="theme-icon-sun w-5 h-5 hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"/></svg>
+            <svg class="theme-icon-moon w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z"/></svg>
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 </header>
