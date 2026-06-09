@@ -1095,9 +1095,12 @@ $nav_contact_path = $lang === 'ca' ? 'contacte' : 'contacto';
   html.dark .mobile-menu .text-warm-600 { color: #cbd5e1 !important; }
   html.dark .mobile-menu .text-warm-700 { color: #e2e8f0 !important; }
   html.dark .mobile-menu .text-warm-900 { color: #ffffff !important; }
-  html.dark .mobile-menu a[hreflang] { color: #94a3b8 !important; border-color: #475569 !important; }
+  html.dark .mobile-menu a[hreflang] { color: #e2e8f0 !important; border-color: #64748b !important; }
   html.dark .mobile-menu a[hreflang].text-brand-500 { color: var(--color-accent) !important; border-color: var(--color-accent) !important; }
+  html.dark .mobile-menu a[hreflang]:hover { color: #ffffff !important; border-color: var(--color-accent) !important; }
   html.dark #menu-close { color: #f1f5f9; }
+  html.dark #theme-toggle-mobile { color: #e2e8f0 !important; border-color: #64748b !important; }
+  html.dark #theme-toggle-mobile:hover { color: var(--color-accent) !important; border-color: var(--color-accent) !important; }
   html.dark .header-scrolled { background-color: rgba(15, 23, 42, 0.95) !important; backdrop-filter: blur(12px); }
   html.dark .header-scrolled [data-nav-link] { color: rgba(226, 232, 240, 0.85); }
   html.dark .header-scrolled [data-nav-link]:hover { color: #fff; }

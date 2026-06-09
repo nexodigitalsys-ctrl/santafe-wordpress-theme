@@ -55,6 +55,14 @@ $galleries = [
         ['img' => '/assets/images/real/obra-nueva-construcciones-santafe.webp', 'title' => $isCa ? 'Construcció residencial · Santa Fe · 2024' : 'Construcción residencial · Santa Fe · 2024', 'cat' => $isCa ? 'Obra nova' : 'Obra nueva'],
         ['img' => '/assets/images/servicios/obra-nueva/obra-nueva-fachada-piedra.webp', 'title' => $isCa ? 'Façana de pedra · Barcelona · 2024' : 'Fachada de piedra · Barcelona · 2024', 'cat' => $isCa ? 'Obra nova' : 'Obra nueva'],
         ['img' => '/assets/images/servicios/obra-nueva/obra-nueva-piscina-acabada-jardin.webp', 'title' => $isCa ? 'Piscina i jardí acabats · Barcelona · 2024' : 'Piscina y jardín acabados · Barcelona · 2024', 'cat' => $isCa ? 'Obra nova' : 'Obra nueva'],
+        ['img' => '/assets/images/servicios/obra-nueva/obra-externa-002.jpg', 'title' => $isCa ? 'Casa moderna pedra · Barcelona · 2025' : 'Casa moderna piedra · Barcelona · 2025', 'cat' => $isCa ? 'Obra nova' : 'Obra nueva'],
+        ['img' => '/assets/images/servicios/obra-nueva/obra-externa-005.jpg', 'title' => $isCa ? 'Façana amb banner Santa Fe · Barcelona · 2025' : 'Fachada con banner Santa Fe · Barcelona · 2025', 'cat' => $isCa ? 'Obra nova' : 'Obra nueva'],
+        ['img' => '/assets/images/servicios/obra-nueva/obra-externa-008.jpg', 'title' => $isCa ? 'Vivenda unifamiliar acabada · Barcelona · 2025' : 'Vivienda unifamiliar acabada · Barcelona · 2025', 'cat' => $isCa ? 'Obra nova' : 'Obra nueva'],
+        ['img' => '/assets/images/servicios/obra-nueva/obra-externa-013.jpg', 'title' => $isCa ? 'Casa en construcció amb grua · Barcelona · 2025' : 'Casa en construcción con grúa · Barcelona · 2025', 'cat' => $isCa ? 'Obra nova' : 'Obra nueva'],
+        ['img' => '/assets/images/servicios/obra-nueva/obra-externa-031.jpg', 'title' => $isCa ? 'Murs de totxos en construcció · Barcelona · 2025' : 'Muros de ladrillos en construcción · Barcelona · 2025', 'cat' => $isCa ? 'Obra nova' : 'Obra nueva'],
+        ['img' => '/assets/images/servicios/obra-nueva/obra-externa-037.jpg', 'title' => $isCa ? 'Casa moderna terrassa · Barcelona · 2025' : 'Casa moderna terraza · Barcelona · 2025', 'cat' => $isCa ? 'Obra nova' : 'Obra nueva'],
+        ['img' => '/assets/images/servicios/obra-nueva/obra-interna-006.jpg', 'title' => $isCa ? 'Estructura de totxos · Barcelona · 2025' : 'Estructura de ladrillos · Barcelona · 2025', 'cat' => $isCa ? 'Obra nova' : 'Obra nueva'],
+        ['img' => '/assets/images/servicios/obra-nueva/muros-ladrillos-construccion-barcelona-2025.mp4', 'type' => 'video', 'title' => $isCa ? 'Construcció de murs · Barcelona · 2025' : 'Construcción de muros · Barcelona · 2025', 'cat' => $isCa ? 'Obra nova' : 'Obra nueva'],
     ],
     'reformas-integrales' => [
         ['img' => '/assets/images/real/reforma-completa-casa-barcelona.webp', 'title' => $isCa ? 'Reforma completa casa · Barcelona · 2024' : 'Reforma completa casa · Barcelona · 2024', 'cat' => $isCa ? 'Reforma integral' : 'Reforma integral'],
@@ -62,11 +70,22 @@ $galleries = [
         ['img' => '/assets/images/real/reforma-gerona.webp', 'title' => $isCa ? 'Reforma pis · Girona · 2023' : 'Reforma piso · Girona · 2023', 'cat' => $isCa ? 'Reforma integral' : 'Reforma integral'],
         ['img' => '/assets/images/real/reforma-integral-girona.webp', 'title' => $isCa ? 'Reforma integral · Girona · 2024' : 'Reforma integral · Girona · 2024', 'cat' => $isCa ? 'Reforma integral' : 'Reforma integral'],
         ['img' => '/assets/images/servicios/reformas/reforma-trabajadores-azulejos-pared.webp', 'title' => $isCa ? 'Reforma en curs · Barcelona · 2024' : 'Reforma en curso · Barcelona · 2024', 'cat' => $isCa ? 'Reforma integral' : 'Reforma integral'],
+        ['img' => '/assets/images/servicios/reformas-integrales/obra-externa-001.jpg', 'title' => $isCa ? 'Col·locació de paviment ceràmic · Barcelona · 2025' : 'Colocación de pavimento cerámico · Barcelona · 2025', 'cat' => $isCa ? 'Reforma integral' : 'Reforma integral'],
+        ['img' => '/assets/images/servicios/reformas-integrales/obra-externa-003.jpg', 'title' => $isCa ? 'Escales interiors reformades · Barcelona · 2025' : 'Escaleras interiores reformadas · Barcelona · 2025', 'cat' => $isCa ? 'Reforma integral' : 'Reforma integral'],
+        ['img' => '/assets/images/servicios/reformas-integrales/obra-externa-007.jpg', 'title' => $isCa ? 'Paviment imitació fusta · Barcelona · 2025' : 'Pavimento imitación madera · Barcelona · 2025', 'cat' => $isCa ? 'Reforma integral' : 'Reforma integral'],
+        ['img' => '/assets/images/servicios/reformas-integrales/obra-externa-012.jpg', 'title' => $isCa ? 'Terrassa amb piscina · Barcelona · 2025' : 'Terraza con piscina · Barcelona · 2025', 'cat' => $isCa ? 'Reforma integral' : 'Reforma integral'],
+        ['img' => '/assets/images/servicios/reformas-integrales/obra-externa-016.jpg', 'title' => $isCa ? 'Reforma interior totxos · Barcelona · 2025' : 'Reforma interior ladrillos · Barcelona · 2025', 'cat' => $isCa ? 'Reforma integral' : 'Reforma integral'],
+        ['img' => '/assets/images/servicios/reformas-integrales/obra-externa-030.jpg', 'title' => $isCa ? 'Cuina en construcció · Barcelona · 2025' : 'Cocina en construcción · Barcelona · 2025', 'cat' => $isCa ? 'Reforma integral' : 'Reforma integral'],
+        ['img' => '/assets/images/servicios/reformas-integrales/obra-externa-036.jpg', 'title' => $isCa ? 'Terrassa àtic reformada · Barcelona · 2025' : 'Terraza ático reformada · Barcelona · 2025', 'cat' => $isCa ? 'Reforma integral' : 'Reforma integral'],
+        ['img' => '/assets/images/servicios/reformas-integrales/obra-interna-004.jpg', 'title' => $isCa ? 'Passadís amb rajoles · Barcelona · 2025' : 'Pasillo con azulejos · Barcelona · 2025', 'cat' => $isCa ? 'Reforma integral' : 'Reforma integral'],
+        ['img' => '/assets/images/servicios/reformas-integrales/obra-interna-007.jpg', 'title' => $isCa ? 'Reforma passadís acabat · Barcelona · 2025' : 'Reforma pasillo acabado · Barcelona · 2025', 'cat' => $isCa ? 'Reforma integral' : 'Reforma integral'],
     ],
     'pladur-acabados' => [
         ['img' => '/assets/images/real/pladur-instalacion.webp', 'title' => $isCa ? 'Instal·lació pladur · Barcelona · 2024' : 'Instalación pladur · Barcelona · 2024', 'cat' => $isCa ? 'Pladur' : 'Pladur'],
         ['img' => '/assets/images/servicios/pladur/pladur-hall-acabado.webp', 'title' => $isCa ? 'Hall residencial · Gràcia · 2024' : 'Hall residencial · Gràcia · 2024', 'cat' => $isCa ? 'Pladur' : 'Pladur'],
         ['img' => '/assets/images/servicios/reformas/reforma-recepcion-acabada.webp', 'title' => $isCa ? 'Sostre registrable · Barcelona' : 'Techo registrable · Barcelona', 'cat' => $isCa ? 'Pladur' : 'Pladur'],
+        ['img' => '/assets/images/servicios/pladur-acabados/obra-externa-023.jpg', 'title' => $isCa ? 'Instal·lació pladur interior · Barcelona · 2025' : 'Instalación pladur interior · Barcelona · 2025', 'cat' => $isCa ? 'Pladur' : 'Pladur'],
+        ['img' => '/assets/images/servicios/pladur-acabados/interior-pladur-acabado-barcelona-2025.mp4', 'type' => 'video', 'title' => $isCa ? 'Interior amb pladur acabat · Barcelona · 2025' : 'Interior con pladur acabado · Barcelona · 2025', 'cat' => $isCa ? 'Pladur' : 'Pladur'],
     ],
     'obra-publica' => [
         ['img' => '/assets/images/real/obra-publica-general.webp', 'title' => $isCa ? 'Obra pública · Barcelona · 2024' : 'Obra pública · Barcelona · 2024', 'cat' => $isCa ? 'Obra pública' : 'Obra pública'],
@@ -74,22 +93,62 @@ $galleries = [
         ['img' => '/assets/images/real/obra-publica-mantenimiento.webp', 'title' => $isCa ? 'Manteniment obra pública · Tarragona' : 'Mantenimiento obra pública · Tarragona', 'cat' => $isCa ? 'Obra pública' : 'Obra pública'],
         ['img' => '/assets/images/real/obra-publica-reforma-completa.webp', 'title' => $isCa ? 'Reforma completa · Barcelona' : 'Reforma completa · Barcelona', 'cat' => $isCa ? 'Obra pública' : 'Obra pública'],
         ['img' => '/assets/images/servicios/obra-publica/obra-publica-calzada-acabada.webp', 'title' => $isCa ? 'Calçada acabada · Tarragona · 2024' : 'Calzada acabada · Tarragona · 2024', 'cat' => $isCa ? 'Obra pública' : 'Obra pública'],
+        ['img' => '/assets/images/servicios/obra-publica/obra-civil-001.jpg', 'title' => $isCa ? 'Bordillo i acera · Barcelona · 2025' : 'Bordillo y acera · Barcelona · 2025', 'cat' => $isCa ? 'Obra pública' : 'Obra pública'],
+        ['img' => '/assets/images/servicios/obra-publica/obra-civil-002.jpg', 'title' => $isCa ? 'Treballador acera · Barcelona · 2025' : 'Trabajador acera · Barcelona · 2025', 'cat' => $isCa ? 'Obra pública' : 'Obra pública'],
+        ['img' => '/assets/images/servicios/obra-publica/obra-externa-004.jpg', 'title' => $isCa ? 'Revestiment mural públic · Barcelona · 2025' : 'Revestimiento mural público · Barcelona · 2025', 'cat' => $isCa ? 'Obra pública' : 'Obra pública'],
+        ['img' => '/assets/images/servicios/obra-publica/obra-externa-009.jpg', 'title' => $isCa ? 'Pavimentació camí · Barcelona · 2025' : 'Pavimentación camino · Barcelona · 2025', 'cat' => $isCa ? 'Obra pública' : 'Obra pública'],
+        ['img' => '/assets/images/servicios/obra-publica/obra-externa-011.jpg', 'title' => $isCa ? 'Pavimentació exterior · Barcelona · 2025' : 'Pavimentación exterior · Barcelona · 2025', 'cat' => $isCa ? 'Obra pública' : 'Obra pública'],
+        ['img' => '/assets/images/servicios/obra-publica/obra-externa-014.jpg', 'title' => $isCa ? 'Construcció acera · Barcelona · 2025' : 'Construcción acera · Barcelona · 2025', 'cat' => $isCa ? 'Obra pública' : 'Obra pública'],
+        ['img' => '/assets/images/servicios/obra-publica/obra-externa-020.jpg', 'title' => $isCa ? 'Calçada de granit · Barcelona · 2025' : 'Calzada de granito · Barcelona · 2025', 'cat' => $isCa ? 'Obra pública' : 'Obra pública'],
+        ['img' => '/assets/images/servicios/obra-publica/obra-externa-021.jpg', 'title' => $isCa ? 'Carril bici acabat · Barcelona · 2025' : 'Carril bici acabado · Barcelona · 2025', 'cat' => $isCa ? 'Obra pública' : 'Obra pública'],
+        ['img' => '/assets/images/servicios/obra-publica/obra-externa-022.jpg', 'title' => $isCa ? 'Col·locació de llambordes · Barcelona · 2025' : 'Colocación de baldosas · Barcelona · 2025', 'cat' => $isCa ? 'Obra pública' : 'Obra pública'],
+        ['img' => '/assets/images/servicios/obra-publica/obra-externa-024.jpg', 'title' => $isCa ? 'Rajoles mural obra pública · Barcelona · 2025' : 'Azulejos mural obra pública · Barcelona · 2025', 'cat' => $isCa ? 'Obra pública' : 'Obra pública'],
+        ['img' => '/assets/images/servicios/obra-publica/obra-externa-026.jpg', 'title' => $isCa ? 'Camí pavimentat · Barcelona · 2025' : 'Camino pavimentado · Barcelona · 2025', 'cat' => $isCa ? 'Obra pública' : 'Obra pública'],
+        ['img' => '/assets/images/servicios/obra-publica/obra-externa-028.jpg', 'title' => $isCa ? 'Bordillo corba · Barcelona · 2025' : 'Bordillo curva · Barcelona · 2025', 'cat' => $isCa ? 'Obra pública' : 'Obra pública'],
+        ['img' => '/assets/images/servicios/obra-publica/obra-externa-035.jpg', 'title' => $isCa ? 'Pavimentació en curs · Barcelona · 2025' : 'Pavimentación en curso · Barcelona · 2025', 'cat' => $isCa ? 'Obra pública' : 'Obra pública'],
+        ['img' => '/assets/images/servicios/obra-publica/bordillo-colocacion-barcelona-2025.mp4', 'type' => 'video', 'title' => $isCa ? 'Col·locació de bordillos · Barcelona · 2025' : 'Colocación de bordillos · Barcelona · 2025', 'cat' => $isCa ? 'Obra pública' : 'Obra pública'],
+        ['img' => '/assets/images/servicios/obra-publica/calzada-piedra-barcelona-2025.mp4', 'type' => 'video', 'title' => $isCa ? 'Calçada de pedra · Barcelona · 2025' : 'Calzada de piedra · Barcelona · 2025', 'cat' => $isCa ? 'Obra pública' : 'Obra pública'],
+        ['img' => '/assets/images/servicios/obra-publica/trabajador-maquinaria-barcelona-2025.mp4', 'type' => 'video', 'title' => $isCa ? 'Treballador amb maquinària · Barcelona · 2025' : 'Trabajador con maquinaria · Barcelona · 2025', 'cat' => $isCa ? 'Obra pública' : 'Obra pública'],
+        ['img' => '/assets/images/servicios/obra-publica/bordillo-construccion-barcelona-2025.mp4', 'type' => 'video', 'title' => $isCa ? 'Construcció de bordillos · Barcelona · 2025' : 'Construcción de bordillos · Barcelona · 2025', 'cat' => $isCa ? 'Obra pública' : 'Obra pública'],
+        ['img' => '/assets/images/servicios/obra-publica/canal-concreto-barcelona-2025.mp4', 'type' => 'video', 'title' => $isCa ? 'Canal de formigó · Barcelona · 2025' : 'Canal de hormigón · Barcelona · 2025', 'cat' => $isCa ? 'Obra pública' : 'Obra pública'],
     ],
     'obra-civil' => [
         ['img' => '/assets/images/real/obra-civil-muros.webp', 'title' => $isCa ? 'Construcció de murs · Barcelona · 2024' : 'Construcción de muros · Barcelona · 2024', 'cat' => $isCa ? 'Obra civil' : 'Obra civil'],
         ['img' => '/assets/images/servicios/obra-publica/obra-civil-bordillo-curva.webp', 'title' => $isCa ? 'Bordillos corba · Tarragona · 2023' : 'Bordillos curva · Tarragona · 2023', 'cat' => $isCa ? 'Obra civil' : 'Obra civil'],
         ['img' => '/assets/images/servicios/obra-publica/obra-civil-aceras-construccion.webp', 'title' => $isCa ? 'Aceres construcció · Tarragona' : 'Aceras construcción · Tarragona', 'cat' => $isCa ? 'Obra civil' : 'Obra civil'],
+        ['img' => '/assets/images/servicios/obra-civil/obra-externa-006.jpg', 'title' => $isCa ? 'Mur de gabions · Barcelona · 2025' : 'Muro de gaviones · Barcelona · 2025', 'cat' => $isCa ? 'Obra civil' : 'Obra civil'],
+        ['img' => '/assets/images/servicios/obra-civil/obra-externa-010.jpg', 'title' => $isCa ? 'Construcció de mur totxo · Barcelona · 2025' : 'Construcción de muro ladrillo · Barcelona · 2025', 'cat' => $isCa ? 'Obra civil' : 'Obra civil'],
+        ['img' => '/assets/images/servicios/obra-civil/obra-interna-001.jpg', 'title' => $isCa ? 'Passadís empedrat · Barcelona · 2025' : 'Pasillo empedrado · Barcelona · 2025', 'cat' => $isCa ? 'Obra civil' : 'Obra civil'],
+        ['img' => '/assets/images/servicios/obra-civil/obra-interna-002.jpg', 'title' => $isCa ? 'Pavimentació passadís exterior · Barcelona · 2025' : 'Pavimentación pasillo exterior · Barcelona · 2025', 'cat' => $isCa ? 'Obra civil' : 'Obra civil'],
     ],
     'parquet-pavimentos' => [
         ['img' => '/assets/images/real/parquet-instalacion.webp', 'title' => $isCa ? 'Instal·lació parquet · Barcelona · 2024' : 'Instalación parquet · Barcelona · 2024', 'cat' => $isCa ? 'Parquet' : 'Parquet'],
         ['img' => '/assets/images/real/parquet-renovacion-suelo.webp', 'title' => $isCa ? 'Renovació de terra · Barcelona · 2024' : 'Renovación de suelo · Barcelona · 2024', 'cat' => $isCa ? 'Parquet' : 'Parquet'],
         ['img' => '/assets/images/real/parquet-reparacion.webp', 'title' => $isCa ? 'Reparació de parquet · Barcelona · 2023' : 'Reparación de parquet · Barcelona · 2023', 'cat' => $isCa ? 'Parquet' : 'Parquet'],
+        ['img' => '/assets/images/servicios/parquet-pavimentos/obra-externa-027.jpg', 'title' => $isCa ? 'Col·locació de paviment ceràmic · Barcelona · 2025' : 'Colocación de pavimento cerámico · Barcelona · 2025', 'cat' => $isCa ? 'Parquet' : 'Parquet'],
+        ['img' => '/assets/images/servicios/parquet-pavimentos/pavimento-ceramico-colocacion-barcelona-2025.mp4', 'type' => 'video', 'title' => $isCa ? 'Col·locació paviment ceràmic vermell · Barcelona · 2025' : 'Colocación pavimento cerámico rojo · Barcelona · 2025', 'cat' => $isCa ? 'Parquet' : 'Parquet'],
+        ['img' => '/assets/images/servicios/parquet-pavimentos/pavimento-madera-acabado-barcelona-2025.mp4', 'type' => 'video', 'title' => $isCa ? 'Paviment de fusta acabat · Barcelona · 2025' : 'Pavimento de madera acabado · Barcelona · 2025', 'cat' => $isCa ? 'Parquet' : 'Parquet'],
     ],
     'reformas-banos' => [
         ['img' => '/assets/images/real/reforma-banos-lavabos.webp', 'title' => $isCa ? 'Reforma bany complet · Barcelona · 2024' : 'Reforma baño completo · Barcelona · 2024', 'cat' => $isCa ? 'Reforma bany' : 'Reforma baño'],
         ['img' => '/assets/images/servicios/reformas/reforma-banio-azulejos-blancos.webp', 'title' => $isCa ? 'Bany amb rajoles blanques · Barcelona' : 'Baño con azulejos blancos · Barcelona', 'cat' => $isCa ? 'Reforma bany' : 'Reforma baño'],
         ['img' => '/assets/images/servicios/reformas/reforma-banio-ducha-ventana.webp', 'title' => $isCa ? 'Dutxa amb finestra · Girona' : 'Ducha con ventana · Girona', 'cat' => $isCa ? 'Reforma bany' : 'Reforma baño'],
         ['img' => '/assets/images/servicios/reformas/reforma-banio-madera-piedra.webp', 'title' => $isCa ? 'Bany fusta i pedra · Barcelona' : 'Baño madera y piedra · Barcelona', 'cat' => $isCa ? 'Reforma bany' : 'Reforma baño'],
+        ['img' => '/assets/images/servicios/reformas-banos/obra-civil-003.jpg', 'title' => $isCa ? 'Bany rajoles imitació fusta · Barcelona · 2025' : 'Baño azulejos imitación madera · Barcelona · 2025', 'cat' => $isCa ? 'Reforma bany' : 'Reforma baño'],
+        ['img' => '/assets/images/servicios/reformas-banos/obra-civil-004.jpg', 'title' => $isCa ? 'Bany acabat fusta · Barcelona · 2025' : 'Baño acabado madera · Barcelona · 2025', 'cat' => $isCa ? 'Reforma bany' : 'Reforma baño'],
+        ['img' => '/assets/images/servicios/reformas-banos/obra-externa-015.jpg', 'title' => $isCa ? 'Bany rajoles blancs en col·locació · Barcelona · 2025' : 'Baño azulejos blancos en colocación · Barcelona · 2025', 'cat' => $isCa ? 'Reforma bany' : 'Reforma baño'],
+        ['img' => '/assets/images/servicios/reformas-banos/obra-externa-017.jpg', 'title' => $isCa ? 'Bany amb rajoles acanalades · Barcelona · 2025' : 'Baño con azulejos acanalados · Barcelona · 2025', 'cat' => $isCa ? 'Reforma bany' : 'Reforma baño'],
+        ['img' => '/assets/images/servicios/reformas-banos/obra-externa-018.jpg', 'title' => $isCa ? 'Bany rajoles acanalades i sòl · Barcelona · 2025' : 'Baño azulejos acanalados y suelo · Barcelona · 2025', 'cat' => $isCa ? 'Reforma bany' : 'Reforma baño'],
+        ['img' => '/assets/images/servicios/reformas-banos/obra-externa-019.jpg', 'title' => $isCa ? 'Bany rajoles marbre blanc · Barcelona · 2025' : 'Baño azulejos mármol blanco · Barcelona · 2025', 'cat' => $isCa ? 'Reforma bany' : 'Reforma baño'],
+        ['img' => '/assets/images/servicios/reformas-banos/obra-externa-025.jpg', 'title' => $isCa ? 'Bany amb patrons geomètrics · Barcelona · 2025' : 'Baño con patrones geométricos · Barcelona · 2025', 'cat' => $isCa ? 'Reforma bany' : 'Reforma baño'],
+        ['img' => '/assets/images/servicios/reformas-banos/obra-externa-029.jpg', 'title' => $isCa ? 'Col·locació de rajoles bany · Barcelona · 2025' : 'Colocación de azulejos baño · Barcelona · 2025', 'cat' => $isCa ? 'Reforma bany' : 'Reforma baño'],
+        ['img' => '/assets/images/servicios/reformas-banos/obra-externa-032.jpg', 'title' => $isCa ? 'Bany pladur i rajoles · Barcelona · 2025' : 'Baño pladur y azulejos · Barcelona · 2025', 'cat' => $isCa ? 'Reforma bany' : 'Reforma baño'],
+        ['img' => '/assets/images/servicios/reformas-banos/obra-externa-033.jpg', 'title' => $isCa ? 'Bany rajoles acanalades acabat · Barcelona · 2025' : 'Baño azulejos acanalados acabado · Barcelona · 2025', 'cat' => $isCa ? 'Reforma bany' : 'Reforma baño'],
+        ['img' => '/assets/images/servicios/reformas-banos/obra-externa-034.jpg', 'title' => $isCa ? 'Bany rajoles grisos en col·locació · Barcelona · 2025' : 'Baño azulejos grises en colocación · Barcelona · 2025', 'cat' => $isCa ? 'Reforma bany' : 'Reforma baño'],
+        ['img' => '/assets/images/servicios/reformas-banos/obra-interna-003.jpg', 'title' => $isCa ? 'Impermeabilització de bany · Barcelona · 2025' : 'Impermeabilización de baño · Barcelona · 2025', 'cat' => $isCa ? 'Reforma bany' : 'Reforma baño'],
+        ['img' => '/assets/images/servicios/reformas-banos/obra-interna-005.jpg', 'title' => $isCa ? 'Bany acabat tons grisos · Barcelona · 2025' : 'Baño acabado tonos grises · Barcelona · 2025', 'cat' => $isCa ? 'Reforma bany' : 'Reforma baño'],
+        ['img' => '/assets/images/servicios/reformas-banos/obra-interna-008.jpg', 'title' => $isCa ? 'Bany amb llum zenital · Barcelona · 2025' : 'Baño con luz cenital · Barcelona · 2025', 'cat' => $isCa ? 'Reforma bany' : 'Reforma baño'],
+        ['img' => '/assets/images/servicios/reformas-banos/obra-interna-009.jpg', 'title' => $isCa ? 'Impermeabilització bany en curs · Barcelona · 2025' : 'Impermeabilización baño en curso · Barcelona · 2025', 'cat' => $isCa ? 'Reforma bany' : 'Reforma baño'],
     ],
     'rehabilitacion-fachadas' => [
         ['img' => '/assets/images/real/rehabilitacion-casa.webp', 'title' => $isCa ? 'Rehabilitació façana · Barcelona · 2024' : 'Rehabilitación fachada · Barcelona · 2024', 'cat' => $isCa ? 'Rehabilitació' : 'Rehabilitación'],
@@ -662,14 +721,25 @@ include __DIR__ . '/../includes/header.php';
         <div class="embla relative" id="gallery-embla-<?php echo $service_slug; ?>">
             <div class="embla__viewport overflow-hidden rounded-sm">
                 <div class="embla__container flex">
-                    <?php foreach ($gallery as $g): ?>
+                    <?php foreach ($gallery as $g):
+                        $is_video = ($g['type'] ?? 'image') === 'video';
+                        $media_src = esc_url($theme_uri . $g['img']);
+                    ?>
                     <div class="embla__slide min-w-0 px-2" style="flex: 0 0 100%;">
                         <article class="group relative overflow-hidden rounded-sm" style="aspect-ratio: <?php echo $carousel['image_aspect']; ?>">
-                            <img src="<?php echo esc_url($theme_uri . $g['img']); ?>"
+                            <?php if ($is_video): ?>
+                            <video src="<?php echo $media_src; ?>"
+                                   class="w-full h-full object-cover img-zoom transition-transform duration-700 group-hover:scale-105"
+                                   playsinline muted loop autoplay
+                                   <?php if (isset($g['poster'])): ?>poster="<?php echo esc_url($theme_uri . $g['poster']); ?>"<?php endif; ?>>
+                            </video>
+                            <?php else: ?>
+                            <img src="<?php echo $media_src; ?>"
                                  alt="<?php echo esc_attr($g['title']); ?>"
                                  class="w-full h-full object-cover img-zoom transition-transform duration-700 group-hover:scale-105"
                                  loading="lazy"
                                  onerror="this.style.display='none'">
+                            <?php endif; ?>
                             <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent"></div>
                             <div class="absolute bottom-0 left-0 right-0 p-4">
                                 <span class="text-brand-400 text-xs font-semibold uppercase tracking-widest"><?php echo $g['cat']; ?></span>
