@@ -1,7 +1,7 @@
 /**
  * Navigation.js — Santa Fe Header
  * Architect's Bar scroll effect, mobile menu with accordion submenu, theme toggle
- * iOS-safe scroll lock using overflow:hidden on <html>
+ * Scroll lock: overflow:hidden on body + touchmove prevention (no jump to top)
  */
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -25,20 +25,25 @@ document.addEventListener('DOMContentLoaded', function() {
         onScroll();
     }
 
-    // Mobile menu — overflow:hidden scroll lock (no reflow, no flash)
+    // Mobile menu — scroll lock without jumping to top
     if (menuToggle && mobileMenu) {
         var scrollPosition = 0;
 
+        function preventBodyScroll(e) {
+            // Allow scrolling inside the mobile menu; block everywhere else
+            if (mobileMenu.contains(e.target)) return;
+            e.preventDefault();
+        }
+
         function openMenu() {
             scrollPosition = window.scrollY;
-            document.documentElement.classList.add('menu-open');
-            document.body.style.position = 'fixed';
-            document.body.style.width = '100%';
-            document.body.style.top = '-' + scrollPosition + 'px';
+            document.body.classList.add('menu-open');
             mobileMenu.classList.add('open');
             menuToggle.setAttribute('aria-expanded', 'true');
             document.addEventListener('keydown', onKeyDown);
             document.addEventListener('click', onClickOutside);
+            // iOS Safari: block body scroll via touchmove (passive:false so preventDefault works)
+            document.addEventListener('touchmove', preventBodyScroll, { passive: false });
         }
 
         function closeMenu() {
@@ -50,16 +55,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 var panel = document.getElementById(btn.getAttribute('aria-controls'));
                 if (panel) panel.classList.remove('open');
             });
-            // Small delay to let slide-out animation start before restoring scroll
-            setTimeout(function() {
-                document.documentElement.classList.remove('menu-open');
-                document.body.style.position = '';
-                document.body.style.width = '';
-                document.body.style.top = '';
-                window.scrollTo(0, scrollPosition);
-            }, 50);
             document.removeEventListener('keydown', onKeyDown);
             document.removeEventListener('click', onClickOutside);
+            document.removeEventListener('touchmove', preventBodyScroll, { passive: false });
+            // Small delay to let slide-out animation finish before removing scroll lock
+            setTimeout(function() {
+                document.body.classList.remove('menu-open');
+            }, 50);
         }
 
         function onKeyDown(e) {
