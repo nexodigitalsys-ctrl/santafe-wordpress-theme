@@ -1034,16 +1034,6 @@ $nav_contact_path = $lang === 'ca' ? 'contacte' : 'contacto';
     transform: translateX(0);
   }
 
-  /* Scroll lock when mobile menu is open — blocks scroll WITHOUT jumping to top.
-     overflow:hidden on body (not html) keeps position:fixed children intact.
-     touch-action:none prevents iOS rubber-band scrolling.
-     overscroll-behavior:none catches modern browsers. */
-  body.menu-open {
-    overflow: hidden;
-    touch-action: none;
-    overscroll-behavior: none;
-  }
-
   /* Mobile submenu accordion */
   .mobile-submenu-panel {
     max-height: 0;
@@ -1504,7 +1494,7 @@ gtag('consent', 'default', {
 </header>
 
 <!-- Mobile Menu — Fullscreen, Masterfully Designed -->
-<div id="mobile-menu" class="mobile-menu fixed inset-0 w-screen h-screen bg-white z-[99999] flex flex-col lg:hidden overflow-y-auto">
+<div id="mobile-menu" class="mobile-menu fixed inset-0 bg-white z-[99999] flex flex-col lg:hidden">
   <!-- Fixed Header Bar with X -->
   <div class="sticky top-0 z-10 flex items-center justify-end px-6 py-4 bg-white/95 backdrop-blur-sm border-b border-warm-100">
     <button type="button" id="menu-close" class="flex items-center justify-center w-10 h-10 rounded-full bg-warm-100 text-warm-900 hover:bg-brand-600 hover:text-white transition-all duration-300" aria-label="<?php echo t($translations, 'nav.menu_close'); ?>">
@@ -1513,7 +1503,7 @@ gtag('consent', 'default', {
   </div>
 
   <!-- Scrollable Menu Content -->
-  <div class="flex-1 flex flex-col px-6 py-6 gap-1">
+  <div class="flex-1 flex flex-col overflow-y-auto px-6 py-6 gap-1">
     <!-- Services with accordion submenu -->
     <div class="mobile-nav-group border-b border-warm-100 pb-4 mb-2">
       <div class="flex items-center justify-between py-3">

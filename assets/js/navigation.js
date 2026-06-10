@@ -1,7 +1,7 @@
 /**
  * Navigation.js — Santa Fe Header
  * Architect's Bar scroll effect, mobile menu with accordion submenu, theme toggle
- * Scroll lock: overflow:hidden on body + touchmove prevention (no jump to top)
+ * Mobile menu: simple position:fixed modal, no scroll lock hacks
  */
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -25,25 +25,13 @@ document.addEventListener('DOMContentLoaded', function() {
         onScroll();
     }
 
-    // Mobile menu — scroll lock without jumping to top
+    // Mobile menu — simple toggle: click to open, click X to close
     if (menuToggle && mobileMenu) {
-        var scrollPosition = 0;
-
-        function preventBodyScroll(e) {
-            // Allow scrolling inside the mobile menu; block everywhere else
-            if (mobileMenu.contains(e.target)) return;
-            e.preventDefault();
-        }
-
         function openMenu() {
-            scrollPosition = window.scrollY;
-            document.body.classList.add('menu-open');
             mobileMenu.classList.add('open');
             menuToggle.setAttribute('aria-expanded', 'true');
             document.addEventListener('keydown', onKeyDown);
             document.addEventListener('click', onClickOutside);
-            // iOS Safari: block body scroll via touchmove (passive:false so preventDefault works)
-            document.addEventListener('touchmove', preventBodyScroll, { passive: false });
         }
 
         function closeMenu() {
@@ -57,11 +45,6 @@ document.addEventListener('DOMContentLoaded', function() {
             });
             document.removeEventListener('keydown', onKeyDown);
             document.removeEventListener('click', onClickOutside);
-            document.removeEventListener('touchmove', preventBodyScroll, { passive: false });
-            // Small delay to let slide-out animation finish before removing scroll lock
-            setTimeout(function() {
-                document.body.classList.remove('menu-open');
-            }, 50);
         }
 
         function onKeyDown(e) {
