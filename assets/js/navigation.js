@@ -32,6 +32,8 @@ document.addEventListener('DOMContentLoaded', function() {
         function openMenu() {
             scrollPosition = window.scrollY;
             document.documentElement.classList.add('menu-open');
+            document.body.style.position = 'fixed';
+            document.body.style.width = '100%';
             document.body.style.top = '-' + scrollPosition + 'px';
             mobileMenu.classList.add('open');
             menuToggle.setAttribute('aria-expanded', 'true');
@@ -51,6 +53,8 @@ document.addEventListener('DOMContentLoaded', function() {
             // Small delay to let slide-out animation start before restoring scroll
             setTimeout(function() {
                 document.documentElement.classList.remove('menu-open');
+                document.body.style.position = '';
+                document.body.style.width = '';
                 document.body.style.top = '';
                 window.scrollTo(0, scrollPosition);
             }, 50);

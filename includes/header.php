@@ -1034,9 +1034,12 @@ $nav_contact_path = $lang === 'ca' ? 'contacte' : 'contacto';
     transform: translateX(0);
   }
 
-  /* Scroll lock when mobile menu is open — prevents flash/reflow */
-  html.menu-open,
+  /* Scroll lock when mobile menu is open — prevents flash/reflow
+     Use position:fixed on body (not overflow:hidden on html) for iOS Safari compatibility
+     with position:fixed children like #mobile-menu */
   html.menu-open body {
+    position: fixed;
+    width: 100%;
     overflow: hidden;
     touch-action: none;
   }
@@ -1498,67 +1501,66 @@ gtag('consent', 'default', {
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
     </button>
   </div>
+</header>
 
+<!-- Mobile Menu — Fullscreen, Masterfully Designed -->
+<div id="mobile-menu" class="mobile-menu fixed inset-0 w-screen h-screen bg-white z-[60] flex flex-col lg:hidden overflow-y-auto">
+  <!-- Fixed Header Bar with X -->
+  <div class="sticky top-0 z-10 flex items-center justify-end px-6 py-4 bg-white/95 backdrop-blur-sm border-b border-warm-100">
+    <button type="button" id="menu-close" class="flex items-center justify-center w-10 h-10 rounded-full bg-warm-100 text-warm-900 hover:bg-brand-600 hover:text-white transition-all duration-300" aria-label="<?php echo t($translations, 'nav.menu_close'); ?>">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
 
-  <!-- Mobile Menu — Fullscreen, Masterfully Designed -->
-  <div id="mobile-menu" class="mobile-menu fixed inset-0 w-screen h-screen bg-white z-[60] flex flex-col lg:hidden overflow-y-auto">
-    <!-- Fixed Header Bar with X -->
-    <div class="sticky top-0 z-10 flex items-center justify-end px-6 py-4 bg-white/95 backdrop-blur-sm border-b border-warm-100">
-      <button type="button" id="menu-close" class="flex items-center justify-center w-10 h-10 rounded-full bg-warm-100 text-warm-900 hover:bg-brand-600 hover:text-white transition-all duration-300" aria-label="<?php echo t($translations, 'nav.menu_close'); ?>">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-      </button>
+  <!-- Scrollable Menu Content -->
+  <div class="flex-1 flex flex-col px-6 py-6 gap-1">
+    <!-- Services with accordion submenu -->
+    <div class="mobile-nav-group border-b border-warm-100 pb-4 mb-2">
+      <div class="flex items-center justify-between py-3">
+        <a href="/<?php echo $lang; ?>/<?php echo $nav_services_path; ?>/" class="text-xl font-display font-bold text-warm-900 mobile-nav-link tracking-tight"><?php echo t($translations, 'nav.services'); ?></a>
+        <button type="button" class="mobile-submenu-toggle flex items-center justify-center w-10 h-10 rounded-full bg-warm-50 text-warm-500 hover:bg-brand-600 hover:text-white transition-all duration-300" aria-expanded="false" aria-controls="mobile-submenu-services" aria-label="<?php echo t($translations, 'nav.toggle_services'); ?>">
+          <svg class="submenu-chevron w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"/></svg>
+        </button>
+      </div>
+      <div id="mobile-submenu-services" class="mobile-submenu-panel space-y-0.5 pl-2">
+        <a href="/<?php echo $lang; ?>/<?php echo $nav_services_path; ?>/" class="block px-4 py-2.5 text-sm font-semibold text-warm-700 hover:text-brand-600 hover:bg-warm-50 rounded-lg mobile-nav-link transition-colors"><?php echo t($translations, 'nav.all_services'); ?></a>
+        <a href="/<?php echo $lang; ?>/<?php echo $lang === 'ca' ? 'obra-nova' : 'obra-nueva'; ?>/" class="block px-4 py-2.5 text-sm text-warm-600 hover:text-brand-600 hover:bg-warm-50 rounded-lg mobile-nav-link transition-colors">Obra nueva</a>
+        <a href="/<?php echo $lang; ?>/<?php echo $lang === 'ca' ? 'reformes-integrals' : 'reformas-integrales'; ?>/" class="block px-4 py-2.5 text-sm text-warm-600 hover:text-brand-600 hover:bg-warm-50 rounded-lg mobile-nav-link transition-colors">Reformas integrales</a>
+        <a href="/<?php echo $lang; ?>/<?php echo $lang === 'ca' ? 'pladur-acabats' : 'pladur-acabados'; ?>/" class="block px-4 py-2.5 text-sm text-warm-600 hover:text-brand-600 hover:bg-warm-50 rounded-lg mobile-nav-link transition-colors">Pladur y acabados</a>
+        <a href="/<?php echo $lang; ?>/obra-publica/" class="block px-4 py-2.5 text-sm text-warm-600 hover:text-brand-600 hover:bg-warm-50 rounded-lg mobile-nav-link transition-colors">Obra pública</a>
+        <a href="/<?php echo $lang; ?>/obra-civil/" class="block px-4 py-2.5 text-sm text-warm-600 hover:text-brand-600 hover:bg-warm-50 rounded-lg mobile-nav-link transition-colors">Obra civil</a>
+        <a href="/<?php echo $lang; ?>/<?php echo $lang === 'ca' ? 'parquet-paviments' : 'parquet-pavimentos'; ?>/" class="block px-4 py-2.5 text-sm text-warm-600 hover:text-brand-600 hover:bg-warm-50 rounded-lg mobile-nav-link transition-colors">Parquet y pavimentos</a>
+        <a href="/<?php echo $lang; ?>/<?php echo $lang === 'ca' ? 'reformes-banys' : 'reformas-banos'; ?>/" class="block px-4 py-2.5 text-sm text-warm-600 hover:text-brand-600 hover:bg-warm-50 rounded-lg mobile-nav-link transition-colors">Reforma de baños</a>
+        <a href="/<?php echo $lang; ?>/<?php echo $lang === 'ca' ? 'rehabilitacio-facanes' : 'rehabilitacion-fachadas'; ?>/" class="block px-4 py-2.5 text-sm text-warm-600 hover:text-brand-600 hover:bg-warm-50 rounded-lg mobile-nav-link transition-colors">Rehabilitación de fachadas</a>
+        <a href="/<?php echo $lang; ?>/<?php echo $lang === 'ca' ? 'reformes-comercials' : 'reformas-comerciales'; ?>/" class="block px-4 py-2.5 text-sm text-warm-600 hover:text-brand-600 hover:bg-warm-50 rounded-lg mobile-nav-link transition-colors">Reformas comerciales</a>
+      </div>
     </div>
 
-    <!-- Scrollable Menu Content -->
-    <div class="flex-1 flex flex-col px-6 py-6 gap-1">
-      <!-- Services with accordion submenu -->
-      <div class="mobile-nav-group border-b border-warm-100 pb-4 mb-2">
-        <div class="flex items-center justify-between py-3">
-          <a href="/<?php echo $lang; ?>/<?php echo $nav_services_path; ?>/" class="text-xl font-display font-bold text-warm-900 mobile-nav-link tracking-tight"><?php echo t($translations, 'nav.services'); ?></a>
-          <button type="button" class="mobile-submenu-toggle flex items-center justify-center w-10 h-10 rounded-full bg-warm-50 text-warm-500 hover:bg-brand-600 hover:text-white transition-all duration-300" aria-expanded="false" aria-controls="mobile-submenu-services" aria-label="<?php echo t($translations, 'nav.toggle_services'); ?>">
-            <svg class="submenu-chevron w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"/></svg>
-          </button>
-        </div>
-        <div id="mobile-submenu-services" class="mobile-submenu-panel space-y-0.5 pl-2">
-          <a href="/<?php echo $lang; ?>/<?php echo $nav_services_path; ?>/" class="block px-4 py-2.5 text-sm font-semibold text-warm-700 hover:text-brand-600 hover:bg-warm-50 rounded-lg mobile-nav-link transition-colors"><?php echo t($translations, 'nav.all_services'); ?></a>
-          <a href="/<?php echo $lang; ?>/<?php echo $lang === 'ca' ? 'obra-nova' : 'obra-nueva'; ?>/" class="block px-4 py-2.5 text-sm text-warm-600 hover:text-brand-600 hover:bg-warm-50 rounded-lg mobile-nav-link transition-colors">Obra nueva</a>
-          <a href="/<?php echo $lang; ?>/<?php echo $lang === 'ca' ? 'reformes-integrals' : 'reformas-integrales'; ?>/" class="block px-4 py-2.5 text-sm text-warm-600 hover:text-brand-600 hover:bg-warm-50 rounded-lg mobile-nav-link transition-colors">Reformas integrales</a>
-          <a href="/<?php echo $lang; ?>/<?php echo $lang === 'ca' ? 'pladur-acabats' : 'pladur-acabados'; ?>/" class="block px-4 py-2.5 text-sm text-warm-600 hover:text-brand-600 hover:bg-warm-50 rounded-lg mobile-nav-link transition-colors">Pladur y acabados</a>
-          <a href="/<?php echo $lang; ?>/obra-publica/" class="block px-4 py-2.5 text-sm text-warm-600 hover:text-brand-600 hover:bg-warm-50 rounded-lg mobile-nav-link transition-colors">Obra pública</a>
-          <a href="/<?php echo $lang; ?>/obra-civil/" class="block px-4 py-2.5 text-sm text-warm-600 hover:text-brand-600 hover:bg-warm-50 rounded-lg mobile-nav-link transition-colors">Obra civil</a>
-          <a href="/<?php echo $lang; ?>/<?php echo $lang === 'ca' ? 'parquet-paviments' : 'parquet-pavimentos'; ?>/" class="block px-4 py-2.5 text-sm text-warm-600 hover:text-brand-600 hover:bg-warm-50 rounded-lg mobile-nav-link transition-colors">Parquet y pavimentos</a>
-          <a href="/<?php echo $lang; ?>/<?php echo $lang === 'ca' ? 'reformes-banys' : 'reformas-banos'; ?>/" class="block px-4 py-2.5 text-sm text-warm-600 hover:text-brand-600 hover:bg-warm-50 rounded-lg mobile-nav-link transition-colors">Reforma de baños</a>
-          <a href="/<?php echo $lang; ?>/<?php echo $lang === 'ca' ? 'rehabilitacio-facanes' : 'rehabilitacion-fachadas'; ?>/" class="block px-4 py-2.5 text-sm text-warm-600 hover:text-brand-600 hover:bg-warm-50 rounded-lg mobile-nav-link transition-colors">Rehabilitación de fachadas</a>
-          <a href="/<?php echo $lang; ?>/<?php echo $lang === 'ca' ? 'reformes-comercials' : 'reformas-comerciales'; ?>/" class="block px-4 py-2.5 text-sm text-warm-600 hover:text-brand-600 hover:bg-warm-50 rounded-lg mobile-nav-link transition-colors">Reformas comerciales</a>
-        </div>
-      </div>
+    <!-- Main Nav Links -->
+    <a href="/<?php echo $lang; ?>/<?php echo $nav_projects_path; ?>/" class="mobile-nav-item block py-3 text-xl font-display font-bold text-warm-900 mobile-nav-link border-b border-warm-100 tracking-tight"><?php echo t($translations, 'nav.projects'); ?></a>
+    <a href="/<?php echo $lang; ?>/<?php echo $nav_about_path; ?>/" class="mobile-nav-item block py-3 text-xl font-display font-bold text-warm-900 mobile-nav-link border-b border-warm-100 tracking-tight"><?php echo t($translations, 'nav.about'); ?></a>
+    <a href="/<?php echo $lang; ?>/blog/" class="mobile-nav-item block py-3 text-xl font-display font-bold text-warm-900 mobile-nav-link border-b border-warm-100 tracking-tight">Blog</a>
 
-      <!-- Main Nav Links -->
-      <a href="/<?php echo $lang; ?>/<?php echo $nav_projects_path; ?>/" class="mobile-nav-item block py-3 text-xl font-display font-bold text-warm-900 mobile-nav-link border-b border-warm-100 tracking-tight"><?php echo t($translations, 'nav.projects'); ?></a>
-      <a href="/<?php echo $lang; ?>/<?php echo $nav_about_path; ?>/" class="mobile-nav-item block py-3 text-xl font-display font-bold text-warm-900 mobile-nav-link border-b border-warm-100 tracking-tight"><?php echo t($translations, 'nav.about'); ?></a>
-      <a href="/<?php echo $lang; ?>/blog/" class="mobile-nav-item block py-3 text-xl font-display font-bold text-warm-900 mobile-nav-link border-b border-warm-100 tracking-tight">Blog</a>
-
-      <!-- CTA Section -->
-      <div class="mt-auto pt-6 pb-8 flex flex-col gap-4">
-        <a href="tel:<?php echo COMPANY_PHONE; ?>" class="flex items-center gap-3 text-lg font-semibold text-brand-600 mobile-nav-link" data-track-event="phone_click">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
-          <?php echo COMPANY_PHONE_DISPLAY; ?>
-        </a>
-        <a href="/<?php echo $lang; ?>/<?php echo $nav_contact_path; ?>/" class="block w-full text-center py-3.5 bg-brand-600 hover:bg-brand-500 text-white font-semibold rounded-lg transition-all tracking-wide">
-          <?php echo t($translations, 'nav.contact'); ?>
-        </a>
-        <div class="flex items-center justify-center gap-4 mt-2">
-          <a href="<?php echo get_alt_url($current_route ?? '', 'es'); ?>" hreflang="es_ES" class="text-base font-medium border-2 px-4 py-2 rounded-lg transition-colors <?php echo $lang === 'es' ? 'text-brand-500 border-brand-500' : 'text-warm-500 border-warm-300 hover:text-brand-500 hover:border-brand-500'; ?>">ES</a>
-          <a href="<?php echo get_alt_url($current_route ?? '', 'ca'); ?>" hreflang="ca_ES" class="text-base font-medium border-2 px-4 py-2 rounded-lg transition-colors <?php echo $lang === 'ca' ? 'text-brand-500 border-brand-500' : 'text-warm-500 border-warm-300 hover:text-brand-500 hover:border-brand-500'; ?>">CA</a>
-          <button type="button" id="theme-toggle-mobile" class="flex items-center justify-center w-10 h-10 rounded-full border-2 border-warm-200 text-warm-600 hover:border-brand-500 hover:text-brand-500 transition-all" data-theme-btn aria-label="<?php echo t($translations, 'nav.toggle_theme'); ?>">
-            <svg class="theme-icon-sun w-5 h-5 hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"/></svg>
-            <svg class="theme-icon-moon w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z"/></svg>
-          </button>
-        </div>
+    <!-- CTA Section -->
+    <div class="mt-auto pt-6 pb-8 flex flex-col gap-4">
+      <a href="tel:<?php echo COMPANY_PHONE; ?>" class="flex items-center gap-3 text-lg font-semibold text-brand-600 mobile-nav-link" data-track-event="phone_click">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+        <?php echo COMPANY_PHONE_DISPLAY; ?>
+      </a>
+      <a href="/<?php echo $lang; ?>/<?php echo $nav_contact_path; ?>/" class="block w-full text-center py-3.5 bg-brand-600 hover:bg-brand-500 text-white font-semibold rounded-lg transition-all tracking-wide">
+        <?php echo t($translations, 'nav.contact'); ?>
+      </a>
+      <div class="flex items-center justify-center gap-4 mt-2">
+        <a href="<?php echo get_alt_url($current_route ?? '', 'es'); ?>" hreflang="es_ES" class="text-base font-medium border-2 px-4 py-2 rounded-lg transition-colors <?php echo $lang === 'es' ? 'text-brand-500 border-brand-500' : 'text-warm-500 border-warm-300 hover:text-brand-500 hover:border-brand-500'; ?>">ES</a>
+        <a href="<?php echo get_alt_url($current_route ?? '', 'ca'); ?>" hreflang="ca_ES" class="text-base font-medium border-2 px-4 py-2 rounded-lg transition-colors <?php echo $lang === 'ca' ? 'text-brand-500 border-brand-500' : 'text-warm-500 border-warm-300 hover:text-brand-500 hover:border-brand-500'; ?>">CA</a>
+        <button type="button" id="theme-toggle-mobile" class="flex items-center justify-center w-10 h-10 rounded-full border-2 border-warm-200 text-warm-600 hover:border-brand-500 hover:text-brand-500 transition-all" data-theme-btn aria-label="<?php echo t($translations, 'nav.toggle_theme'); ?>">
+          <svg class="theme-icon-sun w-5 h-5 hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"/></svg>
+          <svg class="theme-icon-moon w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z"/></svg>
+        </button>
       </div>
     </div>
   </div>
-</header>
+</div>
 
 <!-- WhatsApp Float -->
 <a href="https://wa.me/<?php echo WHATSAPP_NUMBER; ?>?text=Hola%20Paulo%2C%20estoy%20interesado%20en%20una%20reforma" 
