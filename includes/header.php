@@ -1033,6 +1033,10 @@ $nav_contact_path = $lang === 'ca' ? 'contacte' : 'contacto';
   .mobile-menu.open {
     transform: translateX(0);
   }
+  /* Mobile menu must be above everything (scroll-progress has z-index 9999) */
+  #mobile-menu {
+    z-index: 99999;
+  }
 
   /* Mobile submenu accordion */
   .mobile-submenu-panel {
@@ -1494,7 +1498,7 @@ gtag('consent', 'default', {
 </header>
 
 <!-- Mobile Menu — Fullscreen, Masterfully Designed -->
-<div id="mobile-menu" class="mobile-menu fixed inset-0 bg-white z-[99999] flex flex-col lg:hidden">
+<div id="mobile-menu" class="mobile-menu fixed inset-0 bg-white flex flex-col lg:hidden">
   <!-- Fixed Header Bar with X -->
   <div class="sticky top-0 z-10 flex items-center justify-end px-6 py-4 bg-white/95 backdrop-blur-sm border-b border-warm-100">
     <button type="button" id="menu-close" class="flex items-center justify-center w-10 h-10 rounded-full bg-warm-100 text-warm-900 hover:bg-brand-600 hover:text-white transition-all duration-300" aria-label="<?php echo t($translations, 'nav.menu_close'); ?>">
