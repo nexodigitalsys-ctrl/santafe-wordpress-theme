@@ -13,6 +13,7 @@ build/
 coverage/
 # Test artifacts
 .playwright-mcp/
+recaptcha.local.txt
 *.test.jpg
 *.test2.jpg
 homepage-test.jpg
