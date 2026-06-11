@@ -7,6 +7,7 @@
 defined('ABSPATH') || exit;
 
 require_once __DIR__ . '/config/constants.php';
+require_once __DIR__ . '/includes/i18n.php';
 
 function santafe_tailwind_theme_setup(): void {
     add_theme_support('title-tag');
@@ -216,7 +217,19 @@ function santafe_tailwind_handle_contact_form(): void {
 
     $recaptcha_token = sanitize_text_field($payload['g-recaptcha-response'] ?? '');
     if (!santafe_verify_recaptcha($recaptcha_token)) {
-        santafe_tailwind_contact_response(false, 'Por favor, verifica el reCAPTCHA antes de enviar.', $is_ajax);
+        $lang = sanitize_text_field($payload['lang'] ?? '');
+        if (!in_array($lang, ['es', 'ca'], true)) {
+            $referer = wp_get_referer() ?: '';
+            if (strpos($referer, '/ca/') !== false) {
+                $lang = 'ca';
+            } else {
+                $lang = 'es';
+            }
+        }
+        $translations = load_translations($lang);
+        $translated = t($translations, 'contact.recaptcha_invalid');
+        $msg = $translated !== 'contact.recaptcha_invalid' ? $translated : 'Por favor, verifica el reCAPTCHA antes de enviar.';
+        santafe_tailwind_contact_response(false, $msg, $is_ajax);
     }
 
     $lead = santafe_normalize_contact_payload($payload);

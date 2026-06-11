@@ -89,6 +89,7 @@ $ciudades = $lang === 'ca' ? [
                 <form action="<?php echo esc_url(admin_url('admin-post.php')); ?>" method="post" data-ajax="true" novalidate>
                     <input type="hidden" name="action" value="santafe_contact_form">
                     <input type="hidden" name="csrf_token" value="<?php echo htmlspecialchars($_SESSION['csrf_token'] ?? '', ENT_QUOTES, 'UTF-8'); ?>">
+                    <input type="hidden" name="lang" value="<?php echo esc_attr($lang); ?>">
                     <div class="sr-only" aria-hidden="true">
                         <label for="website"><?php echo t($translations, 'contact.honeypot_label'); ?></label>
                         <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
