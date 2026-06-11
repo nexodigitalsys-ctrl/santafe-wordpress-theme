@@ -130,6 +130,11 @@ $alt_oficina = $lang === 'ca' ? 'Oficina' : 'Oficina';
                             <span class="section-contacto-label text-sm"><?php echo $label_privacy; ?></span>
                         </label>
                     </div>
+                    <?php if (defined('RECAPTCHA_SITE_KEY') && RECAPTCHA_SITE_KEY !== ''): ?>
+                    <div class="mb-6">
+                        <div class="g-recaptcha" data-sitekey="<?php echo esc_attr(RECAPTCHA_SITE_KEY); ?>"></div>
+                    </div>
+                    <?php endif; ?>
                     <button type="submit" class="w-full section-contacto-submit font-semibold py-4 rounded-xl transition-all duration-300 tracking-wide uppercase text-sm relative overflow-hidden group shadow-lg shadow-brand-600/20">
                         <span class="relative z-10"><?php echo $cta; ?></span>
                         <div class="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform"></div>
