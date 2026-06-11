@@ -128,7 +128,9 @@
     "success_title": "¡Mensaje enviado!",
     "success_text": "Hemos recibido tu solicitud. Paulo revisara los datos y te contactara para valorar el siguiente paso.",
     "privacy_note": "Al enviar este formulario aceptas nuestra {privacy_link}. Tus datos están protegidos por el RGPD.",
-    "privacy_link_text": "Política de Privacidad"
+    "privacy_link_text": "Política de Privacidad",
+    "recaptcha_missing": "Por favor, completa el reCAPTCHA antes de enviar.",
+    "recaptcha_invalid": "El reCAPTCHA no es válido. Inténtalo de nuevo."
   },
   "cookies": {
     "banner_text": "Utilizamos cookies para mejorar tu experiencia. Las necesarias están siempre activas. Para el resto, necesitamos tu consentimiento.",
