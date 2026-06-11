@@ -155,6 +155,39 @@ function santafe_send_contact_email(array $data): bool {
     return (bool) wp_mail(SANTAFE_CONTACT_EMAIL, $subject, $body, $headers);
 }
 
+function santafe_verify_recaptcha(string $token): bool {
+    $secret = defined('RECAPTCHA_SECRET_KEY') ? RECAPTCHA_SECRET_KEY : '';
+
+    if ($secret === '') {
+        error_log('Santa Fe reCAPTCHA: secret key not configured.');
+        return true; // fallback seguro: não bloqueia se não configurado
+    }
+
+    if ($token === '') {
+        return false;
+    }
+
+    $response = wp_remote_post(
+        'https://www.google.com/recaptcha/api/siteverify',
+        [
+            'timeout' => 10,
+            'body' => [
+                'secret' => $secret,
+                'response' => $token,
+                'remoteip' => sanitize_text_field($_SERVER['REMOTE_ADDR'] ?? ''),
+            ],
+        ]
+    );
+
+    if (is_wp_error($response)) {
+        error_log('Santa Fe reCAPTCHA: ' . $response->get_error_message());
+        return false;
+    }
+
+    $body = json_decode(wp_remote_retrieve_body($response), true);
+    return is_array($body) && !empty($body['success']);
+}
+
 function santafe_tailwind_handle_contact_form(): void {
     $content_type = $_SERVER['CONTENT_TYPE'] ?? '';
     $is_ajax = strtolower($_SERVER['HTTP_X_REQUESTED_WITH'] ?? '') === 'xmlhttprequest'
@@ -179,6 +212,11 @@ function santafe_tailwind_handle_contact_form(): void {
 
     if (!empty($payload['website'] ?? '')) {
         santafe_tailwind_contact_response(true, 'Solicitud recibida.', $is_ajax);
+    }
+
+    $recaptcha_token = sanitize_text_field($payload['g-recaptcha-response'] ?? '');
+    if (!santafe_verify_recaptcha($recaptcha_token)) {
+        santafe_tailwind_contact_response(false, 'Por favor, verifica el reCAPTCHA antes de enviar.', $is_ajax);
     }
 
     $lead = santafe_normalize_contact_payload($payload);
