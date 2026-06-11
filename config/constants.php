@@ -67,6 +67,14 @@ if (!defined('SANTAFE_ENABLE_ANALYTICS')) {
     define('SANTAFE_ENABLE_ANALYTICS', GA4_ID !== '' || GTM_ID !== '');
 }
 
+if (!defined('RECAPTCHA_SITE_KEY')) {
+    define('RECAPTCHA_SITE_KEY', trim((string) (getenv('RECAPTCHA_SITE_KEY') ?: '')));
+}
+
+if (!defined('RECAPTCHA_SECRET_KEY')) {
+    define('RECAPTCHA_SECRET_KEY', trim((string) (getenv('RECAPTCHA_SECRET_KEY') ?: '')));
+}
+
 // ── Redes sociais (preencher URLs reais) ────────────────────────────
 if (!defined('SOCIAL_INSTAGRAM')) {
     define('SOCIAL_INSTAGRAM', '');
