@@ -135,6 +135,11 @@ $ciudades = $lang === 'ca' ? [
                             <span class="text-warm-500 text-sm"><?php echo $label_privacy; ?></span>
                         </label>
                     </div>
+                    <?php if (defined('RECAPTCHA_SITE_KEY') && RECAPTCHA_SITE_KEY !== ''): ?>
+                    <div class="mb-6">
+                        <div class="g-recaptcha" data-sitekey="<?php echo esc_attr(RECAPTCHA_SITE_KEY); ?>"></div>
+                    </div>
+                    <?php endif; ?>
                     <button type="submit" class="w-full bg-brand-600 hover:bg-brand-500 text-white font-semibold py-4 rounded-sm transition-all tracking-wide uppercase text-sm">
                         <?php echo $cta; ?>
                     </button>
