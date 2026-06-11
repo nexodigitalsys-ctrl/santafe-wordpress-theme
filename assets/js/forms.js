@@ -56,6 +56,12 @@
                 }
             }
 
+            const recaptchaToken = form.querySelector('textarea[name="g-recaptcha-response"]')?.value || '';
+            if (!recaptchaToken) {
+                showFormMessage(form, 'error', 'Por favor, completa el reCAPTCHA antes de enviar.');
+                return;
+            }
+
             const submitBtn = form.querySelector('button[type="submit"]');
             const originalText = submitBtn ? submitBtn.textContent : '';
             if (submitBtn) {
