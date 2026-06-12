@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://santafe.nexo-digital.app/sitemap.xml

@@ -1,0 +1,18 @@
+{
+  "es": [
+    {"rating":5,"text":"Calidad y responsabilidad 👏…","author":"Guilherme Gomes","type":"Reforma","city":"Girona","date":"2026-06-12"},
+    {"rating":5,"text":"Excelente empresa de construcción. Muy profesionales, responsables y comprometidos con la calidad de su trabajo. Cumplieron los plazos acordados y el resultado final superó mis expectativas. Recomiendo sus servicios al 100%.","author":"Luiz Philipe Goncalves Magalhaes","type":"Construcción","city":"Barcelona","date":"2026-06-12"},
+    {"rating":5,"text":"Profesionales excelentes y trabajos de calidad","author":"Adriano Santana","type":"Reforma","city":"Barcelona","date":"2026-06-12"},
+    {"rating":5,"text":"Grandes profesionales. Arreglando todo lo que necesitaba, eficiente y rápidos en Sabadell Barcelona. Gracias Paulo","author":"Enoque Santos","type":"Reforma","city":"Sabadell (Barcelona)","date":"2026-06-12"},
+    {"rating":5,"text":"Muy profesionales súper recomendable 👏🏻👏🏻👏🏻👏🏻…","author":"AGENDA JUS EUROPA","type":"Servicio","city":"Barcelona","date":"2026-06-12"},
+    {"rating":5,"text":"sin comentarios","author":"zapping peluqueros las tablas","type":"Servicio","city":"Barcelona","date":"2026-06-12"}
+  ],
+  "ca": [
+    {"rating":5,"text":"Calidad y responsabilidad 👏…","author":"Guilherme Gomes","type":"Reforma","city":"Girona","date":"2026-06-12"},
+    {"rating":5,"text":"Excelente empresa de construcción. Muy profesionales, responsables y comprometidos con la calidad de su trabajo. Cumplieron los plazos acordados y el resultado final superó mis expectativas. Recomiendo sus servicios al 100%.","author":"Luiz Philipe Goncalves Magalhaes","type":"Construcció","city":"Barcelona","date":"2026-06-12"},
+    {"rating":5,"text":"Profesionales excelentes y trabajos de calidad","author":"Adriano Santana","type":"Reforma","city":"Barcelona","date":"2026-06-12"},
+    {"rating":5,"text":"Grandes profesionales. Arreglando todo lo que necesitaba, eficiente y rápidos en Sabadell Barcelona. Gracias Paulo","author":"Enoque Santos","type":"Reforma","city":"Sabadell (Barcelona)","date":"2026-06-12"},
+    {"rating":5,"text":"Muy profesionales súper recomendable 👏🏻👏🏻👏🏻👏🏻…","author":"AGENDA JUS EUROPA","type":"Servei","city":"Barcelona","date":"2026-06-12"},
+    {"rating":5,"text":"sin comentarios","author":"zapping peluqueros las tablas","type":"Servei","city":"Barcelona","date":"2026-06-12"}
+  ]
+}
