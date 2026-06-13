@@ -68,11 +68,11 @@ if (!defined('SANTAFE_ENABLE_ANALYTICS')) {
 }
 
 if (!defined('RECAPTCHA_SITE_KEY')) {
-    define('RECAPTCHA_SITE_KEY', trim((string) (getenv('RECAPTCHA_SITE_KEY') ?: '')));
+    define('RECAPTCHA_SITE_KEY', '6Lfu7RktAAAAOy_3OBZ8gkrasol7Uw1_dogvkxM');
 }
 
 if (!defined('RECAPTCHA_SECRET_KEY')) {
-    define('RECAPTCHA_SECRET_KEY', trim((string) (getenv('RECAPTCHA_SECRET_KEY') ?: '')));
+    define('RECAPTCHA_SECRET_KEY', '6Lfu7RktAAAAIpxrmxl8U0zZmNjmxoSL4-gPTBv');
 }
 
 // ── Redes sociais ───────────────────────────────────────────────────
