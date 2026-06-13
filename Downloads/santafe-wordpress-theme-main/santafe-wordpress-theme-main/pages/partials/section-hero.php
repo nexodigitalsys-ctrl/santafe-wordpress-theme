@@ -9,10 +9,10 @@ declare(strict_types=1);
 
 $hero_title = $lang === 'ca' ? 'Construïm el que imagines.<br><span class="text-brand-400">Reformem el que ja tens.</span>' : 'Construimos lo que imaginas.<br><span class="text-brand-400">Reformamos lo que ya tienes.</span>';
 $hero_subtitle = $lang === 'ca'
-    ? 'Obra nova, reforma integral, pladur, obra pública i obra civil. Presupost tancat en 48h. Sense sorpreses, sense costos ocults.'
-    : 'Obra nueva, reforma integral, pladur, obra pública y obra civil. Presupuesto cerrado en 48h. Sin sorpresas, sin costos ocultos.';
+    ? 'Obra nova, reforma integral, pladur, obra pública i obra civil. Presupost tancat en 24/48h. Sense sorpreses, sense costos ocults.'
+    : 'Obra nueva, reforma integral, pladur, obra pública y obra civil. Presupuesto cerrado en 24/48h. Sin sorpresas, sin costos ocultos.';
 $badge = $lang === 'ca' ? '17 anys · 500+ obres · Barcelona, Girona, Tarragona' : '17 años · 500+ obras · Barcelona, Girona, Tarragona';
-$cta_primary = $lang === 'ca' ? 'Presupost gratuït en 48h' : 'Presupuesto gratuito en 48h';
+$cta_primary = $lang === 'ca' ? 'Presupost gratuït en 24/48h' : 'Presupuesto gratuito en 24/48h';
 $cta_secondary = $lang === 'ca' ? 'Veure obres realitzades' : 'Ver obras realizadas';
 $stat_years_label = $lang === 'ca' ? 'Anys d\'experiència' : 'Años de experiencia';
 $stat_projects_label = $lang === 'ca' ? 'Obres lliurades' : 'Obras entregadas';
@@ -52,11 +52,11 @@ $stat_provinces_label = $lang === 'ca' ? 'Províncies' : 'Provincias';
             </p>
 
             <div class="flex flex-col sm:flex-row flex-wrap justify-center lg:justify-start gap-3 sm:gap-4 mb-16 animate-slide-up delay-300">
-                <a href="#contacto" class="inline-flex items-center justify-center gap-2 section-hero-btn-primary font-semibold px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl transition-all duration-300 tracking-wide text-sm uppercase whitespace-nowrap">
+                <a href="#contacto" class="inline-flex items-center justify-center gap-2 section-hero-btn-primary font-medium px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl transition-all duration-300 tracking-wide text-xs uppercase whitespace-nowrap">
                     <?php echo $cta_primary; ?>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-4 h-4 flex-shrink-0"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"/></svg>
                 </a>
-                <a href="#portfolio" class="inline-flex items-center justify-center gap-2 section-hero-btn-secondary font-medium px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl transition-all duration-300 tracking-wide text-sm uppercase whitespace-nowrap">
+                <a href="#portfolio" class="inline-flex items-center justify-center gap-2 section-hero-btn-secondary font-medium px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl transition-all duration-300 tracking-wide text-xs uppercase whitespace-nowrap">
                     <?php echo $cta_secondary; ?>
                 </a>
             </div>

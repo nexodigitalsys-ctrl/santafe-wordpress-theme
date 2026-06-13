@@ -212,7 +212,7 @@ $cta_card_btn = $lang === 'ca' ? 'Trucar ara — Respon en 2 hores' : 'Llamar ah
             <div class="flex flex-col justify-center items-center p-8 section-servicios-cta-card border rounded-sm text-center">
                 <p class="section-servicios-cta-text text-sm uppercase tracking-widest mb-3"><?php echo $cta_card_title; ?></p>
                 <p class="font-display font-bold text-2xl section-servicios-cta-title mb-6"><?php echo $cta_card_subtitle; ?></p>
-                <a href="/<?php echo $lang; ?>/contacto/" class="inline-flex items-center gap-2 bg-brand-600 hover:bg-brand-500 text-white font-semibold px-6 py-3 rounded-sm transition-all text-sm uppercase tracking-wide">
+                <a href="/<?php echo $lang; ?>/contacto/" class="inline-flex items-center gap-2 bg-brand-600 hover:bg-brand-500 text-white font-medium px-5 py-2.5 rounded-xl transition-all text-xs uppercase tracking-wide">
                     <?php echo $cta_card_btn; ?>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"/></svg>
                 </a>

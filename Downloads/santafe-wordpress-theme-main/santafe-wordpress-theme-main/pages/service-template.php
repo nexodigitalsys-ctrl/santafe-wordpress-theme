@@ -242,8 +242,8 @@ $t = [
         ? 'Vols saber quant costaria el teu projecte?'
         : '¿Quieres saber cuánto costaría tu proyecto?',
     'final_p' => $isCa
-        ? 'La primera visita és gratuïta i sense compromís. Paulo revisarà l\'obra, et dirà el següent pas i prepararà un pressupost tancat en 48 hores.'
-        : 'La primera visita es gratuita y sin compromiso. Paulo revisará la obra, te dirá el siguiente paso y preparará un presupuesto cerrado en 48 horas.',
+        ? 'La primera visita és gratuïta i sense compromís. Paulo revisarà l\'obra, et dirà el següent pas i prepararà un pressupost tancat en 24/48 hores.'
+        : 'La primera visita es gratuita y sin compromiso. Paulo revisará la obra, te dirá el siguiente paso y preparará un presupuesto cerrado en 24/48 horas.',
     'final_cta_form' => $isCa ? 'Omplir formulari' : 'Rellenar formulario',
     'final_cta_wa' => $isCa ? 'WhatsApp — Respon en 2 h' : 'WhatsApp — Responde en 2 h',
 ];
@@ -553,20 +553,20 @@ include __DIR__ . '/../includes/header.php';
             <p class="text-warm-600 text-lg md:text-xl leading-relaxed max-w-2xl mb-14">
                 <?php echo $data['description'] ?? ''; ?>
             </p>
-            <div class="flex flex-wrap gap-6">
+            <div class="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4">
                 <a href="https://wa.me/<?php echo WHATSAPP_NUMBER; ?>?text=Hola%20Paulo%2C%20estoy%20interesado%20en%20<?php echo urlencode($service_name_short); ?>"
                    target="_blank" rel="noopener noreferrer"
-                   class="inline-flex items-center gap-2 bg-[#25d366] hover:bg-[#128c7e] text-white font-semibold px-10 py-5 rounded-sm transition-all text-base uppercase tracking-wide shadow-lg">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    class="inline-flex items-center justify-center gap-2 bg-[#25d366] hover:bg-[#128c7e] text-white font-medium px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl transition-all duration-300 text-xs uppercase tracking-wide whitespace-nowrap">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="flex-shrink-0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
                     <?php echo $t['hero_cta_whatsapp']; ?>
                 </a>
                 <a href="/<?php echo $lang; ?>/contacto/"
-                   class="inline-flex items-center gap-2 bg-brand-600 hover:bg-brand-500 text-white font-semibold px-10 py-5 rounded-sm transition-all text-base uppercase tracking-wide shadow-lg">
+                    class="inline-flex items-center justify-center gap-2 bg-brand-600 hover:bg-brand-700 text-white font-medium px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl transition-all duration-300 text-xs uppercase tracking-wide whitespace-nowrap">
                     <?php echo $data['cta_primary'] ?? $t['hero_cta_budget']; ?>
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="flex-shrink-0"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                 </a>
                 <a href="tel:<?php echo COMPANY_PHONE; ?>"
-                   class="inline-flex items-center gap-2 border border-warm-300 hover:border-slate-400 text-warm-600 hover:text-white font-medium px-10 py-5 rounded-sm transition-all text-base uppercase tracking-wide">
+                    class="inline-flex items-center justify-center gap-2 border border-warm-300 hover:border-warm-400 text-warm-600 hover:text-warm-900 font-medium px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl transition-all duration-300 text-xs uppercase tracking-wide whitespace-nowrap">
                     <?php echo $data['cta_secondary'] ?? $t['hero_cta_call']; ?>
                 </a>
             </div>
@@ -664,7 +664,7 @@ include __DIR__ . '/../includes/header.php';
                 <h3 class="font-display font-bold text-xl text-warm-900 mb-2"><?php echo $price['title']; ?></h3>
                 <p class="text-warm-500 text-sm mb-6"><?php echo $price['desc']; ?></p>
                 <p class="font-display font-bold text-3xl text-brand-500 mb-6"><?php echo $price['price']; ?></p>
-                <a href="/<?php echo $lang; ?>/contacto/" class="block w-full text-center <?php echo $i === 1 ? 'bg-brand-600 hover:bg-brand-500 text-white' : 'bg-warm-100 hover:bg-warm-200 text-warm-900'; ?> font-semibold py-3 rounded-sm transition-all text-sm uppercase tracking-wide">
+                <a href="/<?php echo $lang; ?>/contacto/" class="block w-full text-center <?php echo $i === 1 ? 'bg-brand-600 hover:bg-brand-700 text-white' : 'bg-warm-100 hover:bg-warm-200 text-warm-900'; ?> font-semibold py-3 rounded-xl transition-all text-sm uppercase tracking-wide">
                     <?php echo $t['prices_cta']; ?>
                 </a>
             </div>
@@ -948,16 +948,16 @@ include __DIR__ . '/../includes/header.php';
         <p class="text-warm-600 text-lg leading-relaxed mb-14 max-w-2xl mx-auto">
             <?php echo $t['final_p']; ?>
         </p>
-        <div class="flex flex-wrap gap-4 justify-center">
+        <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
             <a href="/<?php echo $lang; ?>/contacto/"
-               class="inline-flex items-center gap-2 bg-brand-600 hover:bg-brand-500 text-white font-semibold px-8 py-4 rounded-sm transition-all tracking-wide text-sm uppercase">
+               class="inline-flex items-center justify-center gap-2 bg-brand-600 hover:bg-brand-700 text-white font-medium px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl transition-all duration-300 text-xs uppercase tracking-wide whitespace-nowrap">
                 <?php echo $t['final_cta_form']; ?>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="flex-shrink-0"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </a>
             <a href="https://wa.me/<?php echo WHATSAPP_NUMBER; ?>?text=Hola%20Paulo%2C%20estoy%20interesado%20en%20<?php echo urlencode($service_name_short); ?>"
                target="_blank" rel="noopener noreferrer"
-               class="inline-flex items-center gap-2 bg-[#25d366] hover:bg-[#128c7e] text-white font-semibold px-8 py-4 rounded-sm transition-all tracking-wide text-sm uppercase">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+               class="inline-flex items-center justify-center gap-2 bg-[#25d366] hover:bg-[#128c7e] text-white font-medium px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl transition-all duration-300 text-xs uppercase tracking-wide whitespace-nowrap">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="flex-shrink-0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
                 <?php echo $t['final_cta_wa']; ?>
             </a>
         </div>

@@ -180,10 +180,10 @@ include __DIR__ . '/../includes/header.php';
             <?php echo $lang === 'ca' ? 'Els terminis d\'obra es reserven amb 3 setmanes d\'antelació. Consulta disponibilitat.' : 'Los plazos de obra se reservan con 3 semanas de antelación. Consulta disponibilidad.'; ?>
         </p>
         <div class="flex flex-wrap gap-4 justify-center">
-            <a href="/<?php echo $lang; ?>/contacto/" class="inline-flex items-center gap-2 bg-brand-600 hover:bg-brand-500 text-white font-semibold px-8 py-4 rounded-sm transition-all tracking-wide text-sm uppercase">
+            <a href="/<?php echo $lang; ?>/contacto/" class="inline-flex items-center gap-2 bg-brand-600 hover:bg-brand-500 text-white font-medium px-5 py-2.5 rounded-xl transition-all tracking-wide text-xs uppercase">
                 <?php echo htmlspecialchars($data['cta_primary'], ENT_QUOTES, 'UTF-8'); ?>
             </a>
-            <a href="tel:+34665737547" class="inline-flex items-center gap-2 border border-warm-300 hover:border-gray-400 text-warm-700 font-medium px-8 py-4 rounded-sm transition-all tracking-wide text-sm uppercase">
+            <a href="tel:+34665737547" class="inline-flex items-center gap-2 border border-warm-300 hover:border-gray-400 text-warm-700 font-medium px-5 py-2.5 rounded-xl transition-all tracking-wide text-xs uppercase">
                 <?php echo htmlspecialchars($data['cta_secondary'], ENT_QUOTES, 'UTF-8'); ?>
             </a>
         </div>

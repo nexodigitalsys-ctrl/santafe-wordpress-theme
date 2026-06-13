@@ -133,27 +133,92 @@ function santafe_send_to_telegram(array $data): array {
     return ['success' => true];
 }
 
-function santafe_send_contact_email(array $data): bool {
-    $subject = 'Nuevo lead Santa Fe Construcciones';
-    $body = "Nombre: {$data['nombre']}\n"
-        . "Telefono: {$data['telefono']}\n"
-        . "Email: {$data['email']}\n"
-        . "Obra: {$data['tipo_obra']}\n"
-        . "m2: {$data['m2']}\n"
-        . "Ciudad: {$data['ciudad']}\n"
-        . "Fase: {$data['fase']}\n"
-        . "Fecha: {$data['fecha']}\n"
-        . "Origen: {$data['origen']}\n\n"
-        . "Mensaje:\n{$data['mensaje']}\n\n"
-        . "--\n"
-        . "Luna Cto Nexo Digital -";
+function santafe_send_contact_email(array $data, array $attachments = []): bool {
+    $logo_url = esc_url(get_template_directory_uri() . '/assets/img/logo-casa-cut.png');
+    $subject = 'Nuevo contacto — Santa Fe Construcciones';
 
-    $headers = [];
-    if (is_email($data['email'])) {
-        $headers[] = 'Reply-To: ' . $data['nombre'] . ' <' . $data['email'] . '>';
+    $files_html = '';
+    if (!empty($data['archivos'])) {
+        $files_html = '<tr><td style="padding: 8px 12px; font-weight: bold; color: #333; border-bottom: 1px solid #eee;">Archivos</td><td style="padding: 8px 12px; color: #555; border-bottom: 1px solid #eee;">' . esc_html($data['archivos']) . '</td></tr>';
     }
 
-    return (bool) wp_mail(SANTAFE_CONTACT_EMAIL, $subject, $body, $headers);
+    $body = '<html><body style="font-family: Arial, sans-serif; background: #f5f5f5; padding: 20px;">'
+        . '<div style="max-width: 600px; margin: 0 auto; background: #fff; border-radius: 8px; overflow: hidden; border: 1px solid #e5e5e5;">'
+        . '<div style="padding: 24px; text-align: center; border-bottom: 1px solid #eee;">'
+        . '<img src="' . $logo_url . '" alt="Santa Fe Construcciones" style="max-height: 40px; width: auto;">'
+        . '<p style="margin: 8px 0 0; font-size: 16px; font-weight: bold; color: #000;">Santa Fe Construcciones</p>'
+        . '</div>'
+        . '<div style="background: #ae232a; padding: 20px; text-align: center;">'
+        . '<h1 style="color: #fff; margin: 0; font-size: 18px;">Nuevo contacto</h1>'
+        . '</div>'
+        . '<div style="padding: 24px;">'
+        . '<table style="width: 100%; border-collapse: collapse;">'
+        . '<tr><td style="padding: 8px 12px; font-weight: bold; color: #333; border-bottom: 1px solid #eee;">Nombre</td><td style="padding: 8px 12px; color: #555; border-bottom: 1px solid #eee;">' . esc_html($data['nombre']) . '</td></tr>'
+        . '<tr><td style="padding: 8px 12px; font-weight: bold; color: #333; border-bottom: 1px solid #eee;">Teléfono</td><td style="padding: 8px 12px; color: #555; border-bottom: 1px solid #eee;">' . esc_html($data['telefono']) . '</td></tr>'
+        . '<tr><td style="padding: 8px 12px; font-weight: bold; color: #333; border-bottom: 1px solid #eee;">Email</td><td style="padding: 8px 12px; color: #555; border-bottom: 1px solid #eee;">' . esc_html($data['email']) . '</td></tr>'
+        . '<tr><td style="padding: 8px 12px; font-weight: bold; color: #333; border-bottom: 1px solid #eee;">Tipo de obra</td><td style="padding: 8px 12px; color: #555; border-bottom: 1px solid #eee;">' . esc_html($data['tipo_obra']) . '</td></tr>'
+        . '<tr><td style="padding: 8px 12px; font-weight: bold; color: #333; border-bottom: 1px solid #eee;">m²</td><td style="padding: 8px 12px; color: #555; border-bottom: 1px solid #eee;">' . esc_html($data['m2']) . '</td></tr>'
+        . '<tr><td style="padding: 8px 12px; font-weight: bold; color: #333; border-bottom: 1px solid #eee;">Ciudad</td><td style="padding: 8px 12px; color: #555; border-bottom: 1px solid #eee;">' . esc_html($data['ciudad']) . '</td></tr>'
+        . '<tr><td style="padding: 8px 12px; font-weight: bold; color: #333; border-bottom: 1px solid #eee;">Fecha</td><td style="padding: 8px 12px; color: #555; border-bottom: 1px solid #eee;">' . esc_html($data['fecha']) . '</td></tr>'
+        . '<tr><td style="padding: 8px 12px; font-weight: bold; color: #333; border-bottom: 1px solid #eee;">Origen</td><td style="padding: 8px 12px; color: #555; border-bottom: 1px solid #eee;">' . esc_html($data['origen']) . '</td></tr>'
+        . $files_html
+        . '</table>'
+        . '<div style="margin-top: 16px; padding: 12px; background: #f9f9f9; border-radius: 4px;"><strong style="color: #333;">Mensaje:</strong><p style="color: #555; margin: 8px 0 0;">' . nl2br(esc_html($data['mensaje'])) . '</p></div>'
+        . '</div></div></body></html>';
+
+    $headers = [
+        'Content-Type: text/html; charset=UTF-8',
+        'Reply-To: ' . $data['nombre'] . ' <' . $data['email'] . '>',
+    ];
+
+    $to = [SANTAFE_CONTACT_EMAIL, 'admsantafeconstruciones@gmail.com'];
+    return (bool) wp_mail($to, $subject, $body, $headers, $attachments);
+}
+
+function santafe_send_autoreply(array $data): bool {
+    $logo_url = esc_url(get_template_directory_uri() . '/assets/img/logo-casa-cut.png');
+    $company = defined('COMPANY_NAME') ? COMPANY_NAME : 'Construcciones Santa Fe Siglo XXI SLU';
+    $phone = defined('COMPANY_PHONE_DISPLAY') ? COMPANY_PHONE_DISPLAY : '665 737 547';
+    $whatsapp = defined('WHATSAPP_NUMBER') ? WHATSAPP_NUMBER : '34665737547';
+
+    $subject = 'Hemos recibido tu solicitud — Santa Fe Construcciones';
+    $body = '<html><body style="font-family: Arial, sans-serif; background: #f5f5f5; padding: 20px;">'
+        . '<div style="max-width: 600px; margin: 0 auto; background: #fff; border-radius: 8px; overflow: hidden; border: 1px solid #e5e5e5;">'
+        . '<div style="padding: 24px; text-align: center; border-bottom: 1px solid #eee;">'
+        . '<img src="' . $logo_url . '" alt="Santa Fe Construcciones" style="max-height: 40px; width: auto;">'
+        . '<p style="margin: 8px 0 0; font-size: 16px; font-weight: bold; color: #000;">Santa Fe Construcciones</p>'
+        . '</div>'
+        . '<div style="background: #ae232a; padding: 24px; text-align: center;">'
+        . '<h1 style="color: #fff; margin: 0 0 4px; font-size: 20px;">Gracias por contactarnos</h1>'
+        . '<p style="color: rgba(255,255,255,0.85); margin: 0; font-size: 14px;">' . esc_html($data['nombre']) . ', hemos recibido tu mensaje</p>'
+        . '</div>'
+        . '<div style="padding: 32px 24px;">'
+        . '<p style="color: #333; font-size: 16px; line-height: 1.6;">Hola <strong>' . esc_html($data['nombre']) . '</strong>,</p>'
+        . '<p style="color: #555; font-size: 15px; line-height: 1.6;">Gracias por escribirnos. Hemos recibido tu solicitud y <strong>Paulo la revisará personalmente en las próximas 24-48 horas</strong> para prepararte un presupuesto cerrado y sin compromiso.</p>'
+        . '<p style="color: #555; font-size: 15px; line-height: 1.6;">Mientras tanto, si necesitas hablar con nosotros antes, puedes contactarnos directamente por los siguientes canales:</p>'
+        . '<table style="width: 100%; margin: 20px 0;">'
+        . '<tr><td style="padding: 10px 0;"><a href="tel:' . COMPANY_PHONE . '" style="display: inline-block; background: #ae232a; color: #fff; text-decoration: none; padding: 12px 24px; border-radius: 4px; font-weight: bold;">Llamar al ' . $phone . '</a></td></tr>'
+        . '<tr><td style="padding: 10px 0;"><a href="https://wa.me/' . $whatsapp . '" style="display: inline-block; background: #25d366; color: #fff; text-decoration: none; padding: 12px 24px; border-radius: 4px; font-weight: bold;">Escribir por WhatsApp</a></td></tr>'
+        . '</table>'
+        . '<div style="background: #f9f9f9; border-left: 4px solid #ae232a; padding: 16px; margin: 20px 0; border-radius: 4px;">'
+        . '<p style="color: #333; margin: 0 0 8px; font-weight: bold;">Resumen de tu solicitud:</p>'
+        . '<p style="color: #555; margin: 0; font-size: 14px;">'
+        . 'Tipo de obra: ' . esc_html($data['tipo_obra'] ?: 'Sin especificar') . '<br>'
+        . 'Ciudad: ' . esc_html($data['ciudad'] ?: 'Sin especificar') . '<br>'
+        . 'Mensaje: ' . esc_html(mb_substr($data['mensaje'] ?: 'Sin mensaje', 0, 200)) . (mb_strlen($data['mensaje'] ?? '') > 200 ? '...' : '')
+        . '</p></div>'
+        . '<hr style="border: none; border-top: 1px solid #eee; margin: 24px 0;">'
+        . '<p style="color: #999; font-size: 12px; line-height: 1.5;">' . esc_html($company) . '<br>'
+        . 'Tel: ' . $phone . ' | WhatsApp: ' . $phone . '<br>'
+        . 'Barcelona · Girona · Tarragona</p>'
+        . '</div></div></body></html>';
+
+    $headers = [
+        'Content-Type: text/html; charset=UTF-8',
+        'Reply-To: Paulo — Santa Fe Construcciones <' . SANTAFE_CONTACT_EMAIL . '>',
+    ];
+
+    return (bool) wp_mail($data['email'], $subject, $body, $headers);
 }
 
 function santafe_verify_recaptcha(string $token): bool {
@@ -209,10 +274,12 @@ function santafe_tailwind_handle_contact_form(): void {
 
     if (!$valid_nonce) {
         santafe_tailwind_contact_response(false, 'La sesión ha caducado. Recarga la página e inténtalo de nuevo.', $is_ajax);
+        return;
     }
 
     if (!empty($payload['website'] ?? '')) {
         santafe_tailwind_contact_response(true, 'Solicitud recibida.', $is_ajax);
+        return;
     }
 
     $recaptcha_token = sanitize_text_field($payload['g-recaptcha-response'] ?? '');
@@ -230,26 +297,52 @@ function santafe_tailwind_handle_contact_form(): void {
         $translated = t($translations, 'contact.recaptcha_invalid');
         $msg = $translated !== 'contact.recaptcha_invalid' ? $translated : 'Por favor, verifica el reCAPTCHA antes de enviar.';
         santafe_tailwind_contact_response(false, $msg, $is_ajax);
+        return;
     }
 
     $lead = santafe_normalize_contact_payload($payload);
 
     if ($lead['nombre'] === '' || $lead['mensaje'] === '' || !is_email($lead['email'])) {
         santafe_tailwind_contact_response(false, 'Revisa nombre, email y mensaje antes de enviar.', $is_ajax);
+        return;
+    }
+
+    $attachments = [];
+    $file_names = [];
+    if (!empty($_FILES['project_photos']['name'][0])) {
+        $upload_dir = wp_upload_dir();
+        $max_files = 5;
+        $allowed_types = ['image/jpeg', 'image/png', 'image/webp', 'application/pdf'];
+        foreach ($_FILES['project_photos']['name'] as $i => $name) {
+            if ($i >= $max_files) break;
+            if ($_FILES['project_photos']['error'][$i] !== UPLOAD_ERR_OK) continue;
+            if (!in_array($_FILES['project_photos']['type'][$i], $allowed_types, true)) continue;
+            $safe_name = sanitize_file_name(time() . '-' . sanitize_file_name($name));
+            $dest = $upload_dir['path'] . '/' . $safe_name;
+            if (move_uploaded_file($_FILES['project_photos']['tmp_name'][$i], $dest)) {
+                $attachments[] = $dest;
+                $file_names[] = $name;
+            }
+        }
+    }
+    if (!empty($file_names)) {
+        $lead['archivos'] = implode(', ', $file_names);
     }
 
     $telegram = santafe_send_to_telegram($lead);
-    $email_sent = santafe_send_contact_email($lead);
+    $email_sent = santafe_send_contact_email($lead, $attachments);
 
     if (!$telegram['success'] && !$email_sent) {
         error_log('Santa Fe lead delivery failed. Telegram: ' . ($telegram['error'] ?? 'unknown') . ' Email: failed');
         santafe_tailwind_contact_response(false, 'No hemos podido enviar el mensaje. Llámanos o escríbenos por WhatsApp.', $is_ajax);
+        return;
     }
 
-    $msg = 'Mensaje enviado correctamente. Pablo revisará tu solicitud y te contactará.';
-    if ($email_sent && !$telegram['success']) {
-        $msg .= ' (Email OK — Telegram no configurado)';
+    if ($email_sent && is_email($lead['email'])) {
+        santafe_send_autoreply($lead);
     }
+
+    $msg = 'Mensaje enviado correctamente. Pablo revisará tu solicitud y te contactará pronto, gracias por tu mensaje.';
     santafe_tailwind_contact_response(true, $msg, $is_ajax);
 }
 add_action('admin_post_nopriv_santafe_contact', 'santafe_tailwind_handle_contact_form');

@@ -75,9 +75,15 @@ if (!defined('RECAPTCHA_SECRET_KEY')) {
     define('RECAPTCHA_SECRET_KEY', trim((string) (getenv('RECAPTCHA_SECRET_KEY') ?: '')));
 }
 
-// ── Redes sociais (preencher URLs reais) ────────────────────────────
+// ── Redes sociais ───────────────────────────────────────────────────
 if (!defined('SOCIAL_INSTAGRAM')) {
-    define('SOCIAL_INSTAGRAM', '');
+    define('SOCIAL_INSTAGRAM', 'https://www.instagram.com/construcciones_santafe_?igsh=MW81Ym9odGNkdmlydg%3D%3D');
+}
+if (!defined('SOCIAL_TIKTOK')) {
+    define('SOCIAL_TIKTOK', 'https://www.tiktok.com/@santafe_construcciones');
+}
+if (!defined('SOCIAL_X')) {
+    define('SOCIAL_X', 'https://x.com/Santafe_constru');
 }
 if (!defined('SOCIAL_FACEBOOK')) {
     define('SOCIAL_FACEBOOK', '');

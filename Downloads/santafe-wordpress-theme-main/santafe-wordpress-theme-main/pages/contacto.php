@@ -141,7 +141,7 @@ $ciudades = $lang === 'ca' ? [
                         <div class="g-recaptcha" data-sitekey="<?php echo esc_attr(RECAPTCHA_SITE_KEY); ?>"></div>
                     </div>
                     <?php endif; ?>
-                    <button type="submit" class="w-full bg-brand-600 hover:bg-brand-500 text-white font-semibold py-4 rounded-sm transition-all tracking-wide uppercase text-sm">
+                    <button type="submit" class="w-full bg-brand-600 hover:bg-brand-500 text-white font-medium py-3 rounded-xl transition-all tracking-wide uppercase text-xs">
                         <?php echo $cta; ?>
                     </button>
                     <p class="text-warm-500 text-xs text-center mt-4">

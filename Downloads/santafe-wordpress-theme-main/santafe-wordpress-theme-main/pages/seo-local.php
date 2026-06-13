@@ -78,8 +78,8 @@ $faq_title = $is_ca ? 'Preguntes freqüents' : 'Preguntas frecuentes';
             <h1 class="font-display font-bold text-4xl md:text-6xl text-warm-900 tracking-tight mb-6"><?php echo esc_html($h1); ?></h1>
             <p class="text-warm-600 text-lg md:text-xl leading-relaxed max-w-3xl"><?php echo $is_ca ? 'Ajudem clients a ' : 'Ayudamos a clientes en '; ?><?php echo esc_html($data['city']); ?><?php echo $is_ca ? ' a ' : ' a '; ?><?php echo esc_html($data['intent']); ?>, <?php echo $is_ca ? 'amb planificació prèvia, pressupost clar i comunicació directa durant l\'obra.' : 'con planificación previa, presupuesto claro y comunicación directa durante la obra.'; ?></p>
             <div class="flex flex-wrap gap-4 mt-10">
-                <a href="/<?php echo $lang; ?>/contacto/" class="inline-flex items-center bg-brand-600 hover:bg-brand-500 text-white font-semibold px-8 py-4 rounded-sm transition-all tracking-wide text-sm uppercase"><?php echo $cta_budget; ?></a>
-                <a href="tel:<?php echo COMPANY_PHONE; ?>" class="inline-flex items-center border border-warm-300 hover:border-brand-500 text-warm-700 font-medium px-8 py-4 rounded-sm transition-all tracking-wide text-sm uppercase" data-track-event="phone_click"><?php echo $cta_call . COMPANY_PHONE_DISPLAY; ?></a>
+                <a href="/<?php echo $lang; ?>/contacto/" class="inline-flex items-center bg-brand-600 hover:bg-brand-500 text-white font-medium px-5 py-2.5 rounded-xl transition-all tracking-wide text-xs uppercase"><?php echo $cta_budget; ?></a>
+                <a href="tel:<?php echo COMPANY_PHONE; ?>" class="inline-flex items-center border border-warm-300 hover:border-brand-500 text-warm-700 font-medium px-5 py-2.5 rounded-xl transition-all tracking-wide text-xs uppercase" data-track-event="phone_click"><?php echo $cta_call . COMPANY_PHONE_DISPLAY; ?></a>
             </div>
         </div>
     </div>

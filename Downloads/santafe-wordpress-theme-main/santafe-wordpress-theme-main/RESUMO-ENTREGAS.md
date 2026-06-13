@@ -1,6 +1,6 @@
 # 📋 Resumo de Entregas — Santa Fe Construcciones
 
-> **Data:** 12/06/2026  
+> **Data:** 13/06/2026  
 > **Projeto:** Tema WordPress Santa Fe Construcciones  
 > **Idiomas:** ES / CA  
 > **Tecnologias:** PHP 8.3, Tailwind CSS, Embla Carousel, WordPress
@@ -20,6 +20,13 @@
 | 7 | **Reviews reais de Google** — substituir 12 fictícias por 6 reais | ✅ **Entregue** (12/06) |
 | 8 | **Inputs visíveis em dark mode** — campos do formulário ilegíveis | ✅ **Entregue** (12/06) |
 | 9 | **Título "24-48 horas"** — alterar prazo no CTA | ✅ **Entregue** (12/06) |
+| 10 | **Email: notificação + auto-resposta** — fix From/Reply-To, auto-reply HTML, logo nos emails | ✅ **Entregue** (13/06) |
+| 11 | **Email: envio direto a Gmail** — saltar forward IONOS, entregar a admsantafeconstruciones@gmail.com | ✅ **Entregue** (13/06) |
+| 12 | **Email: adjuntar arquivos (fotos/PDF)** — upload + wp_mail attachments | ✅ **Entregue** (13/06) |
+| 13 | **Botões minimalistas** — reduzir padding/font/sombra em todos os CTAs (hero, sticky, final CTA, WhatsApp float) | ✅ **Entregue** (13/06) |
+| 14 | **Redes sociais: Instagram, TikTok, X** — substituir Facebook/LinkedIn | ✅ **Entregue** (13/06) |
+| 15 | **Testimonials carrossel minimalista** — reduzir fontes, paddings, avatares, estrelas | ✅ **Entregue** (13/06) |
+| 16 | **Dark mode: texto dos botões branco** — fix CSS para .text-xs em a/button dentro de section | ✅ **Entregue** (13/06) |
 
 ---
 
@@ -235,10 +242,9 @@ No modo escuro, os campos do formulário (nome, tel, email, etc.) tinham borda `
 
 | # | Tarefa | Prioridade | Como fazer |
 |---|--------|------------|------------|
-| 1 | **Fornecer URLs das redes sociais** | 🔴 Alta | Editar `config/constants.php`, linhas 71–79. Substituir `''` pelos links reais |
-| 2 | **Confirmar se preços estão atualizados** | 🟡 Média | Verificar `config/services-data.php`. Se precisar alterar, é só mudar os valores |
-| 3 | **Enviar mais fotos específicas** (opcional) | 🟢 Baixa | Serviços com poucas fotos: Parquet (3), Obra Civil (3), Rehabilitación (3), Comerciales (3). Mandar fotos reais que adicionamos ao carrossel |
-| 4 | **Revisar textos em catalão** | 🟡 Média | Alguns títulos de fotos e seções podem ser revisados por nativo |
+| 1 | **Confirmar se preços estão atualizados** | 🟡 Média | Verificar `config/services-data.php`. Se precisar alterar, é só mudar os valores |
+| 2 | **Enviar mais fotos específicas** (opcional) | 🟢 Baixa | Serviços com poucas fotos: Parquet (3), Obra Civil (3), Rehabilitación (3), Comerciales (3). Mandar fotos reais que adicionamos ao carrossel |
+| 3 | **Revisar textos em catalão** | 🟡 Média | Alguns títulos de fotos e seções podem ser revisados por nativo |
 
 ---
 
@@ -254,11 +260,14 @@ pages/
   └── sobre-nosotros.php     ← Página "Sobre Nosotros" com cards premium
 
 includes/
-  ├── header.php             ← Design tokens CSS (dark mode)
-  └── footer.php             ← Ícones sociais, cookie banner, CTA sticky
+  ├── header.php             ← Design tokens CSS (dark mode), WhatsApp float
+  └── footer.php             ← Ícones sociais (Insta, TikTok, X), cookie banner, CTA sticky
 
 assets/js/
   └── forms.js               ← Validação, honeypot, AJAX
+
+data/
+  └── reviews.json           ← 6 reviews reais de Google (ES + CA)
 
 assets/images/real/          ← 18 fotos reais do cliente (WebP)
 assets/images/servicios/     ← Fotos extras organizadas por pasta
@@ -281,8 +290,8 @@ assets/images/servicios/     ← Fotos extras organizadas por pasta
 
 ## 💬 Resumo em uma frase
 
-> *"Entregamos tudo que foi pedido no PDF Revisión Básica 1.1, plus reCAPTCHA funcional, reviews reais de Google (5.0/6), inputs visíveis em dark mode, e prazo atualizado para 24-48h. Só falta o cliente fornecer os links das redes sociais e confirmar os preços."*
+> *"Entregamos tudo que foi pedido no PDF Revisión Básica 1.1, plus reCAPTCHA funcional, reviews reais de Google (5.0/6), inputs visíveis em dark mode, prazo atualizado para 24-48h, botões minimalistas, redes sociais (Instagram, TikTok, X), logo nos emails, envio direto a Gmail, e upload de arquivos nos formulários. Só falta o cliente confirmar os preços e revisar o catalão."*
 
 ---
 
-*Documento gerado automaticamente. Última atualização: 12/06/2026*
+*Documento gerado automaticamente. Última atualização: 13/06/2026*

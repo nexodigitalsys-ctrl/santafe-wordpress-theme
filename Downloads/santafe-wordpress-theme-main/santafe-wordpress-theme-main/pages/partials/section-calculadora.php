@@ -119,10 +119,10 @@ $success_msg = $lang === 'ca'
                     </div>
 
                     <div class="flex flex-wrap gap-4 mt-6">
-                        <button type="submit" class="inline-flex items-center gap-2 section-calculadora-cta font-semibold px-6 py-3 rounded-xl transition-all duration-300 tracking-wide text-sm uppercase shadow-lg shadow-brand-600/20">
+                        <button type="submit" class="inline-flex items-center gap-2 section-calculadora-cta font-semibold px-4 py-2 rounded-xl transition-all duration-300 tracking-wide text-xs uppercase shadow shadow-brand-600/20">
                             <?php echo $cta; ?>
                         </button>
-                        <a href="https://wa.me/<?php echo WHATSAPP_NUMBER; ?>?text=Hola%20Paulo%2C%20quiero%20revisar%20un%20presupuesto%20estimado" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 section-calculadora-whatsapp font-medium px-6 py-3 rounded-xl transition-all duration-300 tracking-wide text-sm uppercase" data-track-event="whatsapp_click">
+                        <a href="https://wa.me/<?php echo WHATSAPP_NUMBER; ?>?text=Hola%20Paulo%2C%20quiero%20revisar%20un%20presupuesto%20estimado" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 section-calculadora-whatsapp font-medium px-4 py-2 rounded-xl transition-all duration-300 tracking-wide text-xs uppercase" data-track-event="whatsapp_click">
                             <?php echo $lang === 'ca' ? 'Enviar per WhatsApp' : 'Enviar por WhatsApp'; ?>
                         </a>
                     </div>

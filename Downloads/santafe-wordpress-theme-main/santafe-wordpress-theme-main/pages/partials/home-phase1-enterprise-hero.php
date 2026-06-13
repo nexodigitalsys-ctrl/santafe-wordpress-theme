@@ -50,11 +50,11 @@ $risks = $lang === 'ca'
                 </p>
 
                 <div class="flex flex-wrap gap-4 animate-slide-up delay-300">
-                    <a href="#calculadora" class="inline-flex items-center gap-2 bg-brand-600 hover:bg-brand-500 text-white font-semibold px-8 py-4 rounded-sm transition-all tracking-wide text-sm uppercase">
+                    <a href="#calculadora" class="inline-flex items-center gap-2 bg-brand-600 hover:bg-brand-500 text-white font-medium px-5 py-2.5 rounded-xl transition-all tracking-wide text-xs uppercase">
                         <?php echo $lang === 'ca' ? 'Calcular pressupost estimat' : 'Calcular presupuesto estimado'; ?>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                     </a>
-                    <a href="/<?php echo $lang; ?>/proyectos/" class="inline-flex items-center gap-2 border border-warm-300 hover:border-slate-400 text-warm-700 font-medium px-8 py-4 rounded-sm transition-all tracking-wide text-sm uppercase">
+                    <a href="/<?php echo $lang; ?>/proyectos/" class="inline-flex items-center gap-2 border border-warm-300 hover:border-slate-400 text-warm-700 font-medium px-5 py-2.5 rounded-xl transition-all tracking-wide text-xs uppercase">
                         <?php echo $lang === 'ca' ? 'Veure exemples visuals' : 'Ver proyectos realizados'; ?>
                     </a>
                 </div>

@@ -82,12 +82,12 @@ function get_schema_service($service_slug, $lang = 'es', $domain = null) {
         'reformas-banos' => [
             'es' => [
                 'name' => 'Reforma de baños en Barcelona y Girona',
-                'description' => 'Reforma completa de baños con impermeabilización, cambio de azulejos, sanitarios y fontanería. Presupuesto cerrado en 48h.',
+                'description' => 'Reforma completa de baños con impermeabilización, cambio de azulejos, sanitarios y fontanería. Presupuesto cerrado en 24/48h.',
                 'url' => $domain . '/es/servicios/reformas-banos/'
             ],
             'ca' => [
                 'name' => 'Reforma de banys a Barcelona i Girona',
-                'description' => 'Reforma completa de banys amb impermeabilització, canvi de rajoles, sanitaris i fontaneria. Pressupost tancat en 48h.',
+                'description' => 'Reforma completa de banys amb impermeabilització, canvi de rajoles, sanitaris i fontaneria. Pressupost tancat en 24/48h.',
                 'url' => $domain . '/ca/serveis/reformes-banys/'
             ]
         ],

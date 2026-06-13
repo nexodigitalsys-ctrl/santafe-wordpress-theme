@@ -162,9 +162,9 @@ include __DIR__ . '/../includes/header.php';
         </div>
         <h1 class="font-display font-bold text-4xl md:text-6xl text-white tracking-tight mb-6"><?php echo $t['hero_title']; ?></h1>
         <p class="text-warm-600 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed"><?php echo $t['hero_subtitle']; ?></p>
-        <a href="/<?php echo $lang; ?>/contacto/" class="inline-flex items-center gap-2 bg-brand-600 hover:bg-brand-500 text-white font-semibold px-8 py-4 rounded-sm transition-all tracking-wide text-sm uppercase">
+        <a href="/<?php echo $lang; ?>/contacto/" class="inline-flex items-center gap-2 bg-brand-600 hover:bg-brand-500 text-white font-medium px-5 py-2.5 rounded-xl transition-all tracking-wide text-xs uppercase">
             <?php echo $t['hero_cta']; ?>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
     </div>
 </section>
@@ -250,9 +250,9 @@ include __DIR__ . '/../includes/header.php';
     <div class="max-w-4xl mx-auto px-6 text-center">
         <h2 class="font-display font-bold text-3xl md:text-5xl text-warm-900 tracking-tight mb-6"><?php echo $t['final_cta']; ?></h2>
         <p class="text-warm-500 text-lg mb-10"><?php echo $t['final_cta_sub']; ?></p>
-        <a href="/<?php echo $lang; ?>/contacto/" class="inline-flex items-center gap-2 bg-brand-600 hover:bg-brand-500 text-white font-semibold px-10 py-5 rounded-sm transition-all tracking-wide text-base uppercase shadow-lg">
+        <a href="/<?php echo $lang; ?>/contacto/" class="inline-flex items-center gap-2 bg-brand-600 hover:bg-brand-500 text-white font-medium px-5 py-2.5 rounded-xl transition-all tracking-wide text-xs uppercase">
             <?php echo $t['hero_cta']; ?>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
     </div>
 </section>
