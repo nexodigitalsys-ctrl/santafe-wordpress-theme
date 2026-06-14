@@ -1427,7 +1427,7 @@ gtag('consent', 'default', {
 </script>
 <?php wp_head(); ?>
 <?php if (defined('RECAPTCHA_SITE_KEY') && RECAPTCHA_SITE_KEY !== ''): ?>
-<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<script src="https://www.google.com/recaptcha/api.js?render=<?php echo esc_attr(RECAPTCHA_SITE_KEY); ?>" async defer></script>
 <?php endif; ?>
 </head>
 <body class="bg-white text-warm-900 antialiased selection:bg-brand-500 selection:text-white pb-20 lg:pb-0 <?php echo isset($body_class) ? esc_attr($body_class) : ''; ?>">

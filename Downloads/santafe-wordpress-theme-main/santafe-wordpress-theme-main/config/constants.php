@@ -68,11 +68,11 @@ if (!defined('SANTAFE_ENABLE_ANALYTICS')) {
 }
 
 if (!defined('RECAPTCHA_SITE_KEY')) {
-    define('RECAPTCHA_SITE_KEY', '6Lfu7RktAAAAOy_3OBZ8gkrasol7Uw1_dogvkxM');
+    define('RECAPTCHA_SITE_KEY', '6LdH7R4tAAAAAISuZE-EMqbyZhwLwaSBUU26jjK0');
 }
 
 if (!defined('RECAPTCHA_SECRET_KEY')) {
-    define('RECAPTCHA_SECRET_KEY', '6Lfu7RktAAAAIpxrmxl8U0zZmNjmxoSL4-gPTBv');
+    define('RECAPTCHA_SECRET_KEY', '6LdH7R4tAAAAAGiIpB1k0HCfAwgx_juSvwOJ6tSA');
 }
 
 // ── Redes sociais ───────────────────────────────────────────────────

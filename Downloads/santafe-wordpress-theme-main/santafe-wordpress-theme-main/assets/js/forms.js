@@ -56,12 +56,25 @@
                 }
             }
 
-            const recaptchaToken = form.querySelector('textarea[name="g-recaptcha-response"]')?.value || '';
-            if (!recaptchaToken) {
-                showFormMessage(form, 'error', 'Por favor, completa el reCAPTCHA antes de enviar.');
-                return;
-            }
+const recaptchaField = form.querySelector('input[name="g-recaptcha-response"]');
+const executeRecaptcha = recaptchaField && typeof grecaptcha !== 'undefined' && grecaptcha.execute
+    ? new Promise(function(resolve) {
+        try {
+          grecaptcha.ready(function() {
+            grecaptcha.execute(window.santafeConfig.recaptchaSiteKey || '', { action: 'submit' }).then(function(token) {
+              recaptchaField.value = token;
+              resolve();
+            }).catch(function() {
+              resolve();
+            });
+          });
+        } catch(e) {
+          resolve();
+        }
+      })
+    : Promise.resolve();
 
+            executeRecaptcha.then(function() {
             const submitBtn = form.querySelector('button[type="submit"]');
             const originalText = submitBtn ? submitBtn.textContent : '';
             if (submitBtn) {
@@ -75,36 +88,44 @@
             const csrf = (window.santafeConfig && window.santafeConfig.csrfToken) || window.csrfToken || '';
             formData.set('csrf_token', csrf);
 
-            fetch(form.getAttribute('action') || (window.santafeConfig && window.santafeConfig.ajaxUrl) || '/wp-admin/admin-post.php', {
+            var fetchUrl = form.getAttribute('action') || (window.santafeConfig && window.santafeConfig.ajaxUrl) || '/wp-admin/admin-post.php';
+            fetch(fetchUrl, {
                 method: 'POST',
+                credentials: 'same-origin',
                 headers: {
                     'X-Requested-With': 'XMLHttpRequest'
                 },
                 body: formData
             })
             .then(function(response) {
-                if (!response.ok) throw new Error('Error en el envío');
-                return response.json();
+                return response.text().then(function(text) {
+                    var result;
+                    try {
+                        result = JSON.parse(text);
+                    } catch(e) {
+                        showFormMessage(form, 'error', 'Error del servidor. Recarga la página e inténtalo de nuevo.');
+                        return;
+                    }
+                    if (result.success) {
+                        form.reset();
+                        trackEvent('form_submit');
+                        showFormMessage(form, 'success', result.message || 'Mensaje enviado correctamente.');
+                    } else {
+                        trackEvent('form_error');
+                        showFormMessage(form, 'error', result.message || 'Ha ocurrido un error. Inténtalo de nuevo.');
+                    }
+                });
             })
-            .then(function(result) {
-                if (result.success) {
-                    form.reset();
-                    trackEvent('form_submit');
-                    showFormMessage(form, 'success', result.message || 'Mensaje enviado correctamente.');
-                } else {
-                    trackEvent('form_error');
-                    showFormMessage(form, 'error', result.message || 'Ha ocurrido un error. Inténtalo de nuevo.');
-                }
-            })
-            .catch(function() {
+            .catch(function(err) {
                 trackEvent('form_error');
-                showFormMessage(form, 'error', 'Error de conexión. Por favor, inténtalo más tarde.');
+                showFormMessage(form, 'error', err.message || 'Error de conexión. Por favor, inténtalo más tarde.');
             })
             .finally(function() {
                 if (submitBtn) {
                     submitBtn.disabled = false;
                     submitBtn.textContent = originalText;
                 }
+            });
             });
         });
     });

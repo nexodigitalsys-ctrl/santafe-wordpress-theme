@@ -22,7 +22,7 @@ add_action('after_setup_theme', 'santafe_tailwind_theme_setup');
 
 function santafe_tailwind_enqueue_assets(): void {
     $theme_uri = get_template_directory_uri();
-    $version = '1.2.0';
+    $version = '1.2.1';
 
     // Core utilities must load first (dependency for slider)
     wp_enqueue_script('santafe-utils', $theme_uri . '/assets/js/utils.js', [], $version, true);
@@ -42,6 +42,7 @@ function santafe_tailwind_enqueue_assets(): void {
         wp_script_add_data($handle, 'defer', true);
     }
 
+    $recaptcha_key = defined('RECAPTCHA_SITE_KEY') ? RECAPTCHA_SITE_KEY : '';
     wp_localize_script('santafe-forms', 'santafeConfig', [
         'ajaxUrl' => admin_url('admin-post.php'),
         'csrfToken' => wp_create_nonce('santafe_contact_form'),
@@ -49,6 +50,7 @@ function santafe_tailwind_enqueue_assets(): void {
         'gtmId' => GTM_ID,
         'analyticsEnabled' => SANTAFE_ENABLE_ANALYTICS,
         'whatsappNumber' => WHATSAPP_NUMBER,
+        'recaptchaSiteKey' => $recaptcha_key,
     ]);
 
     wp_localize_script('santafe-main', 'santafeConfig', [

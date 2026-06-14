@@ -133,7 +133,7 @@ $alt_oficina = $lang === 'ca' ? 'Oficina' : 'Oficina';
                     </div>
                     <?php if (defined('RECAPTCHA_SITE_KEY') && RECAPTCHA_SITE_KEY !== ''): ?>
                     <div class="mb-6">
-                        <div class="g-recaptcha" data-sitekey="<?php echo esc_attr(RECAPTCHA_SITE_KEY); ?>"></div>
+                        <input type="hidden" name="g-recaptcha-response" value="">
                     </div>
                     <?php endif; ?>
                     <button type="submit" class="w-full section-contacto-submit font-semibold py-4 rounded-xl transition-all duration-300 tracking-wide uppercase text-sm relative overflow-hidden group shadow-lg shadow-brand-600/20">
