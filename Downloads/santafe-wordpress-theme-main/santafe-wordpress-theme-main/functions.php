@@ -22,7 +22,7 @@ add_action('after_setup_theme', 'santafe_tailwind_theme_setup');
 
 function santafe_tailwind_enqueue_assets(): void {
     $theme_uri = get_template_directory_uri();
-    $version = '1.2.1';
+    $version = '1.2.2';
 
     // Core utilities must load first (dependency for slider)
     wp_enqueue_script('santafe-utils', $theme_uri . '/assets/js/utils.js', [], $version, true);
@@ -223,16 +223,16 @@ function santafe_send_autoreply(array $data): bool {
     return (bool) wp_mail($data['email'], $subject, $body, $headers);
 }
 
-function santafe_verify_recaptcha(string $token): bool {
+function santafe_verify_recaptcha(string $token): array {
     $secret = defined('RECAPTCHA_SECRET_KEY') ? RECAPTCHA_SECRET_KEY : '';
 
     if ($secret === '') {
         error_log('Santa Fe reCAPTCHA: secret key not configured.');
-        return true; // fallback seguro: não bloqueia se não configurado
+        return ['success' => true, 'error' => '']; // fallback seguro
     }
 
     if ($token === '') {
-        return false;
+        return ['success' => false, 'error' => 'token_vacio'];
     }
 
     $response = wp_remote_post(
@@ -242,18 +242,30 @@ function santafe_verify_recaptcha(string $token): bool {
             'body' => [
                 'secret' => $secret,
                 'response' => $token,
-                'remoteip' => sanitize_text_field($_SERVER['REMOTE_ADDR'] ?? ''),
+                'remoteip' => sanitize_text_field(wp_unslash($_SERVER['REMOTE_ADDR'] ?? '')),
             ],
         ]
     );
 
     if (is_wp_error($response)) {
         error_log('Santa Fe reCAPTCHA: ' . $response->get_error_message());
-        return false;
+        return ['success' => false, 'error' => 'http_error'];
     }
 
     $body = json_decode(wp_remote_retrieve_body($response), true);
-    return is_array($body) && !empty($body['success']);
+    if (!is_array($body)) {
+        return ['success' => false, 'error' => 'respuesta_invalida'];
+    }
+
+    if (isset($_SERVER['HTTP_HOST'])) {
+        $body['_site_host'] = sanitize_text_field(wp_unslash($_SERVER['HTTP_HOST']));
+    }
+    error_log('Santa Fe reCAPTCHA: ' . wp_json_encode($body));
+
+    return [
+        'success' => !empty($body['success']),
+        'error' => empty($body['success']) ? ($body['error-codes'][0] ?? 'desconocido') : '',
+    ];
 }
 
 function santafe_tailwind_handle_contact_form(): void {
@@ -285,7 +297,8 @@ function santafe_tailwind_handle_contact_form(): void {
     }
 
     $recaptcha_token = sanitize_text_field($payload['g-recaptcha-response'] ?? '');
-    if (!santafe_verify_recaptcha($recaptcha_token)) {
+    $recaptcha_result = santafe_verify_recaptcha($recaptcha_token);
+    if (!$recaptcha_result['success']) {
         $lang = sanitize_text_field($payload['lang'] ?? '');
         if (!in_array($lang, ['es', 'ca'], true)) {
             $referer = wp_get_referer() ?: '';
@@ -295,9 +308,18 @@ function santafe_tailwind_handle_contact_form(): void {
                 $lang = 'es';
             }
         }
-        $translations = load_translations($lang);
-        $translated = t($translations, 'contact.recaptcha_invalid');
-        $msg = $translated !== 'contact.recaptcha_invalid' ? $translated : 'Por favor, verifica el reCAPTCHA antes de enviar.';
+        $error_code = $recaptcha_result['error'] ?? 'desconocido';
+        if ($error_code === 'http_error') {
+            $msg = 'Error de conexión con el servicio de verificación. Inténtalo más tarde.';
+        } elseif ($error_code === 'token_vacio') {
+            $msg = 'El token de seguridad está vacío. Recarga la página e inténtalo de nuevo. (código: token_vacio)';
+        } elseif ($error_code === 'timeout-or-duplicate') {
+            $msg = 'El token de seguridad ha expirado o ya fue usado. Recarga la página e inténtalo de nuevo. (código: timeout)';
+        } else {
+            $translations = load_translations($lang);
+            $translated = t($translations, 'contact.recaptcha_invalid');
+            $msg = $translated !== 'contact.recaptcha_invalid' ? $translated : 'El reCAPTCHA no es válido. Inténtalo de nuevo.';
+        }
         santafe_tailwind_contact_response(false, $msg, $is_ajax);
         return;
     }
