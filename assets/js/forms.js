@@ -12,52 +12,7 @@
         }
     }
 
-    window.santafeRecaptchaVerified = function() {
-        document.querySelectorAll('form[data-ajax] .g-recaptcha').forEach(function(widget) {
-            var form = widget.closest('form[data-ajax]');
-            if (form) {
-                var btn = form.querySelector('button[type="submit"]');
-                if (btn) btn.disabled = false;
-            }
-        });
-    };
-
-    window.santafeRecaptchaExpired = function() {
-        document.querySelectorAll('form[data-ajax] .g-recaptcha').forEach(function(widget) {
-            var form = widget.closest('form[data-ajax]');
-            if (form) {
-                var btn = form.querySelector('button[type="submit"]');
-                if (btn) btn.disabled = true;
-            }
-        });
-    };
-
     domReady(function() {
-    document.querySelectorAll('form[data-ajax] .g-recaptcha').forEach(function(widget) {
-        var form = widget.closest('form[data-ajax]');
-        if (form) {
-            var btn = form.querySelector('button[type="submit"]');
-            if (btn) btn.disabled = true;
-        }
-    });
-
-    function validateRecaptcha(form) {
-        var recaptchaWidget = form.querySelector('.g-recaptcha');
-        if (!recaptchaWidget) {
-            return true; // Formulário sem reCAPTCHA
-        }
-        var recaptchaField = form.querySelector('[name="g-recaptcha-response"]');
-        if (!recaptchaField || recaptchaField.value === '') {
-            var lang = (window.santafeConfig && window.santafeConfig.lang) || 'es';
-            var msg = lang === 'ca'
-                ? 'Si us plau, completa el reCAPTCHA abans d\'enviar.'
-                : 'Por favor, completa el reCAPTCHA antes de enviar.';
-            showFormMessage(form, 'error', msg);
-            return false;
-        }
-        return true;
-    }
-
     const forms = document.querySelectorAll('form[data-ajax]');
 
     forms.forEach(function(form) {
@@ -67,7 +22,6 @@
             // Honeypot check
             const honeypot = form.querySelector('input[name="website"]');
             if (honeypot && honeypot.value !== '') {
-                // Bot detectado — rechazar silenciosamente
                 return;
             }
 
@@ -102,11 +56,30 @@
                 }
             }
 
-            // Validação reCAPTCHA v2
-            if (!validateRecaptcha(form)) {
-                return;
-            }
+            // reCAPTCHA v3 — invisible, genera token automático
+            const recaptchaField = form.querySelector('input[name="g-recaptcha-response"]');
+            const executeRecaptcha = recaptchaField && typeof grecaptcha !== 'undefined' && grecaptcha.execute
+                ? new Promise(function(resolve) {
+                    var timeout = setTimeout(function() { resolve(); }, 3000);
+                    try {
+                      grecaptcha.ready(function() {
+                        grecaptcha.execute(window.santafeConfig.recaptchaSiteKey || '', { action: 'submit' }).then(function(token) {
+                          recaptchaField.value = token;
+                          clearTimeout(timeout);
+                          resolve();
+                        }).catch(function() {
+                          clearTimeout(timeout);
+                          resolve();
+                        });
+                      });
+                    } catch(e) {
+                      clearTimeout(timeout);
+                      resolve();
+                    }
+                  })
+                : Promise.resolve();
 
+            executeRecaptcha.then(function() {
             const submitBtn = form.querySelector('button[type="submit"]');
             const originalText = submitBtn ? submitBtn.textContent : '';
             if (submitBtn) {
@@ -115,7 +88,6 @@
             }
 
             const formData = new FormData(form);
-            // Add CSRF as explicit field for admin-post.php compatibility
             formData.set('action', 'santafe_contact_form');
             const csrf = (window.santafeConfig && window.santafeConfig.csrfToken) || window.csrfToken || '';
             formData.set('csrf_token', csrf);
@@ -140,9 +112,6 @@
                     }
                     if (result.success) {
                         form.reset();
-                        if (typeof grecaptcha !== 'undefined' && typeof grecaptcha.reset === 'function') {
-                            grecaptcha.reset();
-                        }
                         trackEvent('form_submit');
                         showFormMessage(form, 'success', result.message || 'Mensaje enviado correctamente.');
                     } else {
@@ -160,6 +129,7 @@
                     submitBtn.disabled = false;
                     submitBtn.textContent = originalText;
                 }
+            });
             });
         });
     });
