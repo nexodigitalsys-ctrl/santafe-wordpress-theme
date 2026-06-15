@@ -171,6 +171,9 @@ function santafe_send_contact_email(array $data, array $attachments = []): bool 
         . $files_html
         . '</table>'
         . '<div style="margin-top: 16px; padding: 12px; background: #f9f9f9; border-radius: 4px;"><strong style="color: #333;">Mensaje:</strong><p style="color: #555; margin: 8px 0 0;">' . nl2br(esc_html($data['mensaje'])) . '</p></div>'
+        . '<div style="padding: 24px; text-align: center; background: #f9f9f9;">'
+        . '<img src="' . esc_url(get_template_directory_uri() . '/assets/img/construcciones-santa-fe-girona.png') . '" alt="Santa Fe Construcciones — Girona" style="max-width: 100%; height: auto; border-radius: 8px;">'
+        . '</div>'
         . '</div></div></body></html>';
 
     $headers = [
@@ -214,6 +217,9 @@ function santafe_send_autoreply(array $data): bool {
         . 'Ciudad: ' . esc_html($data['ciudad'] ?: 'Sin especificar') . '<br>'
         . 'Mensaje: ' . esc_html(mb_substr($data['mensaje'] ?: 'Sin mensaje', 0, 200)) . (mb_strlen($data['mensaje'] ?? '') > 200 ? '...' : '')
         . '</p></div>'
+        . '<div style="padding: 24px; text-align: center; background: #f9f9f9;">'
+        . '<img src="' . esc_url(get_template_directory_uri() . '/assets/img/construcciones-santa-fe-girona.png') . '" alt="Santa Fe Construcciones — Girona" style="max-width: 100%; height: auto; border-radius: 8px;">'
+        . '</div>'
         . '<hr style="border: none; border-top: 1px solid #eee; margin: 24px 0;">'
         . '<p style="color: #999; font-size: 12px; line-height: 1.5;">' . esc_html($company) . '<br>'
         . 'Tel: ' . $phone . ' | WhatsApp: ' . $phone . '<br>'
