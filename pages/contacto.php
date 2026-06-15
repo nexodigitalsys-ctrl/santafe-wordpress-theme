@@ -142,7 +142,6 @@ $ciudades = $lang === 'ca' ? [
                              data-sitekey="<?php echo esc_attr(RECAPTCHA_SITE_KEY); ?>"
                              data-callback="santafeRecaptchaVerified"
                              data-expired-callback="santafeRecaptchaExpired"></div>
-                        <input type="hidden" name="g-recaptcha-response" value="">
                     </div>
                     <?php endif; ?>
                     <button type="submit" class="w-full bg-brand-600 hover:bg-brand-500 text-white font-medium py-3 rounded-xl transition-all tracking-wide uppercase text-xs">
