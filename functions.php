@@ -152,8 +152,7 @@ function santafe_send_contact_email(array $data, array $attachments = []): bool 
     $body = '<html><body style="font-family: Arial, sans-serif; background: #f5f5f5; padding: 20px;">'
         . '<div style="max-width: 600px; margin: 0 auto; background: #fff; border-radius: 8px; overflow: hidden; border: 1px solid #e5e5e5;">'
         . '<div style="padding: 24px; text-align: center; border-bottom: 1px solid #eee;">'
-        . '<img src="' . $logo_url . '" alt="Santa Fe Construcciones" style="max-height: 40px; width: auto;">'
-        . '<p style="margin: 8px 0 0; font-size: 16px; font-weight: bold; color: #000;">Santa Fe Construcciones</p>'
+        . '<img src="' . esc_url(get_template_directory_uri() . '/assets/img/construcciones-santa-fe-girona.png') . '" alt="Santa Fe Construcciones" style="max-width: 100%; height: auto; border-radius: 8px;">'
         . '</div>'
         . '<div style="background: #ae232a; padding: 20px; text-align: center;">'
         . '<h1 style="color: #fff; margin: 0; font-size: 18px;">Nuevo contacto</h1>'
@@ -171,9 +170,6 @@ function santafe_send_contact_email(array $data, array $attachments = []): bool 
         . $files_html
         . '</table>'
         . '<div style="margin-top: 16px; padding: 12px; background: #f9f9f9; border-radius: 4px;"><strong style="color: #333;">Mensaje:</strong><p style="color: #555; margin: 8px 0 0;">' . nl2br(esc_html($data['mensaje'])) . '</p></div>'
-        . '<div style="padding: 24px; text-align: center; background: #f9f9f9;">'
-        . '<img src="' . esc_url(get_template_directory_uri() . '/assets/img/construcciones-santa-fe-girona.png') . '" alt="Santa Fe Construcciones — Girona" style="max-width: 100%; height: auto; border-radius: 8px;">'
-        . '</div>'
         . '</div></div></body></html>';
 
     $headers = [
@@ -195,8 +191,7 @@ function santafe_send_autoreply(array $data): bool {
     $body = '<html><body style="font-family: Arial, sans-serif; background: #f5f5f5; padding: 20px;">'
         . '<div style="max-width: 600px; margin: 0 auto; background: #fff; border-radius: 8px; overflow: hidden; border: 1px solid #e5e5e5;">'
         . '<div style="padding: 24px; text-align: center; border-bottom: 1px solid #eee;">'
-        . '<img src="' . $logo_url . '" alt="Santa Fe Construcciones" style="max-height: 40px; width: auto;">'
-        . '<p style="margin: 8px 0 0; font-size: 16px; font-weight: bold; color: #000;">Santa Fe Construcciones</p>'
+        . '<img src="' . esc_url(get_template_directory_uri() . '/assets/img/construcciones-santa-fe-girona.png') . '" alt="Santa Fe Construcciones" style="max-width: 100%; height: auto; border-radius: 8px;">'
         . '</div>'
         . '<div style="background: #ae232a; padding: 24px; text-align: center;">'
         . '<h1 style="color: #fff; margin: 0 0 4px; font-size: 20px;">Gracias por contactarnos</h1>'
@@ -217,9 +212,6 @@ function santafe_send_autoreply(array $data): bool {
         . 'Ciudad: ' . esc_html($data['ciudad'] ?: 'Sin especificar') . '<br>'
         . 'Mensaje: ' . esc_html(mb_substr($data['mensaje'] ?: 'Sin mensaje', 0, 200)) . (mb_strlen($data['mensaje'] ?? '') > 200 ? '...' : '')
         . '</p></div>'
-        . '<div style="padding: 24px; text-align: center; background: #f9f9f9;">'
-        . '<img src="' . esc_url(get_template_directory_uri() . '/assets/img/construcciones-santa-fe-girona.png') . '" alt="Santa Fe Construcciones — Girona" style="max-width: 100%; height: auto; border-radius: 8px;">'
-        . '</div>'
         . '<hr style="border: none; border-top: 1px solid #eee; margin: 24px 0;">'
         . '<p style="color: #999; font-size: 12px; line-height: 1.5;">' . esc_html($company) . '<br>'
         . 'Tel: ' . $phone . ' | WhatsApp: ' . $phone . '<br>'
