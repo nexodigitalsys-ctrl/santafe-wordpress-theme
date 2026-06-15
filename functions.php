@@ -43,6 +43,10 @@ function santafe_tailwind_enqueue_assets(): void {
     }
 
     $recaptcha_key = defined('RECAPTCHA_SITE_KEY') ? RECAPTCHA_SITE_KEY : '';
+    $current_lang = function_exists('get_query_var') ? get_query_var('santafe_lang') : '';
+    if (!in_array($current_lang, ['es', 'ca'], true)) {
+        $current_lang = DEFAULT_LANG;
+    }
     wp_localize_script('santafe-forms', 'santafeConfig', [
         'ajaxUrl' => admin_url('admin-post.php'),
         'csrfToken' => wp_create_nonce('santafe_contact_form'),
@@ -51,9 +55,10 @@ function santafe_tailwind_enqueue_assets(): void {
         'analyticsEnabled' => SANTAFE_ENABLE_ANALYTICS,
         'whatsappNumber' => WHATSAPP_NUMBER,
         'recaptchaSiteKey' => $recaptcha_key,
+        'lang' => $current_lang,
     ]);
 
-    wp_localize_script('santafe-main', 'santafeConfig', [
+    wp_localize_script('santafe-main', 'santafeMainConfig', [
         'ajaxUrl' => admin_url('admin-post.php'),
         'csrfToken' => wp_create_nonce('santafe_contact_form'),
         'whatsappNumber' => WHATSAPP_NUMBER,
@@ -308,17 +313,25 @@ function santafe_tailwind_handle_contact_form(): void {
                 $lang = 'es';
             }
         }
+        $translations = load_translations($lang);
         $error_code = $recaptcha_result['error'] ?? 'desconocido';
         if ($error_code === 'http_error') {
-            $msg = 'Error de conexión con el servicio de verificación. Inténtalo más tarde.';
+            $msg = $lang === 'ca'
+                ? 'Error de connexió amb el servei de verificació. Torna-ho a provar més tard.'
+                : 'Error de conexión con el servicio de verificación. Inténtalo más tarde.';
         } elseif ($error_code === 'token_vacio') {
-            $msg = 'El token de seguridad está vacío. Recarga la página e inténtalo de nuevo. (código: token_vacio)';
+            $msg = $lang === 'ca'
+                ? 'El token de seguretat està buit. Recarrega la pàgina i torna-ho a provar. (codi: token_vacio)'
+                : 'El token de seguridad está vacío. Recarga la página e inténtalo de nuevo. (código: token_vacio)';
         } elseif ($error_code === 'timeout-or-duplicate') {
-            $msg = 'El token de seguridad ha expirado o ya fue usado. Recarga la página e inténtalo de nuevo. (código: timeout)';
+            $msg = $lang === 'ca'
+                ? 'El token de seguretat ha caducat o ja s\'ha utilitzat. Recarrega la pàgina i torna-ho a provar. (codi: timeout)'
+                : 'El token de seguridad ha expirado o ya fue usado. Recarga la página e inténtalo de nuevo. (código: timeout)';
         } elseif ($error_code === 'secret_not_configured') {
-            $msg = 'Error de configuración de seguridad. Contacta con el administrador.';
+            $msg = $lang === 'ca'
+                ? 'Error de configuració de seguretat. Contacta amb l\'administrador.'
+                : 'Error de configuración de seguridad. Contacta con el administrador.';
         } else {
-            $translations = load_translations($lang);
             $translated = t($translations, 'contact.recaptcha_invalid');
             $msg = $translated !== 'contact.recaptcha_invalid' ? $translated : 'El reCAPTCHA no es válido. Inténtalo de nuevo.';
         }

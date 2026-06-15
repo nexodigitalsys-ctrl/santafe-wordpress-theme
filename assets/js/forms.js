@@ -13,14 +13,34 @@
     }
 
     window.santafeRecaptchaVerified = function() {
-        // O widget v2 preenche o campo automaticamente; callback mantido para compatibilidade com data-callback.
+        document.querySelectorAll('form[data-ajax] .g-recaptcha').forEach(function(widget) {
+            var form = widget.closest('form[data-ajax]');
+            if (form) {
+                var btn = form.querySelector('button[type="submit"]');
+                if (btn) btn.disabled = false;
+            }
+        });
     };
 
     window.santafeRecaptchaExpired = function() {
-        // O widget v2 limpa o campo automaticamente; callback mantido para compatibilidade com data-expired-callback.
+        document.querySelectorAll('form[data-ajax] .g-recaptcha').forEach(function(widget) {
+            var form = widget.closest('form[data-ajax]');
+            if (form) {
+                var btn = form.querySelector('button[type="submit"]');
+                if (btn) btn.disabled = true;
+            }
+        });
     };
 
     domReady(function() {
+    document.querySelectorAll('form[data-ajax] .g-recaptcha').forEach(function(widget) {
+        var form = widget.closest('form[data-ajax]');
+        if (form) {
+            var btn = form.querySelector('button[type="submit"]');
+            if (btn) btn.disabled = true;
+        }
+    });
+
     function validateRecaptcha(form) {
         var recaptchaWidget = form.querySelector('.g-recaptcha');
         if (!recaptchaWidget) {
