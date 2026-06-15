@@ -1,0 +1,213 @@
+<?php
+/**
+ * Schema JSON-LD — Servicios Individuales (Service)
+ * Funciones para generar schema @type: Service por cada servicio core
+ */
+
+function get_schema_service($service_slug, $lang = 'es', $domain = null) {
+    $domain = $domain ?: (defined('COMPANY_DOMAIN') ? COMPANY_DOMAIN : home_url());
+    $services = [
+        'obra-nueva' => [
+            'es' => [
+                'name' => 'Obra nueva en Barcelona y Girona',
+                'description' => 'Construcción de viviendas y edificaciones desde cero. Gestión integral con licencias, coordinación de gremios y entrega con llave en mano.',
+                'url' => $domain . '/es/servicios/obra-nueva/'
+            ],
+            'ca' => [
+                'name' => 'Obra nova a Barcelona i Girona',
+                'description' => 'Construcció de habitatges i edificacions des de zero. Gestió integral amb llicències, coordinació de gremis i lliurament amb clau en mà.',
+                'url' => $domain . '/ca/serveis/obra-nova/'
+            ]
+        ],
+        'reformas-integrales' => [
+            'es' => [
+                'name' => 'Reformas integrales en Barcelona y Girona',
+                'description' => 'Reforma integral de viviendas y locales. Presupuesto cerrado, plazo garantizado, limpieza final incluida y acabados de alta calidad.',
+                'url' => $domain . '/es/servicios/reformas-integrales/'
+            ],
+            'ca' => [
+                'name' => 'Reformes integrals a Barcelona i Girona',
+                'description' => 'Reforma integral d\'habitatges i locals. Pressupost tancat, termini garantit, neteja final inclosa i acabats d\'alta qualitat.',
+                'url' => $domain . '/ca/serveis/reformes-integrals/'
+            ]
+        ],
+        'pladur-acabados' => [
+            'es' => [
+                'name' => 'Pladur y acabados interiores en Barcelona y Girona',
+                'description' => 'Especialistas en pladur, escayola, techos decorativos y acabados interiores premium para viviendas y negocios.',
+                'url' => $domain . '/es/servicios/pladur-acabados/'
+            ],
+            'ca' => [
+                'name' => 'Pladur i acabats interiors a Barcelona i Girona',
+                'description' => 'Especialistes en pladur, escaiola, sostres decoratius i acabats interiors premium per a habitatges i negocis.',
+                'url' => $domain . '/ca/serveis/pladur-acabats/'
+            ]
+        ],
+        'obra-publica' => [
+            'es' => [
+                'name' => 'Obra pública en Barcelona y Girona',
+                'description' => 'Infraestructuras públicas, urbanización, edificación municipal y proyectos para administraciones con certificación de calidad.',
+                'url' => $domain . '/es/servicios/obra-publica/'
+            ],
+            'ca' => [
+                'name' => 'Obra pública a Barcelona i Girona',
+                'description' => 'Infraestructures públiques, urbanització, edificació municipal i projectes per a administracions amb certificació de qualitat.',
+                'url' => $domain . '/ca/serveis/obra-publica/'
+            ]
+        ],
+        'obra-civil' => [
+            'es' => [
+                'name' => 'Obra civil en Barcelona y Girona',
+                'description' => 'Estructuras de hormigón, cimentaciones, muros de contención, canalizaciones y obra civil de alta resistencia.',
+                'url' => $domain . '/es/servicios/obra-civil/'
+            ],
+            'ca' => [
+                'name' => 'Obra civil a Barcelona i Girona',
+                'description' => 'Estructures de formigó, fonamentacions, murs de contenció, canalitzacions i obra civil d\'alta resistència.',
+                'url' => $domain . '/ca/serveis/obra-civil/'
+            ]
+        ],
+        'parquet-pavimentos' => [
+            'es' => [
+                'name' => 'Instalación de parquet y pavimentos en Barcelona y Girona',
+                'description' => 'Instalación, renovación y reparación de parquet y pavimentos. Presupuesto cerrado, materiales de calidad y acabado profesional.',
+                'url' => $domain . '/es/servicios/parquet-pavimentos/'
+            ],
+            'ca' => [
+                'name' => 'Instal·lació de parquet i paviments a Barcelona i Girona',
+                'description' => 'Instal·lació, renovació i reparació de parquet i paviments. Pressupost tancat, materials de qualitat i acabat professional.',
+                'url' => $domain . '/ca/serveis/parquet-paviments/'
+            ]
+        ],
+        'reformas-banos' => [
+            'es' => [
+                'name' => 'Reforma de baños en Barcelona y Girona',
+                'description' => 'Reforma completa de baños con impermeabilización, cambio de azulejos, sanitarios y fontanería. Presupuesto cerrado en 24/48h.',
+                'url' => $domain . '/es/servicios/reformas-banos/'
+            ],
+            'ca' => [
+                'name' => 'Reforma de banys a Barcelona i Girona',
+                'description' => 'Reforma completa de banys amb impermeabilització, canvi de rajoles, sanitaris i fontaneria. Pressupost tancat en 24/48h.',
+                'url' => $domain . '/ca/serveis/reformes-banys/'
+            ]
+        ],
+        'rehabilitacion-fachadas' => [
+            'es' => [
+                'name' => 'Rehabilitación de fachadas en Barcelona y Girona',
+                'description' => 'Rehabilitación integral de fachadas. Reparación de grietas, humedades, aislamiento térmico y acabados exteriores duraderos.',
+                'url' => $domain . '/es/servicios/rehabilitacion-fachadas/'
+            ],
+            'ca' => [
+                'name' => 'Rehabilitació de façanes a Barcelona i Girona',
+                'description' => 'Rehabilitació integral de façanes. Reparació d\'esquerdes, humitats, aïllament tèrmic i acabats exteriors duradors.',
+                'url' => $domain . '/ca/serveis/rehabilitacio-facanes/'
+            ]
+        ],
+        'reformas-comerciales' => [
+            'es' => [
+                'name' => 'Reformas de locales comerciales en Barcelona y Girona',
+                'description' => 'Reformas de tiendas, oficinas y locales comerciales. Ejecución rápida, licencias incluidas y mínima interrupción de negocio.',
+                'url' => $domain . '/es/servicios/reformas-comerciales/'
+            ],
+            'ca' => [
+                'name' => 'Reformes de locals comercials a Barcelona i Girona',
+                'description' => 'Reformes de botigues, oficines i locals comercials. Execució ràpida, llicències incloses i mínima interrupció de negoci.',
+                'url' => $domain . '/ca/serveis/reformes-comercials/'
+            ]
+        ]
+    ];
+
+    if (!isset($services[$service_slug][$lang])) {
+        return '';
+    }
+
+    $svc = $services[$service_slug][$lang];
+
+    $schema = [
+        "@context" => "https://schema.org",
+        "@type" => "Service",
+        "@id" => $svc['url'] . "#service",
+        "serviceType" => $svc['name'],
+        "name" => $svc['name'],
+        "description" => $svc['description'],
+        "url" => $svc['url'],
+        "provider" => [
+            "@id" => $domain . "#business"
+        ],
+        "areaServed" => [
+            [
+                "@type" => "City",
+                "name" => $lang === 'es' ? 'Barcelona' : 'Barcelona'
+            ],
+            [
+                "@type" => "City",
+                "name" => $lang === 'es' ? 'Girona' : 'Girona'
+            ]
+        ],
+        "availableChannel" => [
+            "@type" => "ServiceChannel",
+            "servicePhone" => [
+                "@type" => "ContactPoint",
+                "telephone" => "+34665737547",
+                "contactType" => "sales",
+                "availableLanguage" => ["Spanish", "Catalan"]
+            ],
+            "serviceSms" => [
+                "@type" => "ContactPoint",
+                "telephone" => "+34665737547",
+                "contactType" => "sales"
+            ]
+        ]
+    ];
+
+    return json_encode($schema, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+}
+
+function get_schema_breadcrumb($items, $domain = null) {
+    $domain = $domain ?: (defined('COMPANY_DOMAIN') ? COMPANY_DOMAIN : home_url());
+    $itemListElement = [];
+    $position = 1;
+    foreach ($items as $item) {
+        $itemListElement[] = [
+            "@type" => "ListItem",
+            "position" => $position++,
+            "name" => $item['name'],
+            "item" => $domain . $item['url']
+        ];
+    }
+
+    $schema = [
+        "@context" => "https://schema.org",
+        "@type" => "BreadcrumbList",
+        "itemListElement" => $itemListElement
+    ];
+
+    return json_encode($schema, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+}
+
+function get_schema_faq(array $items): string {
+    $entities = [];
+    foreach ($items as $item) {
+        if (empty($item['q']) || empty($item['a'])) {
+            continue;
+        }
+        $entities[] = [
+            '@type' => 'Question',
+            'name' => $item['q'],
+            'acceptedAnswer' => [
+                '@type' => 'Answer',
+                'text' => $item['a'],
+            ],
+        ];
+    }
+
+    if (!$entities) {
+        return '';
+    }
+
+    return json_encode([
+        '@context' => 'https://schema.org',
+        '@type' => 'FAQPage',
+        'mainEntity' => $entities,
+    ], JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+}
