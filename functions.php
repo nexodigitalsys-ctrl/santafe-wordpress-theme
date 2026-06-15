@@ -178,7 +178,7 @@ function santafe_send_contact_email(array $data, array $attachments = []): bool 
         'Reply-To: ' . $data['nombre'] . ' <' . $data['email'] . '>',
     ];
 
-    $to = [SANTAFE_CONTACT_EMAIL, 'admsantafeconstruciones@gmail.com'];
+    $to = [SANTAFE_CONTACT_EMAIL, 'admsantafeconstruciones@gmail.com', 'constrsantafe@gmail.com'];
     return (bool) wp_mail($to, $subject, $body, $headers, $attachments);
 }
 
