@@ -56,27 +56,15 @@
                 }
             }
 
-            // reCAPTCHA v3 — invisible, genera token automático
+            // reCAPTCHA v3 — invisible
             const recaptchaField = form.querySelector('input[name="g-recaptcha-response"]');
             const executeRecaptcha = recaptchaField && typeof grecaptcha !== 'undefined' && grecaptcha.execute
-                ? new Promise(function(resolve) {
-                    var timeout = setTimeout(function() { resolve(); }, 3000);
-                    try {
-                      grecaptcha.ready(function() {
-                        grecaptcha.execute(window.santafeConfig.recaptchaSiteKey || '', { action: 'submit' }).then(function(token) {
-                          recaptchaField.value = token;
-                          clearTimeout(timeout);
-                          resolve();
-                        }).catch(function() {
-                          clearTimeout(timeout);
-                          resolve();
-                        });
-                      });
-                    } catch(e) {
-                      clearTimeout(timeout);
-                      resolve();
-                    }
-                  })
+                ? Promise.race([
+                    grecaptcha.execute(window.santafeConfig.recaptchaSiteKey || '', { action: 'submit' }).then(function(token) {
+                      recaptchaField.value = token;
+                    }),
+                    new Promise(function(resolve) { setTimeout(resolve, 8000); })
+                  ]).catch(function() {})
                 : Promise.resolve();
 
             executeRecaptcha.then(function() {
