@@ -95,6 +95,96 @@ $current_year = date('Y');
         <a href="/<?php echo $lang; ?>/politica-cookies/" class="text-warm-500 hover:text-brand-400 text-xs transition-colors duration-300"><?php echo t($translations, 'footer.cookies'); ?></a>
       </div>
     </div>
+
+    <!-- Nexo Digital Signature -->
+    <style>
+      @keyframes nx-rain-fall-santafe {
+        0% { transform: translateY(-28px) scale(0.96); opacity: 0; }
+        10% { opacity: 1; }
+        85% { opacity: 0.22; }
+        100% { transform: translateY(72px) scale(1.04); opacity: 0; }
+      }
+      .nx-signature-santafe {
+        --nx-signature-w: 11rem;
+        --nx-signature-h: 3.25rem;
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: var(--nx-signature-w);
+        height: var(--nx-signature-h);
+        isolation: isolate;
+        contain: layout paint;
+        vertical-align: middle;
+      }
+      .nx-signature-santafe__rain {
+        position: absolute;
+        inset: -0.75rem -1rem;
+        z-index: 0;
+        overflow: hidden;
+        border-radius: 9999px;
+        mask-image: radial-gradient(ellipse 72% 95% at 50% 52%, black 20%, transparent 65%);
+        -webkit-mask-image: radial-gradient(ellipse 72% 95% at 50% 52%, black 20%, transparent 65%);
+        pointer-events: none;
+      }
+      .nx-signature-santafe__rain-col {
+        position: absolute;
+        top: -28px;
+        bottom: -14px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        width: 1rem;
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+        font-size: 0.875rem;
+        font-weight: 700;
+        line-height: 1.45;
+        letter-spacing: 0.04em;
+      }
+      .nx-signature-santafe__rain-col span {
+        opacity: 0;
+        animation: nx-rain-fall-santafe 2.2s linear infinite;
+        will-change: transform, opacity;
+      }
+      .nx-signature-santafe__label {
+        position: relative;
+        z-index: 1;
+        font-size: 0.875rem;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+        color: #38bdf8;
+        transition: color 0.25s ease, filter 0.25s ease;
+      }
+      .nx-signature-santafe:hover .nx-signature-santafe__label {
+        color: #7dd3fc;
+        filter: drop-shadow(0 0 8px rgba(56, 189, 248, 0.6));
+      }
+      @media (min-width: 640px) {
+        .nx-signature-santafe { --nx-signature-w: 12rem; --nx-signature-h: 3.5rem; }
+        .nx-signature-santafe__label { font-size: 0.9375rem; }
+      }
+    </style>
+    <div class="mt-6 flex items-center justify-center gap-2 text-xs text-warm-500">
+      Creado por
+      <a href="https://nexo-digital.app" target="_blank" rel="noopener noreferrer" class="nx-signature-santafe group" aria-label="Creado por Nexo Digital">
+        <span class="nx-signature-santafe__rain" aria-hidden="true">
+          <span class="nx-signature-santafe__rain-col" style="left: 8%; top:-32px; color:#38bdf8; text-shadow:0 0 10px #38bdf8, 0 0 24px #38bdf8;"><span style="animation-duration:1.9s; animation-delay:0s;">1</span></span>
+          <span class="nx-signature-santafe__rain-col" style="left: 16%; top:-42px; color:#a78bfa; text-shadow:0 0 10px #a78bfa, 0 0 24px #a78bfa;"><span style="animation-duration:2.3s; animation-delay:.4s;">0</span></span>
+          <span class="nx-signature-santafe__rain-col" style="left: 24%; top:-36px; color:#2dd4bf; text-shadow:0 0 10px #2dd4bf, 0 0 24px #2dd4bf;"><span style="animation-duration:2.1s; animation-delay:.8s;">1</span></span>
+          <span class="nx-signature-santafe__rain-col" style="left: 32%; top:-30px; color:#38bdf8; text-shadow:0 0 10px #38bdf8, 0 0 24px #38bdf8;"><span style="animation-duration:2.0s; animation-delay:1.2s;">0</span></span>
+          <span class="nx-signature-santafe__rain-col" style="left: 40%; top:-44px; color:#a78bfa; text-shadow:0 0 10px #a78bfa, 0 0 24px #a78bfa;"><span style="animation-duration:2.4s; animation-delay:.2s;">1</span></span>
+          <span class="nx-signature-santafe__rain-col" style="left: 48%; top:-38px; color:#2dd4bf; text-shadow:0 0 10px #2dd4bf, 0 0 24px #2dd4bf;"><span style="animation-duration:1.8s; animation-delay:.6s;">0</span></span>
+          <span class="nx-signature-santafe__rain-col" style="left: 56%; top:-34px; color:#38bdf8; text-shadow:0 0 10px #38bdf8, 0 0 24px #38bdf8;"><span style="animation-duration:2.2s; animation-delay:1.0s;">1</span></span>
+          <span class="nx-signature-santafe__rain-col" style="left: 64%; top:-40px; color:#a78bfa; text-shadow:0 0 10px #a78bfa, 0 0 24px #a78bfa;"><span style="animation-duration:2.5s; animation-delay:1.4s;">0</span></span>
+          <span class="nx-signature-santafe__rain-col" style="left: 72%; top:-36px; color:#2dd4bf; text-shadow:0 0 10px #2dd4bf, 0 0 24px #2dd4bf;"><span style="animation-duration:2.0s; animation-delay:.5s;">1</span></span>
+          <span class="nx-signature-santafe__rain-col" style="left: 80%; top:-32px; color:#38bdf8; text-shadow:0 0 10px #38bdf8, 0 0 24px #38bdf8;"><span style="animation-duration:2.3s; animation-delay:.9s;">0</span></span>
+          <span class="nx-signature-santafe__rain-col" style="left: 88%; top:-46px; color:#a78bfa; text-shadow:0 0 10px #a78bfa, 0 0 24px #a78bfa;"><span style="animation-duration:1.9s; animation-delay:1.3s;">1</span></span>
+          <span class="nx-signature-santafe__rain-col" style="left: 12%; top:-38px; color:#2dd4bf; text-shadow:0 0 10px #2dd4bf, 0 0 24px #2dd4bf;"><span style="animation-duration:2.1s; animation-delay:1.7s;">0</span></span>
+        </span>
+        <span class="nx-signature-santafe__label">Nexo Digital</span>
+      </a>
+    </div>
   </div>
 </footer>
 
