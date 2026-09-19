@@ -84,5 +84,8 @@ function get_schema_reviews(string $lang = 'es'): string {
         ];
     }
 
-    return '<script type="application/ld+json">' . json_encode($schema, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . '</script>';
+    // JSON puro SIN etiquetas <script>: header.php ya envuelve cada bloque
+    // en <script type="application/ld+json">. Devolverlas aquí duplicaría
+    // el tag y rompería el HTML (script anidado = error de sintaxis en GSC).
+    return (string) json_encode($schema, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
 }
