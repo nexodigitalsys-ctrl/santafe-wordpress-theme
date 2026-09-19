@@ -36,7 +36,7 @@ $page_desc = htmlspecialchars($page_data['description'], ENT_QUOTES, 'UTF-8');
 $canonical = htmlspecialchars($page_data['canonical'] ?? ($domain . '/' . $lang . '/'), ENT_QUOTES, 'UTF-8');
 $alt_canonical = str_replace('/' . $lang . '/', '/' . $alt_lang . '/', $canonical);
 
-$schema_localbusiness = get_schema_localbusiness($domain);
+$schema_localbusiness = get_schema_localbusiness($domain, $page_data['business_extra'] ?? []);
 $schema_blocks = [];
 if (!empty($page_data['schemas'])) {
     foreach ($page_data['schemas'] as $schema_fn) {

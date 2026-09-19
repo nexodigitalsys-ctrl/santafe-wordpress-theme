@@ -5,16 +5,17 @@
  * Adaptar domain real en producción
  */
 
-function get_schema_localbusiness($domain = null) {
+function get_schema_localbusiness($domain = null, array $business_extra = []) {
     $domain = $domain ?: (defined('COMPANY_DOMAIN') ? COMPANY_DOMAIN : home_url());
     $phone = defined('COMPANY_PHONE') ? COMPANY_PHONE : '+34665737547';
     $email = defined('COMPANY_EMAIL') ? COMPANY_EMAIL : 'info@santafe-construcciones.com';
     $brand = defined('COMPANY_BRAND') ? COMPANY_BRAND : 'Santa Fe Construcciones';
     $name = defined('COMPANY_NAME') ? COMPANY_NAME : 'Construcciones Santa Fe Siglo XXI SLU';
-    $schema = [
-        "@context" => "https://schema.org",
-        "@graph" => [
-            [
+    // $business_extra permite a una página (p. ej. la home) inyectar
+    // aggregateRating/review DENTRO de este nodo. Google exige un solo
+    // aggregateRating por entidad: duplicarlo en otro bloque <script>
+    // provoca "La reseña tiene varias puntuaciones agregadas".
+    $business_node = [
                 "@type" => ["LocalBusiness", "ConstructionCompany"],
                 "@id" => $domain . "#business",
                 "name" => $name,
@@ -138,14 +139,29 @@ function get_schema_localbusiness($domain = null) {
                         "availableLanguage" => ["Spanish", "Catalan"]
                     ]
                 ],
-                // SIN aggregateRating aquí: la puntuación vive una sola vez en
-                // schema-reviews.php (mismo @id). Duplicarla en dos bloques
-                // provoca "La reseña tiene varias puntuaciones agregadas" en GSC.
+                "aggregateRating" => [
+                    "@type" => "AggregateRating",
+                    "ratingValue" => 5.0,
+                    "bestRating" => 5,
+                    "worstRating" => 1,
+                    "ratingCount" => 6,
+                    "reviewCount" => 6
+                ],
                 "sameAs" => [
                     "https://wa.me/" . (defined('WHATSAPP_NUMBER') ? WHATSAPP_NUMBER : '34665737547'),
                     "https://maps.app.goo.gl/QTBgkprQeRCaQ3UUA"
                 ]
-            ],
+            ];
+    // Fusión: la página puede inyectar aggregateRating/review extra (la home
+    // inyecta las 6 reviews). array_merge: el extra GANA, nunca duplica.
+    // Así hay UN solo aggregateRating por entidad en toda la página.
+    if (!empty($business_extra)) {
+        $business_node = array_merge($business_node, $business_extra);
+    }
+    $schema = [
+        "@context" => "https://schema.org",
+        "@graph" => [
+            $business_node,
             [
                 "@type" => "WebSite",
                 "@id" => $domain . "#website",

@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 $lang = isset($current_lang) ? $current_lang : (isset($_GET['lang']) && in_array($_GET['lang'], ['es','ca'], true) ? $_GET['lang'] : 'es');
 require_once __DIR__ . '/../includes/i18n.php';
+require_once __DIR__ . '/../includes/schema-reviews.php';
 $translations = load_translations($lang);
 
 $is_homepage = true;
@@ -17,14 +18,13 @@ $page_data = [
     'title' => $lang === 'ca' ? 'Empresa de reformes i obra nova a Barcelona, Girona i Tarragona | Santa Fe' : 'Empresa de reformas y obra nueva en Barcelona, Girona y Tarragona | Santa Fe',
     'description' => $lang === 'ca' ? 'Construccions Santa Fe: obra nova, reformes integrals i obra publica a Barcelona, Girona i Tarragona amb pressupost clar, criteri tecnic i seguiment d obra.' : 'Construcciones Santa Fe: obra nueva, reformas integrales y obra publica en Barcelona, Girona y Tarragona con presupuesto claro, criterio tecnico y seguimiento de obra.',
     'canonical' => COMPANY_DOMAIN . '/' . $lang . '/',
+    // Reviews fusionadas DENTRO del nodo LocalBusiness principal (un solo
+    // aggregateRating por página). No emitir bloque de reviews aparte.
+    'business_extra' => get_reviews_extra_data($lang),
     'schemas' => [
         function() use ($lang) {
             require_once __DIR__ . '/../includes/schema-faq.php';
             return get_schema_faq_page($lang);
-        },
-        function() use ($lang) {
-            require_once __DIR__ . '/../includes/schema-reviews.php';
-            return get_schema_reviews($lang);
         },
     ],
 ];

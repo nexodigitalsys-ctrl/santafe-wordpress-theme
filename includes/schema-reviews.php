@@ -1,16 +1,18 @@
 <?php
 /**
  * Schema JSON-LD — Review & AggregateRating
- * Reviews reais de clientes Santa Fe (12 opiniones humanizadas)
+ * 6 reviews reales de Google para fusionar en el nodo LocalBusiness principal.
  */
 
 declare(strict_types=1);
 
-function get_schema_reviews(string $lang = 'es'): string {
-    $domain = defined('COMPANY_DOMAIN') ? COMPANY_DOMAIN : home_url();
-    $company = defined('COMPANY_NAME') ? COMPANY_NAME : 'Santa Fe Construcciones';
-
-    // 6 reviews reales de Google
+/**
+ * Provee aggregateRating + review[] como ARRAY para fusionar DENTRO del nodo
+ * LocalBusiness principal (ver get_schema_localbusiness($domain, $business_extra)).
+ * NO emite bloque <script> propio: un segundo nodo con el mismo @id y otro
+ * aggregateRating provoca "La reseña tiene varias puntuaciones agregadas" en GSC.
+ */
+function get_reviews_extra_data(string $lang = 'es'): array {
     $reviews = [
         [
             'author' => 'Guilherme Gomes',
@@ -50,11 +52,7 @@ function get_schema_reviews(string $lang = 'es'): string {
         ],
     ];
 
-    $schema = [
-        '@context' => 'https://schema.org',
-        '@type' => 'LocalBusiness',
-        '@id' => $domain . '#business',
-        'name' => $company,
+    $extra = [
         'aggregateRating' => [
             '@type' => 'AggregateRating',
             'ratingValue' => 5.0,
@@ -67,7 +65,7 @@ function get_schema_reviews(string $lang = 'es'): string {
     ];
 
     foreach ($reviews as $review) {
-        $schema['review'][] = [
+        $extra['review'][] = [
             '@type' => 'Review',
             'reviewRating' => [
                 '@type' => 'Rating',
@@ -84,8 +82,5 @@ function get_schema_reviews(string $lang = 'es'): string {
         ];
     }
 
-    // JSON puro SIN etiquetas <script>: header.php ya envuelve cada bloque
-    // en <script type="application/ld+json">. Devolverlas aquí duplicaría
-    // el tag y rompería el HTML (script anidado = error de sintaxis en GSC).
-    return (string) json_encode($schema, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+    return $extra;
 }
