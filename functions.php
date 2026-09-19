@@ -20,6 +20,19 @@ function santafe_tailwind_theme_setup(): void {
 }
 add_action('after_setup_theme', 'santafe_tailwind_theme_setup');
 
+/**
+ * Yoast SEO: silenciar su capa frontal duplicada.
+ * El tema ya emite title, meta description, canonical, hreflang, OG/Twitter
+ * y JSON-LD propios (ver includes/header.php y pages/). Yoast añadía un
+ * segundo <title>, un segundo canonical (apuntando a otra URL) y otro
+ * grafo JSON-LD, y Google descartaba ambos ("duplicada sin canónica").
+ * El plugin sigue ACTIVO en el admin (ajustes, redirecciones) y Site Kit
+ * (Search Console/Analytics) no se toca.
+ */
+add_filter('wpseo_frontend_presenters', '__return_empty_array');
+add_filter('wpseo_frontend_presenter_classes', '__return_empty_array');
+add_filter('wpseo_json_ld_output', '__return_false');
+
 function santafe_tailwind_enqueue_assets(): void {
     $theme_uri = get_template_directory_uri();
     $version = '1.2.2';
