@@ -116,6 +116,20 @@ if (!$page_file || !file_exists(__DIR__ . '/pages/' . $page_file)) {
     $page_file = file_exists(__DIR__ . '/pages/404.php') ? '404.php' : 'home.php';
 }
 
+// Redirecciones 301 legacy: slugs de páginas WP eliminadas → URL canónica
+// del tema. El 404 no penaliza, pero el 301 consolida señales en la URL
+// vigente cuando existe reemplazo. Solo GET/HEAD (no toca POST de formularios).
+$alias_path = trim((string) parse_url((string) ($_SERVER['REQUEST_URI'] ?? '/'), PHP_URL_PATH), '/');
+$legacy_aliases = [
+    'politica-de-privacidad' => '/es/politica-privacidad/',
+    'es/politica-de-privacidad' => '/es/politica-privacidad/',
+    'ca/politica-de-privacidad' => '/ca/politica-privacitat/',
+];
+if (isset($legacy_aliases[$alias_path]) && in_array(strtoupper((string) ($_SERVER['REQUEST_METHOD'] ?? 'GET')), ['GET', 'HEAD'], true)) {
+    wp_safe_redirect(home_url($legacy_aliases[$alias_path]), 301);
+    exit;
+}
+
 // URLs sin prefijo de idioma que no casaron con ningún rewrite (p. ej.
 // /politica-de-privacidad/ sin /es/, /14-2/): antes servían la homepage con
 // HTTP 200 (contenido duplicado). Ahora 404 real con noindex.
