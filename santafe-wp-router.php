@@ -116,6 +116,25 @@ if (!$page_file || !file_exists(__DIR__ . '/pages/' . $page_file)) {
     $page_file = file_exists(__DIR__ . '/pages/404.php') ? '404.php' : 'home.php';
 }
 
+// URLs sin prefijo de idioma que no casaron con ningún rewrite (p. ej.
+// /politica-de-privacidad/ sin /es/, /14-2/): antes servían la homepage con
+// HTTP 200 (contenido duplicado). Ahora 404 real con noindex.
+if (get_query_var('santafe_lang') === '' && get_query_var('santafe_route') === '') {
+    $request_path = trim((string) parse_url((string) ($_SERVER['REQUEST_URI'] ?? '/'), PHP_URL_PATH), '/');
+    if ($request_path !== '' && $request_path !== 'index.php') {
+        status_header(404);
+        $page_file = file_exists(__DIR__ . '/pages/404.php') ? '404.php' : $page_file;
+    }
+}
+
+// Slug español bajo /ca/ (p. ej. /ca/reformas-banos/ en vez de
+// /ca/serveis/reformes-banys/): servía el mismo contenido duplicado.
+// Ahora 404 real con noindex. No afecta a admin-post.php ni a la API.
+if ($lang === 'ca' && $route !== '' && !isset($ca_routes[$route]) && isset($routes[$route])) {
+    status_header(404);
+    $page_file = file_exists(__DIR__ . '/pages/404.php') ? '404.php' : $page_file;
+}
+
 $current_route = $route;
 $current_lang = $lang;
 

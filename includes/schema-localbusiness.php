@@ -22,13 +22,13 @@ function get_schema_localbusiness($domain = null) {
                 "url" => $domain,
                 "logo" => [
                     "@type" => "ImageObject",
-                    "url" => $domain . "/assets/images/logo-santafe.png",
+                    "url" => $domain . "/assets/img/construcciones-santa-fe-girona.png",
                     "width" => 512,
                     "height" => 512
                 ],
                 "image" => [
                     "@type" => "ImageObject",
-                    "url" => $domain . "/assets/images/team-santafe.jpg",
+                    "url" => $domain . "/assets/images/og-default.jpg",
                     "width" => 1200,
                     "height" => 800
                 ],
@@ -140,11 +140,11 @@ function get_schema_localbusiness($domain = null) {
                 ],
                 "aggregateRating" => [
                     "@type" => "AggregateRating",
-                    "ratingValue" => "5.0",
-                    "bestRating" => "5",
-                    "worstRating" => "1",
-                    "ratingCount" => "6",
-                    "reviewCount" => "6"
+                    "ratingValue" => 5.0,
+                    "bestRating" => 5,
+                    "worstRating" => 1,
+                    "ratingCount" => 6,
+                    "reviewCount" => 6
                 ],
                 "sameAs" => [
                     "https://wa.me/" . (defined('WHATSAPP_NUMBER') ? WHATSAPP_NUMBER : '34665737547'),
@@ -165,7 +165,11 @@ function get_schema_localbusiness($domain = null) {
                         "@type" => "EntryPoint",
                         "urlTemplate" => $domain . "/es/buscar?q={search_term_string}"
                     ],
-                    "query-input" => "required name=search_term_string"
+                    "query-input" => [
+                        "@type" => "PropertyValueSpecification",
+                        "valueRequired" => true,
+                        "valueName" => "search_term_string"
+                    ]
                 ],
                 "inLanguage" => ["es-ES", "ca-ES"]
             ]

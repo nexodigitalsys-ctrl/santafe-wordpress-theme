@@ -25,20 +25,25 @@ $service_name_short = $isCa
     : (['obra-nueva'=>'Obra nueva','reformas-integrales'=>'Reformas','pladur-acabados'=>'Pladur','obra-publica'=>'Obra pública','obra-civil'=>'Obra civil','parquet-pavimentos'=>'Parquet','reformas-banos'=>'Baños','rehabilitacion-fachadas'=>'Fachadas','reformas-comerciales'=>'Comercial'][$service_slug] ?? 'Servicio');
 
 // ── Page metadata ─────────────────────────────────────────────────
+// Canonical autorreferencial: cada URL declara su propia canónica para
+// que Google consolide versiones (corta / larga, con o sin /servicios/).
+$canonical_route = (isset($current_route) && is_string($current_route) && trim($current_route, '/') !== '')
+    ? trim(preg_replace('/[^a-z0-9\-\/]/', '', $current_route), '/')
+    : $service_slug;
 $page_data = [
     'lang' => $lang,
     'title' => $data['title'] ?? $service_name,
     'description' => $data['description'] ?? '',
-    'canonical' => COMPANY_DOMAIN . '/' . $lang . '/' . $service_slug . '/',
+    'canonical' => COMPANY_DOMAIN . '/' . $lang . '/' . $canonical_route . '/',
     'schemas' => [
         function() use ($service_slug, $lang) {
             return get_schema_service($service_slug, $lang);
         },
-        function() use ($lang, $service_name, $service_slug) {
+        function() use ($lang, $service_name, $canonical_route) {
             return get_schema_breadcrumb([
                 ['name' => $lang === 'ca' ? 'Inici' : 'Inicio', 'url' => '/' . $lang . '/'],
                 ['name' => $lang === 'ca' ? 'Serveis' : 'Servicios', 'url' => '/' . $lang . '/' . ($lang === 'ca' ? 'serveis' : 'servicios') . '/'],
-                ['name' => $service_name, 'url' => '/' . $lang . '/' . $service_slug . '/'],
+                ['name' => $service_name, 'url' => '/' . $lang . '/' . $canonical_route . '/'],
             ]);
         },
     ],

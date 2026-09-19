@@ -16,7 +16,7 @@ if (!defined('COMPANY_BRAND')) {
 }
 
 if (!defined('COMPANY_DOMAIN')) {
-    define('COMPANY_DOMAIN', getenv('SANTAFE_DOMAIN') ?: 'https://santafe.nexo-digital.app');
+    define('COMPANY_DOMAIN', getenv('SANTAFE_DOMAIN') ?: 'https://santafe-construcciones.com');
 }
 
 if (!defined('COMPANY_PHONE')) {

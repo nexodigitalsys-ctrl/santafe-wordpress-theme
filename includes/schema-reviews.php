@@ -57,11 +57,11 @@ function get_schema_reviews(string $lang = 'es'): string {
         'name' => $company,
         'aggregateRating' => [
             '@type' => 'AggregateRating',
-            'ratingValue' => '5.0',
-            'bestRating' => '5',
-            'worstRating' => '1',
-            'reviewCount' => '6',
-            'ratingCount' => '6',
+            'ratingValue' => 5.0,
+            'bestRating' => 5,
+            'worstRating' => 1,
+            'reviewCount' => 6,
+            'ratingCount' => 6,
         ],
         'review' => [],
     ];
@@ -71,9 +71,9 @@ function get_schema_reviews(string $lang = 'es'): string {
             '@type' => 'Review',
             'reviewRating' => [
                 '@type' => 'Rating',
-                'ratingValue' => (string) $review['rating'],
-                'bestRating' => '5',
-                'worstRating' => '1',
+                'ratingValue' => (float) $review['rating'],
+                'bestRating' => 5,
+                'worstRating' => 1,
             ],
             'author' => [
                 '@type' => 'Person',

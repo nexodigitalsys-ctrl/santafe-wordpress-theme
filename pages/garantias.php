@@ -126,12 +126,12 @@ $page_data = [
     'lang' => $lang,
     'title' => $t['page_title'],
     'description' => $t['page_desc'],
-    'canonical' => COMPANY_DOMAIN . '/' . $lang . '/garantias/',
+    'canonical' => COMPANY_DOMAIN . '/' . $lang . '/' . ($lang === 'ca' ? 'garanties' : 'garantias') . '/',
     'schemas' => [
         function() use ($lang) {
             $items = [
                 ['name' => $lang === 'ca' ? 'Inici' : 'Inicio', 'url' => '/' . $lang . '/'],
-                ['name' => $lang === 'ca' ? 'Garanties' : 'Garantías', 'url' => '/' . $lang . '/garantias/'],
+                ['name' => $lang === 'ca' ? 'Garanties' : 'Garantías', 'url' => '/' . $lang . '/' . ($lang === 'ca' ? 'garanties' : 'garantias') . '/'],
             ];
             return get_schema_breadcrumb($items);
         },

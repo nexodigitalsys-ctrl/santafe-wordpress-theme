@@ -515,7 +515,7 @@ function santafe_tailwind_register_rewrites(): void {
 
     add_rewrite_rule('^(es|ca)/?$', 'index.php?santafe_lang=$matches[1]&santafe_route=', 'top');
     add_rewrite_rule('^(es|ca)/(.+?)/?$', 'index.php?santafe_lang=$matches[1]&santafe_route=$matches[2]', 'top');
-    add_rewrite_rule('^(servicios|reformas-integrales|obra-nueva|pladur-acabados|obra-publica|obra-civil|reformas-barcelona|reformas-girona|reformas-tarragona|contacto|sobre-nosotros|proyectos|blog|garantias)/?$', 'index.php?santafe_lang=es&santafe_route=$matches[1]', 'top');
+    add_rewrite_rule('^(servicios|reformas-integrales|obra-nueva|pladur-acabados|obra-publica|obra-civil|parquet-pavimentos|reformas-banos|rehabilitacion-fachadas|reformas-comerciales|reformas-barcelona|reformas-girona|reformas-tarragona|contacto|sobre-nosotros|proyectos|blog|garantias|aviso-legal|politica-privacidad|politica-cookies)/?$', 'index.php?santafe_lang=es&santafe_route=$matches[1]', 'top');
     add_rewrite_rule('^sitemap\.xml$', 'index.php?santafe_sitemap=1', 'top');
     add_rewrite_rule('^robots\.txt$', 'index.php?santafe_robots=1', 'top');
 }
@@ -588,7 +588,6 @@ function santafe_tailwind_output_sitemap(): void {
 
     header('Content-Type: application/xml; charset=UTF-8');
     echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
-    echo "<!-- <title>Sitemap Santa Fe Construcciones</title><meta name=\"description\" content=\"Sitemap XML de Santa Fe Construcciones con rutas de reformas, obra nueva, pladur, contacto y SEO local en Barcelona, Girona y Tarragona.\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"><link rel=\"canonical\" href=\"" . esc_url(COMPANY_DOMAIN . '/sitemap.xml') . "\"><script type=\"application/ld+json\">{}</script> -->\n";
     echo "<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n";
     foreach ($urls as $url) {
         $priority = $url === '/es/' ? '1.0' : (strpos($url, '/contact') !== false || strpos($url, '/contacte') !== false ? '0.9' : '0.7');
