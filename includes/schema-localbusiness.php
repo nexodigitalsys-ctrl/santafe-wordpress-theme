@@ -138,14 +138,9 @@ function get_schema_localbusiness($domain = null) {
                         "availableLanguage" => ["Spanish", "Catalan"]
                     ]
                 ],
-                "aggregateRating" => [
-                    "@type" => "AggregateRating",
-                    "ratingValue" => 5.0,
-                    "bestRating" => 5,
-                    "worstRating" => 1,
-                    "ratingCount" => 6,
-                    "reviewCount" => 6
-                ],
+                // SIN aggregateRating aquí: la puntuación vive una sola vez en
+                // schema-reviews.php (mismo @id). Duplicarla en dos bloques
+                // provoca "La reseña tiene varias puntuaciones agregadas" en GSC.
                 "sameAs" => [
                     "https://wa.me/" . (defined('WHATSAPP_NUMBER') ? WHATSAPP_NUMBER : '34665737547'),
                     "https://maps.app.goo.gl/QTBgkprQeRCaQ3UUA"
